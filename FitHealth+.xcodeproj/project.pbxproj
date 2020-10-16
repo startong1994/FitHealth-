@@ -14,6 +14,8 @@
 		D2EA92DC253A329500026B0E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2EA92DA253A329500026B0E /* Main.storyboard */; };
 		D2EA92DE253A329500026B0E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2EA92DD253A329500026B0E /* Assets.xcassets */; };
 		D2EA92E1253A329500026B0E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2EA92DF253A329500026B0E /* LaunchScreen.storyboard */; };
+		D2EA92E9253A32D800026B0E /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EA92E8253A32D800026B0E /* ThirdViewController.swift */; };
+		D2EA92EB253A32E900026B0E /* ForthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EA92EA253A32E900026B0E /* ForthViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		D2EA92DD253A329500026B0E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D2EA92E0253A329500026B0E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D2EA92E2253A329500026B0E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D2EA92E8253A32D800026B0E /* ThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
+		D2EA92EA253A32E900026B0E /* ForthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForthViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +70,8 @@
 				D2EA92DD253A329500026B0E /* Assets.xcassets */,
 				D2EA92DF253A329500026B0E /* LaunchScreen.storyboard */,
 				D2EA92E2253A329500026B0E /* Info.plist */,
+				D2EA92E8253A32D800026B0E /* ThirdViewController.swift */,
+				D2EA92EA253A32E900026B0E /* ForthViewController.swift */,
 			);
 			path = "FitHealth+";
 			sourceTree = "<group>";
@@ -141,8 +147,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2EA92EB253A32E900026B0E /* ForthViewController.swift in Sources */,
 				D2EA92D9253A329500026B0E /* SecondViewController.swift in Sources */,
 				D2EA92D7253A329500026B0E /* FirstViewController.swift in Sources */,
+				D2EA92E9253A32D800026B0E /* ThirdViewController.swift in Sources */,
 				D2EA92D3253A329500026B0E /* AppDelegate.swift in Sources */,
 				D2EA92D5253A329500026B0E /* SceneDelegate.swift in Sources */,
 			);
