@@ -1,5 +1,5 @@
 //
-//  ForthViewController.swift
+//  ThirdViewController.swift
 //  FitHealth+
 //
 //  Created by xu daitong on 10/16/20.
@@ -8,13 +8,11 @@
 
 import UIKit
 
-class ForthViewController: UIViewController {
+class PantryView: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
-
-
 }
 

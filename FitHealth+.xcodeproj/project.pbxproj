@@ -9,27 +9,27 @@
 /* Begin PBXBuildFile section */
 		D2EA92D3253A329500026B0E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EA92D2253A329500026B0E /* AppDelegate.swift */; };
 		D2EA92D5253A329500026B0E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EA92D4253A329500026B0E /* SceneDelegate.swift */; };
-		D2EA92D7253A329500026B0E /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EA92D6253A329500026B0E /* FirstViewController.swift */; };
-		D2EA92D9253A329500026B0E /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EA92D8253A329500026B0E /* SecondViewController.swift */; };
+		D2EA92D7253A329500026B0E /* FitnessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EA92D6253A329500026B0E /* FitnessView.swift */; };
+		D2EA92D9253A329500026B0E /* RecipesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EA92D8253A329500026B0E /* RecipesView.swift */; };
 		D2EA92DC253A329500026B0E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2EA92DA253A329500026B0E /* Main.storyboard */; };
 		D2EA92DE253A329500026B0E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2EA92DD253A329500026B0E /* Assets.xcassets */; };
 		D2EA92E1253A329500026B0E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2EA92DF253A329500026B0E /* LaunchScreen.storyboard */; };
-		D2EA92E9253A32D800026B0E /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EA92E8253A32D800026B0E /* ThirdViewController.swift */; };
-		D2EA92EB253A32E900026B0E /* ForthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EA92EA253A32E900026B0E /* ForthViewController.swift */; };
+		D2EA92E9253A32D800026B0E /* PantryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EA92E8253A32D800026B0E /* PantryView.swift */; };
+		D2EA92EB253A32E900026B0E /* SocialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EA92EA253A32E900026B0E /* SocialView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		D2EA92CF253A329500026B0E /* FitHealth+.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FitHealth+.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2EA92D2253A329500026B0E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D2EA92D4253A329500026B0E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		D2EA92D6253A329500026B0E /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		D2EA92D8253A329500026B0E /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		D2EA92D6253A329500026B0E /* FitnessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitnessView.swift; sourceTree = "<group>"; };
+		D2EA92D8253A329500026B0E /* RecipesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesView.swift; sourceTree = "<group>"; };
 		D2EA92DB253A329500026B0E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D2EA92DD253A329500026B0E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D2EA92E0253A329500026B0E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D2EA92E2253A329500026B0E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D2EA92E8253A32D800026B0E /* ThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
-		D2EA92EA253A32E900026B0E /* ForthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForthViewController.swift; sourceTree = "<group>"; };
+		D2EA92E8253A32D800026B0E /* PantryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PantryView.swift; sourceTree = "<group>"; };
+		D2EA92EA253A32E900026B0E /* SocialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,18 +62,26 @@
 		D2EA92D1253A329500026B0E /* FitHealth+ */ = {
 			isa = PBXGroup;
 			children = (
+				D2EA92EC253A451A00026B0E /* Views */,
 				D2EA92D2253A329500026B0E /* AppDelegate.swift */,
 				D2EA92D4253A329500026B0E /* SceneDelegate.swift */,
-				D2EA92D6253A329500026B0E /* FirstViewController.swift */,
-				D2EA92D8253A329500026B0E /* SecondViewController.swift */,
 				D2EA92DA253A329500026B0E /* Main.storyboard */,
 				D2EA92DD253A329500026B0E /* Assets.xcassets */,
 				D2EA92DF253A329500026B0E /* LaunchScreen.storyboard */,
 				D2EA92E2253A329500026B0E /* Info.plist */,
-				D2EA92E8253A32D800026B0E /* ThirdViewController.swift */,
-				D2EA92EA253A32E900026B0E /* ForthViewController.swift */,
 			);
 			path = "FitHealth+";
+			sourceTree = "<group>";
+		};
+		D2EA92EC253A451A00026B0E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D2EA92D8253A329500026B0E /* RecipesView.swift */,
+				D2EA92D6253A329500026B0E /* FitnessView.swift */,
+				D2EA92E8253A32D800026B0E /* PantryView.swift */,
+				D2EA92EA253A32E900026B0E /* SocialView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -147,10 +155,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D2EA92EB253A32E900026B0E /* ForthViewController.swift in Sources */,
-				D2EA92D9253A329500026B0E /* SecondViewController.swift in Sources */,
-				D2EA92D7253A329500026B0E /* FirstViewController.swift in Sources */,
-				D2EA92E9253A32D800026B0E /* ThirdViewController.swift in Sources */,
+				D2EA92EB253A32E900026B0E /* SocialView.swift in Sources */,
+				D2EA92D9253A329500026B0E /* RecipesView.swift in Sources */,
+				D2EA92D7253A329500026B0E /* FitnessView.swift in Sources */,
+				D2EA92E9253A32D800026B0E /* PantryView.swift in Sources */,
 				D2EA92D3253A329500026B0E /* AppDelegate.swift in Sources */,
 				D2EA92D5253A329500026B0E /* SceneDelegate.swift in Sources */,
 			);
