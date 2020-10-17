@@ -62,6 +62,10 @@
 		D2EA92D1253A329500026B0E /* FitHealth+ */ = {
 			isa = PBXGroup;
 			children = (
+				D2EA92EF253B41E000026B0E /* Pantry */,
+				D2EA92ED253B41CB00026B0E /* Recipes */,
+				D2EA92EE253B41D900026B0E /* Fitness */,
+				D2EA92F0253B41E800026B0E /* Social */,
 				D2EA92EC253A451A00026B0E /* Views */,
 				D2EA92D2253A329500026B0E /* AppDelegate.swift */,
 				D2EA92D4253A329500026B0E /* SceneDelegate.swift */,
@@ -76,12 +80,40 @@
 		D2EA92EC253A451A00026B0E /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				D2EA92D8253A329500026B0E /* RecipesView.swift */,
-				D2EA92D6253A329500026B0E /* FitnessView.swift */,
-				D2EA92E8253A32D800026B0E /* PantryView.swift */,
-				D2EA92EA253A32E900026B0E /* SocialView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		D2EA92ED253B41CB00026B0E /* Recipes */ = {
+			isa = PBXGroup;
+			children = (
+				D2EA92D8253A329500026B0E /* RecipesView.swift */,
+			);
+			path = Recipes;
+			sourceTree = "<group>";
+		};
+		D2EA92EE253B41D900026B0E /* Fitness */ = {
+			isa = PBXGroup;
+			children = (
+				D2EA92D6253A329500026B0E /* FitnessView.swift */,
+			);
+			path = Fitness;
+			sourceTree = "<group>";
+		};
+		D2EA92EF253B41E000026B0E /* Pantry */ = {
+			isa = PBXGroup;
+			children = (
+				D2EA92E8253A32D800026B0E /* PantryView.swift */,
+			);
+			path = Pantry;
+			sourceTree = "<group>";
+		};
+		D2EA92F0253B41E800026B0E /* Social */ = {
+			isa = PBXGroup;
+			children = (
+				D2EA92EA253A32E900026B0E /* SocialView.swift */,
+			);
+			path = Social;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
