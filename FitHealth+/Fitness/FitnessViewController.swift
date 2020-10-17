@@ -1,5 +1,5 @@
 //
-//  ThirdViewController.swift
+//  FirstViewController.swift
 //  FitHealth+
 //
 //  Created by xu daitong on 10/16/20.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PantryView: UIViewController {
+class FitnessViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

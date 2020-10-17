@@ -1,0 +1,12 @@
+{
+  "symbols" : [
+    {
+      "idiom" : "universal",
+      "filename" : "gearshape.svg"
+    }
+  ],
+  "info" : {
+    "version" : 1,
+    "author" : "xcode"
+  }
+}

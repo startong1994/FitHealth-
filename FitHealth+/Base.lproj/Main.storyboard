@@ -26,7 +26,7 @@
         <!--FitHealth+-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
-                <viewController id="9pv-A4-QxB" customClass="FitnessView" customModule="FitHealth_" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="9pv-A4-QxB" customClass="FitnessViewController" customModule="FitHealth_" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tsR-hK-woN">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -81,12 +81,10 @@
                         <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
                     </view>
                     <navigationItem key="navigationItem" title="FitHealth+" id="eTH-iP-ezC">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="oeU-Ye-3vb">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="JuC-0f-9mK">
-                                <rect key="frame" x="311" y="7" width="83" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Settng"/>
-                            </button>
+                        <barButtonItem key="rightBarButtonItem" image="gearshape" id="Xn5-MZ-uAk">
+                            <connections>
+                                <segue destination="rMf-WD-qPE" kind="show" id="zuX-gf-Z0Z"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                 </viewController>
@@ -97,7 +95,7 @@
         <!--FitHealth+-->
         <scene sceneID="RAj-QR-wrK">
             <objects>
-                <viewController id="gOj-CS-Ynd" customClass="PantryView" customModule="FitHealth_" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="gOj-CS-Ynd" customClass="PantryViewController" customModule="FitHealth_" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ajO-dy-cVA">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -117,12 +115,10 @@
                         <viewLayoutGuide key="safeArea" id="PBI-x8-j1V"/>
                     </view>
                     <navigationItem key="navigationItem" title="FitHealth+" id="NyO-9s-qYO">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="2QR-1D-mhl">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="lsf-uA-jnX">
-                                <rect key="frame" x="311" y="7" width="83" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Settng"/>
-                            </button>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="gearshape" id="Hpq-1B-jB6">
+                            <connections>
+                                <segue destination="rMf-WD-qPE" kind="show" identifier="ToSetting" id="Mh2-Hi-vOY"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                 </viewController>
@@ -187,7 +183,7 @@
         <!--Recipes-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
-                <viewController title="Recipes" id="8rJ-Kc-sve" customClass="RecipesView" customModule="FitHealth_" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Recipes" id="8rJ-Kc-sve" customClass="RecipesViewController" customModule="FitHealth_" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QS5-Rx-YEW">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -207,12 +203,10 @@
                         <viewLayoutGuide key="safeArea" id="O1u-W8-tvY"/>
                     </view>
                     <navigationItem key="navigationItem" title="FitHealth+" id="uq5-51-S8H">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="ab9-mR-OOG">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="qFS-XX-LbZ">
-                                <rect key="frame" x="311" y="7" width="83" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Settng"/>
-                            </button>
+                        <barButtonItem key="rightBarButtonItem" image="gearshape" id="sva-2I-pt0">
+                            <connections>
+                                <segue destination="rMf-WD-qPE" kind="show" id="QaS-gM-s8X"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                 </viewController>
@@ -231,12 +225,10 @@
                         <viewLayoutGuide key="safeArea" id="CG9-X8-xds"/>
                     </view>
                     <navigationItem key="navigationItem" title="FitHealth+" id="P8V-fb-2gA">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="CeA-Cf-jHq">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="tEi-QZ-zFe">
-                                <rect key="frame" x="311" y="7" width="83" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Settng"/>
-                            </button>
+                        <barButtonItem key="rightBarButtonItem" image="gearshape" id="MxQ-aY-PLF">
+                            <connections>
+                                <segue destination="rMf-WD-qPE" kind="show" id="d1H-iW-6TK"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                 </viewController>
@@ -320,6 +312,22 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LGA-uI-0LP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-151" y="-379"/>
+        </scene>
+        <!--Setting View Controller-->
+        <scene sceneID="1O1-j1-bHS">
+            <objects>
+                <viewController id="rMf-WD-qPE" customClass="SettingViewController" customModule="FitHealth_" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ZYo-bB-2k4">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="kCP-hK-sZF"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="x1E-4o-Lyg"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Y6m-ik-OsM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1235" y="-1192"/>
         </scene>
         <!--Recipes-->
         <scene sceneID="gfF-6W-xKK">
@@ -407,6 +415,10 @@
     </scenes>
     <resources>
         <image name="first" width="30" height="30"/>
+        <image name="gearshape" width="18" height="18"/>
         <image name="second" width="30" height="30"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="QaS-gM-s8X"/>
+    </inferredMetricsTieBreakers>
 </document>

@@ -1,5 +1,5 @@
 //
-//  FirstViewController.swift
+//  ForthViewController.swift
 //  FitHealth+
 //
 //  Created by xu daitong on 10/16/20.
@@ -8,11 +8,12 @@
 
 import UIKit
 
-class FitnessView: UIViewController {
+class SocialViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
     }
 
 
