@@ -222,12 +222,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="NIH-oJ-9d6">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="NIH-oJ-9d6">
                                 <rect key="frame" x="0.0" y="177" width="414" height="636"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="friendsCell" rowHeight="78" id="Mii-fs-Ccs">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="friendsCell" rowHeight="78" id="Mii-fs-Ccs">
                                         <rect key="frame" x="0.0" y="28" width="414" height="78"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Mii-fs-Ccs" id="9PO-Tf-oxl">
@@ -283,7 +283,7 @@
         <!--ConfirmPage-->
         <scene sceneID="tr8-Tj-9qu">
             <objects>
-                <viewController title="ConfirmPage" id="kfS-UN-k1R" customClass="ConfirmFriendViewController" customModule="FitHealth_" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="ConfirmPage" id="kfS-UN-k1R" customClass="NewFriendViewController" customModule="FitHealth_" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3C1-bf-Efw">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -472,7 +472,6 @@
         <!--Pantry-->
         <scene sceneID="M8W-th-Jxt">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="K0r-gh-Pjn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ejI-74-gI1" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Pantry" id="bSH-bB-UNn"/>
                     <toolbarItems/>
@@ -485,15 +484,15 @@
                         <segue destination="gOj-CS-Ynd" kind="relationship" relationship="rootViewController" id="NBB-bv-DmV"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="K0r-gh-Pjn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2682.4000000000001" y="-379.06403940886702"/>
         </scene>
         <!--Social-->
         <scene sceneID="cAd-zs-se6">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="TKo-JN-Jer" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="bIi-UX-4na" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Social" id="BMD-uA-Tr6"/>
+                    <tabBarItem key="tabBarItem" title="Social" image="figure.wave.circle" selectedImage="figure.wave.circle" id="BMD-uA-Tr6"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="6EL-Qg-bUf">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -504,13 +503,13 @@
                         <segue destination="aD4-Cn-USr" kind="relationship" relationship="rootViewController" id="GO0-pd-9vY"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TKo-JN-Jer" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2682" y="951"/>
         </scene>
         <!--Fitness-->
         <scene sceneID="Oua-bN-P1e">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="LGA-uI-0LP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0fu-h4-om3" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Fitness" image="first" id="acW-dT-cKf"/>
                     <toolbarItems/>
@@ -523,6 +522,7 @@
                         <segue destination="9pv-A4-QxB" kind="relationship" relationship="rootViewController" id="f32-Ei-mkY"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LGA-uI-0LP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-151" y="-379"/>
         </scene>
@@ -545,7 +545,6 @@
         <!--Recipes-->
         <scene sceneID="gfF-6W-xKK">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="lsC-Wf-c0k" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Zao-i7-hD1" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Recipes" image="second" id="cPa-gy-q4n"/>
                     <toolbarItems/>
@@ -558,6 +557,7 @@
                         <segue destination="8rJ-Kc-sve" kind="relationship" relationship="rootViewController" id="Lns-KR-t5h"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lsC-Wf-c0k" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-151.19999999999999" y="950.98522167487693"/>
         </scene>
@@ -645,6 +645,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="figure.wave.circle" width="17" height="17"/>
         <image name="first" width="30" height="30"/>
         <image name="gearshape" width="18" height="18"/>
         <image name="person.3" catalog="system" width="72" height="35"/>

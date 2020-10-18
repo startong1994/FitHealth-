@@ -11,7 +11,7 @@
 		D23058A3253CD6780013B64C /* WelcomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23058A2253CD6780013B64C /* WelcomePageViewController.swift */; };
 		D23058A5253CD8540013B64C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23058A4253CD8540013B64C /* LoginViewController.swift */; };
 		D23058A7253CD8680013B64C /* SignUpViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23058A6253CD8680013B64C /* SignUpViewContoller.swift */; };
-		D23058AD253CE0F20013B64C /* ConfirmFriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23058AC253CE0F20013B64C /* ConfirmFriendViewController.swift */; };
+		D23058AD253CE0F20013B64C /* NewFriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23058AC253CE0F20013B64C /* NewFriendViewController.swift */; };
 		D23058AF253CE1060013B64C /* AddFriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23058AE253CE1060013B64C /* AddFriendViewController.swift */; };
 		D2EA92D3253A329500026B0E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EA92D2253A329500026B0E /* AppDelegate.swift */; };
 		D2EA92D5253A329500026B0E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EA92D4253A329500026B0E /* SceneDelegate.swift */; };
@@ -30,7 +30,7 @@
 		D23058A2253CD6780013B64C /* WelcomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomePageViewController.swift; sourceTree = "<group>"; };
 		D23058A4253CD8540013B64C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		D23058A6253CD8680013B64C /* SignUpViewContoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewContoller.swift; sourceTree = "<group>"; };
-		D23058AC253CE0F20013B64C /* ConfirmFriendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmFriendViewController.swift; sourceTree = "<group>"; };
+		D23058AC253CE0F20013B64C /* NewFriendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewFriendViewController.swift; sourceTree = "<group>"; };
 		D23058AE253CE1060013B64C /* AddFriendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendViewController.swift; sourceTree = "<group>"; };
 		D2EA92CF253A329500026B0E /* FitHealth+.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FitHealth+.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2EA92D2253A329500026B0E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -147,7 +147,7 @@
 			children = (
 				D2EA92EA253A32E900026B0E /* SocialViewController.swift */,
 				D230589F253CCEB30013B64C /* LeaderboardViewController.swift */,
-				D23058AC253CE0F20013B64C /* ConfirmFriendViewController.swift */,
+				D23058AC253CE0F20013B64C /* NewFriendViewController.swift */,
 				D23058AE253CE1060013B64C /* AddFriendViewController.swift */,
 			);
 			path = Social;
@@ -235,7 +235,7 @@
 				D23058A5253CD8540013B64C /* LoginViewController.swift in Sources */,
 				D2EA92D5253A329500026B0E /* SceneDelegate.swift in Sources */,
 				D23058A7253CD8680013B64C /* SignUpViewContoller.swift in Sources */,
-				D23058AD253CE0F20013B64C /* ConfirmFriendViewController.swift in Sources */,
+				D23058AD253CE0F20013B64C /* NewFriendViewController.swift in Sources */,
 				D23058AF253CE1060013B64C /* AddFriendViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

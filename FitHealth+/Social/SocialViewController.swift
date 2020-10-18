@@ -18,20 +18,24 @@ class SocialViewController: UIViewController, UITableViewDelegate, UITableViewDa
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        self.tableView.tableFooterView = UIView()
         navigationItem.title = "Social"
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        
     }
     override func viewWillAppear(_ animated: Bool) {
         self.tabBarController?.tabBar.isHidden = false
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print(friends.count)
         return friends.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "friendsCell", for: indexPath)
         cell.textLabel?.text = friends[indexPath.row]
+        cell.imageView?.image = UIImage(named: "person")
         
         return cell
         
