@@ -12,13 +12,20 @@ class FriendsData {
     
     
     var friendData = [
-                Friends(name: "Daitong Xu", email: "dxu5@uncc.edu", profileImage: "person"),
                 Friends(name: "Fayliette", email: "Flewis2@uncc.edu", profileImage: "person"),
                 Friends(name: "Max Ries", email: "mries2@uncc.edu", profileImage: "person"),
                 Friends(name: "Catherine Cheatle", email: "ccheatle@uncc.edu", profileImage: "person"),
                 Friends(name: "J.R.", email: "@uncc.edu", profileImage: "person"),
                 Friends(name: "Kendall Kling", email: "kkling@uncc.edu", profileImage: "person")
     ]
+    
+    
+    var newFriendData = [
+                Friends(name: "Daitong Xu", email: "dxu5@uncc.edu", profileImage: "person")
+    ]
+    
+    
+    
     
     var profileIndex: Int = 0
     
@@ -45,6 +52,21 @@ class FriendsData {
     func getProfileIndex() -> Int {
         return profileIndex
     }
+    
+    
+    
+    //new friends section
+    
+    func getNewFriendProfileImage(_ row: Int) -> String {
+        return newFriendData[row].profileImage
+    }
+    func getNewFriendName(_ row: Int) -> String {
+        return newFriendData[row].name
+    }
+    func getNewFriendEmail(_ row: Int) -> String {
+        return newFriendData[row].email
+    }
+    
     
     
     
