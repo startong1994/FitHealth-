@@ -8,7 +8,7 @@
 import Foundation
 
 
-struct FriendsData {
+class FriendsData {
     
     
     var friendData = [
@@ -33,14 +33,13 @@ struct FriendsData {
     func getProfileImage(_ row: Int) -> String {
         return friendData[row].profileImage
     }
-    mutating func addFriend(Name newName: String, Email newEmail: String){
+    func addFriend(Name newName: String, Email newEmail: String){
         self.friendData.append(Friends(name: newName, email: newEmail, profileImage: newName))
     }
-    mutating func removeFriend(_ index: Int){
+    func removeFriend(_ index: Int){
         self.friendData.remove(at: index)
     }
-    mutating func setProfileIndex(_ index: Int) {
-        print("set")
+    func setProfileIndex(_ index: Int) {
         profileIndex = index
     }
     func getProfileIndex() -> Int {

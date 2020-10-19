@@ -214,10 +214,10 @@
             </objects>
             <point key="canvasLocation" x="-1271.0144927536232" y="950.89285714285711"/>
         </scene>
-        <!--FitHealth+-->
+        <!--ProfileView-->
         <scene sceneID="zMa-wn-eEt">
             <objects>
-                <viewController id="aD4-Cn-USr" customClass="SocialViewController" customModule="FitHealth_" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="ProfileView" id="aD4-Cn-USr" customClass="SocialViewController" customModule="FitHealth_" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4ZG-qA-G7e">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -227,11 +227,11 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="friendsCell" rowHeight="78" id="Mii-fs-Ccs">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="detailButton" indentationWidth="10" reuseIdentifier="friendsCell" rowHeight="78" id="Mii-fs-Ccs">
                                         <rect key="frame" x="0.0" y="28" width="414" height="78"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Mii-fs-Ccs" id="9PO-Tf-oxl">
-                                            <rect key="frame" x="0.0" y="0.0" width="383" height="78"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="370" height="78"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -319,7 +319,7 @@
                         <viewLayoutGuide key="safeArea" id="NuQ-lS-MFu"/>
                     </view>
                     <navigationItem key="navigationItem" id="faG-ta-Tdc">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="EYY-mG-3bz"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="EYY-mG-3bz"/>
                     </navigationItem>
                     <connections>
                         <outlet property="profileEmail" destination="8ob-bG-J90" id="5bX-BD-nwm"/>

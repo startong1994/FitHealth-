@@ -46,8 +46,9 @@ class SocialViewController: UIViewController, UITableViewDelegate, UITableViewDa
         print(indexPath.row)
         friend.setProfileIndex(indexPath.row)
         self.present(newViewController, animated: true, completion: nil)
-        print()
         
+        tableView.deselectRow(at: indexPath, animated: true)
+
     }
     
 
