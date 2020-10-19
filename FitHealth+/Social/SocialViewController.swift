@@ -11,7 +11,7 @@ import UIKit
 class SocialViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     
-    var friends = ["Daitong Xu", "Fayliette", "Max Ries", "Catherine Cheatle", "J.R.", "Kendall Kling"]
+    var friend = FriendsData()
 
     @IBOutlet weak var tableView: UITableView!
     
@@ -22,25 +22,33 @@ class SocialViewController: UIViewController, UITableViewDelegate, UITableViewDa
         navigationItem.title = "Social"
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        
     }
     override func viewWillAppear(_ animated: Bool) {
         self.tabBarController?.tabBar.isHidden = false
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(friends.count)
-        return friends.count
+        return friend.friendData.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let profileImage = friend.getProfileImage(indexPath.row)
         let cell = tableView.dequeueReusableCell(withIdentifier: "friendsCell", for: indexPath)
-        cell.textLabel?.text = friends[indexPath.row]
-        cell.imageView?.image = UIImage(named: "person")
-        
+        cell.textLabel?.text = friend.getName(indexPath.row)
+        cell.imageView?.image = UIImage(named: profileImage)
         return cell
-        
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        let newViewController = storyBoard.instantiateViewController(withIdentifier: "friendProfile")
+        print(indexPath.row)
+        friend.setProfileIndex(indexPath.row)
+        self.present(newViewController, animated: true, completion: nil)
+        print()
+        
+    }
     
 
     

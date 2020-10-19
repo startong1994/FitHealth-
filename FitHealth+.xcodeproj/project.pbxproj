@@ -11,8 +11,10 @@
 		D23058A3253CD6780013B64C /* WelcomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23058A2253CD6780013B64C /* WelcomePageViewController.swift */; };
 		D23058A5253CD8540013B64C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23058A4253CD8540013B64C /* LoginViewController.swift */; };
 		D23058A7253CD8680013B64C /* SignUpViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23058A6253CD8680013B64C /* SignUpViewContoller.swift */; };
-		D23058AD253CE0F20013B64C /* NewFriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23058AC253CE0F20013B64C /* NewFriendViewController.swift */; };
+		D23058AD253CE0F20013B64C /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23058AC253CE0F20013B64C /* ProfileViewController.swift */; };
 		D23058AF253CE1060013B64C /* AddFriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23058AE253CE1060013B64C /* AddFriendViewController.swift */; };
+		D261FA03253D0D4F00AE096B /* Friends.swift in Sources */ = {isa = PBXBuildFile; fileRef = D261FA02253D0D4F00AE096B /* Friends.swift */; };
+		D261FA05253D0E1A00AE096B /* FriendsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D261FA04253D0E1A00AE096B /* FriendsData.swift */; };
 		D2EA92D3253A329500026B0E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EA92D2253A329500026B0E /* AppDelegate.swift */; };
 		D2EA92D5253A329500026B0E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EA92D4253A329500026B0E /* SceneDelegate.swift */; };
 		D2EA92D7253A329500026B0E /* FitnessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EA92D6253A329500026B0E /* FitnessViewController.swift */; };
@@ -30,8 +32,10 @@
 		D23058A2253CD6780013B64C /* WelcomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomePageViewController.swift; sourceTree = "<group>"; };
 		D23058A4253CD8540013B64C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		D23058A6253CD8680013B64C /* SignUpViewContoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewContoller.swift; sourceTree = "<group>"; };
-		D23058AC253CE0F20013B64C /* NewFriendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewFriendViewController.swift; sourceTree = "<group>"; };
+		D23058AC253CE0F20013B64C /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		D23058AE253CE1060013B64C /* AddFriendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendViewController.swift; sourceTree = "<group>"; };
+		D261FA02253D0D4F00AE096B /* Friends.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friends.swift; sourceTree = "<group>"; };
+		D261FA04253D0E1A00AE096B /* FriendsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsData.swift; sourceTree = "<group>"; };
 		D2EA92CF253A329500026B0E /* FitHealth+.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FitHealth+.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2EA92D2253A329500026B0E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D2EA92D4253A329500026B0E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -70,6 +74,8 @@
 		D23058A9253CDE840013B64C /* SimpleData */ = {
 			isa = PBXGroup;
 			children = (
+				D261FA02253D0D4F00AE096B /* Friends.swift */,
+				D261FA04253D0E1A00AE096B /* FriendsData.swift */,
 			);
 			path = SimpleData;
 			sourceTree = "<group>";
@@ -147,7 +153,7 @@
 			children = (
 				D2EA92EA253A32E900026B0E /* SocialViewController.swift */,
 				D230589F253CCEB30013B64C /* LeaderboardViewController.swift */,
-				D23058AC253CE0F20013B64C /* NewFriendViewController.swift */,
+				D23058AC253CE0F20013B64C /* ProfileViewController.swift */,
 				D23058AE253CE1060013B64C /* AddFriendViewController.swift */,
 			);
 			path = Social;
@@ -225,6 +231,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D2EA92EB253A32E900026B0E /* SocialViewController.swift in Sources */,
+				D261FA03253D0D4F00AE096B /* Friends.swift in Sources */,
 				D2EA92D9253A329500026B0E /* RecipesViewController.swift in Sources */,
 				D2EA92D7253A329500026B0E /* FitnessViewController.swift in Sources */,
 				D23058A3253CD6780013B64C /* WelcomePageViewController.swift in Sources */,
@@ -233,9 +240,10 @@
 				D2EA92F9253B75B900026B0E /* SettingViewController.swift in Sources */,
 				D23058A0253CCEB30013B64C /* LeaderboardViewController.swift in Sources */,
 				D23058A5253CD8540013B64C /* LoginViewController.swift in Sources */,
+				D261FA05253D0E1A00AE096B /* FriendsData.swift in Sources */,
 				D2EA92D5253A329500026B0E /* SceneDelegate.swift in Sources */,
 				D23058A7253CD8680013B64C /* SignUpViewContoller.swift in Sources */,
-				D23058AD253CE0F20013B64C /* NewFriendViewController.swift in Sources */,
+				D23058AD253CE0F20013B64C /* ProfileViewController.swift in Sources */,
 				D23058AF253CE1060013B64C /* AddFriendViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
