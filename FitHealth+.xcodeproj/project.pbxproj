@@ -14,6 +14,7 @@
 		D23058AF253CE1060013B64C /* AddFriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23058AE253CE1060013B64C /* AddFriendViewController.swift */; };
 		D261FA03253D0D4F00AE096B /* Friends.swift in Sources */ = {isa = PBXBuildFile; fileRef = D261FA02253D0D4F00AE096B /* Friends.swift */; };
 		D261FA05253D0E1A00AE096B /* FriendsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D261FA04253D0E1A00AE096B /* FriendsData.swift */; };
+		D26A6009253F7D4A00A21006 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26A6008253F7D4A00A21006 /* ProfileViewController.swift */; };
 		D2912C2E253E59AC0061EC01 /* newFriendProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2912C2D253E59AC0061EC01 /* newFriendProfileViewController.swift */; };
 		D2EA92D3253A329500026B0E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EA92D2253A329500026B0E /* AppDelegate.swift */; };
 		D2EA92D5253A329500026B0E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EA92D4253A329500026B0E /* SceneDelegate.swift */; };
@@ -35,6 +36,7 @@
 		D23058AE253CE1060013B64C /* AddFriendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendViewController.swift; sourceTree = "<group>"; };
 		D261FA02253D0D4F00AE096B /* Friends.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friends.swift; sourceTree = "<group>"; };
 		D261FA04253D0E1A00AE096B /* FriendsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsData.swift; sourceTree = "<group>"; };
+		D26A6008253F7D4A00A21006 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		D2912C2D253E59AC0061EC01 /* newFriendProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newFriendProfileViewController.swift; sourceTree = "<group>"; };
 		D2EA92CF253A329500026B0E /* FitHealth+.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FitHealth+.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2EA92D2253A329500026B0E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 				D230589F253CCEB30013B64C /* LeaderboardViewController.swift */,
 				D23058AE253CE1060013B64C /* AddFriendViewController.swift */,
 				D2912C2D253E59AC0061EC01 /* newFriendProfileViewController.swift */,
+				D26A6008253F7D4A00A21006 /* ProfileViewController.swift */,
 			);
 			path = Social;
 			sourceTree = "<group>";
@@ -236,6 +239,7 @@
 				D2EA92D9253A329500026B0E /* RecipesViewController.swift in Sources */,
 				D2EA92D7253A329500026B0E /* FitnessViewController.swift in Sources */,
 				D23058A3253CD6780013B64C /* WelcomePageViewController.swift in Sources */,
+				D26A6009253F7D4A00A21006 /* ProfileViewController.swift in Sources */,
 				D2EA92E9253A32D800026B0E /* PantryViewController.swift in Sources */,
 				D2EA92D3253A329500026B0E /* AppDelegate.swift in Sources */,
 				D2EA92F9253B75B900026B0E /* SettingViewController.swift in Sources */,

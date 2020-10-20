@@ -42,7 +42,7 @@ class SocialViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         
-        let newViewController = storyBoard.instantiateViewController(withIdentifier: "friendProfile")
+        let newViewController = storyBoard.instantiateViewController(withIdentifier: "profile")
         print(indexPath.row)
         friend.setProfileIndex(indexPath.row)
         self.present(newViewController, animated: true, completion: nil)
