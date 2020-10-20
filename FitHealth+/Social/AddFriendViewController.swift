@@ -24,6 +24,28 @@ class AddFriendController: UIViewController, UITableViewDataSource, UITableViewD
         
     }
     
+    @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
+        
+        let alert = UIAlertController(title: "Add Friend", message: "Send request", preferredStyle: .alert)
+        var emailAddress = UITextField()
+        
+        let addFriend = UIAlertAction(title: "Add", style: .default) { (addFriend) in
+            if let address = emailAddress.text{
+                print(address + " added")
+            }
+        }
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
+        alert.addTextField { (textField) in
+            textField.placeholder = "Enter Email Address"
+            emailAddress = textField
+        }
+        alert.addAction(cancel)
+        alert.addAction(addFriend)
+        present(alert,animated: true, completion: nil)
+    }
+    
+    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return friendData.newFriendData.count
