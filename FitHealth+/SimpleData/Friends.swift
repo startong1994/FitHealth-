@@ -12,6 +12,7 @@ struct Friends {
     let name: String
     let email: String
     let profileImage: String
+    let step: Int
 }
 
 

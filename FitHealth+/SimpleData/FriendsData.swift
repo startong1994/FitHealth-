@@ -12,18 +12,17 @@ class FriendsData {
     
     
     var friendData = [
-                Friends(name: "Fayliette", email: "Flewis2@uncc.edu", profileImage: "person"),
-                Friends(name: "Max Ries", email: "mries2@uncc.edu", profileImage: "person"),
-                Friends(name: "Catherine Cheatle", email: "ccheatle@uncc.edu", profileImage: "person"),
-                Friends(name: "J.R.", email: "@uncc.edu", profileImage: "person"),
-                Friends(name: "Kendall Kling", email: "kkling@uncc.edu", profileImage: "person")
+                Friends(name: "Fayliette", email: "Flewis2@uncc.edu", profileImage: "person", step: 4000),
+                Friends(name: "Max Ries", email: "mries2@uncc.edu", profileImage: "person", step: 3000),
+                Friends(name: "Catherine Cheatle", email: "ccheatle@uncc.edu", profileImage: "person", step: 2000),
+                Friends(name: "J.R.", email: "@uncc.edu", profileImage: "person", step: 1000),
+                Friends(name: "Kendall Kling", email: "kkling@uncc.edu", profileImage: "person", step: 500)
     ]
     
     
     var newFriendData = [
-                Friends(name: "Daitong Xu", email: "dxu5@uncc.edu", profileImage: "person")
+        Friends(name: "Daitong Xu", email: "dxu5@uncc.edu", profileImage: "person", step: 100)
     ]
-    
     
     
     
@@ -40,8 +39,8 @@ class FriendsData {
     func getProfileImage(_ row: Int) -> String {
         return friendData[row].profileImage
     }
-    func addFriend(Name newName: String, Email newEmail: String){
-        self.friendData.append(Friends(name: newName, email: newEmail, profileImage: newName))
+    func addFriend(Name newName: String, Email newEmail: String, Step newStep: Int){
+        self.friendData.append(Friends(name: newName, email: newEmail, profileImage: newName, step: newStep))
     }
     func removeFriend(_ index: Int){
         self.friendData.remove(at: index)
@@ -51,6 +50,10 @@ class FriendsData {
     }
     func getProfileIndex() -> Int {
         return profileIndex
+    }
+    
+    func getSteps(_ row: Int) -> Int{
+        return friendData[row].step
     }
     
     
