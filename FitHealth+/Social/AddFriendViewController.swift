@@ -26,22 +26,38 @@ class AddFriendController: UIViewController, UITableViewDataSource, UITableViewD
     
     @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
         
-        let alert = UIAlertController(title: "Add Friend", message: "Send request", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Add Friend", message: "", preferredStyle: .alert)
+        let added = UIAlertController(title: "", message: "Request sent!", preferredStyle: .alert)
+        
         var emailAddress = UITextField()
         
-        let addFriend = UIAlertAction(title: "Add", style: .default) { (addFriend) in
+        
+        //ok botton for conformation alert pop up
+        let ok = UIAlertAction(title: "OK", style: .default, handler: nil)
+        
+        
+        
+        //confirm button function
+        let addFriend = UIAlertAction(title: "Confirm", style: .default) { (addFriend) in
             if let address = emailAddress.text{
                 print(address + " added")
+                
+                added.addAction(ok)
+                self.present(added, animated: true, completion: nil)
+
             }
         }
-        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alert.addAction(addFriend)
+        //cancel button
+        let cancel = UIAlertAction(title: "Cancel", style: .default, handler: nil)
         
         alert.addTextField { (textField) in
             textField.placeholder = "Enter Email Address"
             emailAddress = textField
         }
         alert.addAction(cancel)
-        alert.addAction(addFriend)
+        
+        alert.preferredAction = addFriend
         present(alert,animated: true, completion: nil)
     }
     
