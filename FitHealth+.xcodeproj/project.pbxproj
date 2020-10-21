@@ -16,12 +16,12 @@
 		D23058AF253CE1060013B64C /* AddFriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23058AE253CE1060013B64C /* AddFriendViewController.swift */; };
 		D251DEA5254060AB006E7862 /* PantryItemList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D251DEA4254060AB006E7862 /* PantryItemList.swift */; };
 		D251DEAB25407798006E7862 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D251DEAA25407798006E7862 /* TabBarViewController.swift */; };
-		D251DEB025407EF7006E7862 /* StatisBarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D251DEAE25407EF7006E7862 /* StatisBarTableViewCell.swift */; };
-		D251DEB125407EF7006E7862 /* StatisBarTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D251DEAF25407EF7006E7862 /* StatisBarTableViewCell.xib */; };
 		D261FA03253D0D4F00AE096B /* Friends.swift in Sources */ = {isa = PBXBuildFile; fileRef = D261FA02253D0D4F00AE096B /* Friends.swift */; };
 		D261FA05253D0E1A00AE096B /* FriendsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D261FA04253D0E1A00AE096B /* FriendsData.swift */; };
 		D26A6009253F7D4A00A21006 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26A6008253F7D4A00A21006 /* ProfileViewController.swift */; };
 		D2912C2E253E59AC0061EC01 /* newFriendProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2912C2D253E59AC0061EC01 /* newFriendProfileViewController.swift */; };
+		D2DB12732540BE89005DFF65 /* StatsBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DB12712540BE89005DFF65 /* StatsBar.swift */; };
+		D2DB12742540BE89005DFF65 /* StatsBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2DB12722540BE89005DFF65 /* StatsBar.xib */; };
 		D2EA92D3253A329500026B0E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EA92D2253A329500026B0E /* AppDelegate.swift */; };
 		D2EA92D5253A329500026B0E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EA92D4253A329500026B0E /* SceneDelegate.swift */; };
 		D2EA92D7253A329500026B0E /* FitnessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EA92D6253A329500026B0E /* FitnessViewController.swift */; };
@@ -44,12 +44,12 @@
 		D23058AE253CE1060013B64C /* AddFriendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendViewController.swift; sourceTree = "<group>"; };
 		D251DEA4254060AB006E7862 /* PantryItemList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PantryItemList.swift; sourceTree = "<group>"; };
 		D251DEAA25407798006E7862 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
-		D251DEAE25407EF7006E7862 /* StatisBarTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisBarTableViewCell.swift; sourceTree = "<group>"; };
-		D251DEAF25407EF7006E7862 /* StatisBarTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StatisBarTableViewCell.xib; sourceTree = "<group>"; };
 		D261FA02253D0D4F00AE096B /* Friends.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friends.swift; sourceTree = "<group>"; };
 		D261FA04253D0E1A00AE096B /* FriendsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsData.swift; sourceTree = "<group>"; };
 		D26A6008253F7D4A00A21006 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		D2912C2D253E59AC0061EC01 /* newFriendProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newFriendProfileViewController.swift; sourceTree = "<group>"; };
+		D2DB12712540BE89005DFF65 /* StatsBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsBar.swift; sourceTree = "<group>"; };
+		D2DB12722540BE89005DFF65 /* StatsBar.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StatsBar.xib; sourceTree = "<group>"; };
 		D2EA92CF253A329500026B0E /* FitHealth+.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FitHealth+.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2EA92D2253A329500026B0E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D2EA92D4253A329500026B0E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -97,8 +97,8 @@
 		D251DEAD25407E1E006E7862 /* Designs */ = {
 			isa = PBXGroup;
 			children = (
-				D251DEAE25407EF7006E7862 /* StatisBarTableViewCell.swift */,
-				D251DEAF25407EF7006E7862 /* StatisBarTableViewCell.xib */,
+				D2DB12712540BE89005DFF65 /* StatsBar.swift */,
+				D2DB12722540BE89005DFF65 /* StatsBar.xib */,
 			);
 			path = Designs;
 			sourceTree = "<group>";
@@ -247,9 +247,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				D2EA92E1253A329500026B0E /* LaunchScreen.storyboard in Resources */,
+				D2DB12742540BE89005DFF65 /* StatsBar.xib in Resources */,
 				D2EA92DE253A329500026B0E /* Assets.xcassets in Resources */,
 				D2EA92DC253A329500026B0E /* Main.storyboard in Resources */,
-				D251DEB125407EF7006E7862 /* StatisBarTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -273,12 +273,12 @@
 				D2EA92D3253A329500026B0E /* AppDelegate.swift in Sources */,
 				D2EA92F9253B75B900026B0E /* SettingViewController.swift in Sources */,
 				D23058A0253CCEB30013B64C /* LeaderboardViewController.swift in Sources */,
-				D251DEB025407EF7006E7862 /* StatisBarTableViewCell.swift in Sources */,
 				D23058A5253CD8540013B64C /* LoginViewController.swift in Sources */,
 				D261FA05253D0E1A00AE096B /* FriendsData.swift in Sources */,
 				D2EA92D5253A329500026B0E /* SceneDelegate.swift in Sources */,
 				D23058A7253CD8680013B64C /* SignUpViewContoller.swift in Sources */,
 				D251DEA5254060AB006E7862 /* PantryItemList.swift in Sources */,
+				D2DB12732540BE89005DFF65 /* StatsBar.swift in Sources */,
 				98530BC1253F9F6A00D93F88 /* PantryItemShowDetailViewController.swift in Sources */,
 				D23058AF253CE1060013B64C /* AddFriendViewController.swift in Sources */,
 			);
