@@ -73,7 +73,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="caloriesProgress" destination="H2p-sc-9uM" id="b4M-Rf-EfG"/>
+                <outlet property="caloriesProgress" destination="EC0-i9-MMl" id="8md-k5-uDT"/>
                 <outlet property="caloriesText" destination="9Pa-vh-oUw" id="Jpk-Sw-qH0"/>
                 <outlet property="stepsProgress" destination="CCN-WI-86f" id="RhJ-mZ-NmB"/>
                 <outlet property="stepsText" destination="Vw1-bB-qc2" id="RCB-jd-sZz"/>

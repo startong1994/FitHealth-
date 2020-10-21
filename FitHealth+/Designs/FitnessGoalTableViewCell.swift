@@ -14,6 +14,7 @@ class FitnessGoalTableViewCell: UITableViewCell {
     @IBOutlet weak var fitnessGoalTitle: UILabel!
     @IBOutlet weak var fitnessCurrent: UILabel!
     @IBOutlet weak var fitnessGoal: UILabel!
+    @IBOutlet weak var dataType: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

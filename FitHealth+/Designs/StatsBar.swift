@@ -14,7 +14,8 @@ class StatsBar: UITableViewCell {
     @IBOutlet weak var caloriesText: UILabel!
     @IBOutlet weak var workoutTimeProgress: UIProgressView!
     @IBOutlet weak var stepsProgress: UIProgressView!
-    @IBOutlet weak var caloriesProgress: UIView!
+    @IBOutlet weak var caloriesProgress: UIProgressView!
+    
     
     @IBOutlet weak var view: UIView!
     

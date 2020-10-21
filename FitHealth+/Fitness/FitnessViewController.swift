@@ -30,17 +30,22 @@ extension FitnessViewController: UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.row == 1{
+        if indexPath.row == 0{
             
-            let cell = tableView.dequeueReusableCell(withIdentifier: "workoutBar", for: indexPath) as! workoutCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "statsBar", for: indexPath) as! StatsBar
             tableView.rowHeight = 444
+            cell.workoutTimeProgress.progress = 14/30
+            cell.caloriesProgress.progress = 333/500
+            cell.stepsProgress.progress = 731/1000
+            
             
             return cell
+            
+        
         
         }
         else {
-            
-            let cell = tableView.dequeueReusableCell(withIdentifier: "statsBar", for: indexPath) as! StatsBar
+            let cell = tableView.dequeueReusableCell(withIdentifier: "workoutBar", for: indexPath) as! workoutCell
             tableView.rowHeight = 444
             
             return cell
