@@ -7,22 +7,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--workoutOfTheDay-->
-        <scene sceneID="vu6-Gq-QZU">
-            <objects>
-                <viewController title="workoutOfTheDay" id="Tvf-aN-8Kk" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="C48-b6-MRw">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="vHW-vj-jxO"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Workout of the day" id="7DZ-Ku-sAZ"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="YBy-ZX-AYD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-2268" y="-1165"/>
-        </scene>
         <!--FitHealth+-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
@@ -41,6 +25,16 @@
                         <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
                     </view>
                     <navigationItem key="navigationItem" title="FitHealth+" id="eTH-iP-ezC">
+                        <barButtonItem key="leftBarButtonItem" title="d" id="BJ5-A4-fcG">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Y9Y-az-ej7">
+                                <rect key="frame" x="20" y="7" width="92" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                            <connections>
+                                <segue destination="zpZ-P8-SgP" kind="show" id="vW5-lW-I3I"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Xn5-MZ-uAk"/>
                     </navigationItem>
                     <connections>
@@ -1064,13 +1058,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="irw-S0-3N4">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="irw-S0-3N4">
                                 <rect key="frame" x="118" y="356" width="179" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="g4k-IM-9TJ">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="g4k-IM-9TJ">
                                 <rect key="frame" x="118" y="422" width="179" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -1103,13 +1097,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qjM-Rh-Ezl">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qjM-Rh-Ezl">
                                 <rect key="frame" x="118" y="356" width="179" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ABR-b1-Q6r">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ABR-b1-Q6r">
                                 <rect key="frame" x="118" y="422" width="179" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -1223,22 +1217,6 @@
             </objects>
             <point key="canvasLocation" x="-151.19999999999999" y="950.98522167487693"/>
         </scene>
-        <!--workoutGuide-->
-        <scene sceneID="83q-Zw-xDg">
-            <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="S8H-p5-PKA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <viewController title="workoutGuide" id="iUS-jf-Lbg" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="q0v-PE-cCz">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="9xg-pc-7tO"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="workoutGuide" id="zfk-eg-GU9"/>
-                </viewController>
-            </objects>
-            <point key="canvasLocation" x="-3098" y="-1165"/>
-        </scene>
         <!--fitnessGoals-->
         <scene sceneID="cbV-Og-ecv">
             <objects>
@@ -1290,6 +1268,22 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SRK-Ix-O2I" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-3368" y="-380"/>
+        </scene>
+        <!--workoutGuide-->
+        <scene sceneID="iH4-CD-AQp">
+            <objects>
+                <viewController title="workoutGuide" id="zpZ-P8-SgP" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="I0M-1E-3TZ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="WpX-Qz-f93"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Fu9-tU-cC7"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iv8-7f-Jzq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2365" y="-334"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="KSN-fP-DU7">
