@@ -15,6 +15,7 @@ class PantryItemList: NSObject, NSCoding{
             static var exDate = "exDate"
             static var category = "category"
             static var calorie = "calorie"
+            static var nutriInfo = "nutriInfo"
         }
         
         var quantity: Int
@@ -22,13 +23,15 @@ class PantryItemList: NSObject, NSCoding{
         var exDate: String
         var category: String
         var calorie: Int
-        
-        init(quantity: Int, name: String, exDate: String, category: String, calorie: Int) {
+        var nutriInfo: String
+    
+    init(quantity: Int, name: String, exDate: String, category: String, calorie: Int, nutriInfo: String) {
             self.quantity = quantity
             self.category = category
             self.name = name
             self.exDate = exDate
             self.calorie = calorie
+            self.nutriInfo = nutriInfo
         }
         
         func encode(with aCoder: NSCoder) {
@@ -37,6 +40,7 @@ class PantryItemList: NSObject, NSCoding{
             aCoder.encode(exDate, forKey: key.exDate)
             aCoder.encode(category, forKey: key.category)
             aCoder.encode(calorie, forKey: key.calorie)
+            aCoder.encode(nutriInfo, forKey: key.nutriInfo)
         }
         
         required convenience init?(coder aDecoder: NSCoder) {
@@ -45,10 +49,11 @@ class PantryItemList: NSObject, NSCoding{
             let exDatesOfItems = aDecoder.decodeObject(forKey: key.exDate) as? String
             let categoriesOfItems = aDecoder.decodeObject(forKey: key.category) as? String
             let caloriesOfItems = aDecoder.decodeInteger(forKey: key.calorie)
+            let nutriInfoOfItems = aDecoder.decodeObject(forKey: key.nutriInfo) as? String
             
-            self.init(quantity: numOfItems, name: nameOfItems!, exDate: exDatesOfItems!, category: categoriesOfItems!, calorie: caloriesOfItems)
+            self.init(quantity: numOfItems, name: nameOfItems!, exDate: exDatesOfItems!, category: categoriesOfItems!, calorie: caloriesOfItems, nutriInfo: nutriInfoOfItems!)
         }
         
         static let filePathToDocumentDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
-        static let stuffFolder = filePathToDocumentDirectory.appendingPathComponent("stuff")
+        static let stuffFolder = filePathToDocumentDirectory.appendingPathComponent("pantryList")
     }

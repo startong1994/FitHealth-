@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9816343B2540C53500546A9E /* BarcodeScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9816343A2540C53500546A9E /* BarcodeScannerViewController.swift */; };
+		9816343D2540D82D00546A9E /* EditPantryItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9816343C2540D82D00546A9E /* EditPantryItemViewController.swift */; };
 		98530BBF253F9C9800D93F88 /* PantryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98530BBE253F9C9800D93F88 /* PantryListViewController.swift */; };
 		98530BC1253F9F6A00D93F88 /* PantryItemShowDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98530BC0253F9F6A00D93F88 /* PantryItemShowDetailViewController.swift */; };
 		D23058A0253CCEB30013B64C /* LeaderboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D230589F253CCEB30013B64C /* LeaderboardViewController.swift */; };
@@ -35,6 +37,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9816343A2540C53500546A9E /* BarcodeScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeScannerViewController.swift; sourceTree = "<group>"; };
+		9816343C2540D82D00546A9E /* EditPantryItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPantryItemViewController.swift; sourceTree = "<group>"; };
 		98530BBE253F9C9800D93F88 /* PantryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PantryListViewController.swift; sourceTree = "<group>"; };
 		98530BC0253F9F6A00D93F88 /* PantryItemShowDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PantryItemShowDetailViewController.swift; sourceTree = "<group>"; };
 		D230589F253CCEB30013B64C /* LeaderboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardViewController.swift; sourceTree = "<group>"; };
@@ -172,6 +176,8 @@
 				98530BBE253F9C9800D93F88 /* PantryListViewController.swift */,
 				98530BC0253F9F6A00D93F88 /* PantryItemShowDetailViewController.swift */,
 				D251DEA4254060AB006E7862 /* PantryItemList.swift */,
+				9816343A2540C53500546A9E /* BarcodeScannerViewController.swift */,
+				9816343C2540D82D00546A9E /* EditPantryItemViewController.swift */,
 			);
 			path = Pantry;
 			sourceTree = "<group>";
@@ -268,6 +274,8 @@
 				D23058A3253CD6780013B64C /* WelcomePageViewController.swift in Sources */,
 				D26A6009253F7D4A00A21006 /* ProfileViewController.swift in Sources */,
 				98530BBF253F9C9800D93F88 /* PantryListViewController.swift in Sources */,
+				9816343D2540D82D00546A9E /* EditPantryItemViewController.swift in Sources */,
+				9816343B2540C53500546A9E /* BarcodeScannerViewController.swift in Sources */,
 				D251DEAB25407798006E7862 /* TabBarViewController.swift in Sources */,
 				D2EA92E9253A32D800026B0E /* PantryViewController.swift in Sources */,
 				D2EA92D3253A329500026B0E /* AppDelegate.swift in Sources */,

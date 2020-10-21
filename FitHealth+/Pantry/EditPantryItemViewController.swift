@@ -1,26 +1,26 @@
 //
-//  PantryItemShowDetailViewController.swift
-//  PantryList
+//  EditPantryItemViewController.swift
+//  FitHealth+
 //
-//  Created by Catherine Cheatle on 10/18/20.
-//  Copyright © 2020 Catherine Cheatle. All rights reserved.
+//  Created by Catherine Cheatle on 10/21/20.
+//  Copyright © 2020 xu daitong. All rights reserved.
 //
 
 import UIKit
 
-class PantryItemShowDetailViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class EditPantryItemViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource{
 
-    
-    @IBOutlet weak var calorieTextField: UITextField!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var quantityTextField: UITextField!
     @IBOutlet weak var exDateTextField: UITextField!
     @IBOutlet weak var categoryTextField: UITextField!
-    @IBOutlet weak var nutriInfoTextField: UITextField!
+    @IBOutlet weak var calorieTextField: UITextField!
+    @IBOutlet weak var nutritionalTextField: UITextField!
     
     let itemCategories = ["Fruit", "Vegetables", "Pantry", "Frozen", "Fridge", "Dairy", "Meat"]
     
     var pickerView = UIPickerView()
+    var item: PantryItemList?
     
     @IBAction func cancel(_ sender: Any) {
         dismiss(animated: true, completion: nil)
@@ -28,15 +28,23 @@ class PantryItemShowDetailViewController: UIViewController, UIPickerViewDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         pickerView.delegate = self
         pickerView.dataSource = self
         categoryTextField.inputView = pickerView
         categoryTextField.textAlignment = .center
-        categoryTextField.placeholder = "Select Category"
-        // Do any additional setup after loading the view.
+        
+        //nameTextField.delegate = self
+        if let item = item{
+            nameTextField.text = item.name
+            quantityTextField.text = String(item.quantity)
+            exDateTextField.text = item.exDate
+            categoryTextField.text = item.category
+            calorieTextField.text = String(item.calorie)
+            nutritionalTextField.text = item.nutriInfo
+        }
+        
     }
-    var item: PantryItemList?
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -62,7 +70,7 @@ class PantryItemShowDetailViewController: UIViewController, UIPickerViewDelegate
         }else{
             nameTextField.keyboardType = .default
             exDateTextField.keyboardType = .default
-            nutriInfoTextField.keyboardType = .default
+            nutritionalTextField.keyboardType = .default
         }
         return true
     }
@@ -75,7 +83,7 @@ class PantryItemShowDetailViewController: UIViewController, UIPickerViewDelegate
         }else if textField == exDateTextField{
             calorieTextField.becomeFirstResponder()
         }else if textField == calorieTextField{
-            nutriInfoTextField.becomeFirstResponder()
+            nutritionalTextField.becomeFirstResponder()
         }else{
             nameTextField.becomeFirstResponder()
         }
@@ -91,7 +99,7 @@ class PantryItemShowDetailViewController: UIViewController, UIPickerViewDelegate
                 if let expiration = exDateTextField.text{
                     if let category = categoryTextField.text{
                         if let calorie = Int(calorieTextField.text!){
-                            if let nutri = nutriInfoTextField.text{
+                            if let nutri = nutritionalTextField.text{
                                 item = PantryItemList(quantity: amount, name: name, exDate: expiration, category: category, calorie: calorie, nutriInfo: nutri)
                             }
                         }

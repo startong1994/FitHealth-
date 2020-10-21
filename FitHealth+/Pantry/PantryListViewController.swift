@@ -22,10 +22,10 @@ class PantryListViewController: UIViewController, UITableViewDelegate, UITableVi
     var myIndex = 0
     
     private func loadItems(){
-        let item1 = PantryItemList(quantity: 5, name: "Apple", exDate: "10/31/20", category: "Fruit", calorie: 95)
-        let item2 = PantryItemList(quantity: 3, name: "Banana", exDate: "10/21/20", category: "Fruit", calorie: 105)
-        let item3 = PantryItemList(quantity: 6, name: "Kiwi", exDate: "10/31/20", category: "Fruit", calorie: 42)
-        let item4 = PantryItemList(quantity: 1, name: "Hot Cheetos", exDate: "12/31/20", category: "Pantry",calorie: 160)
+        let item1 = PantryItemList(quantity: 5, name: "Apple", exDate: "10/31/20", category: "Fruit", calorie: 95, nutriInfo: "")
+        let item2 = PantryItemList(quantity: 3, name: "Banana", exDate: "10/21/20", category: "Fruit", calorie: 105, nutriInfo: "")
+        let item3 = PantryItemList(quantity: 6, name: "Kiwi", exDate: "10/31/20", category: "Fruit", calorie: 42, nutriInfo: "")
+        let item4 = PantryItemList(quantity: 1, name: "Hot Cheetos", exDate: "12/31/20", category: "Pantry",calorie: 160, nutriInfo: "")
         
         myList += [item1,item2, item3, item4]
         
@@ -88,11 +88,14 @@ class PantryListViewController: UIViewController, UITableViewDelegate, UITableVi
     func setUpSearchBar() {
         let searchController = UISearchController(searchResultsController: nil)
         navigationItem.searchController = searchController
-        searchController.navigationItem.hidesSearchBarWhenScrolling = true
-        let searchBar = UISearchBar(frame: CGRect.init(x: 20, y: 0, width: (UIScreen.main.bounds.width), height: 70))
+        navigationItem.hidesSearchBarWhenScrolling = true
+        //searchController.navigationItem.hidesSearchBarWhenScrolling = true
+        let searchBar = UISearchBar(frame: CGRect.init(x: 0, y: 0, width: (UIScreen.main.bounds.width), height: 70))
         searchBar.showsScopeBar = true
         searchController.searchBar.scopeButtonTitles = ["Name", "Category", "Calories"]
         searchController.searchBar.delegate = self
+        
+        searchController.searchBar.backgroundColor = UIColor.white
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
@@ -139,19 +142,6 @@ class PantryListViewController: UIViewController, UITableViewDelegate, UITableVi
         return cell
     }
     
-    
-    //search bar button tiles
-    func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
-        if selectedScope == 0{
-            myList = myList.sorted(by: { $0.name < $1.name})
-        } else if selectedScope == 1{
-            myList = myList.sorted(by: { $0.name > $1.name})
-        } else {
-            myList = myList.sorted(by: { $0.calorie < $1.calorie})
-        }
-        tableViewList.reloadData()
-    }
-    
     //filter table based on scope button
     func filterTableView(index: Int, text: String) {
         switch index {
@@ -183,6 +173,16 @@ class PantryListViewController: UIViewController, UITableViewDelegate, UITableVi
     
     //unwind seque
     @IBAction func unWindToList(sender: UIStoryboardSegue){
+        if let sourceViewController = sender.source as? PantryItemShowDetailViewController, let item = sourceViewController.item{
+            let newIndexPath = IndexPath(row: myList.count, section: 0)
+            myList.append(item)
+            tableViewList.insertRows(at: [newIndexPath], with: .automatic)
+        }
+        
+        saveToFileStuff()
+    }
+    
+    @IBAction func unWindEditToList(sender: UIStoryboardSegue){
         if let sourceViewController = sender.source as? PantryItemShowDetailViewController, let item = sourceViewController.item{
             let newIndexPath = IndexPath(row: myList.count, section: 0)
             myList.append(item)
