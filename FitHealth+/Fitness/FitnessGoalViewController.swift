@@ -28,6 +28,10 @@ extension FitnessGoalViewController: UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if indexPath.row == 3{
+            
+        }
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "fitnessGoalCell", for: indexPath) as! FitnessGoalTableViewCell
         tableView.rowHeight = 320
         
