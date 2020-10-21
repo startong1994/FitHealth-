@@ -24,6 +24,9 @@
 		D2DB12742540BE89005DFF65 /* StatsBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2DB12722540BE89005DFF65 /* StatsBar.xib */; };
 		D2DB12772540C8CE005DFF65 /* workoutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DB12752540C8CE005DFF65 /* workoutCell.swift */; };
 		D2DB12782540C8CE005DFF65 /* workoutCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2DB12762540C8CE005DFF65 /* workoutCell.xib */; };
+		D2DB127A2540DBF7005DFF65 /* FitnessGoalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DB12792540DBF7005DFF65 /* FitnessGoalViewController.swift */; };
+		D2DB127D2540DCB7005DFF65 /* FitnessGoalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DB127B2540DCB7005DFF65 /* FitnessGoalTableViewCell.swift */; };
+		D2DB127E2540DCB7005DFF65 /* FitnessGoalTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2DB127C2540DCB7005DFF65 /* FitnessGoalTableViewCell.xib */; };
 		D2EA92D3253A329500026B0E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EA92D2253A329500026B0E /* AppDelegate.swift */; };
 		D2EA92D5253A329500026B0E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EA92D4253A329500026B0E /* SceneDelegate.swift */; };
 		D2EA92D7253A329500026B0E /* FitnessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EA92D6253A329500026B0E /* FitnessViewController.swift */; };
@@ -54,6 +57,9 @@
 		D2DB12722540BE89005DFF65 /* StatsBar.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StatsBar.xib; sourceTree = "<group>"; };
 		D2DB12752540C8CE005DFF65 /* workoutCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = workoutCell.swift; sourceTree = "<group>"; };
 		D2DB12762540C8CE005DFF65 /* workoutCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = workoutCell.xib; sourceTree = "<group>"; };
+		D2DB12792540DBF7005DFF65 /* FitnessGoalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitnessGoalViewController.swift; sourceTree = "<group>"; };
+		D2DB127B2540DCB7005DFF65 /* FitnessGoalTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitnessGoalTableViewCell.swift; sourceTree = "<group>"; };
+		D2DB127C2540DCB7005DFF65 /* FitnessGoalTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FitnessGoalTableViewCell.xib; sourceTree = "<group>"; };
 		D2EA92CF253A329500026B0E /* FitHealth+.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FitHealth+.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2EA92D2253A329500026B0E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D2EA92D4253A329500026B0E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -105,6 +111,8 @@
 				D2DB12722540BE89005DFF65 /* StatsBar.xib */,
 				D2DB12752540C8CE005DFF65 /* workoutCell.swift */,
 				D2DB12762540C8CE005DFF65 /* workoutCell.xib */,
+				D2DB127B2540DCB7005DFF65 /* FitnessGoalTableViewCell.swift */,
+				D2DB127C2540DCB7005DFF65 /* FitnessGoalTableViewCell.xib */,
 			);
 			path = Designs;
 			sourceTree = "<group>";
@@ -167,6 +175,7 @@
 			isa = PBXGroup;
 			children = (
 				D2EA92D6253A329500026B0E /* FitnessViewController.swift */,
+				D2DB12792540DBF7005DFF65 /* FitnessGoalViewController.swift */,
 			);
 			path = Fitness;
 			sourceTree = "<group>";
@@ -255,6 +264,7 @@
 				D2EA92E1253A329500026B0E /* LaunchScreen.storyboard in Resources */,
 				D2DB12782540C8CE005DFF65 /* workoutCell.xib in Resources */,
 				D2DB12742540BE89005DFF65 /* StatsBar.xib in Resources */,
+				D2DB127E2540DCB7005DFF65 /* FitnessGoalTableViewCell.xib in Resources */,
 				D2EA92DE253A329500026B0E /* Assets.xcassets in Resources */,
 				D2EA92DC253A329500026B0E /* Main.storyboard in Resources */,
 			);
@@ -270,6 +280,7 @@
 				D2EA92EB253A32E900026B0E /* SocialViewController.swift in Sources */,
 				D2912C2E253E59AC0061EC01 /* newFriendProfileViewController.swift in Sources */,
 				D261FA03253D0D4F00AE096B /* Friends.swift in Sources */,
+				D2DB127D2540DCB7005DFF65 /* FitnessGoalTableViewCell.swift in Sources */,
 				D2EA92D9253A329500026B0E /* RecipesViewController.swift in Sources */,
 				D2EA92D7253A329500026B0E /* FitnessViewController.swift in Sources */,
 				D23058A3253CD6780013B64C /* WelcomePageViewController.swift in Sources */,
@@ -284,6 +295,7 @@
 				D261FA05253D0E1A00AE096B /* FriendsData.swift in Sources */,
 				D2DB12772540C8CE005DFF65 /* workoutCell.swift in Sources */,
 				D2EA92D5253A329500026B0E /* SceneDelegate.swift in Sources */,
+				D2DB127A2540DBF7005DFF65 /* FitnessGoalViewController.swift in Sources */,
 				D23058A7253CD8680013B64C /* SignUpViewContoller.swift in Sources */,
 				D251DEA5254060AB006E7862 /* PantryItemList.swift in Sources */,
 				D2DB12732540BE89005DFF65 /* StatsBar.swift in Sources */,
