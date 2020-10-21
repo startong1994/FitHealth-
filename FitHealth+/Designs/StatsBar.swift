@@ -16,10 +16,12 @@ class StatsBar: UITableViewCell {
     @IBOutlet weak var stepsProgress: UIProgressView!
     @IBOutlet weak var caloriesProgress: UIView!
     
+    @IBOutlet weak var view: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        view.layer.cornerRadius = view.frame.size.height/10
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

@@ -69,6 +69,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     </progressView>
                 </subviews>
+                <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
@@ -76,6 +77,7 @@
                 <outlet property="caloriesText" destination="9Pa-vh-oUw" id="Jpk-Sw-qH0"/>
                 <outlet property="stepsProgress" destination="CCN-WI-86f" id="RhJ-mZ-NmB"/>
                 <outlet property="stepsText" destination="Vw1-bB-qc2" id="RCB-jd-sZz"/>
+                <outlet property="view" destination="H2p-sc-9uM" id="ESF-vl-czH"/>
                 <outlet property="workoutTimeProgress" destination="jiy-2b-Oqy" id="8aD-DX-9j6"/>
                 <outlet property="workoutTimeText" destination="cJP-XC-9mM" id="2Yp-Xc-onf"/>
             </connections>
