@@ -504,6 +504,21 @@
             </objects>
             <point key="canvasLocation" x="7628.985507246377" y="-380.35714285714283"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="9ci-5M-DSC">
+            <objects>
+                <viewController id="Ggt-JL-F1l" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dXe-Jo-E50">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="K2D-Qe-6ao"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0di-dM-yuN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3459" y="824"/>
+        </scene>
         <!--Add recipe-->
         <scene sceneID="2Gp-Gs-vy2">
             <objects>
@@ -637,6 +652,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="lLI-UX-tQS"/>
                     </view>
+                    <navigationItem key="navigationItem" id="YXs-wE-5YH"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xNc-rd-Jr2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -651,24 +667,24 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Recipes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bDY-tl-RSg">
-                                <rect key="frame" x="0.0" y="98" width="414" height="30"/>
+                                <rect key="frame" x="0.0" y="142" width="414" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <color key="textColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <searchBar contentMode="redraw" placeholder="Search" translatesAutoresizingMaskIntoConstraints="NO" id="Jab-Mk-mLd">
-                                <rect key="frame" x="0.0" y="136" width="414" height="56"/>
+                                <rect key="frame" x="0.0" y="180" width="414" height="56"/>
                                 <color key="barTintColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recipe list" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bUD-9y-LkT">
-                                <rect key="frame" x="156" y="304.5" width="102" height="27.5"/>
+                                <rect key="frame" x="156" y="348.5" width="102" height="27.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                 <color key="textColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l1O-eb-mg1">
-                                <rect key="frame" x="48" y="209" width="318" height="74"/>
+                                <rect key="frame" x="48" y="253" width="318" height="74"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="76.5" id="iqL-Wj-9Z8"/>
                                 </constraints>
@@ -677,9 +693,12 @@
                                 <state key="normal" title="Add recipes" backgroundImage="rectangle.fill" catalog="system">
                                     <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 </state>
+                                <connections>
+                                    <segue destination="hBu-nE-Fqg" kind="show" id="DCx-xY-r4P"/>
+                                </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="37" translatesAutoresizingMaskIntoConstraints="NO" id="jXz-NT-ldm" userLabel="Recipe list Stack View">
-                                <rect key="frame" x="0.0" y="352" width="414" height="333.5"/>
+                                <rect key="frame" x="0.0" y="396" width="414" height="333.5"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jUH-vJ-rD4" userLabel="My recipe button1">
                                         <rect key="frame" x="70" y="1" width="274" height="84"/>
@@ -708,19 +727,19 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CPO-y3-8Ip" userLabel="Back button">
-                                <rect key="frame" x="70" y="812.5" width="21" height="18"/>
+                                <rect key="frame" x="70" y="763.5" width="21" height="18"/>
                                 <state key="normal" backgroundImage="arrowshape.turn.up.left.fill" catalog="system"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="atf-aa-28y" userLabel="Home button">
-                                <rect key="frame" x="195.5" y="811.5" width="23.5" height="19.5"/>
+                                <rect key="frame" x="195.5" y="762.5" width="23.5" height="19.5"/>
                                 <state key="normal" backgroundImage="house.fill" catalog="system"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kmk-89-GSr" userLabel="Forward button">
-                                <rect key="frame" x="323" y="812.5" width="21" height="18"/>
+                                <rect key="frame" x="323" y="763.5" width="21" height="18"/>
                                 <state key="normal" backgroundImage="arrowshape.turn.up.right" catalog="system"/>
                             </button>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fFq-eW-JUo">
-                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="44"/>
                                 <items>
                                     <navigationItem title="FitHealth+" id="Kaa-Ss-kZx">
                                         <barButtonItem key="rightBarButtonItem" title="Item" style="plain" id="GQk-cS-3fL">
@@ -769,6 +788,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="W2i-jp-RdB"/>
                     </view>
+                    <navigationItem key="navigationItem" id="Qcm-4K-jFa"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mau-Tk-MaG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -800,6 +820,9 @@
                                 <state key="normal" title="My recipies" backgroundImage="rectangle.fill" catalog="system">
                                     <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 </state>
+                                <connections>
+                                    <segue destination="ilh-22-3EI" kind="show" id="vdm-ZB-rgz"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Featured recipes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gl6-9u-HMa">
                                 <rect key="frame" x="124.5" y="297" width="165.5" height="27.5"/>
