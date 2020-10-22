@@ -167,7 +167,7 @@
             </objects>
             <point key="canvasLocation" x="4820.289855072464" y="-379.01785714285711"/>
         </scene>
-        <!--Edit Pantry Item View Controller-->
+        <!--Edit Item-->
         <scene sceneID="jH5-JB-s3C">
             <objects>
                 <viewController id="BbG-QY-ecj" customClass="EditPantryItemViewController" customModule="FitHealth_" customModuleProvider="target" sceneMemberID="viewController">
@@ -285,7 +285,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="nvx-VE-U7X"/>
                     </view>
-                    <navigationItem key="navigationItem" id="GBw-ch-aR0">
+                    <navigationItem key="navigationItem" title="Edit Item" id="GBw-ch-aR0">
                         <barButtonItem key="leftBarButtonItem" style="plain" systemItem="cancel" id="HAJ-bo-qtY">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
@@ -313,7 +313,7 @@
             </objects>
             <point key="canvasLocation" x="7215.9420289855079" y="-1104.2410714285713"/>
         </scene>
-        <!--Barcode Scanner View Controller-->
+        <!--Scan Item-->
         <scene sceneID="bp4-xU-8sf">
             <objects>
                 <viewController id="6dk-KY-oqG" customClass="BarcodeScannerViewController" customModule="FitHealth_" customModuleProvider="target" sceneMemberID="viewController">
@@ -323,7 +323,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="tdo-z1-DTF"/>
                     </view>
-                    <navigationItem key="navigationItem" id="8J0-ai-MIs">
+                    <navigationItem key="navigationItem" title="Scan Item" id="8J0-ai-MIs">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="BbM-13-b1b">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
@@ -336,7 +336,7 @@
             </objects>
             <point key="canvasLocation" x="9397.1014492753638" y="-379.01785714285711"/>
         </scene>
-        <!--Pantry Item Show Detail View Controller-->
+        <!--Add Item-->
         <scene sceneID="Gle-je-BYp">
             <objects>
                 <viewController id="cMO-ZS-x6i" customClass="PantryItemShowDetailViewController" customModule="FitHealth_" customModuleProvider="target" sceneMemberID="viewController">
@@ -476,7 +476,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="DKr-fJ-bAg"/>
                     </view>
-                    <navigationItem key="navigationItem" id="mRG-wq-36L">
+                    <navigationItem key="navigationItem" title="Add Item" id="mRG-wq-36L">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="krY-0M-Ohg">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
@@ -1433,7 +1433,6 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="zJJ-oU-uzg">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -1750,6 +1749,6 @@
         <image name="person.3" catalog="system" width="72" height="35"/>
         <image name="person.badge.plus" catalog="system" width="64" height="58"/>
         <image name="plus" catalog="system" width="64" height="56"/>
-        <image name="rectangle.fill" catalog="system" width="64" height="46"/>
+        <image name="rectangle.fill" catalog="system" width="32" height="32"/>
     </resources>
 </document>

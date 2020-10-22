@@ -37,7 +37,6 @@ class PantryListViewController: UIViewController, UITableViewDelegate, UITableVi
         pickerView.isHidden = true
         pickerView.delegate = self
         pickerView.dataSource = self
-        
         setUpSearchBar()
         if let savedData = loadSavedItems(){
             myList += savedData
@@ -94,8 +93,12 @@ class PantryListViewController: UIViewController, UITableViewDelegate, UITableVi
         searchBar.showsScopeBar = true
         searchController.searchBar.scopeButtonTitles = ["Name", "Category", "Calories"]
         searchController.searchBar.delegate = self
-        
-        searchController.searchBar.backgroundColor = UIColor.white
+        let appearance = UINavigationBarAppearance()
+        appearance.backgroundColor = .systemTeal
+        appearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]
+        navigationItem.standardAppearance = appearance
+        navigationItem.scrollEdgeAppearance = appearance
+        searchController.searchBar.searchTextField.backgroundColor = UIColor.white
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
