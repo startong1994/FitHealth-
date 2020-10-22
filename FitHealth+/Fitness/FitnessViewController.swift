@@ -35,11 +35,7 @@ extension FitnessViewController: UITableViewDataSource, UITableViewDelegate{
             
             let cell = tableView.dequeueReusableCell(withIdentifier: "statsBar", for: indexPath) as! StatsBar
             tableView.rowHeight = 444
-            cell.workoutTimeProgress.progress = 14/30
-            cell.caloriesProgress.progress = 333/500
-            cell.stepsProgress.progress = 731/1000
-            
-            
+        
             return cell
             
         

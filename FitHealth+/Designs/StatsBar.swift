@@ -9,7 +9,7 @@
 import UIKit
 
 class StatsBar: UITableViewCell,UITableViewDelegate {
-    @IBOutlet weak var tableViewCell: UIView!
+    @IBOutlet weak var segmentControl: UISegmentedControl!
     @IBOutlet weak var workoutTimeText: UILabel!
     @IBOutlet weak var stepsText: UILabel!
     @IBOutlet weak var caloriesText: UILabel!
@@ -31,9 +31,45 @@ class StatsBar: UITableViewCell,UITableViewDelegate {
 
         // Configure the view for the selected state
     }
-    @IBAction func timeSelection(_ sender: UISegmentedControl) {
-
-    }
     
+    @IBAction func indexChanged(_ sender: Any) {
+        
+        let workoutText = "workout time: current/goal"
+        let stepText = "steps: current/goal"
+        let calText = "calories borned: current/goal"
+        
+
+        
+        if segmentControl.selectedSegmentIndex == 0{
+            workoutTimeText.text = "daily " + workoutText
+            stepsText.text = "daily " + stepText
+            caloriesText.text = "daily " + calText
+            workoutTimeProgress.progress = 14/30
+            caloriesProgress.progress = 333/500
+            stepsProgress.progress = 731/1000
+        }
+        else if segmentControl.selectedSegmentIndex == 1{
+            workoutTimeText.text = "weekly " + workoutText
+            stepsText.text = "weekly " + stepText
+            caloriesText.text = "weekly " + calText
+            workoutTimeProgress.progress = 0.2
+            caloriesProgress.progress = 0.3
+            stepsProgress.progress = 0.5
+            
+        }
+        else if segmentControl.selectedSegmentIndex == 2{
+            workoutTimeText.text = "monthly " + workoutText
+            stepsText.text = "monthly " + stepText
+            caloriesText.text = "monthly " + calText
+            workoutTimeProgress.progress = 0.6
+            caloriesProgress.progress = 0.7
+            stepsProgress.progress = 0.8
+            
+        }
+        else{
+            print(" no way to select other than 0-2 index!")
+        }
+        
+    }
     
 }
