@@ -19,7 +19,7 @@ class LeaderboardViewController: UIViewController {
         navigationItem.title = "LeaderBoard"
         
         self.tableView.dataSource = self
-        
+    
         
     }
     
@@ -43,7 +43,7 @@ extension LeaderboardViewController: UITableViewDataSource, UITableViewDelegate{
             cell.textLabel?.text = friend.getName(indexPath.row)
             cell.imageView?.image = UIImage(named: "1.circle.fill")
             cell.detailTextLabel?.text = String(friend.getSteps(indexPath.row))  + " Steps"
-            
+            tableView.rowHeight = 120
             return cell
         }
         else if indexPath.row == 1{
@@ -51,6 +51,7 @@ extension LeaderboardViewController: UITableViewDataSource, UITableViewDelegate{
             cell.textLabel?.text = friend.getName(indexPath.row)
             cell.imageView?.image = UIImage(named: "2.circle")
             cell.detailTextLabel?.text = String(friend.getSteps(indexPath.row)) + " Steps"
+            tableView.rowHeight = 80
             return cell
         }
         else if indexPath.row == 2{
@@ -58,12 +59,14 @@ extension LeaderboardViewController: UITableViewDataSource, UITableViewDelegate{
             cell.textLabel?.text = friend.getName(indexPath.row)
             cell.imageView?.image = UIImage(named: "3.circle")
             cell.detailTextLabel?.text = String(friend.getSteps(indexPath.row))  + " Steps"
+            tableView.rowHeight = 60
             return cell
         }
         else{
             cell = tableView.dequeueReusableCell(withIdentifier: "after", for: indexPath)
             cell.textLabel?.text = friend.getName(indexPath.row)
             cell.detailTextLabel?.text = String(friend.getSteps(indexPath.row))  + " Steps"
+            tableView.rowHeight = 44
             return cell
         }
         
