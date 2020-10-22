@@ -28,9 +28,5 @@ class FitnessGoalTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    @IBAction func editButtonPressed(_ sender: UIButton) {
-        print("presed")
-        
-    }
     
 }

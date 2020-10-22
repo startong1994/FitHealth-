@@ -1533,9 +1533,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="FaG-u9-twX"/>
                     </view>
-                    <navigationItem key="navigationItem" id="s15-Wm-74p">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="vNl-Mq-GYu"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="s15-Wm-74p"/>
                     <connections>
                         <outlet property="tableView" destination="Yta-EM-vUX" id="1aX-pL-YzQ"/>
                     </connections>
@@ -1749,6 +1747,6 @@
         <image name="person.3" catalog="system" width="72" height="35"/>
         <image name="person.badge.plus" catalog="system" width="64" height="58"/>
         <image name="plus" catalog="system" width="64" height="56"/>
-        <image name="rectangle.fill" catalog="system" width="32" height="32"/>
+        <image name="rectangle.fill" catalog="system" width="64" height="46"/>
     </resources>
 </document>
