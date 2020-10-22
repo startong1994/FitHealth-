@@ -43,7 +43,6 @@ extension FitnessViewController: UITableViewDataSource, UITableViewDelegate{
             return cell
             
         
-        
         }
         else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "workoutBar", for: indexPath) as! workoutCell
