@@ -8,7 +8,8 @@
 
 import UIKit
 
-class StatsBar: UITableViewCell {
+class StatsBar: UITableViewCell,UITableViewDelegate {
+    @IBOutlet weak var tableViewCell: UIView!
     @IBOutlet weak var workoutTimeText: UILabel!
     @IBOutlet weak var stepsText: UILabel!
     @IBOutlet weak var caloriesText: UILabel!

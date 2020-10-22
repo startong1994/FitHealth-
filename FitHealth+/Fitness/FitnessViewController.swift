@@ -16,6 +16,7 @@ class FitnessViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         self.tableView.dataSource = self
+        self.tableView.delegate = self
         
         tableView.register(UINib(nibName: "StatsBar", bundle: nil), forCellReuseIdentifier: "statsBar")
         tableView.register(UINib(nibName: "workoutCell", bundle: nil), forCellReuseIdentifier: "workoutBar")
@@ -24,7 +25,7 @@ class FitnessViewController: UIViewController {
     }
 }
 
-extension FitnessViewController: UITableViewDataSource{
+extension FitnessViewController: UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 2
     }
@@ -53,6 +54,18 @@ extension FitnessViewController: UITableViewDataSource{
         }
 
     }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    
+        
+        if indexPath.row == 0{
+            self.performSegue(withIdentifier: "fitnessToGoal", sender: self)
+        }
+        else if indexPath.row == 1{
+            self.performSegue(withIdentifier: "fitnessToGuide", sender: self)
+            
+        }
+    }
+    
     
     
     
