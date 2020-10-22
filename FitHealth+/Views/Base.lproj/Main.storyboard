@@ -523,7 +523,7 @@
         <!--Add recipe-->
         <scene sceneID="2Gp-Gs-vy2">
             <objects>
-                <viewController title="Add recipe" id="hBu-nE-Fqg" sceneMemberID="viewController">
+                <viewController title="Add recipe" id="hBu-nE-Fqg" customClass="AddRecipeViewController" customModule="FitHealth_" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fl9-bp-qj8">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -982,9 +982,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="CG9-X8-xds"/>
                     </view>
-                    <navigationItem key="navigationItem" title="FitHealth+" id="P8V-fb-2gA">
-                        <barButtonItem key="rightBarButtonItem" image="gearshape" id="MxQ-aY-PLF"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="FitHealth+" id="P8V-fb-2gA"/>
                     <connections>
                         <outlet property="tableView" destination="NIH-oJ-9d6" id="efp-J3-1cl"/>
                     </connections>
@@ -1525,6 +1523,22 @@
             </objects>
             <point key="canvasLocation" x="-151.19999999999999" y="950.98522167487693"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="9N3-YR-S9H">
+            <objects>
+                <viewController id="GSB-q1-adG" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6n6-g6-3pC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="hna-jG-Scs"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="WAa-k5-sIK"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qy1-GJ-AN6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2931" y="-1044"/>
+        </scene>
         <!--fitnessGoals-->
         <scene sceneID="f3L-Jj-TqT">
             <objects>
@@ -1606,6 +1620,9 @@
                                 <state key="normal" title="Balance Workouts">
                                     <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 </state>
+                                <connections>
+                                    <segue destination="GSB-q1-adG" kind="show" id="5g6-cc-m6V"/>
+                                </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="yaH-19-TAE">
                                 <rect key="frame" x="0.0" y="464" width="415" height="150"/>
