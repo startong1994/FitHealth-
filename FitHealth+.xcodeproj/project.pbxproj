@@ -21,6 +21,7 @@
 		D261FA03253D0D4F00AE096B /* Friends.swift in Sources */ = {isa = PBXBuildFile; fileRef = D261FA02253D0D4F00AE096B /* Friends.swift */; };
 		D261FA05253D0E1A00AE096B /* FriendsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D261FA04253D0E1A00AE096B /* FriendsData.swift */; };
 		D26A6009253F7D4A00A21006 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26A6008253F7D4A00A21006 /* ProfileViewController.swift */; };
+		D270A096254321FE00443769 /* WorkoutGuideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D270A095254321FE00443769 /* WorkoutGuideViewController.swift */; };
 		D2912C2E253E59AC0061EC01 /* newFriendProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2912C2D253E59AC0061EC01 /* newFriendProfileViewController.swift */; };
 		D2D546262542442500EA0C1E /* AddRecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D546252542442500EA0C1E /* AddRecipeViewController.swift */; };
 		D2D54628254244D800EA0C1E /* MyRecipesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D54627254244D800EA0C1E /* MyRecipesViewController.swift */; };
@@ -58,6 +59,7 @@
 		D261FA02253D0D4F00AE096B /* Friends.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friends.swift; sourceTree = "<group>"; };
 		D261FA04253D0E1A00AE096B /* FriendsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsData.swift; sourceTree = "<group>"; };
 		D26A6008253F7D4A00A21006 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		D270A095254321FE00443769 /* WorkoutGuideViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutGuideViewController.swift; sourceTree = "<group>"; };
 		D2912C2D253E59AC0061EC01 /* newFriendProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newFriendProfileViewController.swift; sourceTree = "<group>"; };
 		D2D546252542442500EA0C1E /* AddRecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecipeViewController.swift; sourceTree = "<group>"; };
 		D2D54627254244D800EA0C1E /* MyRecipesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRecipesViewController.swift; sourceTree = "<group>"; };
@@ -186,6 +188,7 @@
 			children = (
 				D2EA92D6253A329500026B0E /* FitnessViewController.swift */,
 				D2DB12792540DBF7005DFF65 /* FitnessGoalViewController.swift */,
+				D270A095254321FE00443769 /* WorkoutGuideViewController.swift */,
 			);
 			path = Fitness;
 			sourceTree = "<group>";
@@ -305,6 +308,7 @@
 				D2EA92D3253A329500026B0E /* AppDelegate.swift in Sources */,
 				D2EA92F9253B75B900026B0E /* SettingViewController.swift in Sources */,
 				D23058A0253CCEB30013B64C /* LeaderboardViewController.swift in Sources */,
+				D270A096254321FE00443769 /* WorkoutGuideViewController.swift in Sources */,
 				D23058A5253CD8540013B64C /* LoginViewController.swift in Sources */,
 				D261FA05253D0E1A00AE096B /* FriendsData.swift in Sources */,
 				D2D546262542442500EA0C1E /* AddRecipeViewController.swift in Sources */,

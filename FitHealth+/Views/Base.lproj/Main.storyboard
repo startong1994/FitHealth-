@@ -1675,54 +1675,32 @@ Whisk together eggs, garlic, parsley, salt and pepper in a shallow dish. Add chi
         <!--workoutGuide-->
         <scene sceneID="iH4-CD-AQp">
             <objects>
-                <viewController title="workoutGuide" id="zpZ-P8-SgP" sceneMemberID="viewController">
+                <viewController title="workoutGuide" id="zpZ-P8-SgP" customClass="WorkoutGuideViewController" customModule="FitHealth_" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="I0M-1E-3TZ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AdV-ei-gzQ">
-                                <rect key="frame" x="0.0" y="90" width="414" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="AdV-ei-gzQ">
+                                <rect key="frame" x="0.0" y="88" width="414" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Workout Guides" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0dA-eH-6Vp">
-                                <rect key="frame" x="124" y="134" width="166" height="29"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1A4-mp-upP">
-                                <rect key="frame" x="0.0" y="188" width="415" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vei-WN-zlf">
+                                <rect key="frame" x="0.0" y="304" width="414" height="80"/>
                                 <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <state key="normal" title="Strength Workouts">
-                                    <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vei-WN-zlf">
-                                <rect key="frame" x="0.0" y="261" width="415" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="4u7-4C-jQ1"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="Endurance Workouts">
                                     <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vZG-9e-zJq">
-                                <rect key="frame" x="0.0" y="333" width="415" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lTR-XU-rWj">
+                                <rect key="frame" x="0.0" y="544" width="414" height="80"/>
                                 <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <state key="normal" title="Flexibility Workouts">
-                                    <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lTR-XU-rWj">
-                                <rect key="frame" x="0.0" y="401" width="415" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="y4L-Xe-c2Z"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="Balance Workouts">
                                     <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
@@ -1731,11 +1709,51 @@ Whisk together eggs, garlic, parsley, salt and pepper in a shallow dish. Add chi
                                     <segue destination="GSB-q1-adG" kind="show" id="5g6-cc-m6V"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vZG-9e-zJq">
+                                <rect key="frame" x="0.0" y="424" width="414" height="80"/>
+                                <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="Zj7-ja-FHw"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" title="Flexibility Workouts">
+                                    <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1A4-mp-upP">
+                                <rect key="frame" x="0.0" y="184" width="414" height="80"/>
+                                <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="iiX-6G-713"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" title="Strength Workouts">
+                                    <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="vei-WN-zlf" firstAttribute="top" secondItem="1A4-mp-upP" secondAttribute="bottom" constant="40" id="0aH-NZ-Z6a"/>
+                            <constraint firstItem="WpX-Qz-f93" firstAttribute="bottom" secondItem="lTR-XU-rWj" secondAttribute="bottom" constant="189" id="9DN-Ph-njV"/>
+                            <constraint firstItem="vZG-9e-zJq" firstAttribute="trailing" secondItem="WpX-Qz-f93" secondAttribute="trailing" id="Buq-K0-M2u"/>
+                            <constraint firstItem="vei-WN-zlf" firstAttribute="leading" secondItem="I0M-1E-3TZ" secondAttribute="leading" id="Dho-HN-QdR"/>
+                            <constraint firstItem="AdV-ei-gzQ" firstAttribute="trailing" secondItem="WpX-Qz-f93" secondAttribute="trailing" id="JYZ-iQ-qSc"/>
+                            <constraint firstItem="AdV-ei-gzQ" firstAttribute="top" secondItem="WpX-Qz-f93" secondAttribute="top" id="N04-wl-NUC"/>
+                            <constraint firstItem="1A4-mp-upP" firstAttribute="leading" secondItem="I0M-1E-3TZ" secondAttribute="leading" id="TdB-Te-kAq"/>
+                            <constraint firstItem="1A4-mp-upP" firstAttribute="trailing" secondItem="WpX-Qz-f93" secondAttribute="trailing" id="bir-1l-jiN"/>
+                            <constraint firstAttribute="trailing" secondItem="lTR-XU-rWj" secondAttribute="trailing" id="dap-eq-uBs"/>
+                            <constraint firstItem="vZG-9e-zJq" firstAttribute="leading" secondItem="I0M-1E-3TZ" secondAttribute="leading" id="fa6-5h-tTY"/>
+                            <constraint firstItem="vei-WN-zlf" firstAttribute="trailing" secondItem="WpX-Qz-f93" secondAttribute="trailing" id="go1-g3-yXV"/>
+                            <constraint firstItem="lTR-XU-rWj" firstAttribute="leading" secondItem="WpX-Qz-f93" secondAttribute="leading" id="hXF-4T-UUI"/>
+                            <constraint firstItem="1A4-mp-upP" firstAttribute="top" secondItem="AdV-ei-gzQ" secondAttribute="bottom" constant="40" id="leG-cw-bna"/>
+                            <constraint firstItem="lTR-XU-rWj" firstAttribute="top" secondItem="vZG-9e-zJq" secondAttribute="bottom" constant="40" id="qJ7-4A-rDT"/>
+                            <constraint firstItem="AdV-ei-gzQ" firstAttribute="leading" secondItem="WpX-Qz-f93" secondAttribute="leading" id="smu-0F-Ztc"/>
+                            <constraint firstItem="vZG-9e-zJq" firstAttribute="top" secondItem="vei-WN-zlf" secondAttribute="bottom" constant="40" id="vJ5-hh-gA7"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="WpX-Qz-f93"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Fu9-tU-cC7"/>
+                    <navigationItem key="navigationItem" title="Workout Guides" id="Fu9-tU-cC7"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iv8-7f-Jzq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
