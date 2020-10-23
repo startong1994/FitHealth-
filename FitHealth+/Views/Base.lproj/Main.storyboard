@@ -504,93 +504,66 @@
             </objects>
             <point key="canvasLocation" x="7628.985507246377" y="-380.35714285714283"/>
         </scene>
-        <!--View Controller-->
+        <!--Recipe Detail View Controller-->
         <scene sceneID="Hfd-Xe-dOx">
             <objects>
-                <viewController id="ng3-u8-AGp" sceneMemberID="viewController">
+                <viewController id="ng3-u8-AGp" customClass="RecipeDetailViewController" customModule="FitHealth_" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MSY-Dk-aEe">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chicken Parmesan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1fQ-TW-e10">
-                                <rect key="frame" x="110.5" y="108" width="193" height="27"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chicken Parmesan" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1fQ-TW-e10">
+                                <rect key="frame" x="20" y="108" width="374" height="27"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                                 <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Serving Size: 6" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qwU-TL-bjd">
+                                <rect key="frame" x="20" y="323" width="374" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ipn-V8-3on">
-                                <rect key="frame" x="87" y="161" width="240" height="128"/>
+                                <rect key="frame" x="87" y="155" width="240" height="128"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="128" id="VCB-BJ-Ggl"/>
+                                    <constraint firstAttribute="height" constant="128" id="Ygf-ml-4Xh"/>
                                 </constraints>
                             </imageView>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xgA-5g-397">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Serving Size: 6" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qwU-TL-bjd">
-                                        <rect key="frame" x="142" y="212" width="130" height="24"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pJH-u5-2qp">
+                                <rect key="frame" x="0.0" y="387" width="414" height="426"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="qwU-TL-bjd" secondAttribute="trailing" constant="142" id="3ZF-zW-pOA"/>
-                                    <constraint firstItem="qwU-TL-bjd" firstAttribute="top" secondItem="d06-5b-SOU" secondAttribute="top" constant="234" id="99b-LR-19D"/>
-                                    <constraint firstItem="qwU-TL-bjd" firstAttribute="centerX" secondItem="xgA-5g-397" secondAttribute="centerX" id="lhb-AO-Rto"/>
-                                    <constraint firstAttribute="bottom" secondItem="qwU-TL-bjd" secondAttribute="bottom" constant="467" id="mW2-WB-gmO"/>
+                                    <constraint firstAttribute="height" constant="426" id="spn-dz-0yN"/>
                                 </constraints>
-                                <viewLayoutGuide key="contentLayoutGuide" id="S1v-9h-QF0"/>
-                                <viewLayoutGuide key="frameLayoutGuide" id="d06-5b-SOU"/>
-                            </scrollView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="vwm-GS-v7o">
-                                <rect key="frame" x="51" y="342" width="312" height="292"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <string key="text">INGREDIENTS
-For The Chicken:
-2 large eggs
-1 tablespoon minced garlic
-2 tablespoons fresh chopped parsley
-Salt and pepper to season
-3 large chicken breasts halved horizontally to make 6 fillets
-1 cup Panko breadcrumbs
-1/2 cup breadcrumbs (Italian or golden)
-1/2 cup fresh grated parmesan cheese
-1 teaspoon garlic or onion powder
-1/2 cup olive oil for frying</string>
-                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="aXp-zv-EmT">
-                                <rect key="frame" x="51" y="642" width="312" height="160"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <string key="text">INSTRUCTIONS
-For The Chicken:
-Preheat oven 430°F | 220°C. Lightly grease an oven tray (or baking dish) with non stick cooking oil spray; set aside.
-Whisk together eggs, garlic, parsley, salt and pepper in a shallow dish. Add chicken into the egg, rotating to evenly coat each fillet in the mixture. Cover with plastic wrap and allow to marinate for at least 15 minutes (or overnight night if time allows for a deeper flavour).</string>
-                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="xgA-5g-397" firstAttribute="centerX" secondItem="1fQ-TW-e10" secondAttribute="centerX" id="BQN-Rg-f0e"/>
-                            <constraint firstItem="xgA-5g-397" firstAttribute="centerX" secondItem="MSY-Dk-aEe" secondAttribute="centerX" id="C6T-nt-0aM"/>
-                            <constraint firstItem="xgA-5g-397" firstAttribute="bottom" secondItem="3X9-FI-hQF" secondAttribute="bottom" id="FjV-Oc-nuk"/>
-                            <constraint firstItem="ipn-V8-3on" firstAttribute="leading" secondItem="3X9-FI-hQF" secondAttribute="leading" constant="87" id="PHp-13-zCd"/>
-                            <constraint firstItem="3X9-FI-hQF" firstAttribute="bottom" secondItem="ipn-V8-3on" secondAttribute="bottom" constant="524" id="UpD-t6-w3m"/>
-                            <constraint firstItem="xgA-5g-397" firstAttribute="centerX" secondItem="ipn-V8-3on" secondAttribute="centerX" id="iew-un-6Ds"/>
-                            <constraint firstItem="xgA-5g-397" firstAttribute="leading" secondItem="3X9-FI-hQF" secondAttribute="leading" id="t5L-Rx-LIM"/>
-                            <constraint firstItem="ipn-V8-3on" firstAttribute="top" secondItem="1fQ-TW-e10" secondAttribute="bottom" constant="26" id="ufo-Bz-DcO"/>
-                            <constraint firstItem="xgA-5g-397" firstAttribute="top" secondItem="3X9-FI-hQF" secondAttribute="top" id="wsq-3F-hbQ"/>
+                            <constraint firstItem="pJH-u5-2qp" firstAttribute="trailing" secondItem="3X9-FI-hQF" secondAttribute="trailing" id="AHr-EA-i9X"/>
+                            <constraint firstItem="pJH-u5-2qp" firstAttribute="top" secondItem="qwU-TL-bjd" secondAttribute="bottom" constant="40" id="FAJ-ya-KrC"/>
+                            <constraint firstItem="pJH-u5-2qp" firstAttribute="bottom" secondItem="3X9-FI-hQF" secondAttribute="bottom" id="FGw-Xq-1rR"/>
+                            <constraint firstItem="1fQ-TW-e10" firstAttribute="top" secondItem="3X9-FI-hQF" secondAttribute="top" constant="20" id="RFU-G2-Y1O"/>
+                            <constraint firstItem="3X9-FI-hQF" firstAttribute="trailing" secondItem="1fQ-TW-e10" secondAttribute="trailing" constant="20" id="RGb-WD-LO3"/>
+                            <constraint firstItem="ipn-V8-3on" firstAttribute="leading" secondItem="3X9-FI-hQF" secondAttribute="leading" constant="87" id="Teq-dc-nbO"/>
+                            <constraint firstItem="qwU-TL-bjd" firstAttribute="leading" secondItem="3X9-FI-hQF" secondAttribute="leading" constant="20" id="Up6-QR-qeM"/>
+                            <constraint firstItem="pJH-u5-2qp" firstAttribute="leading" secondItem="3X9-FI-hQF" secondAttribute="leading" id="WHL-rC-H9y"/>
+                            <constraint firstItem="pJH-u5-2qp" firstAttribute="top" secondItem="qwU-TL-bjd" secondAttribute="bottom" constant="40" id="aPG-ru-glF"/>
+                            <constraint firstItem="ipn-V8-3on" firstAttribute="top" secondItem="1fQ-TW-e10" secondAttribute="bottom" constant="20" id="ay6-yV-Vdt"/>
+                            <constraint firstItem="1fQ-TW-e10" firstAttribute="leading" secondItem="3X9-FI-hQF" secondAttribute="leading" constant="20" id="guH-AQ-lFl"/>
+                            <constraint firstItem="3X9-FI-hQF" firstAttribute="trailing" secondItem="ipn-V8-3on" secondAttribute="trailing" constant="87" id="meD-2r-thF"/>
+                            <constraint firstItem="3X9-FI-hQF" firstAttribute="trailing" secondItem="qwU-TL-bjd" secondAttribute="trailing" constant="20" id="s5b-KK-iRG"/>
+                            <constraint firstItem="qwU-TL-bjd" firstAttribute="top" secondItem="ipn-V8-3on" secondAttribute="bottom" constant="40" id="ue8-pc-kNk"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="3X9-FI-hQF"/>
                     </view>
                     <navigationItem key="navigationItem" id="NuL-Yb-3wu"/>
+                    <connections>
+                        <outlet property="ServingSizeOfRecipe" destination="qwU-TL-bjd" id="ckK-8n-mcK"/>
+                        <outlet property="imageOfRecipe" destination="ipn-V8-3on" id="b4z-oO-Y1N"/>
+                        <outlet property="tableView" destination="pJH-u5-2qp" id="v6f-V6-bYb"/>
+                        <outlet property="titleOfRecipe" destination="1fQ-TW-e10" id="fIZ-Jg-xV6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3ca-xw-Yqj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
