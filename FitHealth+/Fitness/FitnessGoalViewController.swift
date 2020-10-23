@@ -69,6 +69,8 @@ extension FitnessGoalViewController: UITableViewDataSource, UITableViewDelegate{
             print(getGoal("Calories Borned"))
         }
         
+        tableView.deselectRow(at: indexPath, animated: true)
+        
     }
     
     

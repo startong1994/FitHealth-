@@ -63,6 +63,9 @@ extension FitnessViewController: UITableViewDataSource, UITableViewDelegate{
             self.performSegue(withIdentifier: "fitnessToGuide", sender: self)
             
         }
+        
+        
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     

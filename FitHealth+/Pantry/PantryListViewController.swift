@@ -83,6 +83,18 @@ class PantryListViewController: UIViewController, UITableViewDelegate, UITableVi
         tableViewList.reloadData()
     }
     
+    
+    
+    // added code by Daitong Xu, deselectRow,
+    
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    
+    
+    
     //search bar
     func setUpSearchBar() {
         let searchController = UISearchController(searchResultsController: nil)
