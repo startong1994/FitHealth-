@@ -525,41 +525,25 @@
             <objects>
                 <viewController title="Add recipe" id="hBu-nE-Fqg" customClass="AddRecipeViewController" customModule="FitHealth_" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fl9-bp-qj8">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LgX-v9-n6Q">
-                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <items>
-                                    <navigationItem title="FitHealth +" id="RA0-wf-sB1">
-                                        <barButtonItem key="rightBarButtonItem" image="gearshape" id="w7M-WV-wIJ"/>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Add Recipe" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b85-cN-2U1">
-                                <rect key="frame" x="1" y="88" width="413.99999999999955" height="62.999999999999773"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <color key="textColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DJ6-Or-7ch">
-                                <rect key="frame" x="20" y="182" width="52" height="24"/>
+                                <rect key="frame" x="20" y="122" width="52" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Serving Size" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mY8-AX-man">
-                                <rect key="frame" x="20" y="265" width="108" height="24"/>
+                                <rect key="frame" x="20" y="217" width="108" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Calories per Serving" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DGv-lH-WOL">
-                                <rect key="frame" x="20" y="342" width="175" height="24"/>
+                                <rect key="frame" x="20" y="315" width="175" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
@@ -587,31 +571,27 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vEj-bj-Q9h">
-                                <rect key="frame" x="20" y="214" width="350" height="34"/>
+                                <rect key="frame" x="20" y="154" width="350" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ikg-fn-Qma">
-                                <rect key="frame" x="20" y="300" width="350" height="34"/>
+                                <rect key="frame" x="20" y="256" width="350" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="HJ9-fW-pjr">
-                                <rect key="frame" x="188" y="374" width="94" height="32"/>
+                                <rect key="frame" x="188" y="362" width="94" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </stepper>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0ii-E2-07c">
-                                <rect key="frame" x="20" y="374" width="160" height="34"/>
+                                <rect key="frame" x="20" y="362" width="160" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VIO-ng-Ni9">
-                                <rect key="frame" x="0.0" y="445" width="414" height="88"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            </pickerView>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pMc-Zv-vl4">
                                 <rect key="frame" x="20" y="573" width="350" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -637,17 +617,28 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Add Image"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rzt-jI-dMJ">
-                                <rect key="frame" x="104" y="785" width="76" height="42"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <state key="normal" title="Cancel"/>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uq6-Te-nLl">
-                                <rect key="frame" x="254" y="785" width="45" height="42"/>
+                                <rect key="frame" x="254" y="766" width="45" height="42"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="Add"/>
+                            </button>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VIO-ng-Ni9">
+                                <rect key="frame" x="0.0" y="439" width="414" height="88"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Add Recipe" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j4Y-Ht-Noq">
+                                <rect key="frame" x="114" y="41" width="163" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="33"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rzt-jI-dMJ">
+                                <rect key="frame" x="104" y="766" width="76" height="42"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="Cancel"/>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -657,52 +648,32 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xNc-rd-Jr2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2446.376811594203" y="520.98214285714289"/>
+            <point key="canvasLocation" x="-2125" y="465"/>
         </scene>
         <!--My Recipes-->
         <scene sceneID="bF1-wq-p33">
             <objects>
-                <viewController title="My Recipes" id="ilh-22-3EI" sceneMemberID="viewController">
+                <viewController title="My Recipes" id="ilh-22-3EI" customClass="MyRecipesViewController" customModule="FitHealth_" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="topRight" id="HLT-oz-Adc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="My Recipes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bDY-tl-RSg">
-                                <rect key="frame" x="144.5" y="142" width="125.5" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <color key="textColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <searchBar contentMode="redraw" ambiguous="YES" placeholder="Search" translatesAutoresizingMaskIntoConstraints="NO" id="Jab-Mk-mLd">
-                                <rect key="frame" x="0.0" y="180" width="414" height="56"/>
-                                <color key="barTintColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </searchBar>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Recipe list" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bUD-9y-LkT">
-                                <rect key="frame" x="156" y="348.5" width="102" height="27.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
-                                <color key="textColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l1O-eb-mg1">
-                                <rect key="frame" x="48" y="253" width="318" height="74"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="76.5" id="iqL-Wj-9Z8"/>
-                                </constraints>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l1O-eb-mg1">
+                                <rect key="frame" x="48" y="201" width="318" height="88"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                 <inset key="contentEdgeInsets" minX="100" minY="30" maxX="100" maxY="30"/>
                                 <state key="normal" title="Add recipes" backgroundImage="rectangle.fill" catalog="system">
                                     <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 </state>
                                 <connections>
-                                    <segue destination="hBu-nE-Fqg" kind="show" id="ILj-Nc-PGP"/>
+                                    <segue destination="hBu-nE-Fqg" kind="showDetail" id="ILj-Nc-PGP"/>
                                 </connections>
                             </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" alignment="center" spacing="37" translatesAutoresizingMaskIntoConstraints="NO" id="jXz-NT-ldm" userLabel="Recipe list Stack View">
-                                <rect key="frame" x="0.0" y="396" width="414" height="333.5"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="37" translatesAutoresizingMaskIntoConstraints="NO" id="jXz-NT-ldm" userLabel="Recipe list Stack View">
+                                <rect key="frame" x="69" y="419" width="277" height="333.5"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jUH-vJ-rD4" userLabel="My recipe button1">
-                                        <rect key="frame" x="70" y="1" width="274" height="84"/>
+                                        <rect key="frame" x="1.5" y="1" width="274" height="84"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <inset key="contentEdgeInsets" minX="100" minY="30" maxX="100" maxY="30"/>
                                         <state key="normal" title="Recipe 1" backgroundImage="rectangle.fill" catalog="system">
@@ -710,7 +681,7 @@
                                         </state>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XVH-Q4-ZE6" userLabel="My recipe button2">
-                                        <rect key="frame" x="69" y="124.5" width="276" height="84"/>
+                                        <rect key="frame" x="0.5" y="124.5" width="276" height="84"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <inset key="contentEdgeInsets" minX="100" minY="30" maxX="100" maxY="30"/>
                                         <state key="normal" title="Recipe 2" backgroundImage="rectangle.fill" catalog="system">
@@ -718,7 +689,7 @@
                                         </state>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V2o-0R-TsP" userLabel="My recipe button3">
-                                        <rect key="frame" x="68.5" y="248" width="277" height="84"/>
+                                        <rect key="frame" x="0.0" y="248" width="277" height="84"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <inset key="contentEdgeInsets" minX="100" minY="30" maxX="100" maxY="30"/>
                                         <state key="normal" title="Recipe 3" backgroundImage="rectangle.fill" catalog="system">
@@ -727,48 +698,57 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CPO-y3-8Ip" userLabel="Back button">
-                                <rect key="frame" x="70" y="763.5" width="21" height="18"/>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CPO-y3-8Ip" userLabel="Back button">
+                                <rect key="frame" x="70" y="783.5" width="21" height="18"/>
                                 <state key="normal" backgroundImage="arrowshape.turn.up.left.fill" catalog="system"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="atf-aa-28y" userLabel="Home button">
-                                <rect key="frame" x="195.5" y="762.5" width="23.5" height="19.5"/>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="atf-aa-28y" userLabel="Home button">
+                                <rect key="frame" x="195" y="782.5" width="23.5" height="19.5"/>
                                 <state key="normal" backgroundImage="house.fill" catalog="system"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kmk-89-GSr" userLabel="Forward button">
-                                <rect key="frame" x="323" y="763.5" width="21" height="18"/>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kmk-89-GSr" userLabel="Forward button">
+                                <rect key="frame" x="322.5" y="783.5" width="21.5" height="18"/>
                                 <state key="normal" backgroundImage="arrowshape.turn.up.right" catalog="system"/>
                             </button>
+                            <searchBar contentMode="redraw" placeholder="Search my recipies" translatesAutoresizingMaskIntoConstraints="NO" id="nXW-wT-vFZ">
+                                <rect key="frame" x="0.0" y="88" width="414" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recipe list" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bUD-9y-LkT">
+                                <rect key="frame" x="156" y="347" width="102" height="27.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <color key="textColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="bUD-9y-LkT" firstAttribute="centerX" secondItem="HLT-oz-Adc" secondAttribute="centerX" id="0tQ-Hb-4zn"/>
-                            <constraint firstItem="bUD-9y-LkT" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="W2i-jp-RdB" secondAttribute="leading" id="1gP-hH-reR"/>
-                            <constraint firstItem="bUD-9y-LkT" firstAttribute="top" secondItem="l1O-eb-mg1" secondAttribute="bottom" constant="20" id="3MS-SH-bEd"/>
-                            <constraint firstItem="W2i-jp-RdB" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="bUD-9y-LkT" secondAttribute="trailing" id="5B9-s5-XNl"/>
-                            <constraint firstItem="W2i-jp-RdB" firstAttribute="bottom" secondItem="kmk-89-GSr" secondAttribute="bottom" constant="30" id="83P-yx-9a6"/>
-                            <constraint firstItem="W2i-jp-RdB" firstAttribute="trailing" secondItem="kmk-89-GSr" secondAttribute="trailing" constant="70" id="8vy-q6-S5S"/>
-                            <constraint firstItem="W2i-jp-RdB" firstAttribute="bottom" secondItem="CPO-y3-8Ip" secondAttribute="bottom" constant="30" id="Gja-AY-2Ah"/>
-                            <constraint firstItem="jXz-NT-ldm" firstAttribute="centerX" secondItem="HLT-oz-Adc" secondAttribute="centerX" id="IlX-rG-YSl"/>
-                            <constraint firstItem="W2i-jp-RdB" firstAttribute="trailing" secondItem="jXz-NT-ldm" secondAttribute="trailing" id="JVD-bX-HBC"/>
-                            <constraint firstItem="jXz-NT-ldm" firstAttribute="leading" secondItem="W2i-jp-RdB" secondAttribute="leading" id="QzH-s8-odC"/>
-                            <constraint firstItem="atf-aa-28y" firstAttribute="centerX" secondItem="HLT-oz-Adc" secondAttribute="centerX" id="Srj-fh-U8k"/>
-                            <constraint firstItem="bDY-tl-RSg" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="W2i-jp-RdB" secondAttribute="leading" id="UKH-ku-klc"/>
-                            <constraint firstItem="Jab-Mk-mLd" firstAttribute="centerX" secondItem="HLT-oz-Adc" secondAttribute="centerX" id="YuE-rA-Ekh"/>
-                            <constraint firstItem="W2i-jp-RdB" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="bDY-tl-RSg" secondAttribute="trailing" id="af2-eU-QPh"/>
-                            <constraint firstItem="l1O-eb-mg1" firstAttribute="centerX" secondItem="HLT-oz-Adc" secondAttribute="centerX" id="bQQ-Nd-kNp"/>
-                            <constraint firstItem="W2i-jp-RdB" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="l1O-eb-mg1" secondAttribute="trailing" id="bak-ea-EPI"/>
-                            <constraint firstItem="jXz-NT-ldm" firstAttribute="top" secondItem="bUD-9y-LkT" secondAttribute="bottom" constant="20" id="cWM-A4-Dci"/>
-                            <constraint firstItem="l1O-eb-mg1" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="W2i-jp-RdB" secondAttribute="leading" id="egA-zu-gjh"/>
-                            <constraint firstItem="bDY-tl-RSg" firstAttribute="centerX" secondItem="HLT-oz-Adc" secondAttribute="centerX" id="flG-vV-948"/>
-                            <constraint firstItem="W2i-jp-RdB" firstAttribute="bottom" secondItem="atf-aa-28y" secondAttribute="bottom" constant="30" id="msb-Jz-czj"/>
-                            <constraint firstItem="Jab-Mk-mLd" firstAttribute="top" secondItem="bDY-tl-RSg" secondAttribute="bottom" constant="8" id="v9T-mD-t9Q"/>
-                            <constraint firstItem="CPO-y3-8Ip" firstAttribute="leading" secondItem="W2i-jp-RdB" secondAttribute="leading" constant="70" id="vmf-wL-gzj"/>
-                            <constraint firstItem="l1O-eb-mg1" firstAttribute="top" secondItem="Jab-Mk-mLd" secondAttribute="bottom" constant="16" id="xVc-Gi-Evm"/>
+                            <constraint firstItem="jXz-NT-ldm" firstAttribute="leading" secondItem="W2i-jp-RdB" secondAttribute="leading" constant="69" id="4Ow-F5-IpC"/>
+                            <constraint firstItem="W2i-jp-RdB" firstAttribute="bottom" secondItem="kmk-89-GSr" secondAttribute="bottom" constant="10" id="CKs-2C-geb"/>
+                            <constraint firstItem="jXz-NT-ldm" firstAttribute="top" secondItem="bUD-9y-LkT" secondAttribute="bottom" constant="44.5" id="DSf-b7-KHx"/>
+                            <constraint firstItem="W2i-jp-RdB" firstAttribute="trailing" secondItem="bUD-9y-LkT" secondAttribute="trailing" constant="156" id="EiL-KN-PfX"/>
+                            <constraint firstItem="kmk-89-GSr" firstAttribute="leading" secondItem="atf-aa-28y" secondAttribute="trailing" constant="104" id="INn-s9-4qT"/>
+                            <constraint firstItem="W2i-jp-RdB" firstAttribute="trailing" secondItem="jXz-NT-ldm" secondAttribute="trailing" constant="68" id="LTL-ae-0ty"/>
+                            <constraint firstItem="W2i-jp-RdB" firstAttribute="bottom" secondItem="atf-aa-28y" secondAttribute="bottom" constant="10" id="M5q-bu-wo5"/>
+                            <constraint firstItem="W2i-jp-RdB" firstAttribute="trailing" secondItem="l1O-eb-mg1" secondAttribute="trailing" constant="48" id="N7s-OG-cIp"/>
+                            <constraint firstItem="bUD-9y-LkT" firstAttribute="leading" secondItem="W2i-jp-RdB" secondAttribute="leading" constant="156" id="Pvn-aJ-9xq"/>
+                            <constraint firstItem="CPO-y3-8Ip" firstAttribute="leading" secondItem="W2i-jp-RdB" secondAttribute="leading" constant="70" id="Rnk-dS-yn1"/>
+                            <constraint firstItem="l1O-eb-mg1" firstAttribute="top" secondItem="nXW-wT-vFZ" secondAttribute="bottom" constant="56" id="ZMy-gG-tg7"/>
+                            <constraint firstItem="W2i-jp-RdB" firstAttribute="trailing" secondItem="kmk-89-GSr" secondAttribute="trailing" constant="70" id="dv7-mz-EN5"/>
+                            <constraint firstItem="nXW-wT-vFZ" firstAttribute="leading" secondItem="W2i-jp-RdB" secondAttribute="leading" id="e0n-5r-fDk"/>
+                            <constraint firstItem="nXW-wT-vFZ" firstAttribute="trailing" secondItem="W2i-jp-RdB" secondAttribute="trailing" id="eXj-zI-RHW"/>
+                            <constraint firstItem="bUD-9y-LkT" firstAttribute="top" secondItem="l1O-eb-mg1" secondAttribute="bottom" constant="56.5" id="n8x-mc-blX"/>
+                            <constraint firstItem="nXW-wT-vFZ" firstAttribute="top" secondItem="W2i-jp-RdB" secondAttribute="top" id="nor-7L-wqQ"/>
+                            <constraint firstItem="atf-aa-28y" firstAttribute="leading" secondItem="CPO-y3-8Ip" secondAttribute="trailing" constant="104" id="re2-cv-V1W"/>
+                            <constraint firstItem="W2i-jp-RdB" firstAttribute="bottom" secondItem="CPO-y3-8Ip" secondAttribute="bottom" constant="10" id="tQi-VS-FKi"/>
+                            <constraint firstItem="l1O-eb-mg1" firstAttribute="leading" secondItem="W2i-jp-RdB" secondAttribute="leading" constant="48" id="z2M-61-NvX"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="W2i-jp-RdB"/>
                     </view>
                     <navigationItem key="navigationItem" id="be3-CX-zlm"/>
+                    <connections>
+                        <outlet property="searchBar" destination="nXW-wT-vFZ" id="5Kb-3A-Pc0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mau-Tk-MaG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -782,19 +762,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recipes" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tJ1-rJ-LdI">
-                                <rect key="frame" x="164" y="98" width="86.5" height="30"/>
-                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="25"/>
-                                <color key="textColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <searchBar contentMode="redraw" placeholder="Search recipes" translatesAutoresizingMaskIntoConstraints="NO" id="tyI-o9-hsU">
-                                <rect key="frame" x="0.0" y="136" width="414" height="56"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="56"/>
                                 <color key="barTintColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hvn-ch-ECX" userLabel="My recipes button">
-                                <rect key="frame" x="7" y="211.5" width="400" height="74"/>
+                                <rect key="frame" x="7" y="160" width="400" height="74"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <inset key="contentEdgeInsets" minX="150" minY="25" maxX="150" maxY="25"/>
                                 <state key="normal" title="My recipies" backgroundImage="rectangle.fill" catalog="system">
@@ -805,13 +779,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Featured recipes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gl6-9u-HMa">
-                                <rect key="frame" x="124.5" y="297" width="165.5" height="27.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
-                                <color key="textColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recipe categories" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A8v-tv-tuF">
-                                <rect key="frame" x="118.5" y="469" width="177.5" height="27.5"/>
+                                <rect key="frame" x="20" y="255.5" width="374" height="27.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                 <color key="textColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -825,11 +793,11 @@
                                 <state key="normal" backgroundImage="arrowshape.turn.up.right" catalog="system"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V6h-yx-dci" userLabel="Forward button">
-                                <rect key="frame" x="195.5" y="782.5" width="23.5" height="19.5"/>
+                                <rect key="frame" x="195.5" y="780.5" width="23.5" height="19.5"/>
                                 <state key="normal" backgroundImage="house.fill" catalog="system"/>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="GfH-eL-FS3" userLabel="Featured recipe Stack View">
-                                <rect key="frame" x="0.0" y="334.5" width="414" height="124.5"/>
+                                <rect key="frame" x="0.0" y="303" width="414" height="124.5"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WBn-43-g0Y" userLabel="Featured recipe right button">
                                         <rect key="frame" x="0.0" y="1" width="188" height="122"/>
@@ -852,10 +820,10 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="G3o-mq-B0x" userLabel="Recipe categories Stack View">
-                                <rect key="frame" x="0.0" y="506.5" width="414" height="266"/>
+                                <rect key="frame" x="20" y="495" width="374" height="266"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fJ5-GN-hMD" userLabel="Recipe category button 1">
-                                        <rect key="frame" x="0.0" y="1" width="414" height="64"/>
+                                        <rect key="frame" x="0.0" y="1" width="374" height="64"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <inset key="contentEdgeInsets" minX="50" minY="20" maxX="50" maxY="20"/>
                                         <state key="normal" title="Breakfast" backgroundImage="rectangle.fill" catalog="system">
@@ -863,7 +831,7 @@
                                         </state>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fUD-3P-7RU" userLabel="Recipe category button 2">
-                                        <rect key="frame" x="0.0" y="67.5" width="414" height="64"/>
+                                        <rect key="frame" x="0.0" y="67.5" width="374" height="64"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <inset key="contentEdgeInsets" minX="65" minY="20" maxX="50" maxY="20"/>
                                         <inset key="titleEdgeInsets" minX="-15" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -872,7 +840,7 @@
                                         </state>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qsZ-HM-BMt" userLabel="Recipe category button 3">
-                                        <rect key="frame" x="0.0" y="134" width="414" height="64"/>
+                                        <rect key="frame" x="0.0" y="134" width="374" height="64"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <inset key="contentEdgeInsets" minX="50" minY="20" maxX="75" maxY="20"/>
                                         <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="-27" maxY="0.0"/>
@@ -881,7 +849,7 @@
                                         </state>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="80c-Ob-muS" userLabel="Recipe category button 4">
-                                        <rect key="frame" x="0.0" y="200.5" width="414" height="64"/>
+                                        <rect key="frame" x="0.0" y="200.5" width="374" height="64"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                         <state key="normal" title="Vegetarian" backgroundImage="rectangle.fill" catalog="system">
@@ -890,44 +858,47 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recipe categories" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A8v-tv-tuF">
+                                <rect key="frame" x="20" y="447.5" width="374" height="27.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <color key="textColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="A8v-tv-tuF" firstAttribute="centerX" secondItem="QS5-Rx-YEW" secondAttribute="centerX" id="10W-DF-USL"/>
-                            <constraint firstAttribute="trailing" secondItem="GfH-eL-FS3" secondAttribute="trailing" id="3NP-b6-bVz"/>
-                            <constraint firstItem="O1u-W8-tvY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="A8v-tv-tuF" secondAttribute="trailing" id="5tr-K2-iQR"/>
-                            <constraint firstItem="O1u-W8-tvY" firstAttribute="bottom" secondItem="qrA-TN-AEN" secondAttribute="bottom" constant="10" id="7Mt-KD-udH"/>
-                            <constraint firstItem="O1u-W8-tvY" firstAttribute="bottom" secondItem="DXD-Ha-HSa" secondAttribute="bottom" constant="10" id="9NQ-yS-7BC"/>
-                            <constraint firstItem="tyI-o9-hsU" firstAttribute="leading" secondItem="O1u-W8-tvY" secondAttribute="leading" id="Bfg-Uk-4hR"/>
-                            <constraint firstItem="Gl6-9u-HMa" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="O1u-W8-tvY" secondAttribute="leading" id="CBm-B7-4zA"/>
-                            <constraint firstItem="GfH-eL-FS3" firstAttribute="top" secondItem="Gl6-9u-HMa" secondAttribute="bottom" constant="10" id="Ngw-AM-Tyf"/>
-                            <constraint firstItem="V6h-yx-dci" firstAttribute="centerX" secondItem="QS5-Rx-YEW" secondAttribute="centerX" id="NiI-Sk-v74"/>
-                            <constraint firstItem="Gl6-9u-HMa" firstAttribute="centerX" secondItem="QS5-Rx-YEW" secondAttribute="centerX" id="Qqg-6v-R3r"/>
-                            <constraint firstItem="Hvn-ch-ECX" firstAttribute="centerX" secondItem="QS5-Rx-YEW" secondAttribute="centerX" id="RaQ-fg-f1l"/>
-                            <constraint firstItem="O1u-W8-tvY" firstAttribute="trailing" secondItem="G3o-mq-B0x" secondAttribute="trailing" id="Ty3-F9-5Ty"/>
-                            <constraint firstItem="O1u-W8-tvY" firstAttribute="trailing" secondItem="qrA-TN-AEN" secondAttribute="trailing" constant="70" id="U0g-AI-34n"/>
-                            <constraint firstItem="Gl6-9u-HMa" firstAttribute="top" secondItem="Hvn-ch-ECX" secondAttribute="bottom" constant="10" id="VgC-7N-ByI"/>
-                            <constraint firstItem="DXD-Ha-HSa" firstAttribute="leading" secondItem="O1u-W8-tvY" secondAttribute="leading" constant="70" id="ZwI-GP-Mb3"/>
-                            <constraint firstItem="A8v-tv-tuF" firstAttribute="top" secondItem="GfH-eL-FS3" secondAttribute="bottom" constant="10" id="aQc-L5-bxX"/>
-                            <constraint firstItem="qrA-TN-AEN" firstAttribute="top" secondItem="G3o-mq-B0x" secondAttribute="bottom" constant="10" id="d39-AM-RDc"/>
-                            <constraint firstItem="G3o-mq-B0x" firstAttribute="centerX" secondItem="QS5-Rx-YEW" secondAttribute="centerX" id="eP9-gs-7pT"/>
-                            <constraint firstItem="tJ1-rJ-LdI" firstAttribute="centerX" secondItem="QS5-Rx-YEW" secondAttribute="centerX" id="eg7-Jq-Vn3"/>
-                            <constraint firstItem="tJ1-rJ-LdI" firstAttribute="top" secondItem="QS5-Rx-YEW" secondAttribute="topMargin" constant="10" id="ejy-Gy-5c3"/>
-                            <constraint firstItem="O1u-W8-tvY" firstAttribute="bottom" secondItem="V6h-yx-dci" secondAttribute="bottom" constant="10" id="fLX-WV-XiF"/>
-                            <constraint firstItem="tyI-o9-hsU" firstAttribute="top" secondItem="tJ1-rJ-LdI" secondAttribute="bottom" constant="8" id="iJl-cD-1hN"/>
-                            <constraint firstItem="GfH-eL-FS3" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leading" id="jy1-Hi-HX3"/>
-                            <constraint firstItem="tyI-o9-hsU" firstAttribute="centerX" secondItem="QS5-Rx-YEW" secondAttribute="centerX" id="l9o-K6-Tf8"/>
-                            <constraint firstItem="A8v-tv-tuF" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="O1u-W8-tvY" secondAttribute="leading" id="oFK-ZB-P8G"/>
-                            <constraint firstItem="GfH-eL-FS3" firstAttribute="centerX" secondItem="QS5-Rx-YEW" secondAttribute="centerX" id="oIF-XT-3Kd"/>
-                            <constraint firstItem="G3o-mq-B0x" firstAttribute="leading" secondItem="O1u-W8-tvY" secondAttribute="leading" id="r7Z-T8-UGv"/>
-                            <constraint firstItem="G3o-mq-B0x" firstAttribute="top" secondItem="A8v-tv-tuF" secondAttribute="bottom" constant="10" id="t1h-zj-J7q"/>
-                            <constraint firstItem="O1u-W8-tvY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Gl6-9u-HMa" secondAttribute="trailing" id="vUP-Yx-Qhn"/>
+                            <constraint firstItem="A8v-tv-tuF" firstAttribute="top" secondItem="GfH-eL-FS3" secondAttribute="bottom" constant="20" id="1NB-WE-FWu"/>
+                            <constraint firstItem="G3o-mq-B0x" firstAttribute="leading" secondItem="O1u-W8-tvY" secondAttribute="leading" constant="20" id="2Rk-mb-qXD"/>
+                            <constraint firstItem="O1u-W8-tvY" firstAttribute="trailing" secondItem="Gl6-9u-HMa" secondAttribute="trailing" constant="20" id="3Yf-6s-w2U"/>
+                            <constraint firstItem="tyI-o9-hsU" firstAttribute="leading" secondItem="O1u-W8-tvY" secondAttribute="leading" id="4YX-Ou-Lse"/>
+                            <constraint firstItem="O1u-W8-tvY" firstAttribute="trailing" secondItem="qrA-TN-AEN" secondAttribute="trailing" constant="70" id="5Of-wG-n7C"/>
+                            <constraint firstItem="DXD-Ha-HSa" firstAttribute="leading" secondItem="O1u-W8-tvY" secondAttribute="leading" constant="70" id="6xb-z8-W7E"/>
+                            <constraint firstItem="qrA-TN-AEN" firstAttribute="leading" secondItem="V6h-yx-dci" secondAttribute="trailing" constant="104" id="7ZT-Od-Yq4"/>
+                            <constraint firstAttribute="trailing" secondItem="GfH-eL-FS3" secondAttribute="trailing" id="7mp-Np-XRl"/>
+                            <constraint firstItem="O1u-W8-tvY" firstAttribute="bottom" secondItem="V6h-yx-dci" secondAttribute="bottom" constant="12" id="CoD-LU-CAb"/>
+                            <constraint firstItem="O1u-W8-tvY" firstAttribute="trailing" secondItem="A8v-tv-tuF" secondAttribute="trailing" constant="20" id="FBt-iK-6eQ"/>
+                            <constraint firstItem="O1u-W8-tvY" firstAttribute="bottom" secondItem="DXD-Ha-HSa" secondAttribute="bottom" constant="10" id="KLf-8N-SIr"/>
+                            <constraint firstItem="Hvn-ch-ECX" firstAttribute="top" secondItem="tyI-o9-hsU" secondAttribute="bottom" constant="15" id="Lhm-4b-hid"/>
+                            <constraint firstItem="tyI-o9-hsU" firstAttribute="trailing" secondItem="O1u-W8-tvY" secondAttribute="trailing" id="Mtr-KH-7IR"/>
+                            <constraint firstItem="GfH-eL-FS3" firstAttribute="top" secondItem="Gl6-9u-HMa" secondAttribute="bottom" constant="20" id="OEt-Dn-q9j"/>
+                            <constraint firstItem="tyI-o9-hsU" firstAttribute="top" secondItem="O1u-W8-tvY" secondAttribute="top" id="PM5-yy-MWt"/>
+                            <constraint firstItem="O1u-W8-tvY" firstAttribute="trailing" secondItem="G3o-mq-B0x" secondAttribute="trailing" constant="20" id="VuA-jo-coT"/>
+                            <constraint firstItem="Gl6-9u-HMa" firstAttribute="top" secondItem="Hvn-ch-ECX" secondAttribute="bottom" constant="20" id="Z5g-KS-GIt"/>
+                            <constraint firstItem="O1u-W8-tvY" firstAttribute="bottom" secondItem="qrA-TN-AEN" secondAttribute="bottom" constant="10" id="ZKd-i0-zAq"/>
+                            <constraint firstItem="V6h-yx-dci" firstAttribute="top" secondItem="G3o-mq-B0x" secondAttribute="bottom" constant="20" id="aFW-Cf-5D4"/>
+                            <constraint firstItem="A8v-tv-tuF" firstAttribute="top" secondItem="GfH-eL-FS3" secondAttribute="bottom" constant="20" id="f62-28-eog"/>
+                            <constraint firstItem="GfH-eL-FS3" firstAttribute="leading" secondItem="O1u-W8-tvY" secondAttribute="leading" id="g8b-Do-uDO"/>
+                            <constraint firstItem="V6h-yx-dci" firstAttribute="leading" secondItem="DXD-Ha-HSa" secondAttribute="trailing" constant="104.5" id="kAS-D7-kRF"/>
+                            <constraint firstItem="GfH-eL-FS3" firstAttribute="top" secondItem="Gl6-9u-HMa" secondAttribute="bottom" constant="20" id="lIX-6l-KpJ"/>
+                            <constraint firstItem="A8v-tv-tuF" firstAttribute="leading" secondItem="O1u-W8-tvY" secondAttribute="leading" constant="20" id="m81-ke-mqK"/>
+                            <constraint firstItem="Gl6-9u-HMa" firstAttribute="leading" secondItem="O1u-W8-tvY" secondAttribute="leading" constant="20" id="wKk-fv-zdj"/>
+                            <constraint firstItem="G3o-mq-B0x" firstAttribute="top" secondItem="A8v-tv-tuF" secondAttribute="bottom" constant="20" id="wjQ-d7-lYU"/>
+                            <constraint firstItem="Hvn-ch-ECX" firstAttribute="leading" secondItem="O1u-W8-tvY" secondAttribute="leading" constant="7" id="zMF-jI-Odz"/>
+                            <constraint firstItem="O1u-W8-tvY" firstAttribute="trailing" secondItem="Hvn-ch-ECX" secondAttribute="trailing" constant="7" id="zse-RJ-fg7"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="O1u-W8-tvY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="FitHealth+" id="uq5-51-S8H">
-                        <barButtonItem key="rightBarButtonItem" image="gearshape" id="sva-2I-pt0"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="FitHealth+" id="uq5-51-S8H"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>

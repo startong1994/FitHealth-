@@ -12,7 +12,7 @@ class RecipesViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        navigationItem.title = "Recipies"
         
         // Do any additional setup after loading the view.
         
