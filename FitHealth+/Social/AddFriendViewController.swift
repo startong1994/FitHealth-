@@ -59,6 +59,7 @@ class AddFriendController: UIViewController, UITableViewDataSource, UITableViewD
         
         alert.preferredAction = addFriend
         present(alert,animated: true, completion: nil)
+        
     }
     
     
@@ -73,7 +74,12 @@ class AddFriendController: UIViewController, UITableViewDataSource, UITableViewD
         cell.textLabel?.text = friendData.getNewFriendName(indexPath.row)
         cell.imageView?.image = UIImage(named: profileImage)
         
+        
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     
