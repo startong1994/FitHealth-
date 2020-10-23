@@ -10,6 +10,7 @@ import UIKit
 
 class workoutCell: UITableViewCell {
 
+    @IBOutlet weak var view: UIView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -19,6 +20,7 @@ class workoutCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+        view.layer.cornerRadius = view.frame.size.height/10
     }
     
 }
