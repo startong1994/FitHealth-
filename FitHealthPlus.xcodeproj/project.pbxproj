@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -76,7 +76,7 @@
 		D2DB12792540DBF7005DFF65 /* FitnessGoalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitnessGoalViewController.swift; sourceTree = "<group>"; };
 		D2DB127B2540DCB7005DFF65 /* FitnessGoalTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitnessGoalTableViewCell.swift; sourceTree = "<group>"; };
 		D2DB127C2540DCB7005DFF65 /* FitnessGoalTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FitnessGoalTableViewCell.xib; sourceTree = "<group>"; };
-		D2EA92CF253A329500026B0E /* FitHealth+.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FitHealth+.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D2EA92CF253A329500026B0E /* FitHealthPlus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FitHealthPlus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2EA92D2253A329500026B0E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D2EA92D4253A329500026B0E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		D2EA92D6253A329500026B0E /* FitnessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitnessViewController.swift; sourceTree = "<group>"; };
@@ -138,7 +138,7 @@
 		D2EA92C6253A329500026B0E = {
 			isa = PBXGroup;
 			children = (
-				D2EA92D1253A329500026B0E /* FitHealth+ */,
+				D2EA92D1253A329500026B0E /* FitHealthPlus */,
 				D2EA92D0253A329500026B0E /* Products */,
 			);
 			sourceTree = "<group>";
@@ -146,12 +146,12 @@
 		D2EA92D0253A329500026B0E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D2EA92CF253A329500026B0E /* FitHealth+.app */,
+				D2EA92CF253A329500026B0E /* FitHealthPlus.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		D2EA92D1253A329500026B0E /* FitHealth+ */ = {
+		D2EA92D1253A329500026B0E /* FitHealthPlus */ = {
 			isa = PBXGroup;
 			children = (
 				D251DEAD25407E1E006E7862 /* Designs */,
@@ -170,7 +170,7 @@
 				D2EA92E2253A329500026B0E /* Info.plist */,
 				D251DEAA25407798006E7862 /* TabBarViewController.swift */,
 			);
-			path = "FitHealth+";
+			path = FitHealthPlus;
 			sourceTree = "<group>";
 		};
 		D2EA92EC253A451A00026B0E /* Views */ = {
@@ -230,9 +230,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		D2EA92CE253A329500026B0E /* FitHealth+ */ = {
+		D2EA92CE253A329500026B0E /* FitHealthPlus */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D2EA92E5253A329500026B0E /* Build configuration list for PBXNativeTarget "FitHealth+" */;
+			buildConfigurationList = D2EA92E5253A329500026B0E /* Build configuration list for PBXNativeTarget "FitHealthPlus" */;
 			buildPhases = (
 				D2EA92CB253A329500026B0E /* Sources */,
 				D2EA92CC253A329500026B0E /* Frameworks */,
@@ -242,9 +242,9 @@
 			);
 			dependencies = (
 			);
-			name = "FitHealth+";
+			name = FitHealthPlus;
 			productName = "FitHealth+";
-			productReference = D2EA92CF253A329500026B0E /* FitHealth+.app */;
+			productReference = D2EA92CF253A329500026B0E /* FitHealthPlus.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -254,7 +254,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1130;
-				LastUpgradeCheck = 1130;
+				LastUpgradeCheck = 1210;
 				ORGANIZATIONNAME = "xu daitong";
 				TargetAttributes = {
 					D2EA92CE253A329500026B0E = {
@@ -262,8 +262,8 @@
 					};
 				};
 			};
-			buildConfigurationList = D2EA92CA253A329500026B0E /* Build configuration list for PBXProject "FitHealth+" */;
-			compatibilityVersion = "Xcode 9.3";
+			buildConfigurationList = D2EA92CA253A329500026B0E /* Build configuration list for PBXProject "FitHealthPlus" */;
+			compatibilityVersion = "Xcode 12.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -275,7 +275,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				D2EA92CE253A329500026B0E /* FitHealth+ */,
+				D2EA92CE253A329500026B0E /* FitHealthPlus */,
 			);
 		};
 /* End PBXProject section */
@@ -384,6 +384,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -444,6 +445,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -478,12 +480,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HB95WRYDFW;
-				INFOPLIST_FILE = "FitHealth+/Info.plist";
+				INFOPLIST_FILE = FitHealthPlus/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.daitongxu.FitHealth-";
+				PRODUCT_BUNDLE_IDENTIFIER = com.daitongxu.FitHealthPlus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -496,12 +498,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HB95WRYDFW;
-				INFOPLIST_FILE = "FitHealth+/Info.plist";
+				INFOPLIST_FILE = FitHealthPlus/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.daitongxu.FitHealth-";
+				PRODUCT_BUNDLE_IDENTIFIER = com.daitongxu.FitHealthPlus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -511,7 +513,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		D2EA92CA253A329500026B0E /* Build configuration list for PBXProject "FitHealth+" */ = {
+		D2EA92CA253A329500026B0E /* Build configuration list for PBXProject "FitHealthPlus" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D2EA92E3253A329500026B0E /* Debug */,
@@ -520,7 +522,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D2EA92E5253A329500026B0E /* Build configuration list for PBXNativeTarget "FitHealth+" */ = {
+		D2EA92E5253A329500026B0E /* Build configuration list for PBXNativeTarget "FitHealthPlus" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D2EA92E6253A329500026B0E /* Debug */,
