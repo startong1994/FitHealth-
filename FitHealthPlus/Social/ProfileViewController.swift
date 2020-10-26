@@ -11,6 +11,7 @@ import UIKit
 class ProfileViewController: UIViewController {
     
     let friend = FriendsData()
+    var index: Int = 0
     
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var profileName: UILabel!
@@ -20,9 +21,9 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        profileName.text = friend.getName(0)
-        profileEmail.text = friend.getEmail(0)
-        profileImage.image = UIImage(named: friend.getProfileImage(0))
+        profileName.text = friend.getName(index)
+        profileEmail.text = friend.getEmail(index)
+        profileImage.image = UIImage(named: friend.getProfileImage(index))
         
     }
     @IBAction func deleteButtonPressed(_ sender: UIButton) {

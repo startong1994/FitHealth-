@@ -10,7 +10,7 @@ import UIKit
 
 class SocialViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    
+    var index = 0
     var friend = FriendsData()
 
     @IBOutlet weak var tableView: UITableView!
@@ -39,18 +39,21 @@ class SocialViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        index = indexPath.row
         
-        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        
-        let newViewController = storyBoard.instantiateViewController(withIdentifier: "profile")
-        print(indexPath.row)
-        friend.setProfileIndex(indexPath.row)
-        self.present(newViewController, animated: true, completion: nil)
+        performSegue(withIdentifier: "socialToProfile", sender: nil)
         
         tableView.deselectRow(at: indexPath, animated: true)
 
     }
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "socialToProfile" {
+            let profileVC = segue.destination as! ProfileViewController
+            let indexPath = index
+            profileVC.index = indexPath
+            
+        }
+    }
 
     
     
