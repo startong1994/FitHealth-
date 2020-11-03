@@ -1,0 +1,6 @@
+framework module Pods_FitHealthPlus {
+  umbrella header "Pods-FitHealthPlus-umbrella.h"
+
+  export *
+  module * { export * }
+}
