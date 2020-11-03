@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="AEV-Ke-Q4y">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -1440,7 +1439,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" title="Register"/>
                                 <connections>
-                                    <segue destination="CYP-Ku-eRi" kind="show" id="4eH-3a-xer"/>
+                                    <action selector="registerPressed:" destination="ZNA-BT-5yn" eventType="touchUpInside" id="GKe-4r-Kaz"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1448,6 +1447,11 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="cga-il-T7x"/>
+                    <connections>
+                        <outlet property="emailTextField" destination="qjM-Rh-Ezl" id="ESt-el-Fxl"/>
+                        <outlet property="passwordTextField" destination="ABR-b1-Q6r" id="g2V-4N-YYU"/>
+                        <segue destination="CYP-Ku-eRi" kind="show" identifier="registerToSignIn" id="DOo-L3-Kdg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d1u-Zl-SIb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1814,7 +1818,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="4eH-3a-xer"/>
+        <segue reference="DOo-L3-Kdg"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="arrowshape.turn.up.left.fill" catalog="system" width="128" height="106"/>

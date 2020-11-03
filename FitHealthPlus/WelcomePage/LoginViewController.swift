@@ -15,7 +15,7 @@ class LoginViewController: UIViewController {
         
         
     }
-    override func viewWillDisappear(_ animated: Bool) {
+    override func viewDidDisappear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(true, animated: false)
         UINavigationBar.appearance().backgroundColor = UIColor.systemTeal
     }
