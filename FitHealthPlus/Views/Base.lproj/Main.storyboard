@@ -1395,12 +1395,12 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x8C-Yo-WXR">
-                                <rect key="frame" x="163" y="500" width="88" height="48"/>
+                                <rect key="frame" x="20" y="500" width="374" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" title="Sign In"/>
                                 <connections>
-                                    <segue destination="49e-Tb-3d3" kind="show" id="aA6-dn-4ad"/>
+                                    <action selector="signInPressed:" destination="CYP-Ku-eRi" eventType="touchUpInside" id="KIo-y1-qbD"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1408,10 +1408,15 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="5Jk-5o-Hqz"/>
+                    <connections>
+                        <outlet property="emailTextField" destination="irw-S0-3N4" id="ql0-TZ-msQ"/>
+                        <outlet property="passwordField" destination="g4k-IM-9TJ" id="zJA-Hr-9rJ"/>
+                        <segue destination="49e-Tb-3d3" kind="show" identifier="signinToMainPage" id="8Id-mf-K2c"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VgI-fj-N6g" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="657.97101449275362" y="1783.9285714285713"/>
+            <point key="canvasLocation" x="656.52173913043487" y="1783.9285714285713"/>
         </scene>
         <!--SignUp-->
         <scene sceneID="mgc-Aw-5t5">

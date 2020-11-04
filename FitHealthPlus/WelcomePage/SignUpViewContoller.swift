@@ -18,6 +18,7 @@ class SignUpViewContoller: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
         
     }
     
@@ -41,7 +42,6 @@ class SignUpViewContoller: UIViewController {
                     self.performSegue(withIdentifier: "registerToSignIn", sender: self)
                 }
             }
-            
         }
             else{
                 
