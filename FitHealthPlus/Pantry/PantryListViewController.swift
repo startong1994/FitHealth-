@@ -8,11 +8,11 @@
 
 import UIKit
 
-class PantryListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, UIPickerViewDelegate, UIPickerViewDataSource{
+class PantryListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate{
     
     @IBOutlet weak var tableViewList: UITableView!
-    @IBOutlet weak var soryByNBtn: UIBarButtonItem!
-    @IBOutlet weak var pickerView: UIPickerView!
+    @IBOutlet weak var addButton: UIBarButtonItem!
+    
     
     var myList = [PantryItemList]()
     
@@ -34,9 +34,6 @@ class PantryListViewController: UIViewController, UITableViewDelegate, UITableVi
         super.viewDidLoad()
         title = "Pantry List"
         
-        pickerView.isHidden = true
-        pickerView.delegate = self
-        pickerView.dataSource = self
         setUpSearchBar()
         if let savedData = loadSavedItems(){
             myList += savedData
@@ -46,8 +43,15 @@ class PantryListViewController: UIViewController, UITableViewDelegate, UITableVi
         
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        let sortButton = UIBarButtonItem(title: "Sort", primaryAction: nil, menu: sortMenu)
+        sortButton.tintColor = UIColor.white
+        self.navigationItem.rightBarButtonItems = [sortButton, addButton]
+    }
+    
     //sort by feature
-    let sortByOptions = ["A-Z", "Z-A", "Category", "Calories"]
+    /*let sortByOptions = ["A-Z", "Z-A", "Category", "Calories"]
     
     @IBAction func sortByPressed(_ sender: Any) {
         if pickerView.isHidden{
@@ -81,8 +85,20 @@ class PantryListViewController: UIViewController, UITableViewDelegate, UITableVi
         
         pickerView.isHidden = true
         tableViewList.reloadData()
-    }
+    }*/
     
+    // Sort By Menu
+    let sortMenu = UIMenu(title: "", children: [
+        UIAction(title: "A-Z") { action in
+                                
+        },UIAction(title: "Z-A") { action in
+            
+        },UIAction(title: "Calories") { action in
+            
+        },UIAction(title: "Expiration Date") { action in
+            
+        },
+    ])
     
     
     // added code by Daitong Xu, deselectRow,

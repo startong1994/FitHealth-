@@ -18,6 +18,7 @@ class PantryItemShowDetailViewController: UIViewController, UIPickerViewDelegate
     @IBOutlet weak var categoryTextField: UITextField!
     @IBOutlet weak var nutriInfoTextField: UITextField!
     
+    
     let itemCategories = ["Fruit", "Vegetables", "Pantry", "Frozen", "Fridge", "Dairy", "Meat"]
     
     var pickerView = UIPickerView()
@@ -34,6 +35,7 @@ class PantryItemShowDetailViewController: UIViewController, UIPickerViewDelegate
         categoryTextField.inputView = pickerView
         categoryTextField.textAlignment = .center
         categoryTextField.placeholder = "Select Category"
+        nutriInfoTextField.placeholder = "test"
         // Do any additional setup after loading the view.
     }
     var item: PantryItemList?

@@ -49,7 +49,7 @@ extension FitnessGoalViewController: UITableViewDataSource, UITableViewDelegate{
             cell.dataType.text = "In Calories"
             cell.fitnessCurrent.text = "Current: 333"
             cell.fitnessGoal.text = "Goal: 500"
-            cell.fitnessGoalTitle.text = "Calories Borned"
+            cell.fitnessGoalTitle.text = "Calories Burned"
             cell.progressBar.progress = 333/500
         }
             
@@ -66,7 +66,7 @@ extension FitnessGoalViewController: UITableViewDataSource, UITableViewDelegate{
             print(getGoal("Daily steps"))
         }
         else if indexPath.row  == 2{
-            print(getGoal("Calories Borned"))
+            print(getGoal("Calories Burned"))
         }
         
         tableView.deselectRow(at: indexPath, animated: true)
