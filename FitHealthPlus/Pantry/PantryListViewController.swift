@@ -89,9 +89,9 @@ class PantryListViewController: UIViewController, UITableViewDelegate, UITableVi
     
     // Sort By Menu
     let sortMenu = UIMenu(title: "", children: [
-        UIAction(title: "A-Z") { action in
-                                
-        },UIAction(title: "Z-A") { action in
+        UIAction(title: "A-Z", handler: { (action) in
+            print("A-Z Pressed")
+        }),UIAction(title: "Z-A") { action in
             
         },UIAction(title: "Calories") { action in
             
@@ -100,6 +100,10 @@ class PantryListViewController: UIViewController, UITableViewDelegate, UITableVi
         },
     ])
     
+    func sortByName(){
+        myList = myList.sorted(by: { $0.name < $1.name})
+        tableViewList.reloadData()
+    }
     
     // added code by Daitong Xu, deselectRow,
     

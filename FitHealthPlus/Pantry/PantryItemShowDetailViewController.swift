@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PantryItemShowDetailViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class PantryItemShowDetailViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource{
 
     
     @IBOutlet weak var calorieTextField: UITextField!
@@ -17,7 +17,7 @@ class PantryItemShowDetailViewController: UIViewController, UIPickerViewDelegate
     @IBOutlet weak var exDateTextField: UITextField!
     @IBOutlet weak var categoryTextField: UITextField!
     @IBOutlet weak var nutriInfoTextField: UITextField!
-    
+    private var datePicker: UIDatePicker?
     
     let itemCategories = ["Fruit", "Vegetables", "Pantry", "Frozen", "Fridge", "Dairy", "Meat"]
     
@@ -33,13 +33,33 @@ class PantryItemShowDetailViewController: UIViewController, UIPickerViewDelegate
         pickerView.delegate = self
         pickerView.dataSource = self
         categoryTextField.inputView = pickerView
-        categoryTextField.textAlignment = .center
+        categoryTextField.textAlignment = .left
+        pickerView.backgroundColor = UIColor.systemTeal
         categoryTextField.placeholder = "Select Category"
+        datePicker = UIDatePicker()
+        datePicker?.datePickerMode = .date
+        exDateTextField.inputView = datePicker
+        datePicker?.addTarget(self, action: #selector(PantryItemShowDetailViewController.dateChanged(datePicker:)), for: .valueChanged)
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(PantryItemShowDetailViewController.viewTapped(gestureRecognizer:)))
+        view.addGestureRecognizer(tapGesture)
+        datePicker?.frame = CGRect(x:0, y: 0, width: 280, height: 100)
+        datePicker?.backgroundColor = UIColor.systemTeal
+        exDateTextField.placeholder = "Select Date"
         nutriInfoTextField.placeholder = "test"
         // Do any additional setup after loading the view.
     }
     var item: PantryItemList?
     
+    @objc func viewTapped(gestureRecognizer: UITapGestureRecognizer){
+        view.endEditing(true)
+    }
+    @objc func dateChanged(datePicker: UIDatePicker) {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM/dd/yyyy"
+        
+        exDateTextField.text = dateFormatter.string(from: datePicker.date)
+        view.endEditing(true)
+    }
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
