@@ -22,10 +22,10 @@ class PantryListViewController: UIViewController, UITableViewDelegate, UITableVi
     var myIndex = 0
     
     private func loadItems(){
-        let item1 = PantryItemList(quantity: 5, name: "Apple", exDate: "10/31/20", category: "Fruit", calorie: 95, nutriInfo: "")
-        let item2 = PantryItemList(quantity: 3, name: "Banana", exDate: "10/21/20", category: "Fruit", calorie: 105, nutriInfo: "")
-        let item3 = PantryItemList(quantity: 6, name: "Kiwi", exDate: "10/31/20", category: "Fruit", calorie: 42, nutriInfo: "")
-        let item4 = PantryItemList(quantity: 1, name: "Hot Cheetos", exDate: "12/31/20", category: "Pantry",calorie: 160, nutriInfo: "")
+        let item1 = PantryItemList(quantity: 5, name: "Apple", exDate: "10/31/20", category: "Fruit", calorie: 95)
+        let item2 = PantryItemList(quantity: 3, name: "Banana", exDate: "10/21/20", category: "Fruit", calorie: 105)
+        let item3 = PantryItemList(quantity: 6, name: "Kiwi", exDate: "10/31/20", category: "Fruit", calorie: 42)
+        let item4 = PantryItemList(quantity: 1, name: "Hot Cheetos", exDate: "12/31/20", category: "Pantry",calorie: 160)
         
         myList += [item1,item2, item3, item4]
         
@@ -208,16 +208,6 @@ class PantryListViewController: UIViewController, UITableViewDelegate, UITableVi
     
     //unwind seque
     @IBAction func unWindToList(sender: UIStoryboardSegue){
-        if let sourceViewController = sender.source as? PantryItemShowDetailViewController, let item = sourceViewController.item{
-            let newIndexPath = IndexPath(row: myList.count, section: 0)
-            myList.append(item)
-            tableViewList.insertRows(at: [newIndexPath], with: .automatic)
-        }
-        
-        saveToFileStuff()
-    }
-    
-    @IBAction func unWindEditToList(sender: UIStoryboardSegue){
         if let sourceViewController = sender.source as? PantryItemShowDetailViewController, let item = sourceViewController.item{
             let newIndexPath = IndexPath(row: myList.count, section: 0)
             myList.append(item)

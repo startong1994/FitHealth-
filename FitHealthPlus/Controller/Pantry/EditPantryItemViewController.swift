@@ -15,7 +15,6 @@ class EditPantryItemViewController: UIViewController, UIPickerViewDelegate, UIPi
     @IBOutlet weak var exDateTextField: UITextField!
     @IBOutlet weak var categoryTextField: UITextField!
     @IBOutlet weak var calorieTextField: UITextField!
-    @IBOutlet weak var nutritionalTextField: UITextField!
     private var datePicker: UIDatePicker?
 
     let itemCategories = ["Fruit", "Vegetables", "Pantry", "Frozen", "Fridge", "Dairy", "Meat"]
@@ -39,8 +38,8 @@ class EditPantryItemViewController: UIViewController, UIPickerViewDelegate, UIPi
         datePicker = UIDatePicker()
         datePicker?.datePickerMode = .date
         exDateTextField.inputView = datePicker
-        datePicker?.addTarget(self, action: #selector(PantryItemShowDetailViewController.dateChanged(datePicker:)), for: .valueChanged)
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(PantryItemShowDetailViewController.viewTapped(gestureRecognizer:)))
+        datePicker?.addTarget(self, action: #selector(EditPantryItemViewController.dateChanged(datePicker:)), for: .valueChanged)
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(EditPantryItemViewController.viewTapped(gestureRecognizer:)))
         view.addGestureRecognizer(tapGesture)
         datePicker?.frame = CGRect(x:0, y: 0, width: 280, height: 100)
         datePicker?.backgroundColor = UIColor.systemTeal
@@ -52,7 +51,6 @@ class EditPantryItemViewController: UIViewController, UIPickerViewDelegate, UIPi
             exDateTextField.text = item.exDate
             categoryTextField.text = item.category
             calorieTextField.text = String(item.calorie)
-            nutritionalTextField.text = item.nutriInfo
         }
         
     }
@@ -91,7 +89,6 @@ class EditPantryItemViewController: UIViewController, UIPickerViewDelegate, UIPi
         }else{
             nameTextField.keyboardType = .default
             exDateTextField.keyboardType = .default
-            nutritionalTextField.keyboardType = .default
         }
         return true
     }
@@ -103,8 +100,6 @@ class EditPantryItemViewController: UIViewController, UIPickerViewDelegate, UIPi
             exDateTextField.becomeFirstResponder()
         }else if textField == exDateTextField{
             calorieTextField.becomeFirstResponder()
-        }else if textField == calorieTextField{
-            nutritionalTextField.becomeFirstResponder()
         }else{
             nameTextField.becomeFirstResponder()
         }
@@ -120,9 +115,7 @@ class EditPantryItemViewController: UIViewController, UIPickerViewDelegate, UIPi
                 if let expiration = exDateTextField.text{
                     if let category = categoryTextField.text{
                         if let calorie = Int(calorieTextField.text!){
-                            if let nutri = nutritionalTextField.text{
-                                item = PantryItemList(quantity: amount, name: name, exDate: expiration, category: category, calorie: calorie, nutriInfo: nutri)
-                            }
+                                item = PantryItemList(quantity: amount, name: name, exDate: expiration, category: category, calorie: calorie)
                         }
                     }
                 }
