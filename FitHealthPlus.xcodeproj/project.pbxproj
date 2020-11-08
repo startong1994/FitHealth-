@@ -20,7 +20,6 @@
 		D23058A7253CD8680013B64C /* SignUpViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23058A6253CD8680013B64C /* SignUpViewContoller.swift */; };
 		D23058AF253CE1060013B64C /* AddFriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23058AE253CE1060013B64C /* AddFriendViewController.swift */; };
 		D251DEA5254060AB006E7862 /* PantryItemList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D251DEA4254060AB006E7862 /* PantryItemList.swift */; };
-		D251DEAB25407798006E7862 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D251DEAA25407798006E7862 /* TabBarViewController.swift */; };
 		D261FA03253D0D4F00AE096B /* Friends.swift in Sources */ = {isa = PBXBuildFile; fileRef = D261FA02253D0D4F00AE096B /* Friends.swift */; };
 		D261FA05253D0E1A00AE096B /* FriendsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D261FA04253D0E1A00AE096B /* FriendsData.swift */; };
 		D268DD032550C669000A320D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D268DD022550C669000A320D /* GoogleService-Info.plist */; };
@@ -46,7 +45,6 @@
 		D2EA92E1253A329500026B0E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2EA92DF253A329500026B0E /* LaunchScreen.storyboard */; };
 		D2EA92E9253A32D800026B0E /* PantryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EA92E8253A32D800026B0E /* PantryViewController.swift */; };
 		D2EA92EB253A32E900026B0E /* SocialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EA92EA253A32E900026B0E /* SocialViewController.swift */; };
-		D2EA92F9253B75B900026B0E /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EA92F8253B75B900026B0E /* SettingViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,7 +63,6 @@
 		D23058A6253CD8680013B64C /* SignUpViewContoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewContoller.swift; sourceTree = "<group>"; };
 		D23058AE253CE1060013B64C /* AddFriendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendViewController.swift; sourceTree = "<group>"; };
 		D251DEA4254060AB006E7862 /* PantryItemList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PantryItemList.swift; sourceTree = "<group>"; };
-		D251DEAA25407798006E7862 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		D261FA02253D0D4F00AE096B /* Friends.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friends.swift; sourceTree = "<group>"; };
 		D261FA04253D0E1A00AE096B /* FriendsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsData.swift; sourceTree = "<group>"; };
 		D268DD022550C669000A320D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -93,7 +90,6 @@
 		D2EA92E2253A329500026B0E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D2EA92E8253A32D800026B0E /* PantryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PantryViewController.swift; sourceTree = "<group>"; };
 		D2EA92EA253A32E900026B0E /* SocialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialViewController.swift; sourceTree = "<group>"; };
-		D2EA92F8253B75B900026B0E /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +134,7 @@
 		D23058A9253CDE840013B64C /* SimpleData */ = {
 			isa = PBXGroup;
 			children = (
+				D251DEA4254060AB006E7862 /* PantryItemList.swift */,
 				D261FA02253D0D4F00AE096B /* Friends.swift */,
 				D261FA04253D0E1A00AE096B /* FriendsData.swift */,
 			);
@@ -157,6 +154,26 @@
 				D228A602254343A800D66ED3 /* RecipeDetailTableViewCell.xib */,
 			);
 			path = Designs;
+			sourceTree = "<group>";
+		};
+		D2D8321B255780B600EC9EFB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D23058A9253CDE840013B64C /* SimpleData */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D2D8321C255780E500EC9EFB /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D2EA92EF253B41E000026B0E /* Pantry */,
+				D2EA92ED253B41CB00026B0E /* Recipes */,
+				D2EA92F0253B41E800026B0E /* Social */,
+				D2EA92EE253B41D900026B0E /* Fitness */,
+				D23058A1253CD2260013B64C /* WelcomePage */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		D2EA92C6253A329500026B0E = {
@@ -180,22 +197,15 @@
 		D2EA92D1253A329500026B0E /* FitHealthPlus */ = {
 			isa = PBXGroup;
 			children = (
-				D251DEAD25407E1E006E7862 /* Designs */,
-				D23058A9253CDE840013B64C /* SimpleData */,
-				D23058A1253CD2260013B64C /* WelcomePage */,
-				D2EA92EF253B41E000026B0E /* Pantry */,
-				D2EA92ED253B41CB00026B0E /* Recipes */,
-				D2EA92EE253B41D900026B0E /* Fitness */,
-				D2EA92F0253B41E800026B0E /* Social */,
 				D2EA92EC253A451A00026B0E /* Views */,
+				D2D8321C255780E500EC9EFB /* Controller */,
+				D2D8321B255780B600EC9EFB /* Model */,
 				D2EA92D2253A329500026B0E /* AppDelegate.swift */,
 				D2EA92D4253A329500026B0E /* SceneDelegate.swift */,
 				D2EA92DD253A329500026B0E /* Assets.xcassets */,
 				D268DD022550C669000A320D /* GoogleService-Info.plist */,
-				D2EA92F8253B75B900026B0E /* SettingViewController.swift */,
 				D2EA92DF253A329500026B0E /* LaunchScreen.storyboard */,
 				D2EA92E2253A329500026B0E /* Info.plist */,
-				D251DEAA25407798006E7862 /* TabBarViewController.swift */,
 			);
 			path = FitHealthPlus;
 			sourceTree = "<group>";
@@ -203,6 +213,7 @@
 		D2EA92EC253A451A00026B0E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				D251DEAD25407E1E006E7862 /* Designs */,
 				D2EA92DA253A329500026B0E /* Main.storyboard */,
 			);
 			path = Views;
@@ -235,7 +246,6 @@
 				D2EA92E8253A32D800026B0E /* PantryViewController.swift */,
 				98530BBE253F9C9800D93F88 /* PantryListViewController.swift */,
 				98530BC0253F9F6A00D93F88 /* PantryItemShowDetailViewController.swift */,
-				D251DEA4254060AB006E7862 /* PantryItemList.swift */,
 				9816343A2540C53500546A9E /* BarcodeScannerViewController.swift */,
 				9816343C2540D82D00546A9E /* EditPantryItemViewController.swift */,
 			);
@@ -386,10 +396,8 @@
 				98530BBF253F9C9800D93F88 /* PantryListViewController.swift in Sources */,
 				9816343D2540D82D00546A9E /* EditPantryItemViewController.swift in Sources */,
 				9816343B2540C53500546A9E /* BarcodeScannerViewController.swift in Sources */,
-				D251DEAB25407798006E7862 /* TabBarViewController.swift in Sources */,
 				D2EA92E9253A32D800026B0E /* PantryViewController.swift in Sources */,
 				D2EA92D3253A329500026B0E /* AppDelegate.swift in Sources */,
-				D2EA92F9253B75B900026B0E /* SettingViewController.swift in Sources */,
 				D23058A0253CCEB30013B64C /* LeaderboardViewController.swift in Sources */,
 				D270A096254321FE00443769 /* WorkoutGuideViewController.swift in Sources */,
 				D23058A5253CD8540013B64C /* LoginViewController.swift in Sources */,
