@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Firebase
 
 class PantryItemList: NSObject, NSCoding{
         struct key{
@@ -48,7 +49,8 @@ class PantryItemList: NSObject, NSCoding{
             
             self.init(quantity: numOfItems, name: nameOfItems!, exDate: exDatesOfItems!, category: categoriesOfItems!, calorie: caloriesOfItems)
         }
-        
-        static let filePathToDocumentDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
-        static let stuffFolder = filePathToDocumentDirectory.appendingPathComponent("pantryItemList")
-    }
+    
+    
+    static let filePathToDocumentDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
+    static let stuffFolder = filePathToDocumentDirectory.appendingPathComponent("pantryItemList")
+}

@@ -166,14 +166,16 @@ class PantryListViewController: UIViewController, UITableViewDelegate, UITableVi
             cell.itemName.text = itemsInCell.name
             cell.itemCalories.text = "Calories: " + String(itemsInCell.calorie)
             cell.itemQuantity.text = "Quantity:" + String(itemsInCell.quantity)
+            cell.itemExDate.text = "Expires: " + String(itemsInCell.exDate)
         }else{
             let itemsInCell = myList[indexPath.row]
             cell.itemName.text = itemsInCell.name
             cell.itemCalories.text = "Calories: " + String(itemsInCell.calorie)
             cell.itemQuantity.text = "Quantity:" + String(itemsInCell.quantity)
+            cell.itemExDate.text = "Expires: " + String(itemsInCell.exDate)
             
         }
-        
+        cell.pantryCellView.layer.cornerRadius = cell.pantryCellView.frame.height / 2
         return cell
     }
     
@@ -232,6 +234,8 @@ class PantryCell: UITableViewCell{
     @IBOutlet weak var itemName: UILabel!
     @IBOutlet weak var itemQuantity: UILabel!
     @IBOutlet weak var itemCalories: UILabel!
-    
-    
+    @IBOutlet weak var itemExDate: UILabel!
+    @IBOutlet weak var pantryCellView: UIView!
+    @IBOutlet weak var itemImage: UIImageView!
+
 }

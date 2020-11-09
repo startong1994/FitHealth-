@@ -7,9 +7,13 @@
 //
 
 import UIKit
+import Firebase
 
 class PantryItemShowDetailViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource{
-
+    
+    //Database for Pantry List
+    let db = Firestore.firestore()
+    
     //Textbox fields
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var quantityTextField: UITextField!
