@@ -11,6 +11,8 @@ import Firebase
 
 class SignUpViewContoller: UIViewController {
     
+    
+    
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var profileImage: UIImageView!
@@ -18,6 +20,7 @@ class SignUpViewContoller: UIViewController {
     
     let db = Firestore.firestore()
     
+    let defaults = UserDefaults.standard
     
     
     override func viewDidLoad() {
@@ -25,6 +28,29 @@ class SignUpViewContoller: UIViewController {
         // Do any additional setup after loading the view.
         self.navigationController?.setNavigationBarHidden(false, animated: false)
         profileImage.image = UIImage(named: "person")
+    }
+    
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
+        UINavigationBar.appearance().backgroundColor = UIColor.systemTeal
+        
+        
+        
+        if let currentEmail = Auth.auth().currentUser?.email!
+        {
+            print(currentEmail)
+            let docRef = self.db.collection("users").document(currentEmail)
+                    docRef.getDocument { (document, error) in
+                        if let document = document, document.exists{
+                            let data = document.data()
+                            self.defaults.set(data, forKey: "CurrentUser")
+                            print("Yes")
+                            print(data)
+                        }
+                    }
+            }
+
     }
     
     
@@ -45,18 +71,25 @@ class SignUpViewContoller: UIViewController {
                     self.present(alert, animated: true, completion: nil)
                 }
                 else{
-                    self.performSegue(withIdentifier: "registerToSignIn", sender: self)
+                    
+                    //write users information to database,
+                    userRef.document(email).setData([
+                        "name": name,
+                        "email": email,
+                        "profileImage": "person"
+
+                    ])
+                    Auth.auth().signIn(withEmail: email, password: password) { (authResult, error) in
+                        if let e = error{
+                            print(e.localizedDescription)
+                        }
+                        else{
+                            self.performSegue(withIdentifier: "registerToMain", sender: self)
+                        }
+                    }
+                    
                 }
             }
-                
-                //write users information to database,
-                userRef.document(email).setData([
-                    "name": name,
-                    "email": email,
-                    "profileImage": "person"
-
-                ])
-                
             
         }
             else{

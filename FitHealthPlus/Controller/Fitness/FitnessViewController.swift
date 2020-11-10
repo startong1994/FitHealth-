@@ -28,21 +28,15 @@ class FitnessViewController: UIViewController {
         
         
         
-        //get user's name with line 16
-        if let name = defaults.dictionary(forKey: "CurrentUser")!["name"]{
-            print(name)
-            
-        }
+        //first tab after login or sign in, so set Current user's data to local default data
         
-        
-        
-
         
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
         self.tabBarController?.tabBar.isHidden = false
+        //get user's name with line 16,
     }
 }
 

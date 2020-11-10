@@ -12,6 +12,8 @@ class PantryListViewController: UIViewController, UITableViewDelegate, UITableVi
     
     @IBOutlet weak var tableViewList: UITableView!
     @IBOutlet weak var addButton: UIBarButtonItem!
+    //
+    let defaults = UserDefaults.standard
     
     
     var myList = [PantryItemList]()
@@ -40,6 +42,15 @@ class PantryListViewController: UIViewController, UITableViewDelegate, UITableVi
         }else{
             loadItems()
         }
+        
+        //code to get data from local UserDefault data, get name when it is loaded
+        if let name = defaults.dictionary(forKey: "CurrentUser")!["name"]{
+            print(name)
+        }
+        
+        
+        
+        
         
     }
     

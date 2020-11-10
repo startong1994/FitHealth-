@@ -41,7 +41,6 @@ class LoginViewController: UIViewController {
                     //save current user's information to default file and navigate to next page
                     if let currentEmail = Auth.auth().currentUser?.email!
                     {
-                    
                         let docRef = self.db.collection("users").document(currentEmail)
                                 docRef.getDocument { (document, error) in
                                     if let document = document, document.exists{
