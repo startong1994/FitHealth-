@@ -7,8 +7,13 @@
 //
 
 import UIKit
+import Firebase
 
 class FitnessViewController: UIViewController {
+    
+    let db = Firestore.firestore()
+    
+    let defaults = UserDefaults.standard
 
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
@@ -20,6 +25,18 @@ class FitnessViewController: UIViewController {
         
         tableView.register(UINib(nibName: "StatsBar", bundle: nil), forCellReuseIdentifier: "statsBar")
         tableView.register(UINib(nibName: "workoutCell", bundle: nil), forCellReuseIdentifier: "workoutBar")
+        
+        
+        
+        //get user's name with line 16
+        if let name = defaults.dictionary(forKey: "CurrentUser")!["name"]{
+            print(name)
+            
+        }
+        
+        
+        
+
         
         
     }
