@@ -20,7 +20,7 @@ class EditPantryItemViewController: UIViewController, UIPickerViewDelegate, UIPi
     let itemCategories = ["Fruit", "Vegetables", "Pantry", "Frozen", "Fridge", "Dairy", "Meat"]
     
     var pickerView = UIPickerView()
-    var item: PantryItemList?
+    var item: PantryItem?
     
     @IBAction func cancel(_ sender: Any) {
         dismiss(animated: true, completion: nil)
@@ -50,7 +50,7 @@ class EditPantryItemViewController: UIViewController, UIPickerViewDelegate, UIPi
             quantityTextField.text = String(item.quantity)
             exDateTextField.text = item.exDate
             categoryTextField.text = item.category
-            calorieTextField.text = String(item.calorie)
+            calorieTextField.text = String(item.calories)
         }
         
     }
@@ -107,7 +107,7 @@ class EditPantryItemViewController: UIViewController, UIPickerViewDelegate, UIPi
         return true
     }
     
-    // MARK: - Navigation
+    /*// MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
         if let amount = Int(quantityTextField.text!){
@@ -121,5 +121,5 @@ class EditPantryItemViewController: UIViewController, UIPickerViewDelegate, UIPi
                 }
             }
         }
-    }
+    }*/
 }

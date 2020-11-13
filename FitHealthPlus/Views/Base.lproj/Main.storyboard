@@ -559,6 +559,18 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S6U-ij-86n">
+                                <rect key="frame" x="159" y="753" width="97" height="42"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="Add Item">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="addBtn:" destination="cMO-ZS-x6i" eventType="touchUpInside" id="V8o-BN-BoC"/>
+                                    <segue destination="TGI-3Y-T15" kind="unwind" unwindAction="unWindToListWithSender:" id="njy-6e-9Z2"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="DKr-fJ-bAg"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -567,7 +579,10 @@
                             <constraint firstItem="A0J-YE-prq" firstAttribute="top" secondItem="fXD-Nm-tkL" secondAttribute="bottom" constant="17" id="0bL-yP-Oor"/>
                             <constraint firstItem="iPV-rM-5oi" firstAttribute="top" secondItem="xIx-oV-lKJ" secondAttribute="bottom" constant="10" id="0hJ-2M-jae"/>
                             <constraint firstItem="5yv-MG-Df6" firstAttribute="leading" secondItem="DKr-fJ-bAg" secondAttribute="leading" constant="20" id="1ke-HM-BWm"/>
+                            <constraint firstItem="DKr-fJ-bAg" firstAttribute="bottom" secondItem="S6U-ij-86n" secondAttribute="bottom" constant="13" id="20Z-83-RAo"/>
+                            <constraint firstItem="DKr-fJ-bAg" firstAttribute="trailing" secondItem="S6U-ij-86n" secondAttribute="trailing" constant="158" id="2XA-jD-jmD"/>
                             <constraint firstItem="DKr-fJ-bAg" firstAttribute="trailing" secondItem="iPV-rM-5oi" secondAttribute="trailing" constant="150" id="2Zl-Fj-XCy"/>
+                            <constraint firstItem="S6U-ij-86n" firstAttribute="top" secondItem="aJQ-VN-yDc" secondAttribute="bottom" constant="25.5" id="2gm-WG-yua"/>
                             <constraint firstItem="3vo-cr-nnV" firstAttribute="leading" secondItem="HHx-qa-JsI" secondAttribute="trailing" constant="77" id="325-oq-wUg"/>
                             <constraint firstItem="DKr-fJ-bAg" firstAttribute="trailing" secondItem="kYt-4O-kf3" secondAttribute="trailing" constant="150" id="4RP-vg-oJz"/>
                             <constraint firstItem="sqp-Qs-f5f" firstAttribute="top" secondItem="iPV-rM-5oi" secondAttribute="bottom" constant="20" id="4d8-1e-7Ah"/>
@@ -607,6 +622,7 @@
                             <constraint firstItem="LQr-EH-cWG" firstAttribute="leading" secondItem="aJQ-VN-yDc" secondAttribute="trailing" constant="60" id="XE1-SF-eKH"/>
                             <constraint firstItem="LQr-EH-cWG" firstAttribute="top" secondItem="3vo-cr-nnV" secondAttribute="bottom" constant="10" id="Y89-zO-vKM"/>
                             <constraint firstItem="DKr-fJ-bAg" firstAttribute="trailing" secondItem="Jbq-ps-bY1" secondAttribute="trailing" constant="329" id="YOo-lS-FDf"/>
+                            <constraint firstItem="S6U-ij-86n" firstAttribute="leading" secondItem="DKr-fJ-bAg" secondAttribute="leading" constant="159" id="Yuo-sB-gZ3"/>
                             <constraint firstItem="xIx-oV-lKJ" firstAttribute="leading" secondItem="DKr-fJ-bAg" secondAttribute="leading" constant="20" id="bMB-Tl-BDy"/>
                             <constraint firstItem="DKr-fJ-bAg" firstAttribute="trailing" secondItem="enE-re-wgB" secondAttribute="trailing" constant="290" id="c4p-vN-4Dc"/>
                             <constraint firstItem="A0J-YE-prq" firstAttribute="leading" secondItem="PM7-BF-8TX" secondAttribute="trailing" constant="68" id="cA4-uY-lSx"/>
@@ -654,14 +670,9 @@
                                 <action selector="cancel:" destination="cMO-ZS-x6i" id="Eb3-bP-sGD"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="vus-sz-Xbf">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <connections>
-                                <segue destination="TGI-3Y-T15" kind="unwind" unwindAction="unWindToListWithSender:" id="FnE-YI-adR"/>
-                            </connections>
-                        </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="addBtn" destination="S6U-ij-86n" id="4De-i9-rsY"/>
                         <outlet property="caloriesTextField" destination="fXD-Nm-tkL" id="RbH-ec-T7E"/>
                         <outlet property="carbTextField" destination="wKX-Ty-5na" id="QPK-zZ-HfJ"/>
                         <outlet property="categoryTextField" destination="kYt-4O-kf3" id="jeD-V4-CDm"/>
@@ -1964,7 +1975,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <color key="barTintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" systemColor="systemTealColor"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -2003,7 +2014,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="8T8-pm-rOd">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.2752530876507891" green="0.75663976053201754" blue="0.80351760786802029" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" systemColor="systemTealColor"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>

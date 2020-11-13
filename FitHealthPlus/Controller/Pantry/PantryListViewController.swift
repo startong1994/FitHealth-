@@ -7,29 +7,30 @@
 //
 
 import UIKit
+import Firebase
 
 class PantryListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate{
     
+    //Tableview and add bar button
     @IBOutlet weak var tableViewList: UITableView!
     @IBOutlet weak var addButton: UIBarButtonItem!
-    //
+    
+    //Database
+    let db = Firestore.firestore()
     let defaults = UserDefaults.standard
     
     
-    var myList = [PantryItemList]()
+    var myList = [PantryItem]()
     
-    var searchingItems = [PantryItemList]()
+    var searchingItems = [PantryItem]()
     var searching = false
     
     var myIndex = 0
     
     private func loadItems(){
-        let item1 = PantryItemList(quantity: 5, name: "Apple", exDate: "10/31/20", category: "Fruit", calorie: 95)
-        let item2 = PantryItemList(quantity: 3, name: "Banana", exDate: "10/21/20", category: "Fruit", calorie: 105)
-        let item3 = PantryItemList(quantity: 6, name: "Kiwi", exDate: "10/31/20", category: "Fruit", calorie: 42)
-        let item4 = PantryItemList(quantity: 1, name: "Hot Cheetos", exDate: "12/31/20", category: "Pantry",calorie: 160)
+        let item1 = PantryItem(name: "Hot Cheetohs", quantity: 1, exDate: "11/20/20", category: "Pantry", servingSize: "1", calories: 360, fat: 0, sodium: 0, carb: 0, fiber: 0, sugar: 0, protein: 0, cholestrol: 0)
         
-        myList += [item1,item2, item3, item4]
+        myList += [item1]
         
     }
     override func viewDidLoad() {
@@ -37,11 +38,8 @@ class PantryListViewController: UIViewController, UITableViewDelegate, UITableVi
         title = "Pantry List"
         
         setUpSearchBar()
-        if let savedData = loadSavedItems(){
-            myList += savedData
-        }else{
-            loadItems()
-        }
+        
+        loadItems()
         
         //code to get data from local UserDefault data, get name when it is loaded
         if let name = defaults.dictionary(forKey: "CurrentUser")!["name"]{
@@ -52,6 +50,10 @@ class PantryListViewController: UIViewController, UITableViewDelegate, UITableVi
         
         
         
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        self.tabBarController?.tabBar.isHidden = false
+        //get user's name with line 16,
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -175,13 +177,13 @@ class PantryListViewController: UIViewController, UITableViewDelegate, UITableVi
         if searching{
             let itemsInCell = searchingItems[indexPath.row]
             cell.itemName.text = itemsInCell.name
-            cell.itemCalories.text = "Calories: " + String(itemsInCell.calorie)
+            cell.itemCalories.text = "Calories: " + String(itemsInCell.calories)
             cell.itemQuantity.text = "Quantity:" + String(itemsInCell.quantity)
             cell.itemExDate.text = "Expires: " + String(itemsInCell.exDate)
         }else{
             let itemsInCell = myList[indexPath.row]
             cell.itemName.text = itemsInCell.name
-            cell.itemCalories.text = "Calories: " + String(itemsInCell.calorie)
+            cell.itemCalories.text = "Calories: " + String(itemsInCell.calories)
             cell.itemQuantity.text = "Quantity:" + String(itemsInCell.quantity)
             cell.itemExDate.text = "Expires: " + String(itemsInCell.exDate)
             
@@ -203,7 +205,7 @@ class PantryListViewController: UIViewController, UITableViewDelegate, UITableVi
             tableViewList.reloadData()
         case 2:
             searching = true
-            searchingItems = myList.filter({ String($0.calorie).lowercased().prefix(text.count) == text.lowercased()})
+            searchingItems = myList.filter({ String($0.calories).lowercased().prefix(text.count) == text.lowercased()})
             tableViewList.reloadData()
         default:
             print("no type")
@@ -216,7 +218,7 @@ class PantryListViewController: UIViewController, UITableViewDelegate, UITableVi
             tableViewList.reloadData()
         }
         
-        saveToFileStuff()
+        //saveToFileStuff()
     }
     
     //unwind seque
@@ -227,18 +229,18 @@ class PantryListViewController: UIViewController, UITableViewDelegate, UITableVi
             tableViewList.insertRows(at: [newIndexPath], with: .automatic)
         }
         
-        saveToFileStuff()
+        //saveToFileStuff()
     }
     
-    //archive pantry
+    /*//archive pantry
     func saveToFileStuff(){
-        NSKeyedArchiver.archiveRootObject(myList, toFile: PantryItemList.stuffFolder.path)
+        NSKeyedArchiver.archiveRootObject(myList, toFile: PantryItem.stuffFolder.path)
     }
     
     //unarchive data
-    func loadSavedItems() -> [PantryItemList]?{
+    func loadSavedItems() -> [PantryItem]?{
         return NSKeyedUnarchiver.unarchiveObject(withFile: PantryItemList.stuffFolder.path) as? [PantryItemList]
-    }
+    }*/
 }
 
 class PantryCell: UITableViewCell{
