@@ -41,6 +41,12 @@ class FriendsDataTester {
         
         for email in listArray{
             
+            let request: NSFetchRequest<FriendLists> = FriendLists.fetchRequest()
+            
+            let predicate = NSPredicate(format: "email CONTAINS[cd] %@", email)
+            
+            request.predicate = predicate
+            
             let userRef = self.usersRef.document(email)
             userRef.getDocument { (document, error) in
                 if let e = error{

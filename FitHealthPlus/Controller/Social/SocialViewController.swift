@@ -12,7 +12,6 @@ import CoreData
 
 class SocialViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    var index = 0
     var db = Firestore.firestore()
 
     var friendList = [FriendLists]()
@@ -47,13 +46,25 @@ class SocialViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        index = indexPath.row
         
-        performSegue(withIdentifier: "socialToProfile", sender: nil)
+        
+        
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        
+        let profileVC = storyBoard.instantiateViewController(withIdentifier: "profile") as! ProfileViewController
+        
+        profileVC.friend = friendList[indexPath.row]
+        print(friendList[indexPath.row])
+        
+        self.navigationController?.showDetailViewController(profileVC, sender: self)
         
         tableView.deselectRow(at: indexPath, animated: true)
 
     }
+    
+    
+    
+    
     
     
     

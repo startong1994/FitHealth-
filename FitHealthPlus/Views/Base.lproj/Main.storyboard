@@ -1204,7 +1204,7 @@
         <scene sceneID="leR-pM-qBd">
             <objects>
                 <viewController storyboardIdentifier="profile" title="ProfileView" id="8y7-6R-7Ht" customClass="ProfileViewController" customModule="FitHealthPlus" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="SSP-Bp-dSs">
+                    <view key="view" contentMode="scaleToFill" restorationIdentifier="ProfileViewController" id="SSP-Bp-dSs">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -1239,6 +1239,7 @@
                         <viewLayoutGuide key="safeArea" id="7Bh-dE-sfS"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="Iet-v3-zU6"/>
                     <connections>
                         <outlet property="profileEmail" destination="LHP-uI-TfJ" id="RIU-1e-6Ot"/>
                         <outlet property="profileImage" destination="WQT-kd-zI7" id="88k-Os-spB"/>
