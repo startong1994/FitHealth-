@@ -30,8 +30,6 @@ class LoginViewController: UIViewController {
     }
     override func viewDidDisappear(_ animated: Bool) {
         FriendsDataTester().storeListsToUserDefaults(UsersData().getCurrentUser())
-        //FriendsDataTester().storeFriendList()
-        //FriendsDataTester().storePendingLists()
     }
     
     

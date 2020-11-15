@@ -21,13 +21,13 @@ class SocialViewController: UIViewController, UITableViewDelegate, UITableViewDa
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        //load friend list
+        friendList = FriendsDataTester().loadFriendList()
         
-        FriendsDataTester().storeListsToUserDefaults(UsersData().getCurrentUser())
         self.tableView.tableFooterView = UIView()
         navigationItem.title = "Social"
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        friendList = FriendsDataTester().loadFriendList()
         
     }
     override func viewWillAppear(_ animated: Bool) {

@@ -24,7 +24,7 @@
 		D26A6009253F7D4A00A21006 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26A6008253F7D4A00A21006 /* ProfileViewController.swift */; };
 		D270A096254321FE00443769 /* WorkoutGuideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D270A095254321FE00443769 /* WorkoutGuideViewController.swift */; };
 		D270A09C254339C900443769 /* RecipeDetailVeiwController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D270A09B254339C900443769 /* RecipeDetailVeiwController.swift */; };
-		D2912C2E253E59AC0061EC01 /* newFriendProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2912C2D253E59AC0061EC01 /* newFriendProfileViewController.swift */; };
+		D2912C2E253E59AC0061EC01 /* NewFriendProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2912C2D253E59AC0061EC01 /* NewFriendProfileViewController.swift */; };
 		D29262DB255E3A330092D0B3 /* UsersData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29262DA255E3A330092D0B3 /* UsersData.swift */; };
 		D29262DE255E47730092D0B3 /* FriendsNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29262DD255E47730092D0B3 /* FriendsNetwork.swift */; };
 		D29262E4256072BB0092D0B3 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D29262E2256072BB0092D0B3 /* DataModel.xcdatamodeld */; };
@@ -69,7 +69,7 @@
 		D26A6008253F7D4A00A21006 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		D270A095254321FE00443769 /* WorkoutGuideViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutGuideViewController.swift; sourceTree = "<group>"; };
 		D270A09B254339C900443769 /* RecipeDetailVeiwController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailVeiwController.swift; sourceTree = "<group>"; };
-		D2912C2D253E59AC0061EC01 /* newFriendProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newFriendProfileViewController.swift; sourceTree = "<group>"; };
+		D2912C2D253E59AC0061EC01 /* NewFriendProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewFriendProfileViewController.swift; sourceTree = "<group>"; };
 		D29262DA255E3A330092D0B3 /* UsersData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersData.swift; sourceTree = "<group>"; };
 		D29262DD255E47730092D0B3 /* FriendsNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsNetwork.swift; sourceTree = "<group>"; };
 		D29262E3256072BB0092D0B3 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
@@ -264,7 +264,7 @@
 				D2EA92EA253A32E900026B0E /* SocialViewController.swift */,
 				D230589F253CCEB30013B64C /* LeaderboardViewController.swift */,
 				D23058AE253CE1060013B64C /* AddFriendViewController.swift */,
-				D2912C2D253E59AC0061EC01 /* newFriendProfileViewController.swift */,
+				D2912C2D253E59AC0061EC01 /* NewFriendProfileViewController.swift */,
 				D26A6008253F7D4A00A21006 /* ProfileViewController.swift */,
 			);
 			path = Social;
@@ -392,7 +392,7 @@
 			files = (
 				D2EA92EB253A32E900026B0E /* SocialViewController.swift in Sources */,
 				D29919302560A6480000DB04 /* Constants.swift in Sources */,
-				D2912C2E253E59AC0061EC01 /* newFriendProfileViewController.swift in Sources */,
+				D2912C2E253E59AC0061EC01 /* NewFriendProfileViewController.swift in Sources */,
 				D2DB127D2540DCB7005DFF65 /* FitnessGoalTableViewCell.swift in Sources */,
 				D2EA92D9253A329500026B0E /* RecipesViewController.swift in Sources */,
 				D2EA92D7253A329500026B0E /* FitnessViewController.swift in Sources */,
@@ -497,7 +497,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -552,7 +552,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

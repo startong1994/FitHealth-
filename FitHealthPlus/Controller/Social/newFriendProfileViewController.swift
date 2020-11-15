@@ -1,5 +1,5 @@
 //
-//  newFriendProfileViewController.swift
+//  NewFriendProfileViewController.swift
 //  FitHealth+
 //
 //  Created by xu daitong on 10/19/20.
@@ -7,9 +7,11 @@
 //
 
 import UIKit
+import CoreData
 
-class newFriendProfileViewController: UIViewController {
-    //let friend = FriendsData()
+class NewFriendProfileViewController: UIViewController {
+    
+    var pendingFriend: PendingLists?
     
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var profileName: UILabel!
@@ -20,9 +22,8 @@ class newFriendProfileViewController: UIViewController {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-//        profileImage?.image = UIImage(named: friend.getNewFriendProfileImage(0))
-//        profileName?.text = friend.getNewFriendName(0)
-//        profileEmail.text = friend.getNewFriendEmail(0)
+        loadPendingProfile()
+       
         
     }
     
@@ -32,6 +33,21 @@ class newFriendProfileViewController: UIViewController {
     
     @IBAction func rejectButtonPressed(_ sender: UIButton) {
         print("Rejected")
+    }
+    
+    func loadPendingProfile(){
+        if let image = pendingFriend?.profileImage, let name = pendingFriend?.name,
+           let email = pendingFriend?.email{
+            profileName.text = name
+            print(name)
+            profileEmail.text = email
+            print(email)
+            profileImage.image  = UIImage(named: image)
+            print(image)
+            
+        }
+        
+        
     }
     
 
