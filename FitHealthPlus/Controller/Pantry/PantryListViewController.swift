@@ -21,6 +21,7 @@ class PantryListViewController: UIViewController, UITableViewDelegate, UITableVi
     
     
     var myList = [PantryItem]()
+    //var pantryItemsCollectionRef: CollectionReference!
     
     var searchingItems = [PantryItem]()
     var searching = false
@@ -33,27 +34,58 @@ class PantryListViewController: UIViewController, UITableViewDelegate, UITableVi
         myList += [item1]
         
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Pantry List"
-        
+        tableViewList.delegate = self
+        tableViewList.dataSource = self
         setUpSearchBar()
         
-        loadItems()
-        
-        //code to get data from local UserDefault data, get name when it is loaded
-        if let name = defaults.dictionary(forKey: "CurrentUser")!["name"]{
-            print(name)
-        }
-        
-        
-        
+        //loadItems()
         
         
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         self.tabBarController?.tabBar.isHidden = false
-        //get user's name with line 16,
+        //code to get data from local UserDefault data, get name when it is loaded
+        guard let username = defaults.dictionary(forKey: "CurrentUser")!["name"]else{
+            print("name not found")
+            return
+        }
+        db.collection("Pantry").document(username as! String).collection("Pantry List").addSnapshotListener { (QuerySnapshot, error) in
+            if let err = error {
+                debugPrint("Error Fetching docs:  \(err)")
+            } else {
+                self.myList = []
+                for document in QuerySnapshot!.documents {
+                    //let data = document.data()
+                    let itemName = document.get("Name") as? String ?? "Item"
+                    let itemCalories = document.get("calories") as? Int ?? 0
+                    let itemCarb = document.get("carb") as? Int ?? 0
+                    let itemCholestrol = document.get("cholestrol") as? Int ?? 0
+                    let itemFat = document.get("fat") as? Int ?? 0
+                    let itemFiber = document.get("fiber") as? Int ?? 0
+                    let itemProtein = document.get("protein") as? Int ?? 0
+                    let itemQuantity = document.get("quantity") as? Int ?? 0
+                    let itemSodium = document.get("sodium") as? Int ?? 0
+                    let itemSugar = document.get("sugar") as? Int ?? 0
+                    let itemCategory = document.get("category") as? String ?? "None"
+                    let itemExDate = document.get("exDate") as? String ?? "12/31/20"
+                    let itemServingSize = document.get("servingSize") as? String ?? "Item"
+                    
+                    let newItem = PantryItem(name: itemName, quantity: itemQuantity, exDate: itemExDate, category: itemCategory, servingSize: itemServingSize, calories: itemCalories, fat: itemFat, sodium: itemSodium, carb: itemCarb, fiber: itemFiber, sugar: itemSugar, protein: itemProtein, cholestrol: itemCholestrol)
+                    
+                    self.myList.append(newItem)
+                }
+                DispatchQueue.main.async {
+                    self.tableViewList.reloadData()
+                }
+                
+            }
+            
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -214,6 +246,19 @@ class PantryListViewController: UIViewController, UITableViewDelegate, UITableVi
     //delete item
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete{
+            let docName = myList[indexPath.row].name
+            guard let username = defaults.dictionary(forKey: "CurrentUser")!["name"]else{
+                print("name not found")
+                return
+            }
+            db.collection("Pantry").document(username as! String).collection("Pantry List").document(docName).delete() { err in
+                if let err = err {
+                    print("Error removing document: \(err)")
+                } else {
+                    print("Document successfully removed")
+                }
+                
+            }
             myList.remove(at: indexPath.row)
             tableViewList.reloadData()
         }
@@ -227,9 +272,8 @@ class PantryListViewController: UIViewController, UITableViewDelegate, UITableVi
             let newIndexPath = IndexPath(row: myList.count, section: 0)
             myList.append(item)
             tableViewList.insertRows(at: [newIndexPath], with: .automatic)
+            
         }
-        
-        //saveToFileStuff()
     }
     
     /*//archive pantry
@@ -250,5 +294,12 @@ class PantryCell: UITableViewCell{
     @IBOutlet weak var itemExDate: UILabel!
     @IBOutlet weak var pantryCellView: UIView!
     @IBOutlet weak var itemImage: UIImageView!
+    
+    func configureCell(pantryItem: PantryItem) {
+        itemName.text = pantryItem.name
+        itemQuantity.text = String(pantryItem.quantity)
+        itemCalories.text = String(pantryItem.calories)
+        itemExDate.text = pantryItem.exDate
+    }
 
 }
