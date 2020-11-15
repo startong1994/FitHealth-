@@ -9,7 +9,7 @@
 import UIKit
 
 class newFriendProfileViewController: UIViewController {
-    let friend = FriendsData()
+    //let friend = FriendsData()
     
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var profileName: UILabel!
@@ -20,9 +20,9 @@ class newFriendProfileViewController: UIViewController {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        profileImage?.image = UIImage(named: friend.getNewFriendProfileImage(0))
-        profileName?.text = friend.getNewFriendName(0)
-        profileEmail.text = friend.getNewFriendEmail(0)
+//        profileImage?.image = UIImage(named: friend.getNewFriendProfileImage(0))
+//        profileName?.text = friend.getNewFriendName(0)
+//        profileEmail.text = friend.getNewFriendEmail(0)
         
     }
     

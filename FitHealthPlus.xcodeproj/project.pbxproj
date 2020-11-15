@@ -20,13 +20,15 @@
 		D23058A7253CD8680013B64C /* SignUpViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23058A6253CD8680013B64C /* SignUpViewContoller.swift */; };
 		D23058AF253CE1060013B64C /* AddFriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23058AE253CE1060013B64C /* AddFriendViewController.swift */; };
 		D251DEA5254060AB006E7862 /* PantryItemList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D251DEA4254060AB006E7862 /* PantryItemList.swift */; };
-		D261FA03253D0D4F00AE096B /* Friends.swift in Sources */ = {isa = PBXBuildFile; fileRef = D261FA02253D0D4F00AE096B /* Friends.swift */; };
-		D261FA05253D0E1A00AE096B /* FriendsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D261FA04253D0E1A00AE096B /* FriendsData.swift */; };
 		D268DD032550C669000A320D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D268DD022550C669000A320D /* GoogleService-Info.plist */; };
 		D26A6009253F7D4A00A21006 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26A6008253F7D4A00A21006 /* ProfileViewController.swift */; };
 		D270A096254321FE00443769 /* WorkoutGuideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D270A095254321FE00443769 /* WorkoutGuideViewController.swift */; };
 		D270A09C254339C900443769 /* RecipeDetailVeiwController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D270A09B254339C900443769 /* RecipeDetailVeiwController.swift */; };
 		D2912C2E253E59AC0061EC01 /* newFriendProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2912C2D253E59AC0061EC01 /* newFriendProfileViewController.swift */; };
+		D29262DB255E3A330092D0B3 /* UsersData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29262DA255E3A330092D0B3 /* UsersData.swift */; };
+		D29262DE255E47730092D0B3 /* FriendsNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29262DD255E47730092D0B3 /* FriendsNetwork.swift */; };
+		D29262E4256072BB0092D0B3 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D29262E2256072BB0092D0B3 /* DataModel.xcdatamodeld */; };
+		D29919302560A6480000DB04 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D299192F2560A6480000DB04 /* Constants.swift */; };
 		D2D546262542442500EA0C1E /* AddRecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D546252542442500EA0C1E /* AddRecipeViewController.swift */; };
 		D2D54628254244D800EA0C1E /* MyRecipesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D54627254244D800EA0C1E /* MyRecipesViewController.swift */; };
 		D2DB12732540BE89005DFF65 /* StatsBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DB12712540BE89005DFF65 /* StatsBar.swift */; };
@@ -63,13 +65,15 @@
 		D23058A6253CD8680013B64C /* SignUpViewContoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewContoller.swift; sourceTree = "<group>"; };
 		D23058AE253CE1060013B64C /* AddFriendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendViewController.swift; sourceTree = "<group>"; };
 		D251DEA4254060AB006E7862 /* PantryItemList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PantryItemList.swift; sourceTree = "<group>"; };
-		D261FA02253D0D4F00AE096B /* Friends.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friends.swift; sourceTree = "<group>"; };
-		D261FA04253D0E1A00AE096B /* FriendsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsData.swift; sourceTree = "<group>"; };
 		D268DD022550C669000A320D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D26A6008253F7D4A00A21006 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		D270A095254321FE00443769 /* WorkoutGuideViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutGuideViewController.swift; sourceTree = "<group>"; };
 		D270A09B254339C900443769 /* RecipeDetailVeiwController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailVeiwController.swift; sourceTree = "<group>"; };
 		D2912C2D253E59AC0061EC01 /* newFriendProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newFriendProfileViewController.swift; sourceTree = "<group>"; };
+		D29262DA255E3A330092D0B3 /* UsersData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersData.swift; sourceTree = "<group>"; };
+		D29262DD255E47730092D0B3 /* FriendsNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsNetwork.swift; sourceTree = "<group>"; };
+		D29262E3256072BB0092D0B3 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
+		D299192F2560A6480000DB04 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		D2D546252542442500EA0C1E /* AddRecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecipeViewController.swift; sourceTree = "<group>"; };
 		D2D54627254244D800EA0C1E /* MyRecipesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRecipesViewController.swift; sourceTree = "<group>"; };
 		D2DB12712540BE89005DFF65 /* StatsBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsBar.swift; sourceTree = "<group>"; };
@@ -135,8 +139,6 @@
 			isa = PBXGroup;
 			children = (
 				D251DEA4254060AB006E7862 /* PantryItemList.swift */,
-				D261FA02253D0D4F00AE096B /* Friends.swift */,
-				D261FA04253D0E1A00AE096B /* FriendsData.swift */,
 			);
 			path = SimpleData;
 			sourceTree = "<group>";
@@ -160,6 +162,10 @@
 			isa = PBXGroup;
 			children = (
 				D23058A9253CDE840013B64C /* SimpleData */,
+				D29262DA255E3A330092D0B3 /* UsersData.swift */,
+				D29262DD255E47730092D0B3 /* FriendsNetwork.swift */,
+				D29262E2256072BB0092D0B3 /* DataModel.xcdatamodeld */,
+				D299192F2560A6480000DB04 /* Constants.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -385,8 +391,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				D2EA92EB253A32E900026B0E /* SocialViewController.swift in Sources */,
+				D29919302560A6480000DB04 /* Constants.swift in Sources */,
 				D2912C2E253E59AC0061EC01 /* newFriendProfileViewController.swift in Sources */,
-				D261FA03253D0D4F00AE096B /* Friends.swift in Sources */,
 				D2DB127D2540DCB7005DFF65 /* FitnessGoalTableViewCell.swift in Sources */,
 				D2EA92D9253A329500026B0E /* RecipesViewController.swift in Sources */,
 				D2EA92D7253A329500026B0E /* FitnessViewController.swift in Sources */,
@@ -401,10 +407,11 @@
 				D23058A0253CCEB30013B64C /* LeaderboardViewController.swift in Sources */,
 				D270A096254321FE00443769 /* WorkoutGuideViewController.swift in Sources */,
 				D23058A5253CD8540013B64C /* LoginViewController.swift in Sources */,
-				D261FA05253D0E1A00AE096B /* FriendsData.swift in Sources */,
 				D2D546262542442500EA0C1E /* AddRecipeViewController.swift in Sources */,
 				D2DB12772540C8CE005DFF65 /* workoutCell.swift in Sources */,
+				D29262E4256072BB0092D0B3 /* DataModel.xcdatamodeld in Sources */,
 				D2EA92D5253A329500026B0E /* SceneDelegate.swift in Sources */,
+				D29262DB255E3A330092D0B3 /* UsersData.swift in Sources */,
 				D2DB127A2540DBF7005DFF65 /* FitnessGoalViewController.swift in Sources */,
 				D23058A7253CD8680013B64C /* SignUpViewContoller.swift in Sources */,
 				D251DEA5254060AB006E7862 /* PantryItemList.swift in Sources */,
@@ -413,6 +420,7 @@
 				98530BC1253F9F6A00D93F88 /* PantryItemShowDetailViewController.swift in Sources */,
 				D228A603254343A800D66ED3 /* RecipeDetailTableViewCell.swift in Sources */,
 				D23058AF253CE1060013B64C /* AddFriendViewController.swift in Sources */,
+				D29262DE255E47730092D0B3 /* FriendsNetwork.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -614,6 +622,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		D29262E2256072BB0092D0B3 /* DataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				D29262E3256072BB0092D0B3 /* DataModel.xcdatamodel */,
+			);
+			currentVersion = D29262E3256072BB0092D0B3 /* DataModel.xcdatamodel */;
+			path = DataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = D2EA92C7253A329500026B0E /* Project object */;
 }

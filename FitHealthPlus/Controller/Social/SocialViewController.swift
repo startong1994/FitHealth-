@@ -7,34 +7,42 @@
 //
 
 import UIKit
+import FirebaseFirestore
+import CoreData
 
 class SocialViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var index = 0
-    var friend = FriendsData()
+    var db = Firestore.firestore()
+
+    var friendList = [FriendLists]()
 
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        FriendsDataTester().storeListsToUserDefaults(UsersData().getCurrentUser())
         self.tableView.tableFooterView = UIView()
         navigationItem.title = "Social"
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        friendList = FriendsDataTester().loadFriendList()
+        
     }
     override func viewWillAppear(_ animated: Bool) {
         self.tabBarController?.tabBar.isHidden = false
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return friend.friendData.count
+        return friendList.count
+        
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let profileImage = friend.getProfileImage(indexPath.row)
         let cell = tableView.dequeueReusableCell(withIdentifier: "friendsCell", for: indexPath)
-        cell.textLabel?.text = friend.getName(indexPath.row)
-        cell.imageView?.image = UIImage(named: profileImage)
+        cell.textLabel?.text = friendList[indexPath.row].name!
+        cell.imageView?.image = UIImage(named: friendList[indexPath.row].profileImage!)
         return cell
     }
     
@@ -46,20 +54,43 @@ class SocialViewController: UIViewController, UITableViewDelegate, UITableViewDa
         tableView.deselectRow(at: indexPath, animated: true)
 
     }
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "socialToProfile" {
-            let profileVC = segue.destination as! ProfileViewController
-            let indexPath = index
-            profileVC.index = indexPath
-            
-        }
-    }
-
     
     
     
-    
-
-
+//    func loadFriends(){
+//
+//        db.collection("friendList").document(UsersData().getCurrentUser())
+//            .addSnapshotListener { (documentSnapshot, error) in
+//                self.friendList = []
+//
+//                //FriendsDataTester().storeFriendList()
+//                //FriendsDataTester().removeFriend(0)
+//
+//                if let e = error{
+//                    print(e)
+//                }
+//                else{
+//                if let document = documentSnapshot{
+//                    let data = document.data()
+//                    if data != nil{
+//                        guard let friends = data!["FriendList"]! as? [String] else{
+//                            print("no friends")
+//                            return
+//                        }
+//                        for n in friends{
+//                            self.friendList.append(n)
+//                            DispatchQueue.main.async {
+//                                self.tableView.reloadData()
+//                                }
+//                                }
+//                            }
+//                        else{
+//                            print("no friends")
+//                    }
+//                        }
+//                }
+//            }
+//        print(friendList)
+//    }
 }
 
