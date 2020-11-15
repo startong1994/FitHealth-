@@ -23,17 +23,41 @@ class FriendsDataTester {
     
     func storeListsToUserDefaults(_ name: String){
     
-        let docRef = self.friendsRef.document(name)
-        docRef.getDocument { (document, error) in
+        //let docRef = self.friendsRef.document(name)
+        //docRef.getDocument { (document, error) in
+        self.removeAllData()
+            
+            
+        self.friendsRef.document(name).addSnapshotListener{ (document, error) in
+            
+            print("data changed")
+            if let e = error{
+                print("error \(e)")
+            }
+            else{
                 if let document = document, document.exists{
                     if let friendListEmails = document.data()![K.FStore.FriendList]! as? [String]{
                         self.defaults.set(friendListEmails, forKey: K.FStore.FriendList)
+                        self.storeFriendList()
+                        print("count")
+                        
                     }
                     if let pendingListEmails = document.data()![K.FStore.pendingLists]! as? [String]{
                         self.defaults.set(pendingListEmails, forKey: K.FStore.pendingLists)
+                        self.storePendingLists()
+                        print("count count")
                     }
                 }
+                
             }
+            
+            
+            
+            
+            
+            
+        }
+            
     }
     func storeFriendList(){
         
@@ -68,13 +92,18 @@ class FriendsDataTester {
                 }
             }
         }
-
-        
         }
     func storePendingLists(){
         let listArray = defaults.array(forKey: K.FStore.pendingLists) as! [String]
         
         for email in listArray{
+            
+            let request: NSFetchRequest<PendingLists> = PendingLists.fetchRequest()
+            
+            let predicate = NSPredicate(format: "email CONTAINS[cd] %@", email)
+            
+            request.predicate = predicate
+            
             
             let userRef = self.usersRef.document(email)
             userRef.getDocument { (document, error) in
@@ -126,7 +155,10 @@ class FriendsDataTester {
         
         return pendingListArray
     }
-    func removeFriend(_ index: Int){
+    func removeAllData(){
+        
+        friendlistArray = loadFriendList()
+        pendingListArray = loadPendingFriends()
         
         for friends in friendlistArray{
             context.delete(friends)

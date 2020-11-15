@@ -21,11 +21,13 @@ class AddFriendController: UIViewController, UITableViewDataSource, UITableViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        
+        pendingFriendList = FriendsDataTester().loadPendingFriends()
         self.tabBarController?.tabBar.isHidden = true
         navigationItem.title = "Add Friends"
         self.tableView.dataSource = self
         self.tableView.delegate = self
-        pendingFriendList = FriendsDataTester().loadPendingFriends()
         
         //loadPendingFriends()
     }
@@ -100,7 +102,19 @@ class AddFriendController: UIViewController, UITableViewDataSource, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        
+        let pendingProfileVC = storyBoard.instantiateViewController(withIdentifier: "NewFriendProfile") as! NewFriendProfileViewController
+        
+        pendingProfileVC.pendingFriend = pendingFriendList[indexPath.row]
+        print(pendingFriendList[indexPath.row])
+        
+        self.navigationController?.showDetailViewController(pendingProfileVC, sender: self)
+        
         tableView.deselectRow(at: indexPath, animated: true)
+        
+        
     }
     
 //    func loadPendingFriends(){

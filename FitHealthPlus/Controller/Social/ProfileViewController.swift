@@ -24,10 +24,7 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        profileName.text = friend?.name
-        profileEmail.text = friend?.email
-        profileImage.image = UIImage(named: (friend?.profileImage)!)
+        loadProfile()
         
     }
     @IBAction func deleteButtonPressed(_ sender: UIButton) {
@@ -46,6 +43,20 @@ class ProfileViewController: UIViewController {
                
                
                present(alert,animated: true,completion: nil)
+        
+    }
+    
+    func loadProfile(){
+        
+        if let image = friend?.profileImage, let name = friend?.name,
+           let email = friend?.email{
+            profileName.text = name
+            profileEmail.text = email
+            profileImage.image  = UIImage(named: image)
+            
+        }
+        
+        
         
     }
 }
