@@ -165,16 +165,20 @@ class FriendNetwork {
                 }
             }
         }
+    //delete pendinglist
     func declineFriendship(_ email: String) {
         let friendRef = friendsRef.document(currentUser)
         friendRef.updateData([K.FStore.pendingLists : FieldValue.arrayRemove([email])])
     }
-    
-    
-    
-    
-    
-    
+    //delete both side of friendList
+    func deleteFriend(Email email: String, Name name: String){
+        let userFriendRef = friendsRef.document(currentUser)
+        userFriendRef.updateData([K.FStore.FriendList : FieldValue.arrayRemove([email])])
+        
+        let targetFriendRef = friendsRef.document(name)
+        targetFriendRef.updateData([K.FStore.FriendList : FieldValue.arrayRemove([currentEmail])])
+        
+    }
     
     
     }

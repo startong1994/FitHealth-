@@ -31,6 +31,10 @@ class ProfileViewController: UIViewController {
         let alert = UIAlertController(title: "Delete", message: "Are you sure?", preferredStyle: .alert)
                
                let delete = UIAlertAction(title: "Yes", style: .default){(delete) in
+                if let email = self.friend?.email, let name = self.friend?.name{
+                    FriendNetwork().deleteFriend(Email: email, Name: name)
+                    
+                }
                    print("deleted")
                }
                
