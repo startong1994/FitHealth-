@@ -179,16 +179,50 @@ class FriendNetwork {
         targetFriendRef.updateData([K.FStore.FriendList : FieldValue.arrayRemove([currentEmail])])
         
     }
-    
-    
-    }
 
     
-//    func addFriend(_ email: String){
-//        friendsRef.document("Dationg Xu").updateData(["PendingFriends" : FieldValue.arrayUnion([email])])
-//    }
-//
-//
-//
-//
-//}
+    func acceptFriend(Email email: String, Name name: String){
+        let userFriendRef = friendsRef.document(currentUser)
+        userFriendRef.getDocument { (userDoc, error) in
+            if let e = error{
+                print("accept friends error on getting data \(e)")
+            }
+            else{
+                if let userData = userDoc?.data(){
+                    if userData[K.FStore.FriendList] == nil{
+                        userFriendRef.setData([K.FStore.FriendList : FieldValue.arrayUnion([email])])
+                        print("accept friend #1, added to users friendList")
+                    }else{
+                        userFriendRef.updateData([K.FStore.FriendList : FieldValue.arrayUnion([email])])
+                        print("accept friend #1, added to users friendList")
+                    }
+                    userFriendRef.updateData([K.FStore.pendingLists : FieldValue.arrayRemove([email])])
+                }
+            }
+        }
+        
+        let targetFriendRef = friendsRef.document(name)
+        targetFriendRef.getDocument { (targetDoc, error) in
+            if let e = error{
+                print("accept friends error on getting data \(e)")
+            }
+            else{
+                if let targetData = targetDoc?.data(){
+                    if targetData[K.FStore.FriendList] == nil{
+                        targetFriendRef.setData([K.FStore.FriendList : FieldValue.arrayUnion([self.currentEmail])])
+                        print("target* add friend #1, added to users friendList")
+                    }else{
+                        targetFriendRef.updateData([K.FStore.FriendList : FieldValue.arrayUnion([self.currentEmail])])
+                        print("target* add friend #1, added to users friendList")
+                    }
+                }
+            }
+        }
+        
+        
+        
+        
+        
+        
+    }
+}

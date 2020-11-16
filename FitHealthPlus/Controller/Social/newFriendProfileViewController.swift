@@ -28,6 +28,10 @@ class NewFriendProfileViewController: UIViewController {
     }
     
     @IBAction func acceptButtonPressed(_ sender: UIButton) {
+        if let name = pendingFriend?.name, let email = pendingFriend?.email{
+            FriendNetwork().acceptFriend(Email: email, Name: name)
+        }
+        
         print("Accpeted")
     }
     
