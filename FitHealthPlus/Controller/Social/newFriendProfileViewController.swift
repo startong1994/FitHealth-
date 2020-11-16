@@ -32,6 +32,9 @@ class NewFriendProfileViewController: UIViewController {
     }
     
     @IBAction func rejectButtonPressed(_ sender: UIButton) {
+        if let email = pendingFriend?.email{
+            FriendNetwork().declineFriendship(email)
+        }
         print("Rejected")
     }
     

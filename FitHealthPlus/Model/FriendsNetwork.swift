@@ -16,6 +16,7 @@ class FriendNetwork {
     let defaults = UserDefaults.standard
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     let currentEmail = UsersData().getCurrentEmail()
+    let currentUser = UsersData().getCurrentUser()
     
     
     func storeListsToUserDefaults(_ name: String){
@@ -142,16 +143,16 @@ class FriendNetwork {
                                 // check if pendingList is empty,
                                 //if friendDoc?.data() != nil{
                                 guard let data = friendDoc?.data() else{
-                                    self.friendsRef.document(targetName).setData(["PendingFriends" : FieldValue.arrayUnion([self.currentEmail])])
+                                    self.friendsRef.document(targetName).setData([K.FStore.pendingLists : FieldValue.arrayUnion([self.currentEmail])])
                                     print("no name, new name added")
                                     return
                                 }
                                 if data[K.FStore.pendingLists] == nil{
-                                    self.friendsRef.document(targetName).setData(["PendingFriends" : FieldValue.arrayUnion([self.currentEmail])])
+                                    self.friendsRef.document(targetName).setData([K.FStore.pendingLists : FieldValue.arrayUnion([self.currentEmail])])
                                     print("set data succ")
                                 }
                                 else{
-                                    self.friendsRef.document(targetName).updateData(["PendingFriends" : FieldValue.arrayUnion([self.currentEmail])])
+                                    self.friendsRef.document(targetName).updateData([K.FStore.pendingLists : FieldValue.arrayUnion([self.currentEmail])])
                                     print("updated")
                                 }
                                     }
@@ -164,6 +165,18 @@ class FriendNetwork {
                 }
             }
         }
+    func declineFriendship(_ email: String) {
+        let friendRef = friendsRef.document(currentUser)
+        friendRef.updateData([K.FStore.pendingLists : FieldValue.arrayRemove([email])])
+    }
+    
+    
+    
+    
+    
+    
+    
+    
     }
 
     
