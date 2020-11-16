@@ -10,11 +10,21 @@ import UIKit
 
 class EditPantryItemViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource{
 
+    //Textbox fields
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var quantityTextField: UITextField!
     @IBOutlet weak var exDateTextField: UITextField!
     @IBOutlet weak var categoryTextField: UITextField!
-    @IBOutlet weak var calorieTextField: UITextField!
+    @IBOutlet weak var servingSizeTextField: UITextField!
+    @IBOutlet weak var caloriesTextField: UITextField!
+    @IBOutlet weak var fatTextField: UITextField!
+    @IBOutlet weak var sodiumTextField: UITextField!
+    @IBOutlet weak var carbTextField: UITextField!
+    @IBOutlet weak var fiberTextField: UITextField!
+    @IBOutlet weak var sugarTextField: UITextField!
+    @IBOutlet weak var proteinTextField: UITextField!
+    @IBOutlet weak var cholesterolTextField: UITextField!
+    @IBOutlet weak var addBtn: UIButton!
     private var datePicker: UIDatePicker?
 
     let itemCategories = ["Fruit", "Vegetables", "Pantry", "Frozen", "Fridge", "Dairy", "Meat"]
@@ -50,8 +60,11 @@ class EditPantryItemViewController: UIViewController, UIPickerViewDelegate, UIPi
             quantityTextField.text = String(item.quantity)
             exDateTextField.text = item.exDate
             categoryTextField.text = item.category
-            calorieTextField.text = String(item.calories)
+            caloriesTextField.text = String(item.calories)
         }
+        
+        addBtn.backgroundColor = UIColor.systemTeal
+        addBtn.layer.cornerRadius = addBtn.frame.height/2
         
     }
     @objc func viewTapped(gestureRecognizer: UITapGestureRecognizer){
@@ -83,9 +96,9 @@ class EditPantryItemViewController: UIViewController, UIPickerViewDelegate, UIPi
     }
     
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool{
-        if textField == quantityTextField || textField == calorieTextField{
+        if textField == quantityTextField || textField == caloriesTextField{
             quantityTextField.keyboardType = .numbersAndPunctuation
-            calorieTextField.keyboardType = .numbersAndPunctuation
+            caloriesTextField.keyboardType = .numbersAndPunctuation
         }else{
             nameTextField.keyboardType = .default
             exDateTextField.keyboardType = .default
@@ -99,7 +112,7 @@ class EditPantryItemViewController: UIViewController, UIPickerViewDelegate, UIPi
         }else if textField == quantityTextField {
             exDateTextField.becomeFirstResponder()
         }else if textField == exDateTextField{
-            calorieTextField.becomeFirstResponder()
+            caloriesTextField.becomeFirstResponder()
         }else{
             nameTextField.becomeFirstResponder()
         }
