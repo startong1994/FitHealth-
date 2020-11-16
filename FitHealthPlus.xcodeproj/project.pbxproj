@@ -12,6 +12,7 @@
 		9816343D2540D82D00546A9E /* EditPantryItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9816343C2540D82D00546A9E /* EditPantryItemViewController.swift */; };
 		98530BBF253F9C9800D93F88 /* PantryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98530BBE253F9C9800D93F88 /* PantryListViewController.swift */; };
 		98530BC1253F9F6A00D93F88 /* PantryItemShowDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98530BC0253F9F6A00D93F88 /* PantryItemShowDetailViewController.swift */; };
+		D2064A5E2562C5DC008BF665 /* FriendsNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2064A5D2562C5DC008BF665 /* FriendsNetwork.swift */; };
 		D228A603254343A800D66ED3 /* RecipeDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D228A601254343A800D66ED3 /* RecipeDetailTableViewCell.swift */; };
 		D228A604254343A800D66ED3 /* RecipeDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D228A602254343A800D66ED3 /* RecipeDetailTableViewCell.xib */; };
 		D23058A0253CCEB30013B64C /* LeaderboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D230589F253CCEB30013B64C /* LeaderboardViewController.swift */; };
@@ -26,7 +27,7 @@
 		D270A09C254339C900443769 /* RecipeDetailVeiwController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D270A09B254339C900443769 /* RecipeDetailVeiwController.swift */; };
 		D2912C2E253E59AC0061EC01 /* NewFriendProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2912C2D253E59AC0061EC01 /* NewFriendProfileViewController.swift */; };
 		D29262DB255E3A330092D0B3 /* UsersData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29262DA255E3A330092D0B3 /* UsersData.swift */; };
-		D29262DE255E47730092D0B3 /* FriendsNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29262DD255E47730092D0B3 /* FriendsNetwork.swift */; };
+		D29262DE255E47730092D0B3 /* FriendsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29262DD255E47730092D0B3 /* FriendsData.swift */; };
 		D29262E4256072BB0092D0B3 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D29262E2256072BB0092D0B3 /* DataModel.xcdatamodeld */; };
 		D29919302560A6480000DB04 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D299192F2560A6480000DB04 /* Constants.swift */; };
 		D2D546262542442500EA0C1E /* AddRecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D546252542442500EA0C1E /* AddRecipeViewController.swift */; };
@@ -57,6 +58,7 @@
 		9816343C2540D82D00546A9E /* EditPantryItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPantryItemViewController.swift; sourceTree = "<group>"; };
 		98530BBE253F9C9800D93F88 /* PantryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PantryListViewController.swift; sourceTree = "<group>"; };
 		98530BC0253F9F6A00D93F88 /* PantryItemShowDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PantryItemShowDetailViewController.swift; sourceTree = "<group>"; };
+		D2064A5D2562C5DC008BF665 /* FriendsNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsNetwork.swift; sourceTree = "<group>"; };
 		D228A601254343A800D66ED3 /* RecipeDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailTableViewCell.swift; sourceTree = "<group>"; };
 		D228A602254343A800D66ED3 /* RecipeDetailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecipeDetailTableViewCell.xib; sourceTree = "<group>"; };
 		D230589F253CCEB30013B64C /* LeaderboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardViewController.swift; sourceTree = "<group>"; };
@@ -71,7 +73,7 @@
 		D270A09B254339C900443769 /* RecipeDetailVeiwController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailVeiwController.swift; sourceTree = "<group>"; };
 		D2912C2D253E59AC0061EC01 /* NewFriendProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewFriendProfileViewController.swift; sourceTree = "<group>"; };
 		D29262DA255E3A330092D0B3 /* UsersData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersData.swift; sourceTree = "<group>"; };
-		D29262DD255E47730092D0B3 /* FriendsNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsNetwork.swift; sourceTree = "<group>"; };
+		D29262DD255E47730092D0B3 /* FriendsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsData.swift; sourceTree = "<group>"; };
 		D29262E3256072BB0092D0B3 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		D299192F2560A6480000DB04 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		D2D546252542442500EA0C1E /* AddRecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecipeViewController.swift; sourceTree = "<group>"; };
@@ -163,7 +165,8 @@
 			children = (
 				D23058A9253CDE840013B64C /* SimpleData */,
 				D29262DA255E3A330092D0B3 /* UsersData.swift */,
-				D29262DD255E47730092D0B3 /* FriendsNetwork.swift */,
+				D29262DD255E47730092D0B3 /* FriendsData.swift */,
+				D2064A5D2562C5DC008BF665 /* FriendsNetwork.swift */,
 				D29262E2256072BB0092D0B3 /* DataModel.xcdatamodeld */,
 				D299192F2560A6480000DB04 /* Constants.swift */,
 			);
@@ -394,6 +397,7 @@
 				D29919302560A6480000DB04 /* Constants.swift in Sources */,
 				D2912C2E253E59AC0061EC01 /* NewFriendProfileViewController.swift in Sources */,
 				D2DB127D2540DCB7005DFF65 /* FitnessGoalTableViewCell.swift in Sources */,
+				D2064A5E2562C5DC008BF665 /* FriendsNetwork.swift in Sources */,
 				D2EA92D9253A329500026B0E /* RecipesViewController.swift in Sources */,
 				D2EA92D7253A329500026B0E /* FitnessViewController.swift in Sources */,
 				D270A09C254339C900443769 /* RecipeDetailVeiwController.swift in Sources */,
@@ -420,7 +424,7 @@
 				98530BC1253F9F6A00D93F88 /* PantryItemShowDetailViewController.swift in Sources */,
 				D228A603254343A800D66ED3 /* RecipeDetailTableViewCell.swift in Sources */,
 				D23058AF253CE1060013B64C /* AddFriendViewController.swift in Sources */,
-				D29262DE255E47730092D0B3 /* FriendsNetwork.swift in Sources */,
+				D29262DE255E47730092D0B3 /* FriendsData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

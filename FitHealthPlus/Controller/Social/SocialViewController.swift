@@ -22,7 +22,7 @@ class SocialViewController: UIViewController, UITableViewDelegate, UITableViewDa
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         //load friend list
-        friendList = FriendsDataTester().loadFriendList()
+        friendList = FriendsData().loadFriendList()
         
         self.tableView.tableFooterView = UIView()
         navigationItem.title = "Social"

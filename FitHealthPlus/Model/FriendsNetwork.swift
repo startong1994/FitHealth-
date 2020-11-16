@@ -1,8 +1,8 @@
 //
-//  FriendsData.swift
+//  FriendsNetwork.swift
 //  FitHealthPlus
 //
-//  Created by xu daitong on 11/12/20.
+//  Created by xu daitong on 11/16/20.
 //  Copyright © 2020 xu daitong. All rights reserved.
 //
 
@@ -10,25 +10,21 @@ import Foundation
 import FirebaseFirestore
 import CoreData
 
-class FriendsDataTester {
-    
-    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+class FriendNetwork {
     let friendsRef = Firestore.firestore().collection("friendList")
     let usersRef = Firestore.firestore().collection("users")
     let defaults = UserDefaults.standard
-
-    var friendlistArray = [FriendLists]()
-    var pendingListArray = [PendingLists]()
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     
     func storeListsToUserDefaults(_ name: String){
     
         //let docRef = self.friendsRef.document(name)
         //docRef.getDocument { (document, error) in
-        self.removeAllData()
+        FriendsData().removeAllData()
             
             
-        self.friendsRef.document(name).addSnapshotListener{ (document, error) in
+        friendsRef.document(name).addSnapshotListener{ (document, error) in
             
             print("data changed")
             if let e = error{
@@ -48,17 +44,12 @@ class FriendsDataTester {
                         print("count count")
                     }
                 }
-                
             }
-            
-            
-            
-            
-            
-            
         }
             
     }
+    
+    
     func storeFriendList(){
         
         let listArray = defaults.array(forKey: K.FStore.FriendList) as! [String]
@@ -86,7 +77,7 @@ class FriendsDataTester {
                             newFriends.email = friendEmail
                             newFriends.name = friendName
                             newFriends.profileImage = friendProfileImage
-                            self.saveData()
+                            FriendsData().saveData()
                         }
                     }
                 }
@@ -120,7 +111,7 @@ class FriendsDataTester {
                             newFriends.email = friendEmail
                             newFriends.name = friendName
                             newFriends.profileImage = friendProfileImage
-                            self.saveData()
+                            FriendsData().saveData()
                         }
                     }
                 }
@@ -128,47 +119,8 @@ class FriendsDataTester {
         }
     
         }
-    func saveData(){
-        do{
-            try self.context.save()
-        }catch{
-            print("error saving context \(error)")
-        }
-    }
-    func loadFriendList() -> [FriendLists]{
-        let request : NSFetchRequest<FriendLists> = FriendLists.fetchRequest()
-        do{
-            self.friendlistArray = try context.fetch(request)
-        } catch{
-            print("error on loading friendList\(error)")
-        }
-        
-        return friendlistArray
-    }
-    func loadPendingFriends() -> [PendingLists] {
-        let request : NSFetchRequest<PendingLists> = PendingLists.fetchRequest()
-        do{
-            self.pendingListArray = try context.fetch(request)
-        } catch{
-            print("error on loading friendList\(error)")
-        }
-        
-        return pendingListArray
-    }
-    func removeAllData(){
-        
-        friendlistArray = loadFriendList()
-        pendingListArray = loadPendingFriends()
-        
-        for friends in friendlistArray{
-            context.delete(friends)
-                saveData()
-        }
-        for pendingFriends in pendingListArray{
-            context.delete(pendingFriends)
-                saveData()
-        }
-        
-    }
+    
+    
+    
     
 }

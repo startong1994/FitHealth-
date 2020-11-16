@@ -55,7 +55,7 @@ struct UsersData {
                     if let document = document, document.exists{
                         let data = document.data()
                         self.defaults.set(data, forKey: "CurrentUser")
-                        print(data)
+                        print("currentUser's data stored")
                     }
                 }
         }

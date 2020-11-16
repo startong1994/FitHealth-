@@ -23,7 +23,7 @@ class AddFriendController: UIViewController, UITableViewDataSource, UITableViewD
         // Do any additional setup after loading the view.
         
         
-        pendingFriendList = FriendsDataTester().loadPendingFriends()
+        pendingFriendList = FriendsData().loadPendingFriends()
         self.tabBarController?.tabBar.isHidden = true
         navigationItem.title = "Add Friends"
         self.tableView.dataSource = self
