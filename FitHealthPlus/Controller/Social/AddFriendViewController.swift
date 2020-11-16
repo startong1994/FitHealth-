@@ -23,7 +23,7 @@ class AddFriendController: UIViewController, UITableViewDataSource, UITableViewD
         // Do any additional setup after loading the view.
         
         
-        pendingFriendList = FriendsData().loadPendingFriends()
+        reload()
         self.tabBarController?.tabBar.isHidden = true
         navigationItem.title = "Add Friends"
         self.tableView.dataSource = self
@@ -114,6 +114,28 @@ class AddFriendController: UIViewController, UITableViewDataSource, UITableViewD
         
         
     }
+    
+    func reload(){
+        db.collection("friendList").document(UsersData().getCurrentUser()).addSnapshotListener { (doc, error) in
+            FriendNetwork().run(after: 1) {
+                
+                DispatchQueue.main.async {
+                    self.pendingFriendList = FriendsData().loadPendingFriends()
+                    self.tableView.reloadData()
+                    print("pending reloaded")
+                }
+            }
+            if let e = error{
+                print("reloadFriendList* error \(e)")
+            }
+    }
+    }
+    
+    
+    
+    
+    
+    
     
 //    func loadPendingFriends(){
 //

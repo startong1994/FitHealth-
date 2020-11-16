@@ -11,6 +11,7 @@ import FirebaseFirestore
 import CoreData
 
 class FriendNetwork {
+    let dispatchGroup = DispatchGroup()
     let friendsRef = Firestore.firestore().collection("friendList")
     let usersRef = Firestore.firestore().collection("users")
     let defaults = UserDefaults.standard
@@ -23,10 +24,10 @@ class FriendNetwork {
     
         //let docRef = self.friendsRef.document(name)
         //docRef.getDocument { (document, error) in
-        FriendsData().removeAllData()
-            
             
         friendsRef.document(name).addSnapshotListener{ (document, error) in
+            
+            FriendsData().removeAllData()
             
             print("data changed")
             if let e = error{
@@ -50,6 +51,7 @@ class FriendNetwork {
                 }
             }
         }
+        
             
     }
     
@@ -218,11 +220,16 @@ class FriendNetwork {
                 }
             }
         }
-        
-        
-        
-        
+    }
+    
+    
+    func run(after seconds: Int, completion: @escaping () -> Void){
+        let time  = DispatchTime.now() + .seconds(seconds)
+        DispatchQueue.main.asyncAfter(deadline: time) {
+            completion()
+        }
         
         
     }
+    
 }

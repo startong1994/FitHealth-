@@ -22,8 +22,7 @@ class SocialViewController: UIViewController, UITableViewDelegate, UITableViewDa
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         //load friend list
-        friendList = FriendsData().loadFriendList()
-        
+        reload()
         self.tableView.tableFooterView = UIView()
         navigationItem.title = "Social"
         self.tableView.delegate = self
@@ -35,13 +34,23 @@ class SocialViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print("table view reload works count number of rows")
+        print(friendList)
+        print(friendList.count)
         return friendList.count
         
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "friendsCell", for: indexPath)
-        cell.textLabel?.text = friendList[indexPath.row].name!
-        cell.imageView?.image = UIImage(named: friendList[indexPath.row].profileImage!)
+        print("tableview reload works 2")
+        if indexPath.row != 0{
+            if let name  = friendList[indexPath.row].name, let image = friendList[indexPath.row].profileImage
+            {
+                cell.textLabel?.text = name
+                cell.imageView?.image = UIImage(named: image)
+            }
+        }
+
         return cell
     }
     
@@ -60,6 +69,24 @@ class SocialViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         tableView.deselectRow(at: indexPath, animated: true)
 
+    }
+    
+    func reload(){
+        db.collection("friendList").document(UsersData().getCurrentUser()).addSnapshotListener { (doc, error) in
+            FriendNetwork().run(after: 1) {
+                
+                DispatchQueue.main.async {
+                 
+                    self.tableView.reloadData()
+                    self.friendList = FriendsData().loadFriendList()
+                    print("reloaded")
+                    
+                }
+            }
+            if let e = error{
+                print("reloadFriendList* error \(e)")
+            }
+    }
     }
     
     
