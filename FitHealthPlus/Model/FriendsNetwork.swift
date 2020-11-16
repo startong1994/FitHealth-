@@ -15,6 +15,7 @@ class FriendNetwork {
     let usersRef = Firestore.firestore().collection("users")
     let defaults = UserDefaults.standard
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    let currentEmail = UsersData().getCurrentEmail()
     
     
     func storeListsToUserDefaults(_ name: String){
@@ -31,17 +32,19 @@ class FriendNetwork {
                 print("error \(e)")
             }
             else{
-                if let document = document, document.exists{
-                    if let friendListEmails = document.data()![K.FStore.FriendList]! as? [String]{
-                        self.defaults.set(friendListEmails, forKey: K.FStore.FriendList)
-                        self.storeFriendList()
-                        print("count")
-                        
+                if let document = document{
+                    
+                    guard let data = document.data() else {
+                        print("error getting data")
+                        return
                     }
-                    if let pendingListEmails = document.data()![K.FStore.pendingLists]! as? [String]{
-                        self.defaults.set(pendingListEmails, forKey: K.FStore.pendingLists)
+                    if let friendEmails = data[K.FStore.FriendList] as? [String]{
+                        self.defaults.set(friendEmails, forKey: K.FStore.FriendList)
+                        self.storeFriendList()
+                    }
+                    if let pendingEmaisl = data[K.FStore.pendingLists] as? [String]{
+                        self.defaults.set(pendingEmaisl, forKey: K.FStore.pendingLists)
                         self.storePendingLists()
-                        print("count count")
                     }
                 }
             }
@@ -117,10 +120,58 @@ class FriendNetwork {
                 }
             }
         }
-    
         }
+    func friendRequest(_ email: String) {
+        let userRef = usersRef.document(email)
+        userRef.getDocument { (userDoc, error) in
+            if let e = error{
+                print("error on getting user documents \(e)")
+            }
+            else{
+                if let userDoc = userDoc{
+                    
+                    //first check if target is exsit and then get the targetName
+                    if userDoc.data() != nil{
+                        let targetName = userDoc.data()![K.FStore.name] as! String
+                
+                        self.friendsRef.document(targetName).getDocument { (friendDoc, Error) in
+                            if let e = error{
+                                print("error on getting friend documents \(e)")
+                            }
+                            else{
+                                // check if pendingList is empty,
+                                //if friendDoc?.data() != nil{
+                                guard let data = friendDoc?.data() else{
+                                    self.friendsRef.document(targetName).setData(["PendingFriends" : FieldValue.arrayUnion([self.currentEmail])])
+                                    print("no name, new name added")
+                                    return
+                                }
+                                if data[K.FStore.pendingLists] == nil{
+                                    self.friendsRef.document(targetName).setData(["PendingFriends" : FieldValue.arrayUnion([self.currentEmail])])
+                                    print("set data succ")
+                                }
+                                else{
+                                    self.friendsRef.document(targetName).updateData(["PendingFriends" : FieldValue.arrayUnion([self.currentEmail])])
+                                    print("updated")
+                                }
+                                    }
+                                //}
+                            }
+                        }
+                        
+                        
+                    }
+                }
+            }
+        }
+    }
+
     
-    
-    
-    
-}
+//    func addFriend(_ email: String){
+//        friendsRef.document("Dationg Xu").updateData(["PendingFriends" : FieldValue.arrayUnion([email])])
+//    }
+//
+//
+//
+//
+//}

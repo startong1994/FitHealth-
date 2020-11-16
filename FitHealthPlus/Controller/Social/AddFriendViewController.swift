@@ -55,10 +55,8 @@ class AddFriendController: UIViewController, UITableViewDataSource, UITableViewD
                 
                     
                 //add friends
-                let friendsRef = self.db.collection("friendList").document(address)
-                
-                friendsRef.updateData(["PendingFriends" : FieldValue.arrayUnion([address])])
-                
+                    
+                    FriendNetwork().friendRequest(address)
                 
                 added.addAction(ok)
                 self.present(added, animated: true, completion: nil)
