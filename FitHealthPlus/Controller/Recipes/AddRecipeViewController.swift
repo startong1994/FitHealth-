@@ -18,5 +18,9 @@ class AddRecipeViewController: UIViewController {
     }
     
 
-
+    @IBAction func cancelAddRecipe(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    
 }
