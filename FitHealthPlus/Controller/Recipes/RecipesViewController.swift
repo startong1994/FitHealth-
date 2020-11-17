@@ -9,10 +9,17 @@
 import UIKit
 
 class RecipesViewController: UIViewController {
-
+ //
+    @IBOutlet weak var myRecipesButton: UIButton!
+    @IBOutlet weak var ltFeaturedRecipeButton: UIButton!
+    @IBOutlet weak var rtFeaturedRecipeButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "Recipies"
+        navigationItem.title = "Recipes"
+        myRecipesButton.layer.cornerRadius = 6
+        rtFeaturedRecipeButton.layer.cornerRadius = 6
+        ltFeaturedRecipeButton.layer.cornerRadius = 6
         
         // Do any additional setup after loading the view.
         
