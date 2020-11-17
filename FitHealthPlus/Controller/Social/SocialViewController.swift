@@ -43,7 +43,7 @@ class SocialViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "friendsCell", for: indexPath)
         print("tableview reload works 2")
-        if indexPath.row != 0{
+        if indexPath.row >= 0{
             if let name  = friendList[indexPath.row].name, let image = friendList[indexPath.row].profileImage
             {
                 cell.textLabel?.text = name
@@ -65,7 +65,7 @@ class SocialViewController: UIViewController, UITableViewDelegate, UITableViewDa
         profileVC.friend = friendList[indexPath.row]
         print(friendList[indexPath.row])
         
-        self.navigationController?.showDetailViewController(profileVC, sender: self)
+        self.navigationController?.pushViewController(profileVC, animated: true)
         
         tableView.deselectRow(at: indexPath, animated: true)
 
@@ -76,9 +76,8 @@ class SocialViewController: UIViewController, UITableViewDelegate, UITableViewDa
             FriendNetwork().run(after: 1) {
                 
                 DispatchQueue.main.async {
-                 
-                    self.tableView.reloadData()
                     self.friendList = FriendsData().loadFriendList()
+                    self.tableView.reloadData()
                     print("reloaded")
                     
                 }
