@@ -9,6 +9,8 @@
 import UIKit
 import Firebase
 
+var myIndex = 0
+
 class PantryListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate{
     
     //Tableview and add bar button
@@ -22,11 +24,9 @@ class PantryListViewController: UIViewController, UITableViewDelegate, UITableVi
     
     var myList = [PantryItem]()
     //var pantryItemsCollectionRef: CollectionReference!
-    
+    var myIndex = 0
     var searchingItems = [PantryItem]()
     var searching = false
-    
-    var myIndex = 0
     
     private func loadItems(){
         let item1 = PantryItem(name: "Hot Cheetohs", quantity: 1, exDate: "11/20/20", category: "Pantry", servingSize: "1", calories: 360, fat: 0, sodium: 0, carb: 0, fiber: 0, sugar: 0, protein: 0, cholestrol: 0)
@@ -151,13 +151,33 @@ class PantryListViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     // added code by Daitong Xu, deselectRow,
-    
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "editSegue" {
+            let cell = sender as! UITableViewCell
+            if let indexPath = tableViewList.indexPath(for: cell) {
+                let vc = segue.destination as! EditPantryItemViewController
+                vc.getName = myList[indexPath.row].name
+                vc.getCategory = myList[indexPath.row].category
+                vc.getQuantity = myList[indexPath.row].quantity
+                vc.getCalories = myList[indexPath.row].calories
+                vc.getSugar = myList[indexPath.row].sugar
+                vc.getProtein = myList[indexPath.row].protein
+                vc.getFiber = myList[indexPath.row].fiber
+                vc.getCarb = myList[indexPath.row].carb
+                vc.getCholesterol = myList[indexPath.row].cholestrol
+                vc.getFat = myList[indexPath.row].fat
+                vc.getSodium = myList[indexPath.row].sodium
+                vc.getExDate = myList[indexPath.row].exDate
+                vc.getServingSize = myList[indexPath.row].servingSize
+                
+            }
+        }
+    }
     
     
     //search bar

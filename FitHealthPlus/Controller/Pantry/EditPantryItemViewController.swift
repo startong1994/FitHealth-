@@ -27,10 +27,26 @@ class EditPantryItemViewController: UIViewController, UIPickerViewDelegate, UIPi
     @IBOutlet weak var addBtn: UIButton!
     private var datePicker: UIDatePicker?
 
+    // variables to get information from Pantry List View Table
+    var getName = String()
+    var getCategory = String()
+    var getQuantity = Int()
+    var getExDate = String()
+    var getServingSize = String()
+    var getCalories = Int()
+    var getFat = Int()
+    var getSodium = Int()
+    var getCarb = Int()
+    var getFiber = Int()
+    var getSugar = Int()
+    var getProtein = Int()
+    var getCholesterol = Int()
+    
     let itemCategories = ["Fruit", "Vegetables", "Pantry", "Frozen", "Fridge", "Dairy", "Meat"]
     
     var pickerView = UIPickerView()
     var item: PantryItem?
+    @IBOutlet weak var editItemNavBar: UINavigationBar!
     
     @IBAction func cancel(_ sender: Any) {
         dismiss(animated: true, completion: nil)
@@ -38,7 +54,23 @@ class EditPantryItemViewController: UIViewController, UIPickerViewDelegate, UIPi
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        // Set Text Fields to item's attributes
+        nameTextField.text = getName
+        quantityTextField.text = String(getQuantity)
+        exDateTextField.text = getExDate
+        categoryTextField.text = getCategory
+        servingSizeTextField.text = getServingSize
+        caloriesTextField.text = String(getCalories)
+        fatTextField.text = String(getFat)
+        sodiumTextField.text = String(getSodium)
+        carbTextField.text = String(getCarb)
+        fiberTextField.text = String(getFiber)
+        sugarTextField.text = String(getSugar)
+        proteinTextField.text = String(getProtein)
+        cholesterolTextField.text = String(getCholesterol)
+        
+        
         pickerView.delegate = self
         pickerView.dataSource = self
         categoryTextField.inputView = pickerView
@@ -54,18 +86,10 @@ class EditPantryItemViewController: UIViewController, UIPickerViewDelegate, UIPi
         datePicker?.frame = CGRect(x:0, y: 0, width: 280, height: 100)
         datePicker?.backgroundColor = UIColor.systemTeal
         exDateTextField.placeholder = "Select Date"
-
-        if let item = item{
-            nameTextField.text = item.name
-            quantityTextField.text = String(item.quantity)
-            exDateTextField.text = item.exDate
-            categoryTextField.text = item.category
-            caloriesTextField.text = String(item.calories)
-        }
         
         addBtn.backgroundColor = UIColor.systemTeal
         addBtn.layer.cornerRadius = addBtn.frame.height/2
-        
+        editItemNavBar.barTintColor = UIColor.systemTeal
     }
     @objc func viewTapped(gestureRecognizer: UITapGestureRecognizer){
         view.endEditing(true)
