@@ -8,12 +8,15 @@
 
 import UIKit
 
-class AddRecipeViewController: UIViewController {
-
+class AddRecipeViewController: UIViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
+    
+    @IBOutlet weak var imageUpload: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
+        imagePicker.delegate = self
         
     }
     
@@ -23,4 +26,21 @@ class AddRecipeViewController: UIViewController {
     }
     
     
+    
+    var imagePicker = UIImagePickerController()
+    
+    @IBAction func addImage(_ sender: Any) {
+        imagePicker.sourceType = .photoLibrary
+        imagePicker.allowsEditing = true
+        present(imagePicker, animated: true, completion: nil)
+    }
+    
+    public func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let image = info[UIImagePickerController.InfoKey.originalImage]as? UIImage {
+            imageUpload.image = image
+        }
+        dismiss(animated: true, completion: nil)
+    }
 }
+
+
