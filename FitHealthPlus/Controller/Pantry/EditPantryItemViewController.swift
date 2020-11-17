@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import Firebase
 class EditPantryItemViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource{
 
     //Textbox fields
@@ -42,14 +42,29 @@ class EditPantryItemViewController: UIViewController, UIPickerViewDelegate, UIPi
     var getProtein = Int()
     var getCholesterol = Int()
     
+    //Database
+    let db = Firestore.firestore()
+    let defaults = UserDefaults.standard
+    
+    // List of Categories for pickerview
     let itemCategories = ["Fruit", "Vegetables", "Pantry", "Frozen", "Fridge", "Dairy", "Meat"]
     
     var pickerView = UIPickerView()
+    
+    // Pantry item
     var item: PantryItem?
+    
+    // Nav Bar
     @IBOutlet weak var editItemNavBar: UINavigationBar!
     
+    // Cancel Button, to go back to prev screen
     @IBAction func cancel(_ sender: Any) {
         dismiss(animated: true, completion: nil)
+    }
+    
+    // Save button
+    @IBAction func addBtn(_ sender: UIButton) {
+        savePantryItem()
     }
     
     override func viewDidLoad() {
@@ -70,13 +85,14 @@ class EditPantryItemViewController: UIViewController, UIPickerViewDelegate, UIPi
         proteinTextField.text = String(getProtein)
         cholesterolTextField.text = String(getCholesterol)
         
-        
+        // Pickerview display
         pickerView.delegate = self
         pickerView.dataSource = self
         categoryTextField.inputView = pickerView
         categoryTextField.textAlignment = .left
         pickerView.backgroundColor = UIColor.systemTeal
-        //nameTextField.delegate = self
+        
+        // Date picker for exDate
         datePicker = UIDatePicker()
         datePicker?.datePickerMode = .date
         exDateTextField.inputView = datePicker
@@ -87,13 +103,16 @@ class EditPantryItemViewController: UIViewController, UIPickerViewDelegate, UIPi
         datePicker?.backgroundColor = UIColor.systemTeal
         exDateTextField.placeholder = "Select Date"
         
+        // UIDesign for save button and nav bar
         addBtn.backgroundColor = UIColor.systemTeal
         addBtn.layer.cornerRadius = addBtn.frame.height/2
         editItemNavBar.barTintColor = UIColor.systemTeal
     }
+    
     @objc func viewTapped(gestureRecognizer: UITapGestureRecognizer){
         view.endEditing(true)
     }
+    
     @objc func dateChanged(datePicker: UIDatePicker) {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MM/dd/yyyy"
@@ -123,9 +142,15 @@ class EditPantryItemViewController: UIViewController, UIPickerViewDelegate, UIPi
         if textField == quantityTextField || textField == caloriesTextField{
             quantityTextField.keyboardType = .numbersAndPunctuation
             caloriesTextField.keyboardType = .numbersAndPunctuation
+            fatTextField.keyboardType = .numbersAndPunctuation
+            sodiumTextField.keyboardType = .numbersAndPunctuation
+            carbTextField.keyboardType = .numbersAndPunctuation
+            fiberTextField.keyboardType = .numbersAndPunctuation
+            sugarTextField.keyboardType = .numbersAndPunctuation
+            proteinTextField.keyboardType = .numbersAndPunctuation
+            cholesterolTextField.keyboardType = .numbersAndPunctuation
         }else{
             nameTextField.keyboardType = .default
-            exDateTextField.keyboardType = .default
         }
         return true
     }
@@ -159,4 +184,43 @@ class EditPantryItemViewController: UIViewController, UIPickerViewDelegate, UIPi
             }
         }
     }*/
+    // Save function to save to database
+    func savePantryItem(){
+        let nameText = nameTextField.text!
+        let quantityText = Int(quantityTextField.text!)
+        let exDateText = exDateTextField.text!
+        let categoryText = categoryTextField.text!
+        let servingSizeText = servingSizeTextField.text!
+        let calorieText = Int(caloriesTextField.text!)
+        let fatText = Int(fatTextField.text!)
+        let sodiumText = Int(sodiumTextField.text!)
+        let carbText = Int(carbTextField.text!)
+        let fiberText = Int(fiberTextField.text!)
+        let sugarText = Int(sugarTextField.text!)
+        let proteinText = Int(proteinTextField.text!)
+        let cholestrolText = Int(cholesterolTextField.text!)
+        
+        guard let name = defaults.dictionary(forKey: "CurrentUser")!["name"] else{
+            return
+        }
+        
+        let pantryRef = db.collection("Pantry").document(name as! String).collection("Pantry List").document(nameText)
+        
+        pantryRef.updateData([
+            "Name": nameText,
+            "quantity": quantityText,
+            "exDate": exDateText,
+            "category": categoryText,
+            "servingSize": servingSizeText,
+            "calories": calorieText,
+            "fat": fatText,
+            "sodium": sodiumText,
+            "carb": carbText,
+            "fiber": fiberText,
+            "sugar": sugarText,
+            "protein": proteinText,
+            "cholestrol": cholestrolText
+        ])
+        
+    }
 }
