@@ -7,59 +7,128 @@
 //
 
 import UIKit
+import FirebaseFirestore
+import CoreData
 
 class SocialViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    var index = 0
-    var friend = FriendsData()
+    var db = Firestore.firestore()
+
+    var friendList = [FriendLists]()
 
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        //load friend list
+        reload()
         self.tableView.tableFooterView = UIView()
         navigationItem.title = "Social"
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        
     }
     override func viewWillAppear(_ animated: Bool) {
         self.tabBarController?.tabBar.isHidden = false
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return friend.friendData.count
+        print("table view reload works count number of rows")
+        print(friendList)
+        print(friendList.count)
+        return friendList.count
+        
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let profileImage = friend.getProfileImage(indexPath.row)
         let cell = tableView.dequeueReusableCell(withIdentifier: "friendsCell", for: indexPath)
-        cell.textLabel?.text = friend.getName(indexPath.row)
-        cell.imageView?.image = UIImage(named: profileImage)
+        print("tableview reload works 2")
+        if indexPath.row != 0{
+            if let name  = friendList[indexPath.row].name, let image = friendList[indexPath.row].profileImage
+            {
+                cell.textLabel?.text = name
+                cell.imageView?.image = UIImage(named: image)
+            }
+        }
+
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        index = indexPath.row
         
-        performSegue(withIdentifier: "socialToProfile", sender: nil)
+        
+        
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        
+        let profileVC = storyBoard.instantiateViewController(withIdentifier: "profile") as! ProfileViewController
+        
+        profileVC.friend = friendList[indexPath.row]
+        print(friendList[indexPath.row])
+        
+        self.navigationController?.showDetailViewController(profileVC, sender: self)
         
         tableView.deselectRow(at: indexPath, animated: true)
 
     }
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "socialToProfile" {
-            let profileVC = segue.destination as! ProfileViewController
-            let indexPath = index
-            profileVC.index = indexPath
-            
-        }
+    
+    func reload(){
+        db.collection("friendList").document(UsersData().getCurrentUser()).addSnapshotListener { (doc, error) in
+            FriendNetwork().run(after: 1) {
+                
+                DispatchQueue.main.async {
+                 
+                    self.tableView.reloadData()
+                    self.friendList = FriendsData().loadFriendList()
+                    print("reloaded")
+                    
+                }
+            }
+            if let e = error{
+                print("reloadFriendList* error \(e)")
+            }
     }
-
+    }
     
     
     
     
-
-
+    
+    
+    
+//    func loadFriends(){
+//
+//        db.collection("friendList").document(UsersData().getCurrentUser())
+//            .addSnapshotListener { (documentSnapshot, error) in
+//                self.friendList = []
+//
+//                //FriendsDataTester().storeFriendList()
+//                //FriendsDataTester().removeFriend(0)
+//
+//                if let e = error{
+//                    print(e)
+//                }
+//                else{
+//                if let document = documentSnapshot{
+//                    let data = document.data()
+//                    if data != nil{
+//                        guard let friends = data!["FriendList"]! as? [String] else{
+//                            print("no friends")
+//                            return
+//                        }
+//                        for n in friends{
+//                            self.friendList.append(n)
+//                            DispatchQueue.main.async {
+//                                self.tableView.reloadData()
+//                                }
+//                                }
+//                            }
+//                        else{
+//                            print("no friends")
+//                    }
+//                        }
+//                }
+//            }
+//        print(friendList)
+//    }
 }
 

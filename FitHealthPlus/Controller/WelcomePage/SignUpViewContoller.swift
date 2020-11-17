@@ -34,30 +34,13 @@ class SignUpViewContoller: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(true, animated: false)
         UINavigationBar.appearance().backgroundColor = UIColor.systemTeal
-        
-        
-        
-        if let currentEmail = Auth.auth().currentUser?.email!
-        {
-            print(currentEmail)
-            let docRef = self.db.collection("users").document(currentEmail)
-                    docRef.getDocument { (document, error) in
-                        if let document = document, document.exists{
-                            let data = document.data()
-                            self.defaults.set(data, forKey: "CurrentUser")
-                            print("Yes")
-                            print(data)
-                        }
-                    }
-            }
-
+        UsersData().storeCurrentUserData()
     }
     
     
 
     @IBAction func registerPressed(_ sender: UIButton) {
         let ok = UIAlertAction(title: "OK", style: .default, handler: nil)
-        let userRef = db.collection("users")
         
         
         if let email = emailTextField.text, let password = passwordTextField.text, let name = UserName.text {
@@ -73,12 +56,7 @@ class SignUpViewContoller: UIViewController {
                 else{
                     
                     //write users information to database,
-                    userRef.document(email).setData([
-                        "name": name,
-                        "email": email,
-                        "profileImage": "person"
-
-                    ])
+                    UsersData().addNewUser(email: email, name: name, profileImage: "person")
                     Auth.auth().signIn(withEmail: email, password: password) { (authResult, error) in
                         if let e = error{
                             print(e.localizedDescription)

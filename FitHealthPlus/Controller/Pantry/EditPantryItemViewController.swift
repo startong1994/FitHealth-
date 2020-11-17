@@ -10,17 +10,43 @@ import UIKit
 
 class EditPantryItemViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource{
 
+    //Textbox fields
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var quantityTextField: UITextField!
     @IBOutlet weak var exDateTextField: UITextField!
     @IBOutlet weak var categoryTextField: UITextField!
-    @IBOutlet weak var calorieTextField: UITextField!
+    @IBOutlet weak var servingSizeTextField: UITextField!
+    @IBOutlet weak var caloriesTextField: UITextField!
+    @IBOutlet weak var fatTextField: UITextField!
+    @IBOutlet weak var sodiumTextField: UITextField!
+    @IBOutlet weak var carbTextField: UITextField!
+    @IBOutlet weak var fiberTextField: UITextField!
+    @IBOutlet weak var sugarTextField: UITextField!
+    @IBOutlet weak var proteinTextField: UITextField!
+    @IBOutlet weak var cholesterolTextField: UITextField!
+    @IBOutlet weak var addBtn: UIButton!
     private var datePicker: UIDatePicker?
 
+    // variables to get information from Pantry List View Table
+    var getName = String()
+    var getCategory = String()
+    var getQuantity = Int()
+    var getExDate = String()
+    var getServingSize = String()
+    var getCalories = Int()
+    var getFat = Int()
+    var getSodium = Int()
+    var getCarb = Int()
+    var getFiber = Int()
+    var getSugar = Int()
+    var getProtein = Int()
+    var getCholesterol = Int()
+    
     let itemCategories = ["Fruit", "Vegetables", "Pantry", "Frozen", "Fridge", "Dairy", "Meat"]
     
     var pickerView = UIPickerView()
-    var item: PantryItemList?
+    var item: PantryItem?
+    @IBOutlet weak var editItemNavBar: UINavigationBar!
     
     @IBAction func cancel(_ sender: Any) {
         dismiss(animated: true, completion: nil)
@@ -28,7 +54,23 @@ class EditPantryItemViewController: UIViewController, UIPickerViewDelegate, UIPi
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        // Set Text Fields to item's attributes
+        nameTextField.text = getName
+        quantityTextField.text = String(getQuantity)
+        exDateTextField.text = getExDate
+        categoryTextField.text = getCategory
+        servingSizeTextField.text = getServingSize
+        caloriesTextField.text = String(getCalories)
+        fatTextField.text = String(getFat)
+        sodiumTextField.text = String(getSodium)
+        carbTextField.text = String(getCarb)
+        fiberTextField.text = String(getFiber)
+        sugarTextField.text = String(getSugar)
+        proteinTextField.text = String(getProtein)
+        cholesterolTextField.text = String(getCholesterol)
+        
+        
         pickerView.delegate = self
         pickerView.dataSource = self
         categoryTextField.inputView = pickerView
@@ -44,15 +86,10 @@ class EditPantryItemViewController: UIViewController, UIPickerViewDelegate, UIPi
         datePicker?.frame = CGRect(x:0, y: 0, width: 280, height: 100)
         datePicker?.backgroundColor = UIColor.systemTeal
         exDateTextField.placeholder = "Select Date"
-
-        if let item = item{
-            nameTextField.text = item.name
-            quantityTextField.text = String(item.quantity)
-            exDateTextField.text = item.exDate
-            categoryTextField.text = item.category
-            calorieTextField.text = String(item.calorie)
-        }
         
+        addBtn.backgroundColor = UIColor.systemTeal
+        addBtn.layer.cornerRadius = addBtn.frame.height/2
+        editItemNavBar.barTintColor = UIColor.systemTeal
     }
     @objc func viewTapped(gestureRecognizer: UITapGestureRecognizer){
         view.endEditing(true)
@@ -83,9 +120,9 @@ class EditPantryItemViewController: UIViewController, UIPickerViewDelegate, UIPi
     }
     
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool{
-        if textField == quantityTextField || textField == calorieTextField{
+        if textField == quantityTextField || textField == caloriesTextField{
             quantityTextField.keyboardType = .numbersAndPunctuation
-            calorieTextField.keyboardType = .numbersAndPunctuation
+            caloriesTextField.keyboardType = .numbersAndPunctuation
         }else{
             nameTextField.keyboardType = .default
             exDateTextField.keyboardType = .default
@@ -99,7 +136,7 @@ class EditPantryItemViewController: UIViewController, UIPickerViewDelegate, UIPi
         }else if textField == quantityTextField {
             exDateTextField.becomeFirstResponder()
         }else if textField == exDateTextField{
-            calorieTextField.becomeFirstResponder()
+            caloriesTextField.becomeFirstResponder()
         }else{
             nameTextField.becomeFirstResponder()
         }
@@ -107,7 +144,7 @@ class EditPantryItemViewController: UIViewController, UIPickerViewDelegate, UIPi
         return true
     }
     
-    // MARK: - Navigation
+    /*// MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
         if let amount = Int(quantityTextField.text!){
@@ -121,5 +158,5 @@ class EditPantryItemViewController: UIViewController, UIPickerViewDelegate, UIPi
                 }
             }
         }
-    }
+    }*/
 }

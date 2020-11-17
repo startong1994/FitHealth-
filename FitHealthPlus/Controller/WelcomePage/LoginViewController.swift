@@ -28,6 +28,11 @@ class LoginViewController: UIViewController {
         UINavigationBar.appearance().backgroundColor = UIColor.systemTeal
         
     }
+    override func viewDidDisappear(_ animated: Bool) {
+        FriendNetwork().storeListsToUserDefaults(UsersData().getCurrentUser())
+    }
+    
+    
     
     //signin
     @IBAction func signInPressed(_ sender: UIButton) {
@@ -39,23 +44,11 @@ class LoginViewController: UIViewController {
                 }
                 else{
                     //save current user's information to default file and navigate to next page
-                    if let currentEmail = Auth.auth().currentUser?.email!
-                    {
-                        let docRef = self.db.collection("users").document(currentEmail)
-                                docRef.getDocument { (document, error) in
-                                    if let document = document, document.exists{
-                                        let data = document.data()
-                                        self.defaults.set(data, forKey: "CurrentUser")
-                                        print("Yes")
-                                    }
-                                }
-                        }
+                        UsersData().storeCurrentUserData()
                     self.performSegue(withIdentifier: "signinToMainPage", sender: self)
                 }
             }
             
         }
-        
-        
     }
 }

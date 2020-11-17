@@ -7,29 +7,34 @@
 //
 
 import UIKit
+import CoreData
 
 class ProfileViewController: UIViewController {
     
-    let friend = FriendsData()
-    var index: Int = 0
+    //let friend = FriendsData()
     
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var profileName: UILabel!
     @IBOutlet weak var profileEmail: UILabel!
     
+    var friend : FriendLists?
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        profileName.text = friend.getName(index)
-        profileEmail.text = friend.getEmail(index)
-        profileImage.image = UIImage(named: friend.getProfileImage(index))
+        loadProfile()
         
     }
     @IBAction func deleteButtonPressed(_ sender: UIButton) {
         let alert = UIAlertController(title: "Delete", message: "Are you sure?", preferredStyle: .alert)
                
                let delete = UIAlertAction(title: "Yes", style: .default){(delete) in
+                if let email = self.friend?.email, let name = self.friend?.name{
+                    FriendNetwork().deleteFriend(Email: email, Name: name)
+                    
+                }
                    print("deleted")
                }
                
@@ -42,6 +47,20 @@ class ProfileViewController: UIViewController {
                
                
                present(alert,animated: true,completion: nil)
+        
+    }
+    
+    func loadProfile(){
+        
+        if let image = friend?.profileImage, let name = friend?.name,
+           let email = friend?.email{
+            profileName.text = name
+            profileEmail.text = email
+            profileImage.image  = UIImage(named: image)
+            
+        }
+        
+        
         
     }
 }

@@ -9,7 +9,7 @@
 import Foundation
 import Firebase
 
-class PantryItemList: NSObject, NSCoding{
+/*class PantryItemList: NSObject, NSCoding{
         struct key{
             static var quantity = "quantity"
             static var name = "name"
@@ -53,4 +53,70 @@ class PantryItemList: NSObject, NSCoding{
     
     static let filePathToDocumentDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
     static let stuffFolder = filePathToDocumentDirectory.appendingPathComponent("pantryItemList")
+}*/
+
+struct PantryItem {
+    let name: String
+    let quantity: Int
+    let exDate: String
+    let category: String
+    let servingSize: String
+    let calories: Int
+    let fat: Int
+    let sodium: Int
+    let carb: Int
+    let fiber: Int
+    let sugar: Int
+    let protein: Int
+    let cholestrol: Int
+    
+    var pantryDictionary : [String: Any] {
+        return [
+            "name": name,
+            "quantity": quantity,
+            "exDate": exDate,
+            "category": category,
+            "servingSize": servingSize,
+            "calories": calories,
+            "fat": fat,
+            "sodium": sodium,
+            "carb": carb,
+            "fiber": fiber,
+            "sugar": sugar,
+            "protein": protein,
+            "cholestrol": cholestrol
+        ]
+    }
+}
+
+extension PantryItem {
+    init?(pantryDictionary : [String:Any]){
+       guard let name = pantryDictionary["name"] as? String,
+             let quantity = pantryDictionary["quantity"] as? Int,
+             let exDate = pantryDictionary["exDate"] as? String,
+             let category = pantryDictionary["category"] as? String,
+             let servingSize = pantryDictionary["servingSize"] as? String,
+             let calories = pantryDictionary["calories"] as? Int,
+             let fat = pantryDictionary["fat"] as? Int,
+             let sodium = pantryDictionary["sodium"] as? Int,
+             let carb = pantryDictionary["carb"] as? Int,
+             let fiber = pantryDictionary["fiber"] as? Int,
+             let sugar = pantryDictionary["sugar"] as? Int,
+             let protein = pantryDictionary["protein"] as? Int,
+             let cholestrol = pantryDictionary["cholestrol"] as? Int else {return nil}
+        
+        self.init(name: name,
+                  quantity: quantity,
+                  exDate: exDate,
+                  category: category,
+                  servingSize: servingSize,
+                  calories: calories,
+                  fat: fat,
+                  sodium: sodium,
+                  carb: carb,
+                  fiber: fiber,
+                  sugar: sugar,
+                  protein:protein,
+                  cholestrol: cholestrol)
+    }
 }
