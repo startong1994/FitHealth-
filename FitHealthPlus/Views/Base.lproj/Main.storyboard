@@ -844,19 +844,18 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QBQ-LM-sq0">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="camera" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="QBQ-LM-sq0">
                                 <rect key="frame" x="87" y="194" width="240" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kXi-l1-SsE">
                                 <rect key="frame" x="152" y="330" width="110" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="labelColor"/>
+                                <color key="backgroundColor" systemColor="linkColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="Add Image"/>
-                                <connections>
-                                    <action selector="addImage:" destination="hBu-nE-Fqg" eventType="touchUpInside" id="dfh-Ei-SRt"/>
-                                </connections>
+                                <state key="normal" title="Add Image">
+                                    <color key="titleColor" systemColor="tertiarySystemBackgroundColor"/>
+                                </state>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="lLI-UX-tQS"/>
@@ -870,7 +869,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="imageUpload" destination="QBQ-LM-sq0" id="9Pe-So-mUH"/>
+                        <outlet property="addImageButton" destination="kXi-l1-SsE" id="iWr-Vd-ITW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xNc-rd-Jr2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -971,89 +970,99 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hvn-ch-ECX" userLabel="My recipes button" colorLabel="IBBuiltInLabel-Gray">
-                                <rect key="frame" x="7" y="160" width="400" height="74"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <inset key="contentEdgeInsets" minX="150" minY="25" maxX="150" maxY="25"/>
-                                <state key="normal" title="My recipes" backgroundImage="square.fill" catalog="system">
-                                    <color key="titleColor" systemColor="groupTableViewBackgroundColor"/>
+                            <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hvn-ch-ECX" userLabel="My recipes button" colorLabel="IBBuiltInLabel-Gray">
+                                <rect key="frame" x="30" y="159" width="354" height="83"/>
+                                <color key="backgroundColor" systemColor="systemTealColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                <inset key="contentEdgeInsets" minX="140" minY="25" maxX="150" maxY="25"/>
+                                <inset key="titleEdgeInsets" minX="-28" minY="0.0" maxX="-40" maxY="0.0"/>
+                                <state key="normal" title="My recipes">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
                                     <segue destination="Wfq-Mo-bRQ" kind="show" id="CEk-o9-0MV"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Featured recipes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gl6-9u-HMa">
-                                <rect key="frame" x="20" y="255.5" width="374" height="27.5"/>
+                                <rect key="frame" x="20" y="262" width="374" height="27.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
-                                <color key="textColor" systemColor="systemBlueColor"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="GfH-eL-FS3" userLabel="Featured recipe Stack View">
-                                <rect key="frame" x="0.0" y="303" width="414" height="124.5"/>
+                                <rect key="frame" x="10" y="309.5" width="394" height="122"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WBn-43-g0Y" userLabel="Featured recipe right button">
-                                        <rect key="frame" x="0.0" y="1" width="188" height="122"/>
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WBn-43-g0Y" userLabel="Featured recipe left button">
+                                        <rect key="frame" x="0.0" y="0.0" width="168" height="122"/>
+                                        <color key="backgroundColor" systemColor="systemTealColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <inset key="contentEdgeInsets" minX="10" minY="30" maxX="53" maxY="30"/>
                                         <inset key="titleEdgeInsets" minX="13" minY="0.0" maxX="-18" maxY="0.0"/>
-                                        <state key="normal" title="Chicken Parmesan" backgroundImage="rectangle.fill" catalog="system"/>
+                                        <state key="normal" title="Chicken Parmesan">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
                                         <connections>
                                             <segue destination="ng3-u8-AGp" kind="show" id="Igy-YC-MBg"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kbn-R5-oZq" userLabel="Featured recipe left button">
-                                        <rect key="frame" x="208" y="1" width="206" height="122"/>
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="254" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kbn-R5-oZq" userLabel="Featured recipe right button">
+                                        <rect key="frame" x="188" y="0.0" width="206" height="122"/>
+                                        <color key="backgroundColor" systemColor="systemTealColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <inset key="contentEdgeInsets" minX="40" minY="50" maxX="35" maxY="50"/>
-                                        <state key="normal" title="Seafood Gumbo" backgroundImage="rectangle.fill" catalog="system">
-                                            <color key="titleColor" systemColor="groupTableViewBackgroundColor"/>
+                                        <state key="normal" title="Seafood Gumbo">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                     </button>
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="G3o-mq-B0x" userLabel="Recipe categories Stack View">
-                                <rect key="frame" x="20" y="495" width="374" height="266"/>
+                                <rect key="frame" x="20" y="499" width="374" height="266"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fJ5-GN-hMD" userLabel="Recipe category button 1">
                                         <rect key="frame" x="0.0" y="1" width="374" height="64"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <color key="tintColor" systemColor="systemTealColor"/>
                                         <inset key="contentEdgeInsets" minX="50" minY="20" maxX="50" maxY="20"/>
                                         <state key="normal" title="Breakfast" backgroundImage="rectangle.fill" catalog="system">
-                                            <color key="titleColor" systemColor="groupTableViewBackgroundColor"/>
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fUD-3P-7RU" userLabel="Recipe category button 2">
                                         <rect key="frame" x="0.0" y="67.5" width="374" height="64"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <color key="tintColor" systemColor="systemTealColor"/>
                                         <inset key="contentEdgeInsets" minX="65" minY="20" maxX="50" maxY="20"/>
                                         <inset key="titleEdgeInsets" minX="-15" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <state key="normal" title="Lunch" backgroundImage="rectangle.fill" catalog="system">
-                                            <color key="titleColor" systemColor="groupTableViewBackgroundColor"/>
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qsZ-HM-BMt" userLabel="Recipe category button 3">
                                         <rect key="frame" x="0.0" y="134" width="374" height="64"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <color key="tintColor" systemColor="systemTealColor"/>
                                         <inset key="contentEdgeInsets" minX="50" minY="20" maxX="75" maxY="20"/>
                                         <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="-27" maxY="0.0"/>
                                         <state key="normal" title="Dinner" backgroundImage="rectangle.fill" catalog="system">
-                                            <color key="titleColor" systemColor="groupTableViewBackgroundColor"/>
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="80c-Ob-muS" userLabel="Recipe category button 4">
                                         <rect key="frame" x="0.0" y="200.5" width="374" height="64"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <color key="tintColor" systemColor="systemTealColor"/>
                                         <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                         <state key="normal" title="Vegetarian" backgroundImage="rectangle.fill" catalog="system">
-                                            <color key="titleColor" systemColor="groupTableViewBackgroundColor"/>
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                     </button>
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recipe categories" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A8v-tv-tuF">
-                                <rect key="frame" x="20" y="447.5" width="374" height="27.5"/>
+                                <rect key="frame" x="20" y="451.5" width="374" height="27.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
-                                <color key="textColor" systemColor="systemBlueColor"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -1064,7 +1073,7 @@
                             <constraint firstItem="G3o-mq-B0x" firstAttribute="leading" secondItem="O1u-W8-tvY" secondAttribute="leading" constant="20" id="2Rk-mb-qXD"/>
                             <constraint firstItem="O1u-W8-tvY" firstAttribute="trailing" secondItem="Gl6-9u-HMa" secondAttribute="trailing" constant="20" id="3Yf-6s-w2U"/>
                             <constraint firstItem="tyI-o9-hsU" firstAttribute="leading" secondItem="O1u-W8-tvY" secondAttribute="leading" id="4YX-Ou-Lse"/>
-                            <constraint firstAttribute="trailing" secondItem="GfH-eL-FS3" secondAttribute="trailing" id="7mp-Np-XRl"/>
+                            <constraint firstAttribute="trailing" secondItem="GfH-eL-FS3" secondAttribute="trailing" constant="10" id="7mp-Np-XRl"/>
                             <constraint firstItem="O1u-W8-tvY" firstAttribute="trailing" secondItem="A8v-tv-tuF" secondAttribute="trailing" constant="20" id="FBt-iK-6eQ"/>
                             <constraint firstItem="Hvn-ch-ECX" firstAttribute="top" secondItem="tyI-o9-hsU" secondAttribute="bottom" constant="15" id="Lhm-4b-hid"/>
                             <constraint firstItem="tyI-o9-hsU" firstAttribute="trailing" secondItem="O1u-W8-tvY" secondAttribute="trailing" id="Mtr-KH-7IR"/>
@@ -1073,16 +1082,22 @@
                             <constraint firstItem="O1u-W8-tvY" firstAttribute="trailing" secondItem="G3o-mq-B0x" secondAttribute="trailing" constant="20" id="VuA-jo-coT"/>
                             <constraint firstItem="Gl6-9u-HMa" firstAttribute="top" secondItem="Hvn-ch-ECX" secondAttribute="bottom" constant="20" id="Z5g-KS-GIt"/>
                             <constraint firstItem="A8v-tv-tuF" firstAttribute="top" secondItem="GfH-eL-FS3" secondAttribute="bottom" constant="20" id="f62-28-eog"/>
-                            <constraint firstItem="GfH-eL-FS3" firstAttribute="leading" secondItem="O1u-W8-tvY" secondAttribute="leading" id="g8b-Do-uDO"/>
+                            <constraint firstItem="GfH-eL-FS3" firstAttribute="leading" secondItem="O1u-W8-tvY" secondAttribute="leading" constant="10" id="g8b-Do-uDO"/>
                             <constraint firstItem="GfH-eL-FS3" firstAttribute="top" secondItem="Gl6-9u-HMa" secondAttribute="bottom" constant="20" id="lIX-6l-KpJ"/>
                             <constraint firstItem="A8v-tv-tuF" firstAttribute="leading" secondItem="O1u-W8-tvY" secondAttribute="leading" constant="20" id="m81-ke-mqK"/>
                             <constraint firstItem="Gl6-9u-HMa" firstAttribute="leading" secondItem="O1u-W8-tvY" secondAttribute="leading" constant="20" id="wKk-fv-zdj"/>
                             <constraint firstItem="G3o-mq-B0x" firstAttribute="top" secondItem="A8v-tv-tuF" secondAttribute="bottom" constant="20" id="wjQ-d7-lYU"/>
-                            <constraint firstItem="Hvn-ch-ECX" firstAttribute="leading" secondItem="O1u-W8-tvY" secondAttribute="leading" constant="7" id="zMF-jI-Odz"/>
-                            <constraint firstItem="O1u-W8-tvY" firstAttribute="trailing" secondItem="Hvn-ch-ECX" secondAttribute="trailing" constant="7" id="zse-RJ-fg7"/>
+                            <constraint firstItem="Hvn-ch-ECX" firstAttribute="leading" secondItem="O1u-W8-tvY" secondAttribute="leading" constant="30" id="zMF-jI-Odz"/>
+                            <constraint firstItem="O1u-W8-tvY" firstAttribute="trailing" secondItem="Hvn-ch-ECX" secondAttribute="trailing" constant="30" id="zse-RJ-fg7"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Recipe" id="uq5-51-S8H"/>
+                    <connections>
+                        <outlet property="ltFeaturedRecipeButton" destination="WBn-43-g0Y" id="Q8b-FD-L30"/>
+                        <outlet property="myRecipesButton" destination="Hvn-ch-ECX" id="Hgl-4l-5cw"/>
+                        <outlet property="recipeButton1" destination="fJ5-GN-hMD" id="4yq-xe-R93"/>
+                        <outlet property="rtFeaturedRecipeButton" destination="Kbn-R5-oZq" id="svm-z7-p7c"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
@@ -1998,6 +2013,7 @@
     <resources>
         <image name="bag" catalog="system" width="128" height="128"/>
         <image name="book.circle" catalog="system" width="128" height="121"/>
+        <image name="camera" catalog="system" width="128" height="94"/>
         <image name="figure.wave.circle" width="13" height="13"/>
         <image name="flame.fill" catalog="system" width="108" height="128"/>
         <image name="focus" width="150" height="150"/>
@@ -2006,25 +2022,6 @@
         <image name="person.badge.plus" catalog="system" width="128" height="124"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <image name="rectangle.fill" catalog="system" width="128" height="93"/>
-        <image name="square.fill" catalog="system" width="128" height="114"/>
-        <systemColor name="groupTableViewBackgroundColor">
-            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="groupTableViewBackgroundColor">
-            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="groupTableViewBackgroundColor">
-            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="groupTableViewBackgroundColor">
-            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="groupTableViewBackgroundColor">
-            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="groupTableViewBackgroundColor">
-            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
         <systemColor name="groupTableViewBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
@@ -2075,6 +2072,9 @@
         </systemColor>
         <systemColor name="systemTealColor">
             <color red="0.35294117647058826" green="0.78431372549019607" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="tertiarySystemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
     </resources>
 </document>

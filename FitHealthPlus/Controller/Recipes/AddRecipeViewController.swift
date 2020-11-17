@@ -11,15 +11,17 @@ import UIKit
 class AddRecipeViewController: UIViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
     
     @IBOutlet weak var imageUpload: UIImageView!
+    @IBOutlet weak var addImageButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
+        addImageButton.layer.cornerRadius = 8
         imagePicker.delegate = self
         
+        
     }
-    
 
     @IBAction func cancelAddRecipe(_ sender: Any) {
         dismiss(animated: true, completion: nil)
@@ -36,7 +38,7 @@ class AddRecipeViewController: UIViewController, UIImagePickerControllerDelegate
     }
     
     public func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        if let image = info[UIImagePickerController.InfoKey.originalImage]as? UIImage {
+        if let image = info[UIImagePickerController.InfoKey.editedImage]as? UIImage {
             imageUpload.image = image
         }
         dismiss(animated: true, completion: nil)
