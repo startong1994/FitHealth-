@@ -827,10 +827,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VIO-ng-Ni9">
-                                <rect key="frame" x="0.0" y="496" width="414" height="88"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            </pickerView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uq6-Te-nLl">
                                 <rect key="frame" x="185" y="762" width="45" height="42"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -844,10 +840,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="camera" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="QBQ-LM-sq0">
-                                <rect key="frame" x="87" y="194" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kXi-l1-SsE">
                                 <rect key="frame" x="152" y="330" width="110" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -856,7 +848,22 @@
                                 <state key="normal" title="Add Image">
                                     <color key="titleColor" systemColor="tertiarySystemBackgroundColor"/>
                                 </state>
+                                <connections>
+                                    <action selector="addImageButton:" destination="hBu-nE-Fqg" eventType="touchUpInside" id="HW5-ZG-zyJ"/>
+                                </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="camera" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ymA-yL-rre">
+                                <rect key="frame" x="87" y="194" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VIO-ng-Ni9">
+                                <rect key="frame" x="20" y="514" width="320" height="76"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="fl9-bp-qj8" id="X2N-VR-GoO"/>
+                                    <outlet property="delegate" destination="fl9-bp-qj8" id="mdj-Ho-dSf"/>
+                                </connections>
+                            </pickerView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="lLI-UX-tQS"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -864,12 +871,14 @@
                     <navigationItem key="navigationItem" title="Add Recipe" id="kqM-Yd-bdM">
                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="3eb-5E-b8b">
                             <connections>
-                                <action selector="cancelAddRecipe:" destination="hBu-nE-Fqg" id="tkP-OX-2Vz"/>
+                                <action selector="cancelAddRecipe:" destination="hBu-nE-Fqg" id="6IU-0Z-tTL"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="addImageButton" destination="kXi-l1-SsE" id="iWr-Vd-ITW"/>
+                        <outlet property="addImgButton" destination="kXi-l1-SsE" id="nZb-eb-tMk"/>
+                        <outlet property="categoryPicker" destination="VIO-ng-Ni9" id="PJ8-D5-DRb"/>
+                        <outlet property="imageUpload" destination="ymA-yL-rre" id="PSy-JU-4ei"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xNc-rd-Jr2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1095,7 +1104,6 @@
                     <connections>
                         <outlet property="ltFeaturedRecipeButton" destination="WBn-43-g0Y" id="Q8b-FD-L30"/>
                         <outlet property="myRecipesButton" destination="Hvn-ch-ECX" id="Hgl-4l-5cw"/>
-                        <outlet property="recipeButton1" destination="fJ5-GN-hMD" id="4yq-xe-R93"/>
                         <outlet property="rtFeaturedRecipeButton" destination="Kbn-R5-oZq" id="svm-z7-p7c"/>
                     </connections>
                 </viewController>
