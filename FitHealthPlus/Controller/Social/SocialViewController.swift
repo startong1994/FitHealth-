@@ -90,6 +90,9 @@ class SocialViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     
     
+    @IBAction func profileButtonPressed(_ sender: UIButton) {
+        performSegue(withIdentifier: "socialToCurrentUser", sender: self)
+    }
     
     
     

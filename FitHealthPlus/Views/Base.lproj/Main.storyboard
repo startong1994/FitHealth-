@@ -36,35 +36,6 @@
             </objects>
             <point key="canvasLocation" x="-1271.0144927536232" y="-379.01785714285711"/>
         </scene>
-        <!--FitHealth+-->
-        <scene sceneID="RAj-QR-wrK">
-            <objects>
-                <viewController id="gOj-CS-Ynd" customClass="ViewController" customModule="FitHealthPlus" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="ajO-dy-cVA">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="LeV-p0-IRa">
-                                <rect key="frame" x="0.0" y="132" width="414" height="681"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            </tableView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="PBI-x8-j1V"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="FitHealth+" id="NyO-9s-qYO">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="gearshape" id="Hpq-1B-jB6">
-                            <connections>
-                                <segue destination="rMf-WD-qPE" kind="show" identifier="ToSetting" id="Mh2-Hi-vOY"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="k7j-sy-ss6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="9597.1014492753638" y="1099.5535714285713"/>
-        </scene>
         <!--Pantry List View Controller-->
         <scene sceneID="BUO-eb-Xx3">
             <objects>
@@ -1510,11 +1481,11 @@
                                 <rect key="frame" x="271" y="88" width="80" height="80"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="47"/>
-                                <state key="normal" image="person.3" catalog="system">
+                                <state key="normal" image="person" catalog="system">
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="heavy"/>
                                 </state>
                                 <connections>
-                                    <segue destination="qbH-hy-dm8" kind="show" id="Hxe-dq-BTx"/>
+                                    <action selector="profileButtonPressed:" destination="aD4-Cn-USr" eventType="touchUpInside" id="bSH-RG-olp"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1524,7 +1495,8 @@
                     <navigationItem key="navigationItem" title="FitHealth+" id="P8V-fb-2gA"/>
                     <connections>
                         <outlet property="tableView" destination="NIH-oJ-9d6" id="efp-J3-1cl"/>
-                        <segue destination="8y7-6R-7Ht" kind="showDetail" identifier="socialToProfile" id="eyC-yb-qRY"/>
+                        <segue destination="8y7-6R-7Ht" kind="show" identifier="socialToProfile" id="eyC-yb-qRY"/>
+                        <segue destination="heV-rA-0qz" kind="show" identifier="socialToCurrentUser" id="B2F-wI-4Cw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nnl-4V-tEh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1536,15 +1508,15 @@
             <objects>
                 <viewController storyboardIdentifier="profile" title="ProfileView" id="8y7-6R-7Ht" customClass="ProfileViewController" customModule="FitHealthPlus" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" restorationIdentifier="ProfileViewController" id="SSP-Bp-dSs">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WQT-kd-zI7">
-                                <rect key="frame" x="87" y="238" width="240" height="128"/>
+                                <rect key="frame" x="87" y="300" width="240" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cRy-Vp-nYp">
-                                <rect key="frame" x="20" y="422" width="374" height="65"/>
+                                <rect key="frame" x="20" y="505" width="374" height="65"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="43"/>
                                 <nil key="textColor"/>
@@ -1560,7 +1532,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Email" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LHP-uI-TfJ">
-                                <rect key="frame" x="20" y="507" width="374" height="21"/>
+                                <rect key="frame" x="20" y="622" width="374" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
@@ -1647,7 +1619,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="yWx-gc-jE2" id="Y5p-50-e5h"/>
-                        <segue destination="awR-wY-lXz" kind="showDetail" id="6a1-OT-05M"/>
+                        <segue destination="awR-wY-lXz" kind="show" id="6a1-OT-05M"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qgT-jx-OPX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1659,22 +1631,18 @@
             <objects>
                 <viewController storyboardIdentifier="NewFriendProfile" title="NewFriendProfile" id="awR-wY-lXz" customClass="NewFriendProfileViewController" customModule="FitHealthPlus" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DW8-89-aDx">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YJZ-Ra-eIc">
-                                <rect key="frame" x="87" y="238" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nr8-hz-Yyr">
-                                <rect key="frame" x="20" y="422" width="374" height="52"/>
+                                <rect key="frame" x="20" y="505" width="374" height="52"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="43"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Email" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d3h-T4-vSo">
-                                <rect key="frame" x="20" y="507" width="374" height="21"/>
+                                <rect key="frame" x="20" y="622" width="374" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
@@ -1690,7 +1658,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MPJ-f0-maT">
-                                <rect key="frame" x="68" y="730" width="98" height="51"/>
+                                <rect key="frame" x="20" y="730" width="184" height="51"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="32"/>
                                 <state key="normal" title="Accept"/>
@@ -1698,10 +1666,15 @@
                                     <action selector="acceptButtonPressed:" destination="awR-wY-lXz" eventType="touchUpInside" id="qW4-Gq-Ome"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YJZ-Ra-eIc">
+                                <rect key="frame" x="87" y="300" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="gt0-YI-4jJ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="a5Q-8I-LPW"/>
                     <connections>
                         <outlet property="profileEmail" destination="d3h-T4-vSo" id="Mrj-RD-ZYV"/>
                         <outlet property="profileImage" destination="YJZ-Ra-eIc" id="S1x-SH-3zw"/>
@@ -1834,7 +1807,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NI7-Qk-bTS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6372.4637681159429" y="949.55357142857133"/>
+            <point key="canvasLocation" x="7761" y="951"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -1860,7 +1833,7 @@
         <!--WelcomePage-->
         <scene sceneID="yt0-Nt-iAp">
             <objects>
-                <viewController title="WelcomePage" id="ti7-qm-Zre" customClass="WelcomePageViewController" customModule="FitHealthPlus" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WelcomePage" title="WelcomePage" id="ti7-qm-Zre" customClass="WelcomePageViewController" customModule="FitHealthPlus" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zJZ-GU-SuE">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2065,22 +2038,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LGA-uI-0LP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-151" y="-379"/>
-        </scene>
-        <!--Setting View Controller-->
-        <scene sceneID="1O1-j1-bHS">
-            <objects>
-                <viewController id="rMf-WD-qPE" customClass="SettingViewController" customModule="FitHealthPlus" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="ZYo-bB-2k4">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="kCP-hK-sZF"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="x1E-4o-Lyg"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Y6m-ik-OsM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="7942.0289855072469" y="950.89285714285711"/>
         </scene>
         <!--Recipe-->
         <scene sceneID="gfF-6W-xKK">
@@ -2291,11 +2248,12 @@
             </objects>
             <point key="canvasLocation" x="-2365.217391304348" y="-334.15178571428572"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--welcome-->
         <scene sceneID="KSN-fP-DU7">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="AEV-Ke-Q4y" sceneMemberID="viewController">
+                <navigationController title="welcome" automaticallyAdjustsScrollViewInsets="NO" id="AEV-Ke-Q4y" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="ZLu-AT-ggh"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="qzG-2m-eXz">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -2394,6 +2352,54 @@
             </objects>
             <point key="canvasLocation" x="-1215.9420289855072" y="464.73214285714283"/>
         </scene>
+        <!--CurrentUser-->
+        <scene sceneID="je7-Xl-k58">
+            <objects>
+                <viewController title="CurrentUser" id="heV-rA-0qz" customClass="CurrentUserViewController" customModule="FitHealthPlus" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="FdC-Au-g9t">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qHG-N5-h8z">
+                                <rect key="frame" x="87" y="321" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OME-DQ-CaC">
+                                <rect key="frame" x="20" y="510" width="374" height="52"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="43"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Email" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iM0-s5-NCA">
+                                <rect key="frame" x="20" y="614" width="374" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="5nq-VA-kPL"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="XWJ-sT-Ck5">
+                        <barButtonItem key="rightBarButtonItem" title="Logout" id="lBe-az-bXd">
+                            <connections>
+                                <action selector="logoutButtonPressed:" destination="heV-rA-0qz" id="Dl3-a4-xqI"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="email" destination="iM0-s5-NCA" id="JDa-KQ-yqv"/>
+                        <outlet property="name" destination="OME-DQ-CaC" id="krv-9M-vAe"/>
+                        <outlet property="profileImage" destination="qHG-N5-h8z" id="kv2-r6-Zy1"/>
+                        <segue destination="AEV-Ke-Q4y" kind="show" identifier="logout" id="NJ5-Ei-KH0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wbR-ES-ijF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6365" y="922"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="8Id-mf-K2c"/>
@@ -2405,8 +2411,7 @@
         <image name="figure.wave.circle" width="13" height="13"/>
         <image name="flame.fill" catalog="system" width="108" height="128"/>
         <image name="focus" width="150" height="150"/>
-        <image name="gearshape" width="14" height="14"/>
-        <image name="person.3" catalog="system" width="128" height="62"/>
+        <image name="person" catalog="system" width="128" height="117"/>
         <image name="person.badge.plus" catalog="system" width="128" height="124"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <image name="rectangle.fill" catalog="system" width="128" height="93"/>
