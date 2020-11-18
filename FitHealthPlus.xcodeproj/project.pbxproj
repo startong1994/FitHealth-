@@ -30,6 +30,7 @@
 		D29262DE255E47730092D0B3 /* FriendsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29262DD255E47730092D0B3 /* FriendsData.swift */; };
 		D29262E4256072BB0092D0B3 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D29262E2256072BB0092D0B3 /* DataModel.xcdatamodeld */; };
 		D29919302560A6480000DB04 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D299192F2560A6480000DB04 /* Constants.swift */; };
+		D2ADC577256484AD009717F9 /* CurrentUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2ADC576256484AD009717F9 /* CurrentUserViewController.swift */; };
 		D2D546262542442500EA0C1E /* AddRecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D546252542442500EA0C1E /* AddRecipeViewController.swift */; };
 		D2D54628254244D800EA0C1E /* MyRecipesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D54627254244D800EA0C1E /* MyRecipesViewController.swift */; };
 		D2DB12732540BE89005DFF65 /* StatsBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DB12712540BE89005DFF65 /* StatsBar.swift */; };
@@ -76,6 +77,7 @@
 		D29262DD255E47730092D0B3 /* FriendsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsData.swift; sourceTree = "<group>"; };
 		D29262E3256072BB0092D0B3 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		D299192F2560A6480000DB04 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		D2ADC576256484AD009717F9 /* CurrentUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUserViewController.swift; sourceTree = "<group>"; };
 		D2D546252542442500EA0C1E /* AddRecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecipeViewController.swift; sourceTree = "<group>"; };
 		D2D54627254244D800EA0C1E /* MyRecipesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRecipesViewController.swift; sourceTree = "<group>"; };
 		D2DB12712540BE89005DFF65 /* StatsBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsBar.swift; sourceTree = "<group>"; };
@@ -269,6 +271,7 @@
 				D23058AE253CE1060013B64C /* AddFriendViewController.swift */,
 				D2912C2D253E59AC0061EC01 /* NewFriendProfileViewController.swift */,
 				D26A6008253F7D4A00A21006 /* ProfileViewController.swift */,
+				D2ADC576256484AD009717F9 /* CurrentUserViewController.swift */,
 			);
 			path = Social;
 			sourceTree = "<group>";
@@ -410,6 +413,7 @@
 				D2EA92D3253A329500026B0E /* AppDelegate.swift in Sources */,
 				D23058A0253CCEB30013B64C /* LeaderboardViewController.swift in Sources */,
 				D270A096254321FE00443769 /* WorkoutGuideViewController.swift in Sources */,
+				D2ADC577256484AD009717F9 /* CurrentUserViewController.swift in Sources */,
 				D23058A5253CD8540013B64C /* LoginViewController.swift in Sources */,
 				D2D546262542442500EA0C1E /* AddRecipeViewController.swift in Sources */,
 				D2DB12772540C8CE005DFF65 /* workoutCell.swift in Sources */,

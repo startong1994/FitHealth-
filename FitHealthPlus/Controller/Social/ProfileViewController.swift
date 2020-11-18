@@ -23,7 +23,8 @@ class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.tabBarController?.tabBar.isHidden = true
+        self.navigationController?.tabBarItem.title = "Profile"
         loadProfile()
         
     }
@@ -33,7 +34,6 @@ class ProfileViewController: UIViewController {
                let delete = UIAlertAction(title: "Yes", style: .default){(delete) in
                 if let email = self.friend?.email, let name = self.friend?.name{
                     FriendNetwork().deleteFriend(Email: email, Name: name)
-                    
                 }
                    print("deleted")
                }
@@ -62,5 +62,9 @@ class ProfileViewController: UIViewController {
         
         
         
+    }
+    @IBAction func cancelButtonPressed(_ sender: UIBarButtonItem) {
+        
+        performSegue(withIdentifier: "socialToProfile", sender: self)
     }
 }
