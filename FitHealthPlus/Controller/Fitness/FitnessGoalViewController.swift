@@ -125,12 +125,6 @@ extension FitnessGoalViewController: UITableViewDataSource, UITableViewDelegate{
         
         present(alert,animated: true, completion: nil)
         
-        
-        
-        
-        
-        
-        
         return 0
         
     }

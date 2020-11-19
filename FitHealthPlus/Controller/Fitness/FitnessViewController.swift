@@ -72,20 +72,11 @@ extension FitnessViewController: UITableViewDataSource, UITableViewDelegate{
             
             
             
-            
-            
             cell.dailyPrograssDetail.text = "\(currentWorkout)|\(workoutGoal)"
             cell.dailyPrograssDetail2.text = "\(currentSteps)|\(stepGoal)"
             cell.dailyPrograssdetail3.text = "\(currentCal)|\(calGoal)"
             
-            
-            
-            
-            
-            
-            
-            
-            
+    
             
             
         
@@ -106,7 +97,9 @@ extension FitnessViewController: UITableViewDataSource, UITableViewDelegate{
     
         
         if indexPath.row == 0{
-            self.performSegue(withIdentifier: "fitnessToGoal", sender: self)
+            
+            setGoal()
+            
         }
         else if indexPath.row == 1{
             self.performSegue(withIdentifier: "fitnessToGuide", sender: self)
@@ -115,6 +108,48 @@ extension FitnessViewController: UITableViewDataSource, UITableViewDelegate{
         
         
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    func setGoal() {
+        let alert = UIAlertController(title: "Goal", message: "Enter workout time", preferredStyle: .alert)
+        var workoutGoal = UITextField()
+        var stepGoal = UITextField()
+        var calGoal = UITextField()
+        
+        let cancel = UIAlertAction(title: "Cancel", style: .default, handler: nil)
+        
+        let added = UIAlertController(title: "", message: "ADDED!", preferredStyle: .alert)
+        
+        let confirm = UIAlertAction(title: "Confirm", style: .default) { (confirm) in
+            print("Hi")
+            self.present(added, animated: true, completion: nil)
+        }
+        
+        
+        
+        
+        alert.addAction(cancel)
+        alert.addAction(confirm)
+        alert.addTextField { (text) in
+            text.placeholder = "enter the workout goal"
+            workoutGoal = text
+        }
+        alert.addTextField { (text) in
+            text.placeholder = "enter the steps goal"
+            stepGoal = text
+        }
+        alert.addTextField { (text) in
+            text.placeholder = "enter the calories borned goal"
+            calGoal = text
+        }
+        
+        
+        
+        present(alert, animated: true, completion: nil)
+        
+        
+        
+        
     }
     
     
