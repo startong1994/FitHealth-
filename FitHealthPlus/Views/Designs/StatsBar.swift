@@ -38,22 +38,12 @@ class StatsBar: UITableViewCell,UITableViewDelegate {
         
         
         
-        let calGoal = FitnessViewController().fitGoal[0].caloriesBurn
-        let stepsGoal = FitnessViewController().fitGoal[0].steps
-        let workoutGoal = FitnessViewController().fitGoal[0].workoutTime
-        
-        let currentCal = Float(ActivityData().getDailyEnergyBurned())
-        let currentSteps = Float(ActivityData().getDailySteps())
-        let currentWorkout = Float(ActivityData().getDailyExercise())
         
         
         view.layer.cornerRadius = view.frame.size.height/10
         workoutTimeText.text = "daily " + workoutText
         stepsText.text = "daily " + stepText
         caloriesText.text = "daily " + calText
-        dailyPrograssDetail.text = "\(currentWorkout)|\(workoutGoal)"
-        dailyPrograssDetail2.text = "\(currentSteps)|\(stepsGoal)"
-        dailyPrograssdetail3.text = "\(currentCal)|\(calGoal)"
         
         
         
@@ -66,10 +56,7 @@ class StatsBar: UITableViewCell,UITableViewDelegate {
         
         
         
-        
-        caloriesProgress.progress = (currentCal / calGoal)
-        stepsProgress.progress = (currentSteps / stepsGoal)
-        workoutTimeProgress.progress = (currentWorkout / workoutGoal)
+
         
 
 
@@ -80,6 +67,11 @@ class StatsBar: UITableViewCell,UITableViewDelegate {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+        
+        
+        
+        
+        
     }
     
     @IBAction func indexChanged(_ sender: Any) {

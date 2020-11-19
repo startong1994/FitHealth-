@@ -15,7 +15,7 @@ class FitnessViewController: UIViewController {
     
     let defaults = UserDefaults.standard
     
-    var fitGoal: [FitGoal] = [FitGoal.init(caloriesBurn: 10, workoutTime: 10, steps: 10)]
+    var fitGoal: [FitGoal] = [FitGoal.init(caloriesBurn: 0, workoutTime: 0, steps: 0)]
     
     let dispatchGroup = DispatchGroup()
 
@@ -56,6 +56,38 @@ extension FitnessViewController: UITableViewDataSource, UITableViewDelegate{
             print("Hi 1")
             let cell = tableView.dequeueReusableCell(withIdentifier: "statsBar", for: indexPath) as! StatsBar
             tableView.rowHeight = 444
+            
+            let currentCal = Float(ActivityData().getDailyEnergyBurned())
+            let currentSteps = Float(ActivityData().getDailySteps())
+            let currentWorkout = Float(ActivityData().getDailySteps())
+            
+            let calGoal = fitGoal[0].caloriesBurn
+            let stepGoal = fitGoal[0].steps
+            let workoutGoal = fitGoal[0].workoutTime
+            
+            
+            cell.caloriesProgress.progress = (currentCal / calGoal)
+            cell.stepsProgress.progress = (currentSteps / stepGoal)
+            cell.workoutTimeProgress.progress = (currentWorkout / workoutGoal)
+            
+            
+            
+            
+            
+            cell.dailyPrograssDetail.text = "\(currentWorkout)|\(workoutGoal)"
+            cell.dailyPrograssDetail2.text = "\(currentSteps)|\(stepGoal)"
+            cell.dailyPrograssdetail3.text = "\(currentCal)|\(calGoal)"
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
         
             return cell
             
@@ -85,6 +117,12 @@ extension FitnessViewController: UITableViewDataSource, UITableViewDelegate{
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
+    
+    
+    
+    
+    
+    
     func reloadFitnessGoals(){
         fitnessRef.document(UsersData().getCurrentUser()).addSnapshotListener { (doc, error) in
             
@@ -111,7 +149,7 @@ extension FitnessViewController: UITableViewDataSource, UITableViewDelegate{
                 self.fitGoal.append(tempGoal)
                 print(self.fitGoal)
                 DispatchQueue.main.async {
-                    self.tableView.reloadData()
+                        self.tableView.reloadData()
                 }
                 }
                     
