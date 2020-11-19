@@ -51,10 +51,14 @@ class ActivityData {
             if let e = error{
                 print("error \(e)")
             }else{
-                let data = result![0] as! HKQuantitySample
-                let unit = HKUnit(from: "count")
-                let step = data.quantity.doubleValue(for: unit)
-                print("most recently steps \(step)")
+                if result!.count > 0{
+                    let data = result![0] as! HKQuantitySample
+                    let unit = HKUnit(from: "count")
+                    let step = data.quantity.doubleValue(for: unit)
+                    print("most recently steps \(step)")
+                }else{
+                    print("nothing? because no data ;D")
+                }
                 
             }
         }
