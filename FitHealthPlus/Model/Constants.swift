@@ -13,6 +13,9 @@ struct K {
         static let email = "email"
         static let name = "name"
         static let profileImag = "profileImage"
+        static let calBurned = "energyBurned"
+        static let steps = "steps"
+        static let workoutTime = "workoutTime"
     }
     struct healthKit {
         static let dSteps = "Daily Steps"

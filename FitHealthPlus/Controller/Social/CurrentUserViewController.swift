@@ -36,7 +36,7 @@ class CurrentUserViewController: UIViewController {
             let welcomePageVC = storyBoard.instantiateViewController(withIdentifier: "WelcomePage") as! WelcomePageViewController
             
             
-            self.navigationController?.pushViewController(welcomePageVC, animated: true)
+            self.navigationController?.pushViewController(welcomePageVC, animated: false)
         }catch let error as NSError{
             print("signing out error \(error)")
         }

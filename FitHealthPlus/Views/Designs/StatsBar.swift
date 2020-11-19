@@ -45,6 +45,9 @@ class StatsBar: UITableViewCell,UITableViewDelegate {
         let currentSteps = Float(ActivityData().getDailySteps())
         let currentWorkout = Float(ActivityData().getDailyExercise())
         
+        
+        
+        
         caloriesProgress.progress = (currentCal / calGoal)
         stepsProgress.progress = (currentSteps / stepsGoal)
         workoutTimeProgress.progress = (currentWorkout / workoutGoal)

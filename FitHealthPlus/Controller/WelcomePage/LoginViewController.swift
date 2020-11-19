@@ -14,6 +14,8 @@ class LoginViewController: UIViewController {
     
     let defaults = UserDefaults.standard
     
+    let dispatchGroup = DispatchGroup()
+    
 
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
@@ -50,7 +52,9 @@ class LoginViewController: UIViewController {
                     //save current user's information to default file and navigate to next page
                     UsersData().storeCurrentUserData()
                     FriendNetwork().storeListsToUserDefaults(UsersData().getCurrentUser())
-                    self.performSegue(withIdentifier: "signinToMainPage", sender: self)
+                    FriendNetwork().run(after: 1) {
+                        self.performSegue(withIdentifier: "signinToMainPage", sender: self)
+                    }
                 }
             }
             
