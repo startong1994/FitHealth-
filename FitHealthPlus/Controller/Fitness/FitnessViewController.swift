@@ -14,6 +14,8 @@ class FitnessViewController: UIViewController {
     let db = Firestore.firestore()
     
     let defaults = UserDefaults.standard
+    
+    let fitGoal: [FitGoal] = [FitGoal.init(caloriesBurn: 500, workoutTime: 500, steps: 500)]
 
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
@@ -78,6 +80,12 @@ extension FitnessViewController: UITableViewDataSource, UITableViewDelegate{
         
         
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+    func reloadFitnessGoals(){
+        
+        
+        
+        
     }
     
     

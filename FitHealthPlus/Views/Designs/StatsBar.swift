@@ -17,7 +17,13 @@ class StatsBar: UITableViewCell,UITableViewDelegate {
     @IBOutlet weak var stepsProgress: UIProgressView!
     @IBOutlet weak var caloriesProgress: UIProgressView!
 
+    
+    let workoutText = "workout time: current/goal"
+    let stepText = "steps: current/goal"
+    let calText = "calories borned: current/goal"
 
+    
+    var caloriesGoal: Float = 50
     
     
     @IBOutlet weak var view: UIView!
@@ -26,6 +32,25 @@ class StatsBar: UITableViewCell,UITableViewDelegate {
         super.awakeFromNib()
         // Initialization code
         view.layer.cornerRadius = view.frame.size.height/10
+        workoutTimeText.text = "daily " + workoutText
+        stepsText.text = "daily " + stepText
+        caloriesText.text = "daily " + calText
+        workoutTimeProgress.progress = 14/30
+        
+        let calGoal = FitnessViewController().fitGoal[0].caloriesBurn
+        let stepsGoal = FitnessViewController().fitGoal[0].steps
+        let workoutGoal = FitnessViewController().fitGoal[0].workoutTime
+        
+        let currentCal = Float(ActivityData().getDailyEnergyBurned())
+        let currentSteps = Float(ActivityData().getDailySteps())
+        let currentWorkout = Float(ActivityData().getDailyExercise())
+        
+        caloriesProgress.progress = (currentCal / calGoal)
+        stepsProgress.progress = (currentSteps / stepsGoal)
+        workoutTimeProgress.progress = (currentWorkout / workoutGoal)
+        
+
+
         
     }
 
@@ -37,9 +62,6 @@ class StatsBar: UITableViewCell,UITableViewDelegate {
     
     @IBAction func indexChanged(_ sender: Any) {
         
-        let workoutText = "workout time: current/goal"
-        let stepText = "steps: current/goal"
-        let calText = "calories borned: current/goal"
         
 
         

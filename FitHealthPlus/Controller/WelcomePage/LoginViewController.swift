@@ -20,9 +20,9 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        print(ActivityData().getDailySteps())
+        print(ActivityData().getDailyExercise())
         print(ActivityData().getDailyEnergyBurned())
-        print(ActivityData().getWeeklyEnergyBurned())
-        print(ActivityData().getMonthlyEnergyBurned())
         
         
         

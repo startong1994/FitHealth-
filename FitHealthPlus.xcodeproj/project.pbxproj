@@ -22,6 +22,8 @@
 		D23058A5253CD8540013B64C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23058A4253CD8540013B64C /* LoginViewController.swift */; };
 		D23058A7253CD8680013B64C /* SignUpViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23058A6253CD8680013B64C /* SignUpViewContoller.swift */; };
 		D23058AF253CE1060013B64C /* AddFriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23058AE253CE1060013B64C /* AddFriendViewController.swift */; };
+		D24D42B02566EE2B0034EE40 /* ActivityNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24D42AF2566EE2B0034EE40 /* ActivityNetwork.swift */; };
+		D24D42B32567059D0034EE40 /* FitGoall.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24D42B22567059D0034EE40 /* FitGoall.swift */; };
 		D251DEA5254060AB006E7862 /* PantryItemList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D251DEA4254060AB006E7862 /* PantryItemList.swift */; };
 		D268DD032550C669000A320D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D268DD022550C669000A320D /* GoogleService-Info.plist */; };
 		D26A6009253F7D4A00A21006 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26A6008253F7D4A00A21006 /* ProfileViewController.swift */; };
@@ -72,6 +74,8 @@
 		D23058A4253CD8540013B64C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		D23058A6253CD8680013B64C /* SignUpViewContoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewContoller.swift; sourceTree = "<group>"; };
 		D23058AE253CE1060013B64C /* AddFriendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendViewController.swift; sourceTree = "<group>"; };
+		D24D42AF2566EE2B0034EE40 /* ActivityNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityNetwork.swift; sourceTree = "<group>"; };
+		D24D42B22567059D0034EE40 /* FitGoall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitGoall.swift; sourceTree = "<group>"; };
 		D251DEA4254060AB006E7862 /* PantryItemList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PantryItemList.swift; sourceTree = "<group>"; };
 		D268DD022550C669000A320D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D26A6008253F7D4A00A21006 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -179,6 +183,8 @@
 				D29262E2256072BB0092D0B3 /* DataModel.xcdatamodeld */,
 				D299192F2560A6480000DB04 /* Constants.swift */,
 				D21D56EF2565CE790076FD4E /* ActivityData.swift */,
+				D24D42AF2566EE2B0034EE40 /* ActivityNetwork.swift */,
+				D24D42B22567059D0034EE40 /* FitGoall.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -416,6 +422,7 @@
 				D23058A3253CD6780013B64C /* WelcomePageViewController.swift in Sources */,
 				D26A6009253F7D4A00A21006 /* ProfileViewController.swift in Sources */,
 				98530BBF253F9C9800D93F88 /* PantryListViewController.swift in Sources */,
+				D24D42B32567059D0034EE40 /* FitGoall.swift in Sources */,
 				9816343D2540D82D00546A9E /* EditPantryItemViewController.swift in Sources */,
 				9816343B2540C53500546A9E /* BarcodeScannerViewController.swift in Sources */,
 				D2EA92E9253A32D800026B0E /* PantryViewController.swift in Sources */,
@@ -429,6 +436,7 @@
 				D29262E4256072BB0092D0B3 /* DataModel.xcdatamodeld in Sources */,
 				D2EA92D5253A329500026B0E /* SceneDelegate.swift in Sources */,
 				D29262DB255E3A330092D0B3 /* UsersData.swift in Sources */,
+				D24D42B02566EE2B0034EE40 /* ActivityNetwork.swift in Sources */,
 				D2DB127A2540DBF7005DFF65 /* FitnessGoalViewController.swift in Sources */,
 				D23058A7253CD8680013B64C /* SignUpViewContoller.swift in Sources */,
 				D251DEA5254060AB006E7862 /* PantryItemList.swift in Sources */,

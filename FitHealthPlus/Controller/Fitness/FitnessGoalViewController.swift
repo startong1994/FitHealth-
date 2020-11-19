@@ -11,12 +11,16 @@ import UIKit
 class FitnessGoalViewController: UIViewController {
     
     
+    
+    
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         self.tableView.dataSource = self
         self.tableView.delegate = self
+        self.tabBarController?.tabBar.isHidden = true
+        
         
         tableView.rowHeight = 320
         tableView.register(UINib(nibName: "FitnessGoalTableViewCell", bundle: nil), forCellReuseIdentifier: "fitnessGoalCell")
