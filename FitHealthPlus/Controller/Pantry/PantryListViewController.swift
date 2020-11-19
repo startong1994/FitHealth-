@@ -17,23 +17,19 @@ class PantryListViewController: UIViewController, UITableViewDelegate, UITableVi
     @IBOutlet weak var tableViewList: UITableView!
     @IBOutlet weak var addButton: UIBarButtonItem!
     
+    // View for sort feature
+    var containerView = UIView()
+    
     //Database
     let db = Firestore.firestore()
     let defaults = UserDefaults.standard
     
-    
+    // Variables
     var myList = [PantryItem]()
-    //var pantryItemsCollectionRef: CollectionReference!
     var myIndex = 0
+    var choice = 0
     var searchingItems = [PantryItem]()
     var searching = false
-    
-    private func loadItems(){
-        let item1 = PantryItem(name: "Hot Cheetohs", quantity: 1, exDate: "11/20/20", category: "Pantry", servingSize: "1", calories: 360, fat: 0, sodium: 0, carb: 0, fiber: 0, sugar: 0, protein: 0, cholestrol: 0)
-        
-        myList += [item1]
-        
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,19 +37,18 @@ class PantryListViewController: UIViewController, UITableViewDelegate, UITableVi
         tableViewList.delegate = self
         tableViewList.dataSource = self
         setUpSearchBar()
-        
-        //loadItems()
-        
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         self.tabBarController?.tabBar.isHidden = false
+        
         //code to get data from local UserDefault data, get name when it is loaded
         guard let username = defaults.dictionary(forKey: "CurrentUser")!["name"]else{
             print("name not found")
             return
         }
+        
+        //Get data from the firestore database and populate the tableview
         db.collection("Pantry").document(username as! String).collection("Pantry List").addSnapshotListener { (QuerySnapshot, error) in
             if let err = error {
                 debugPrint("Error Fetching docs:  \(err)")
@@ -82,71 +77,58 @@ class PantryListViewController: UIViewController, UITableViewDelegate, UITableVi
                 DispatchQueue.main.async {
                     self.tableViewList.reloadData()
                 }
-                
             }
-            
         }
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        let sortButton = UIBarButtonItem(title: "Sort", primaryAction: nil, menu: sortMenu)
+        
+        // UIMenu for the Sort menu
+        let sortByMenu = UIMenu(title: "Test", options: .displayInline, children: [
+            UIAction(title: "A-Z",handler: {[sortByName] _ in sortByName()}),
+            UIAction(title: "Z-A",handler: {[sortZtoA] _ in sortZtoA()}),
+            UIAction(title: "Category",handler: {[sortByCategory] _ in sortByCategory()}),
+            UIAction(title: "Expiration Date",handler: {[sortByExDate] _ in sortByExDate()}),
+            UIAction(title: "Calories",handler: {[sortByCalorie] _ in sortByCalorie()})
+        ])
+        
+        let sortButton = UIBarButtonItem(title: "Sort", primaryAction: nil, menu: sortByMenu)
         sortButton.tintColor = UIColor.white
-        self.navigationItem.rightBarButtonItems = [sortButton, addButton]
+        self.navigationItem.rightBarButtonItems = [addButton, sortButton]
     }
     
-    //sort by feature
-    /*let sortByOptions = ["A-Z", "Z-A", "Category", "Calories"]
-    
-    @IBAction func sortByPressed(_ sender: Any) {
-        if pickerView.isHidden{
-            pickerView.isHidden = false
-        }
-        
-    }
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return sortByOptions.count
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return sortByOptions[row]
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        if sortByOptions[row] == "A-Z"{
-            myList = myList.sorted(by: { $0.name < $1.name})
-            
-        } else if sortByOptions[row] == "Z-A" {
-            myList = myList.sorted(by: { $0.name > $1.name})
-        }else if sortByOptions[row] == "Category" {
-            myList = myList.sorted(by: { $0.category < $1.category})
-        }else {
-            myList = myList.sorted(by: { $0.calorie < $1.calorie})
-        }
-        
-        pickerView.isHidden = true
-        tableViewList.reloadData()
-    }*/
-    
-    // Sort By Menu
-    let sortMenu = UIMenu(title: "", children: [
-        UIAction(title: "A-Z", handler: { (action) in
-            print("A-Z Pressed")
-        }),UIAction(title: "Z-A") { action in
-            
-        },UIAction(title: "Calories") { action in
-            
-        },UIAction(title: "Expiration Date") { action in
-            
-        },
-    ])
-    
-    func sortByName(){
+    // Sort By Function for A-Z
+    @objc func sortByName(){
         myList = myList.sorted(by: { $0.name < $1.name})
+        tableViewList.reloadData()
+    }
+    
+    // Sort By Function for Z-A
+    @objc func sortZtoA(){
+        myList = myList.sorted(by: { $0.name > $1.name})
+        tableViewList.reloadData()
+    }
+    
+    // Sort By Function for Calories
+    @objc func sortByCalorie(){
+        myList = myList.sorted(by: { $0.calories < $1.calories})
+        tableViewList.reloadData()
+    }
+    
+    // Sort By Expiration Date
+    @objc func sortByExDate(){
+        //Date format for Expiration date
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM/dd/yyyy"
+        
+        myList = myList.sorted(by: { dateFormatter.date(from: $0.exDate)! < dateFormatter.date(from: $1.exDate)!})
+        tableViewList.reloadData()
+    }
+    
+    // Sort By Category
+    @objc func sortByCategory(){
+        myList = myList.sorted(by: { $0.category < $1.category})
         tableViewList.reloadData()
     }
     
@@ -156,6 +138,7 @@ class PantryListViewController: UIViewController, UITableViewDelegate, UITableVi
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
+    // Segue for the edit view controller
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "editSegue" {
             let cell = sender as! UITableViewCell
@@ -179,8 +162,7 @@ class PantryListViewController: UIViewController, UITableViewDelegate, UITableVi
         }
     }
     
-    
-    //search bar
+    // search bar set up function
     func setUpSearchBar() {
         let searchController = UISearchController(searchResultsController: nil)
         navigationItem.searchController = searchController
@@ -198,6 +180,7 @@ class PantryListViewController: UIViewController, UITableViewDelegate, UITableVi
         searchController.searchBar.searchTextField.backgroundColor = UIColor.white
     }
     
+    // filtered results for search query
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchText.isEmpty{
             searching = false
@@ -209,6 +192,7 @@ class PantryListViewController: UIViewController, UITableViewDelegate, UITableVi
         }
     }
     
+    // search bar cancel action
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searching = false
         searchBar.text = ""
@@ -224,6 +208,7 @@ class PantryListViewController: UIViewController, UITableViewDelegate, UITableVi
         
     }
     
+    // add data to table view cells
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! PantryCell
         if searching{
@@ -244,7 +229,7 @@ class PantryListViewController: UIViewController, UITableViewDelegate, UITableVi
         return cell
     }
     
-    //filter table based on scope button
+    //filter table based on scope button of search bar
     func filterTableView(index: Int, text: String) {
         switch index {
         case 0:
@@ -263,6 +248,7 @@ class PantryListViewController: UIViewController, UITableViewDelegate, UITableVi
             print("no type")
         }
     }
+    
     //delete item
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete{
@@ -282,11 +268,9 @@ class PantryListViewController: UIViewController, UITableViewDelegate, UITableVi
             myList.remove(at: indexPath.row)
             tableViewList.reloadData()
         }
-        
-        //saveToFileStuff()
     }
     
-    //unwind seque
+    //unwind seque for add vc and edit vc
     @IBAction func unWindToList(sender: UIStoryboardSegue){
         if let sourceViewController = sender.source as? PantryItemShowDetailViewController, let item = sourceViewController.item{
             let newIndexPath = IndexPath(row: myList.count, section: 0)
@@ -295,18 +279,9 @@ class PantryListViewController: UIViewController, UITableViewDelegate, UITableVi
             
         }
     }
-    
-    /*//archive pantry
-    func saveToFileStuff(){
-        NSKeyedArchiver.archiveRootObject(myList, toFile: PantryItem.stuffFolder.path)
-    }
-    
-    //unarchive data
-    func loadSavedItems() -> [PantryItem]?{
-        return NSKeyedUnarchiver.unarchiveObject(withFile: PantryItemList.stuffFolder.path) as? [PantryItemList]
-    }*/
 }
 
+// Class for the Pantry cell view
 class PantryCell: UITableViewCell{
     @IBOutlet weak var itemName: UILabel!
     @IBOutlet weak var itemQuantity: UILabel!
@@ -323,3 +298,5 @@ class PantryCell: UITableViewCell{
     }
 
 }
+
+
