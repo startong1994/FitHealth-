@@ -16,6 +16,8 @@ class StatsBar: UITableViewCell,UITableViewDelegate {
     @IBOutlet weak var workoutTimeProgress: UIProgressView!
     @IBOutlet weak var stepsProgress: UIProgressView!
     @IBOutlet weak var caloriesProgress: UIProgressView!
+
+
     
     
     @IBOutlet weak var view: UIView!
@@ -24,6 +26,7 @@ class StatsBar: UITableViewCell,UITableViewDelegate {
         super.awakeFromNib()
         // Initialization code
         view.layer.cornerRadius = view.frame.size.height/10
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
