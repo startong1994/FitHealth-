@@ -16,14 +16,18 @@ class StatsBar: UITableViewCell,UITableViewDelegate {
     @IBOutlet weak var workoutTimeProgress: UIProgressView!
     @IBOutlet weak var stepsProgress: UIProgressView!
     @IBOutlet weak var caloriesProgress: UIProgressView!
-
+    @IBOutlet weak var workoutBar: UIProgressView!
+    @IBOutlet weak var stepsBar: UIProgressView!
+    @IBOutlet weak var calBar: UIProgressView!
+    @IBOutlet weak var dailyPrograssDetail: UILabel!
+    @IBOutlet weak var dailyPrograssDetail2: UILabel!
+    @IBOutlet weak var dailyPrograssdetail3: UILabel!
+    
     
     let workoutText = "workout time: current/goal"
     let stepText = "steps: current/goal"
     let calText = "calories borned: current/goal"
 
-    
-    var caloriesGoal: Float = 50
     
     
     @IBOutlet weak var view: UIView!
@@ -31,11 +35,8 @@ class StatsBar: UITableViewCell,UITableViewDelegate {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        view.layer.cornerRadius = view.frame.size.height/10
-        workoutTimeText.text = "daily " + workoutText
-        stepsText.text = "daily " + stepText
-        caloriesText.text = "daily " + calText
-        workoutTimeProgress.progress = 14/30
+        
+        
         
         let calGoal = FitnessViewController().fitGoal[0].caloriesBurn
         let stepsGoal = FitnessViewController().fitGoal[0].steps
@@ -44,6 +45,24 @@ class StatsBar: UITableViewCell,UITableViewDelegate {
         let currentCal = Float(ActivityData().getDailyEnergyBurned())
         let currentSteps = Float(ActivityData().getDailySteps())
         let currentWorkout = Float(ActivityData().getDailyExercise())
+        
+        
+        view.layer.cornerRadius = view.frame.size.height/10
+        workoutTimeText.text = "daily " + workoutText
+        stepsText.text = "daily " + stepText
+        caloriesText.text = "daily " + calText
+        dailyPrograssDetail.text = "\(currentWorkout)|\(workoutGoal)"
+        dailyPrograssDetail2.text = "\(currentSteps)|\(stepsGoal)"
+        dailyPrograssdetail3.text = "\(currentCal)|\(calGoal)"
+        
+        
+        
+        
+        
+        workoutBar.transform = workoutBar.transform.scaledBy(x: 1, y: 5)
+        stepsBar.transform = stepsBar.transform.scaledBy(x: 1, y: 5)
+        calBar.transform = calBar.transform.scaledBy(x: 1, y: 5)
+        
         
         
         
