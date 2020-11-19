@@ -20,6 +20,10 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        print(ActivityData().getDailyEnergyBurned())
+        print(ActivityData().getWeeklyEnergyBurned())
+        print(ActivityData().getMonthlyEnergyBurned())
+        
         
         
     }
@@ -29,7 +33,7 @@ class LoginViewController: UIViewController {
         
     }
     override func viewDidDisappear(_ animated: Bool) {
-        FriendNetwork().storeListsToUserDefaults(UsersData().getCurrentUser())
+        
     }
     
     
@@ -44,7 +48,8 @@ class LoginViewController: UIViewController {
                 }
                 else{
                     //save current user's information to default file and navigate to next page
-                        UsersData().storeCurrentUserData()
+                    UsersData().storeCurrentUserData()
+                    FriendNetwork().storeListsToUserDefaults(UsersData().getCurrentUser())
                     self.performSegue(withIdentifier: "signinToMainPage", sender: self)
                 }
             }

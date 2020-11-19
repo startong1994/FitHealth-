@@ -38,9 +38,6 @@ class ActivityData {
     }
     func loadActivityData(){
         
-//        var step: Int
-//        var exerciseTime: Int
-//        var CaloriesBurned: Int
         
         guard let stepSample = HKObjectType.quantityType(forIdentifier: .stepCount) else{
             print("error getting steps")
@@ -55,27 +52,30 @@ class ActivityData {
             return
         }
         
+        let time = [K.healthKit.daily,K.healthKit.weekly,K.healthKit.monthly]
         
-        
-        
-        let predicate = HKQuery.predicateForSamples(withStart: getStartDate(From: -1), end: Date(), options: .strictEndDate)
         
         let sortDescriptor = NSSortDescriptor(key: HKSampleSortIdentifierStartDate, ascending: false)
         
-        storeStepData(SampleType: stepSample, Predicate: predicate, SortDescriptor: sortDescriptor)
-        storeExerciseData(SampleType: exerciseSample, Predicate: predicate, SortDescriptor: sortDescriptor)
-        storeEnergyBurned(SampleType: energySample, Predicate: predicate, SortDescriptor: sortDescriptor)
+        
+        for t in time {
+            storeStepData(SampleType: stepSample, SortDescriptor: sortDescriptor, Time: t)
+            storeExerciseData(SampleType: exerciseSample,SortDescriptor: sortDescriptor, Time: t)
+            storeEnergyBurned(SampleType: energySample, SortDescriptor: sortDescriptor, Time: t)
+            
+        }
         
     }
     
     
-    func storeStepData(SampleType sampleType: HKQuantityType, Predicate predicate: NSPredicate, SortDescriptor sortDescriptor: NSSortDescriptor) {
+    func storeStepData(SampleType sampleType: HKQuantityType, SortDescriptor sortDescriptor: NSSortDescriptor, Time time: Int) {
+        let predicate = HKQuery.predicateForSamples(withStart: getStartDate(From: time), end: Date(), options: .strictEndDate)
         let query = HKSampleQuery(sampleType: sampleType, predicate: predicate, limit: Int(HKObjectQueryNoLimit), sortDescriptors: [sortDescriptor]) { (sample, result, error) in
             if let e = error{
                 print("error \(e)")
             }else{
+                self.steps = 0.00
                 if result!.count > 0 {
-                    self.steps = 0.00
                     for temp in result!{
                         let data = temp as! HKQuantitySample
                         let unit = HKUnit(from: "count")
@@ -84,22 +84,30 @@ class ActivityData {
                     }
                 }
             }
-            self.defaults.setValue(self.steps, forKey: K.healthKit.steps)
-            print(("total steps test \(self.steps)"))
-            print("if steps = 0? because you need to connect it to your pysical phone to read data, ;D")
+            if time == K.healthKit.daily{
+                self.defaults.setValue(self.steps, forKey: K.healthKit.dSteps)
+            }else if time == K.healthKit.weekly{
+                self.defaults.setValue(self.steps, forKey: K.healthKit.wSteps)
+            }else if time == K.healthKit.monthly{
+                self.defaults.setValue(self.steps, forKey: K.healthKit.mSteps)
+            }
+            
+            //print(("total steps test \(self.steps)"))
+            //print("if steps = 0? because you need to connect it to your pysical phone to read data, ;D")
         }
         healthStore.execute(query)
     }
     
     
-    func storeExerciseData(SampleType sampleType: HKQuantityType, Predicate predicate: NSPredicate, SortDescriptor sortDescriptor: NSSortDescriptor) {
+    func storeExerciseData(SampleType sampleType: HKQuantityType, SortDescriptor sortDescriptor: NSSortDescriptor, Time time: Int) {
+        let predicate = HKQuery.predicateForSamples(withStart: getStartDate(From: time), end: Date(), options: .strictEndDate)
         let query = HKSampleQuery(sampleType: sampleType, predicate: predicate, limit: Int(HKObjectQueryNoLimit), sortDescriptors: [sortDescriptor]) { (sample, result, error) in
             if let e = error{
                 print("error \(e)")
             }else{
+                self.exerciseTime = 0.00
                 if result!.count > 0{
                     for temp in result!{
-                        self.exerciseTime = 0.00
                         let data = temp as! HKQuantitySample
                         let unit = HKUnit(from: "min")
                         let time = data.quantity.doubleValue(for: unit)
@@ -107,17 +115,24 @@ class ActivityData {
                     }
                 }
                 }
-            self.defaults.setValue(self.exerciseTime, forKey: K.healthKit.exerciseTime)
-            print("exercise  \(self.exerciseTime) mins")
+            if time == K.healthKit.daily{
+                self.defaults.setValue(self.exerciseTime, forKey: K.healthKit.dExerciseTime)
+            }else if time == K.healthKit.weekly{
+                self.defaults.setValue(self.exerciseTime, forKey: K.healthKit.wExerciseTime)
+            }else if time == K.healthKit.monthly{
+                self.defaults.setValue(self.exerciseTime, forKey: K.healthKit.mExerciseTime)
+            }
             }
         healthStore.execute(query)
     }
     
-    func storeEnergyBurned(SampleType sampleType: HKQuantityType, Predicate predicate: NSPredicate, SortDescriptor sortDescriptor: NSSortDescriptor) {
+    func storeEnergyBurned(SampleType sampleType: HKQuantityType, SortDescriptor sortDescriptor: NSSortDescriptor, Time time: Int) {
+        let predicate = HKQuery.predicateForSamples(withStart: getStartDate(From: time), end: Date(), options: .strictEndDate)
         let query = HKSampleQuery(sampleType: sampleType, predicate: predicate, limit: Int(HKObjectQueryNoLimit), sortDescriptors: [sortDescriptor]) { (sample, result, error) in
             if let e = error{
                 print("error \(e)")
             }else{
+                self.eneryBurned = 0.00
                 if result!.count > 0{
                     for temp in result!{
                         let data = temp as! HKQuantitySample
@@ -126,10 +141,14 @@ class ActivityData {
                         self.eneryBurned += calBurned
                     }
                 }
-                
                 }
-            self.defaults.setValue(self.eneryBurned, forKey: K.healthKit.energyBurned)
-            print("enerty Burned today  \(self.eneryBurned) Cal")
+            if time == K.healthKit.daily{
+                self.defaults.setValue(self.eneryBurned, forKey: K.healthKit.dEnergyBurned)
+            }else if time == K.healthKit.weekly{
+                self.defaults.setValue(self.eneryBurned, forKey: K.healthKit.wEnergyBurned)
+            }else if time == K.healthKit.monthly{
+                self.defaults.setValue(self.eneryBurned, forKey: K.healthKit.mEnergyBurned)
+            }
             }
         healthStore.execute(query)
     }
@@ -140,5 +159,34 @@ class ActivityData {
         
         return startDate
     }
+    func getDailySteps() -> Double{
+       return defaults.double(forKey: K.healthKit.dSteps)
+}
+    func getWeeklySteps() -> Double{
+        return defaults.double(forKey: K.healthKit.wSteps)
+    }
+    func getMonthlySteps() -> Double{
+        return defaults.double(forKey: K.healthKit.mSteps)
+    }
+    func getDailyExercise() -> Double{
+        return defaults.double(forKey: K.healthKit.dExerciseTime)
+    }
+    func getWeeklyExercise() -> Double{
+        return defaults.double(forKey: K.healthKit.wExerciseTime)
+    }
+    func getMonthlyExercise() -> Double{
+        return defaults.double(forKey: K.healthKit.mExerciseTime)
+    }
+    func getDailyEnergyBurned() -> Double{
+        return defaults.double(forKey: K.healthKit.dEnergyBurned)
+    }
+    func getWeeklyEnergyBurned() -> Double{
+        return defaults.double(forKey: K.healthKit.wEnergyBurned)
+    }
+    func getMonthlyEnergyBurned() -> Double{
+        return defaults.double(forKey: K.healthKit.mEnergyBurned)
+    }
+
+    
     
 }
