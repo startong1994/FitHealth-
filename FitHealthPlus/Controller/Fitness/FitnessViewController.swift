@@ -18,6 +18,8 @@ class FitnessViewController: UIViewController {
     var fitGoal: [FitGoal] = [FitGoal.init(caloriesBurn: 0, workoutTime: 0, steps: 0)]
     
     let dispatchGroup = DispatchGroup()
+    
+    let currentUser = UsersData().getCurrentUser()
 
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
@@ -120,14 +122,23 @@ extension FitnessViewController: UITableViewDataSource, UITableViewDelegate{
         
         let added = UIAlertController(title: "", message: "ADDED!", preferredStyle: .alert)
         
+        let ok = UIAlertAction(title:"OK", style: .default,handler: nil)
+        
         let confirm = UIAlertAction(title: "Confirm", style: .default) { (confirm) in
-            print("Hi")
+            
+            
+            if let workoutGoal = Float(workoutGoal.text!), let stepGoal = Float(stepGoal.text!),let calGoal = Float(calGoal.text!){
+                self.fitGoal = []
+                self.fitnessRef.document(self.currentUser).setData([K.FStore.calBurned : calGoal,
+                                                               K.FStore.workoutTime: workoutGoal,
+                                                               K.FStore.steps: stepGoal])
+                print("Hi here ")
+            }
+            
+            
+            added.addAction(ok)
             self.present(added, animated: true, completion: nil)
         }
-        
-        
-        
-        
         alert.addAction(cancel)
         alert.addAction(confirm)
         alert.addTextField { (text) in
