@@ -99,88 +99,13 @@ class MyRecipesViewController: UIViewController, UITableViewDelegate, UITableVie
             }
         }
     }
-   /*
-   override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        // UIMenu for the Sort menu
-        let sortByMenu = UIMenu(title: "Test", options: .displayInline, children: [
-            UIAction(title: "A-Z",handler: {[sortByName] _ in sortByName()}),
-            UIAction(title: "Z-A",handler: {[sortZtoA] _ in sortZtoA()}),
-            UIAction(title: "Category",handler: {[sortByCategory] _ in sortByCategory()}),
-            UIAction(title: "Calories",handler: {[sortByCalorie] _ in sortByCalorie()})
-        ])
-        
-        let sortButton = UIBarButtonItem(title: "Sort", primaryAction: nil, menu: sortByMenu)
-        sortButton.tintColor = UIColor.white
-        self.navigationItem.rightBarButtonItems = [addButton, sortButton]
-    }
-    
-    
-     // Sort By Function for A-Z
-     @objc func sortByName(){
-         listRecipes = listRecipes.sorted(by: { $0.name < $1.name})
-         recipeTableView.reloadData()
-     }
-     
-     // Sort By Function for Z-A
-     @objc func sortZtoA(){
-         listRecipes = listRecipes.sorted(by: { $0.name > $1.name})
-         recipeTableView.reloadData()
-     }
-     
-     // Sort By Function for Calories
-     @objc func sortByCalorie(){
-         listRecipes = listRecipes.sorted(by: { $0.calories < $1.calories})
-         recipeTableView.reloadData()
-     }
-     
-     // Sort By Category
-     @objc func sortByCategory(){
-         listRecipes = listRecipes.sorted(by: { $0.category < $1.category})
-         recipeTableView.reloadData()
-     }
-     
-     // added code by Daitong Xu, deselectRow,
-     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
-         tableView.deselectRow(at: indexPath, animated: true)
-     }
-    */
-    
-    /*
-    // Segue for the edit view controller
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "editSegue" {
-            let cell = sender as! UITableViewCell
-            if let indexPath = recipeTableView.indexPath(for: cell) {
-                let vc = segue.destination as! EditRecipeViewController
-                vc.getName = listRecipes[indexPath.row].name
-                vc.getCategory = listRecipes[indexPath.row].category
-                vc.ingredients = listRecipes[indexPath.row].ingredients
-                vc.getCalories = listRecipes[indexPath.row].calories
-                vc.getSugar = listRecipes[indexPath.row].sugar
-                vc.getProtein = listRecipes[indexPath.row].protein
-                vc.getFiber = listRecipes[indexPath.row].fiber
-                vc.getCarb = listRecipes[indexPath.row].carb
-                vc.getCholesterol = listRecipes[indexPath.row].cholestrol
-                vc.getFat = listRecipes[indexPath.row].fat
-                vc.getSodium = listRecipes[indexPath.row].sodium
-                vc.servings = listRecipes[indexPath.row].servings
-                vc.directions = listRecipes[indexPath.row].directions
-                vc.cookTime = listRecipes[indexPath.row].cookTime
-                
-            }
-        }
-    }
-    */
+   
     
     // search bar set up function
     func setUpSearchBar() {
         let searchController = UISearchController(searchResultsController: nil)
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = true
-        //searchController.navigationItem.hidesSearchBarWhenScrolling = true
         let searchBar = UISearchBar(frame: CGRect.init(x: 0, y: 0, width: (UIScreen.main.bounds.width), height: 70))
         searchBar.showsScopeBar = true
         searchController.searchBar.scopeButtonTitles = ["Name", "Categories"]
@@ -235,7 +160,7 @@ class MyRecipesViewController: UIViewController, UITableViewDelegate, UITableVie
             recipes.recipeCategory.text = "Categories: " + String(itemsInCell.category)
             
         }
-        //cell.pantryCellView.layer.cornerRadius = cell.pantryCellView.frame.height / 2
+        recipes.recipeCellView.layer.cornerRadius = recipes.recipeCellView.frame.height / 2
         return recipes
     }
     
@@ -294,6 +219,7 @@ class MyRecipesViewController: UIViewController, UITableViewDelegate, UITableVie
 // Class for the Pantry cell view
 class recipeCell: UITableViewCell{
 
+    @IBOutlet weak var recipeCellView: UIView!
     @IBOutlet weak var recipeImage: UIImageView!
     @IBOutlet weak var recipeName: UILabel!
     @IBOutlet weak var recipeCategory: UILabel!
