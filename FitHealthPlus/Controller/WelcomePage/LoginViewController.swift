@@ -34,9 +34,6 @@ class LoginViewController: UIViewController {
         UINavigationBar.appearance().backgroundColor = UIColor.systemTeal
         
     }
-    override func viewDidDisappear(_ animated: Bool) {
-        
-    }
     
     
     
@@ -58,7 +55,7 @@ class LoginViewController: UIViewController {
                     }
                     
                     
-                    FriendNetwork().run(after: 1) {
+                    FriendNetwork().run(after: 2) {
                         self.performSegue(withIdentifier: "signinToMainPage", sender: self)
                     }
                     
