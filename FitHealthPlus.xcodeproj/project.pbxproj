@@ -53,6 +53,7 @@
 		D2EA92E1253A329500026B0E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2EA92DF253A329500026B0E /* LaunchScreen.storyboard */; };
 		D2EA92E9253A32D800026B0E /* PantryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EA92E8253A32D800026B0E /* PantryViewController.swift */; };
 		D2EA92EB253A32E900026B0E /* SocialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EA92EA253A32E900026B0E /* SocialViewController.swift */; };
+		EE4BF1422567D81500012F22 /* recipeObj.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4BF1412567D81500012F22 /* recipeObj.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -107,6 +108,7 @@
 		D2EA92E2253A329500026B0E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D2EA92E8253A32D800026B0E /* PantryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PantryViewController.swift; sourceTree = "<group>"; };
 		D2EA92EA253A32E900026B0E /* SocialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialViewController.swift; sourceTree = "<group>"; };
+		EE4BF1412567D81500012F22 /* recipeObj.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = recipeObj.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,6 +187,7 @@
 				D21D56EF2565CE790076FD4E /* ActivityData.swift */,
 				D24D42AF2566EE2B0034EE40 /* ActivityNetwork.swift */,
 				D24D42B22567059D0034EE40 /* FitGoal.swift */,
+				EE4BF1412567D81500012F22 /* recipeObj.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -420,6 +423,7 @@
 				D2EA92D7253A329500026B0E /* FitnessViewController.swift in Sources */,
 				D270A09C254339C900443769 /* RecipeDetailVeiwController.swift in Sources */,
 				D23058A3253CD6780013B64C /* WelcomePageViewController.swift in Sources */,
+				EE4BF1422567D81500012F22 /* recipeObj.swift in Sources */,
 				D26A6009253F7D4A00A21006 /* ProfileViewController.swift in Sources */,
 				98530BBF253F9C9800D93F88 /* PantryListViewController.swift in Sources */,
 				D24D42B32567059D0034EE40 /* FitGoal.swift in Sources */,
