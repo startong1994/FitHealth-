@@ -62,11 +62,11 @@ class SignUpViewContoller: UIViewController {
                         }
                         else{
                             
-                            
                             UsersData().storeCurrentUserData()
                             
-                            
-                            self.performSegue(withIdentifier: "registerToMain", sender: self)
+                            FriendNetwork().run(after: 3) {
+                                self.performSegue(withIdentifier: "registerToMain", sender: self)
+                            }
                         }
                     }
                     
