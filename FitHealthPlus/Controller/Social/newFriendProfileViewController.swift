@@ -11,7 +11,7 @@ import CoreData
 
 class NewFriendProfileViewController: UIViewController {
     
-    var pendingFriend: PendingLists?
+    var pendingFriend: Friend?
     
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var profileName: UILabel!

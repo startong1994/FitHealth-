@@ -25,6 +25,7 @@ class FriendsData {
         }
     }
     func loadFriendList() -> [FriendLists]{
+        pendingListArray = []
         let request : NSFetchRequest<FriendLists> = FriendLists.fetchRequest()
         do{
             self.friendlistArray = try context.fetch(request)
@@ -35,6 +36,7 @@ class FriendsData {
         return friendlistArray
     }
     func loadPendingFriends() -> [PendingLists] {
+        pendingListArray = []
         let request : NSFetchRequest<PendingLists> = PendingLists.fetchRequest()
         do{
             self.pendingListArray = try context.fetch(request)

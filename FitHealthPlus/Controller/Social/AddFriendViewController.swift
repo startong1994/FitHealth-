@@ -13,7 +13,8 @@ import CoreData
 class AddFriendController: UIViewController, UITableViewDataSource, UITableViewDelegate{
     
     let db = Firestore.firestore()
-    var pendingFriendList = [PendingLists]()
+    var pendingFriendList = [Friend]()
+    var usersRef = Firestore.firestore().collection("users")
     
     
     @IBOutlet weak var tableView: UITableView!
@@ -22,14 +23,17 @@ class AddFriendController: UIViewController, UITableViewDataSource, UITableViewD
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        
-        reload()
         self.tabBarController?.tabBar.isHidden = true
         navigationItem.title = "Add Friends"
         self.tableView.dataSource = self
         self.tableView.delegate = self
         
         //loadPendingFriends()
+    }
+    
+    
+    override func viewDidAppear(_ animated: Bool) {
+        reload()
     }
     
     @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
@@ -84,7 +88,6 @@ class AddFriendController: UIViewController, UITableViewDataSource, UITableViewD
     }
     
     
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return pendingFriendList.count
     }
@@ -92,8 +95,11 @@ class AddFriendController: UIViewController, UITableViewDataSource, UITableViewD
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //let profileImage = friendData.getNewFriendName(indexPath.row)
         let cell = tableView.dequeueReusableCell(withIdentifier: "newFriendCell", for: indexPath)
-        cell.textLabel?.text = pendingFriendList[indexPath.row].name
-        cell.imageView?.image = UIImage(named: pendingFriendList[indexPath.row].profileImage!)
+        if pendingFriendList.count > 0{
+            print(pendingFriendList[indexPath.row].name)
+            cell.textLabel?.text = pendingFriendList[indexPath.row].name
+            cell.imageView?.image = UIImage(named: pendingFriendList[indexPath.row].profileImage)
+        }
         
         
         return cell
@@ -108,7 +114,7 @@ class AddFriendController: UIViewController, UITableViewDataSource, UITableViewD
         pendingProfileVC.pendingFriend = pendingFriendList[indexPath.row]
         print(pendingFriendList[indexPath.row])
         
-        self.navigationController?.showDetailViewController(pendingProfileVC, sender: self)
+        self.navigationController?.pushViewController(pendingProfileVC, animated: true)
         
         tableView.deselectRow(at: indexPath, animated: true)
         
@@ -116,19 +122,51 @@ class AddFriendController: UIViewController, UITableViewDataSource, UITableViewD
     }
     
     func reload(){
-        db.collection("friendList").document(UsersData().getCurrentUser()).addSnapshotListener { (doc, error) in
-            FriendNetwork().run(after: 1) {
-                
-                DispatchQueue.main.async {
-                    self.pendingFriendList = FriendsData().loadPendingFriends()
-                    self.tableView.reloadData()
-                    print("pending reloaded")
+        if let friendsEmail = UserDefaults.standard.array(forKey: K.FStore.pendingLists) as? [String]{
+            
+ //           self.friendsRef.document(currentUser).addSnapshotListener { (doc, error) in
+//                if let e = error{
+//                    print(e)
+//                } else{
+                self.pendingFriendList = []
+                    
+                if friendsEmail.isEmpty{
+                    tableView.reloadData()
+                    }
+                    print("test1  \(friendsEmail)")
+                    
+                    for emails in friendsEmail{
+                        
+                        self.usersRef.document(emails).getDocument { (doc, error) in
+                            print("test2")
+                            if let e = error{
+                                print(e)
+                                }else{
+                                    guard let document = doc else {
+                                    return
+                                }
+                                    guard let data = document.data() else {
+                                    return
+                                }
+                                if let friendName = data["name"] as? String, let friendEmail = data["email"] as? String, let friendImge = data["profileImage"] as? String{
+                                    print("test3")
+                                    let list = Friend(name: friendName, email: friendEmail, profileImage: friendImge)
+                                    self.pendingFriendList.append(list)
+                                }
+
+                            }
+                            DispatchQueue.main.async {
+                                
+                                print("test 4")
+                                self.tableView.reloadData()
+                                //let indexPath = IndexPath(row: self.friendList.count - 1, section: 0)
+                                //self.tableView.scrollToRow(at: indexPath, at: .top, animated: false)
+                            }
+                        }
+                    
+                    
                 }
             }
-            if let e = error{
-                print("reloadFriendList* error \(e)")
-            }
-    }
     }
     
     

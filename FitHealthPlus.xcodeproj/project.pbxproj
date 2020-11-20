@@ -35,6 +35,7 @@
 		D29262E4256072BB0092D0B3 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D29262E2256072BB0092D0B3 /* DataModel.xcdatamodeld */; };
 		D29919302560A6480000DB04 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D299192F2560A6480000DB04 /* Constants.swift */; };
 		D2ADC577256484AD009717F9 /* CurrentUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2ADC576256484AD009717F9 /* CurrentUserViewController.swift */; };
+		D2AE1CC32567702F004A6D0A /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AE1CC22567702F004A6D0A /* Friend.swift */; };
 		D2D546262542442500EA0C1E /* AddRecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D546252542442500EA0C1E /* AddRecipeViewController.swift */; };
 		D2D54628254244D800EA0C1E /* MyRecipesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D54627254244D800EA0C1E /* MyRecipesViewController.swift */; };
 		D2DB12732540BE89005DFF65 /* StatsBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DB12712540BE89005DFF65 /* StatsBar.swift */; };
@@ -87,6 +88,7 @@
 		D29262E3256072BB0092D0B3 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		D299192F2560A6480000DB04 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		D2ADC576256484AD009717F9 /* CurrentUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUserViewController.swift; sourceTree = "<group>"; };
+		D2AE1CC22567702F004A6D0A /* Friend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
 		D2D546252542442500EA0C1E /* AddRecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecipeViewController.swift; sourceTree = "<group>"; };
 		D2D54627254244D800EA0C1E /* MyRecipesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRecipesViewController.swift; sourceTree = "<group>"; };
 		D2DB12712540BE89005DFF65 /* StatsBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsBar.swift; sourceTree = "<group>"; };
@@ -154,6 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				D251DEA4254060AB006E7862 /* PantryItemList.swift */,
+				D2AE1CC22567702F004A6D0A /* Friend.swift */,
 			);
 			path = SimpleData;
 			sourceTree = "<group>";
@@ -427,6 +430,7 @@
 				9816343B2540C53500546A9E /* BarcodeScannerViewController.swift in Sources */,
 				D2EA92E9253A32D800026B0E /* PantryViewController.swift in Sources */,
 				D2EA92D3253A329500026B0E /* AppDelegate.swift in Sources */,
+				D2AE1CC32567702F004A6D0A /* Friend.swift in Sources */,
 				D23058A0253CCEB30013B64C /* LeaderboardViewController.swift in Sources */,
 				D270A096254321FE00443769 /* WorkoutGuideViewController.swift in Sources */,
 				D2ADC577256484AD009717F9 /* CurrentUserViewController.swift in Sources */,

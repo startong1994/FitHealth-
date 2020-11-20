@@ -27,8 +27,6 @@ class FriendNetwork {
             
         friendsRef.document(name).addSnapshotListener{ (document, error) in
             
-            FriendsData().removeAllData()
-            
             print("data changed")
             if let e = error{
                 print("error \(e)")
@@ -40,27 +38,32 @@ class FriendNetwork {
                         print("error getting data")
                         return
                     }
-                    if let friendEmails = data[K.FStore.FriendList] as? [String]{
-                        self.defaults.set(friendEmails, forKey: K.FStore.FriendList)
-                        self.storeFriendList()
-                    }
-                    if let pendingEmaisl = data[K.FStore.pendingLists] as? [String]{
-                        self.defaults.set(pendingEmaisl, forKey: K.FStore.pendingLists)
-                        self.storePendingLists()
-                    }
+                    
+                        self.defaults.set(data[K.FStore.FriendList] as? [String], forKey: K.FStore.FriendList)
+                        self.defaults.set(data[K.FStore.pendingLists] as? [String], forKey: K.FStore.pendingLists)
+                        //self.storeFriendList()
+
                 }
             }
         }
         
-            
     }
+    
     
     
     func storeFriendList(){
         
-        let listArray = defaults.array(forKey: K.FStore.FriendList) as! [String]
+        var listArray = defaults.array(forKey: K.FStore.FriendList) as! [String]
+        
+        
+        
+//        for friends in friendlistArray{
+//            context.delete(friends)
+//                saveData()
+//        }
         
         for email in listArray{
+            
             
             let request: NSFetchRequest<FriendLists> = FriendLists.fetchRequest()
             
@@ -125,8 +128,8 @@ class FriendNetwork {
         }
         }
     func friendRequest(_ email: String) {
-        let userRef = usersRef.document(email)
-        userRef.getDocument { (userDoc, error) in
+        
+        usersRef.document(email).getDocument { (userDoc, error) in
             if let e = error{
                 print("error on getting user documents \(e)")
             }
@@ -169,58 +172,136 @@ class FriendNetwork {
         }
     //delete pendinglist
     func declineFriendship(_ email: String) {
-        let friendRef = friendsRef.document(currentUser)
-        friendRef.updateData([K.FStore.pendingLists : FieldValue.arrayRemove([email])])
+        
+        friendsRef.document(currentUser).updateData([K.FStore.pendingLists : FieldValue.arrayRemove([email])])
     }
     //delete both side of friendList
     func deleteFriend(Email email: String, Name name: String){
-        let userFriendRef = friendsRef.document(currentUser)
-        userFriendRef.updateData([K.FStore.FriendList : FieldValue.arrayRemove([email])])
-        
-        let targetFriendRef = friendsRef.document(name)
-        targetFriendRef.updateData([K.FStore.FriendList : FieldValue.arrayRemove([currentEmail])])
+        friendsRef.document(currentUser).updateData([K.FStore.FriendList : FieldValue.arrayRemove([email])])
+        friendsRef.document(name).updateData([K.FStore.FriendList : FieldValue.arrayRemove([currentEmail])])
         
     }
 
     
     func acceptFriend(Email email: String, Name name: String){
-        let userFriendRef = friendsRef.document(currentUser)
-        userFriendRef.getDocument { (userDoc, error) in
+        friendsRef.document(currentUser).getDocument { (userDoc, error) in
             if let e = error{
                 print("accept friends error on getting data \(e)")
             }
             else{
                 if let userData = userDoc?.data(){
                     if userData[K.FStore.FriendList] == nil{
-                        userFriendRef.setData([K.FStore.FriendList : FieldValue.arrayUnion([email])])
+                        self.friendsRef.document(self.currentUser).setData([K.FStore.FriendList : FieldValue.arrayUnion([email])])
+                        self.friendsRef.document(self.currentUser).updateData([K.FStore.pendingLists : FieldValue.arrayRemove([email])])
                         print("accept friend #1, added to users friendList")
                     }else{
-                        userFriendRef.updateData([K.FStore.FriendList : FieldValue.arrayUnion([email])])
+                        self.friendsRef.document(self.currentUser).updateData([K.FStore.FriendList : FieldValue.arrayUnion([email])])
+                        self.friendsRef.document(self.currentUser).updateData([K.FStore.pendingLists : FieldValue.arrayRemove([email])])
                         print("accept friend #1, added to users friendList")
                     }
-                    userFriendRef.updateData([K.FStore.pendingLists : FieldValue.arrayRemove([email])])
                 }
             }
         }
         
-        let targetFriendRef = friendsRef.document(name)
-        targetFriendRef.getDocument { (targetDoc, error) in
+        friendsRef.document(name).getDocument { (targetDoc, error) in
             if let e = error{
                 print("accept friends error on getting data \(e)")
             }
             else{
                 if let targetData = targetDoc?.data(){
                     if targetData[K.FStore.FriendList] == nil{
-                        targetFriendRef.setData([K.FStore.FriendList : FieldValue.arrayUnion([self.currentEmail])])
+                        self.friendsRef.document(name).setData([K.FStore.FriendList : FieldValue.arrayUnion([self.currentEmail])])
                         print("target* add friend #1, added to users friendList")
                     }else{
-                        targetFriendRef.updateData([K.FStore.FriendList : FieldValue.arrayUnion([self.currentEmail])])
+                        self.friendsRef.document(name).updateData([K.FStore.FriendList : FieldValue.arrayUnion([self.currentEmail])])
                         print("target* add friend #1, added to users friendList")
                     }
                 }
             }
         }
     }
+    
+    
+    
+//    friendsRef.document(currentUser).updateData([K.FStore.FriendList : FieldValue.arrayRemove([email])])
+//    friendsRef.document(name).updateData([K.FStore.FriendList : FieldValue.arrayRemove([currentEmail])])
+    
+    
+    
+    func addFriend(Email email: String) {
+        
+        
+        friendsRef.document(currentUser).getDocument { (userDoc, error) in
+            if let e = error{
+                print("accept friends error on getting data \(e)")
+            }
+            else{
+                if let userData = userDoc?.data(){
+                        self.friendsRef.document(self.currentUser).updateData([K.FStore.FriendList : FieldValue.arrayUnion([email])])
+                        print("accept friend #2, added to users friendList\(userData)")
+                }else{
+                    self.friendsRef.document(self.currentUser).setData([K.FStore.FriendList : FieldValue.arrayUnion([email])])
+                    print("accept friend #1, added to users friendList")
+                }
+         
+            }
+    }
+        
+        
+        usersRef.document(email).getDocument { (targetDoc, error) in
+            if let e = error{
+                print("accept friends error on getting data \(e)")
+            }
+            else{
+                guard let document = targetDoc else {
+                    print("error getting data")
+                    return
+                }
+                guard let data = document.data() else{
+                    print("no data")
+                    return
+                }
+                guard let name = data["name"] as? String else {
+                    print("no name")
+                    return
+                }
+                print(name)
+                self.friendsRef.document(name).getDocument { (doc, error) in
+                    if let e = error{
+                        print("accept friends error on getting data \(e)")
+                    }
+                    else{
+                        guard let targetDocument = doc else{
+                            print("error getting target data")
+                            return
+                        }
+                        guard let data = targetDocument.data() else {
+                            self.friendsRef.document(name).setData([K.FStore.FriendList : FieldValue.arrayUnion([self.currentEmail])])
+                            return
+                        }
+                        self.friendsRef.document(name).updateData([K.FStore.FriendList : FieldValue.arrayUnion([self.currentEmail])])
+                        print(" HI HERE")
+                    }
+            }
+                
+                
+                
+            
+                    
+            }
+        }
+        
+        
+        
+    }
+        
+        
+    
+    
+    
+    
+    
+    
     
     
     func run(after seconds: Int, completion: @escaping () -> Void){
@@ -231,5 +312,11 @@ class FriendNetwork {
         
         
     }
+    
+    
+    
+    
+    
+    
     
 }

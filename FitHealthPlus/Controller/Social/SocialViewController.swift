@@ -12,26 +12,60 @@ import CoreData
 
 class SocialViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    var db = Firestore.firestore()
-
-    var friendList = [FriendLists]()
+    var usersRef = Firestore.firestore().collection("users")
+    var friendsRef = Firestore.firestore().collection("friendList")
+    let currentUser = UsersData().getCurrentUser()
+    let defaults = UserDefaults.standard
+    
+    
+    var friendList = [Friend]()
+    
+    
+    lazy var refresh: UIRefreshControl = {
+        let refControl = UIRefreshControl()
+        refControl.tintColor = .systemBlue
+        refControl.addTarget(self, action: #selector(tableReload), for: .valueChanged)
+        
+        return refControl
+        
+    }()
+    
+    
+    
 
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        //load friend list
-        reload()
+    
+        
+        tableView.refreshControl = refresh
+        
+        
+        
         self.tableView.tableFooterView = UIView()
         navigationItem.title = "Social"
         self.tableView.delegate = self
         self.tableView.dataSource = self
         
     }
+    
+    @objc func tableReload(){
+        print("Hi")
+        let timeout = DispatchTime.now() + .milliseconds(1000)
+        DispatchQueue.main.asyncAfter(deadline: timeout) {
+            self.refresh.endRefreshing()
+            self.reload()
+        }
+    }
+    
+    
     override func viewWillAppear(_ animated: Bool) {
         self.tabBarController?.tabBar.isHidden = false
+        reload()
     }
+
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         print("table view reload works count number of rows")
@@ -42,13 +76,11 @@ class SocialViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "friendsCell", for: indexPath)
-        print("tableview reload works 2")
-        if indexPath.row >= 0{
-            if let name  = friendList[indexPath.row].name, let image = friendList[indexPath.row].profileImage
-            {
-                cell.textLabel?.text = name
-                cell.imageView?.image = UIImage(named: image)
-            }
+        if friendList.count > 0{
+            let name  = friendList[indexPath.row].name
+            let image = friendList[indexPath.row].profileImage
+            cell.textLabel?.text = name
+            cell.imageView?.image = UIImage(named: image)
         }
 
         return cell
@@ -71,66 +103,195 @@ class SocialViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
     }
     
-    func reload(){
-        db.collection("friendList").document(UsersData().getCurrentUser()).addSnapshotListener { (doc, error) in
-            FriendNetwork().run(after: 1) {
+    
+    @IBAction func addFriendButtonPressed(_ sender: UIButton) {
+        
+        
+        
+        let alert = UIAlertController(title: "Add Friend", message: "", preferredStyle: .alert)
+        let added = UIAlertController(title: "", message: "Request sent!", preferredStyle: .alert)
+        
+        var emailAddress = UITextField()
+        
+        
+        //ok botton for conformation alert pop up
+        let ok = UIAlertAction(title: "OK", style: .default, handler: nil)
+        
+        
+        
+        //confirm button function
+        let addFriend = UIAlertAction(title: "Confirm", style: .default) { (addFriend) in
+            if let address = emailAddress.text {
+                if address.hasSuffix("uncc.edu"){
+                print(address + " added")
                 
-                DispatchQueue.main.async {
-                    self.friendList = FriendsData().loadFriendList()
-                    self.tableView.reloadData()
-                    print("reloaded")
                     
+                //add friends
+                
+                    FriendNetwork().addFriend(Email: address)
+                    self.reload()
+                    
+                
+                added.addAction(ok)
+                self.present(added, animated: true, completion: nil)
+                }else{
+                    let alert = UIAlertController(title: "Error", message: "Please Enter UNCC School Email", preferredStyle: .alert)
+                    
+                    alert.addAction(ok)
+                    self.present(alert, animated: true, completion: nil)
                 }
             }
-            if let e = error{
-                print("reloadFriendList* error \(e)")
+        }
+        alert.addAction(addFriend)
+        //cancel button
+        let cancel = UIAlertAction(title: "Cancel", style: .default, handler: nil)
+        
+        alert.addTextField { (textField) in
+            textField.placeholder = "Enter Email Address"
+            emailAddress = textField
+        }
+        alert.addAction(cancel)
+        
+        alert.preferredAction = addFriend
+        present(alert,animated: true, completion: nil)
+        
+        
+        
+    }
+    
+    func reload(){
+        
+    
+        let listArray = defaults.array(forKey: K.FStore.FriendList) as! [String]
+        
+        
+        friendList = []
+        if listArray.isEmpty{
+            tableView.reloadData()
             }
+        
+
+        
+        for emails in listArray {
+            
+            
+            self.usersRef.document(emails).getDocument { (doc, error) in
+                if let e = error {
+                    print(e)
+                }else{
+                    guard let document = doc else {
+                        return
+                    }
+                    guard let data = document.data() else{
+                        print("test")
+                        return
+                    }
+                        if let friendName = data["name"] as? String, let friendEmail = data["email"] as? String, let friendImge = data["profileImage"] as? String{
+                            print("test3")
+                            let list = Friend(name: friendName, email: friendEmail, profileImage: friendImge)
+                            self.friendList.append(list)
+                    
+                                
+                            
+                            
+                        }
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
+                    }
+      
+                }
+            
+            
+            }
+        
+            
+        }
+        
+
     }
-    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+//    func reload(){
+//        if let friendsEmail = UserDefaults.standard.array(forKey: K.FStore.FriendList) as? [String]{
+//
+//
+// //           self.friendsRef.document(currentUser).addSnapshotListener { (doc, error) in
+////                if let e = error{
+////                    print(e)
+////                } else{
+//                self.friendList = []
+//
+//                if friendsEmail.isEmpty{
+//                tableView.reloadData()
+//                }
+//
+//                    print("test1  \(friendsEmail)")
+//
+//                    for emails in friendsEmail{
+//                        self.usersRef.document(emails).getDocument { (doc, error) in
+//                            print("test2")
+//                            if let e = error{
+//                                print(e)
+//                                }else{
+//                                guard let document = doc else {
+//                                    return
+//                                }
+//                                guard let data = document.data() else {
+//                                    return
+//                                }
+//                                if let friendName = data["name"] as? String, let friendEmail = data["email"] as? String, let friendImge = data["profileImage"] as? String{
+//                                    print("test3")
+//                                    let list = Friend(name: friendName, email: friendEmail, profileImage: friendImge)
+//                                    self.friendList.append(list)
+//                                }
+//
+//                            }
+//                            DispatchQueue.main.async {
+//
+//                                print("test 4")
+//                                self.tableView.reloadData()
+//                                //let indexPath = IndexPath(row: self.friendList.count - 1, section: 0)
+//                                //self.tableView.scrollToRow(at: indexPath, at: .top, animated: false)
+//                            }
+//                        }
+//
+//
+//                }
+//            }
+//            //}
+//
+//        }
+//
+    //}
+//        db.collection("friendList").document(UsersData().getCurrentUser()).addSnapshotListener { (doc, error) in
+//            FriendNetwork().run(after: 1) {
+//                DispatchQueue.main.async {
+//                    self.tableView.reloadData()
+//                    print("reloaded")
+//
+//                }
+//            }
+//            if let e = error{
+//                print("reloadFriendList* error \(e)")
+//            }
+//    }
+
     
     
     
     @IBAction func profileButtonPressed(_ sender: UIButton) {
         performSegue(withIdentifier: "socialToCurrentUser", sender: self)
     }
-    
-    
-    
-    
-//    func loadFriends(){
-//
-//        db.collection("friendList").document(UsersData().getCurrentUser())
-//            .addSnapshotListener { (documentSnapshot, error) in
-//                self.friendList = []
-//
-//                //FriendsDataTester().storeFriendList()
-//                //FriendsDataTester().removeFriend(0)
-//
-//                if let e = error{
-//                    print(e)
-//                }
-//                else{
-//                if let document = documentSnapshot{
-//                    let data = document.data()
-//                    if data != nil{
-//                        guard let friends = data!["FriendList"]! as? [String] else{
-//                            print("no friends")
-//                            return
-//                        }
-//                        for n in friends{
-//                            self.friendList.append(n)
-//                            DispatchQueue.main.async {
-//                                self.tableView.reloadData()
-//                                }
-//                                }
-//                            }
-//                        else{
-//                            print("no friends")
-//                    }
-//                        }
-//                }
-//            }
-//        print(friendList)
-//    }
 }
 
