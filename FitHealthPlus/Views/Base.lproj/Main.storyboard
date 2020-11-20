@@ -1711,7 +1711,7 @@
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="heavy"/>
                                 </state>
                                 <connections>
-                                    <segue destination="jj6-rP-SSs" kind="show" id="UaX-CG-QKS"/>
+                                    <action selector="addFriendButtonPressed:" destination="aD4-Cn-USr" eventType="touchUpInside" id="7M1-in-Izy"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xT0-Ga-Hjo">
@@ -1861,14 +1861,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qgT-jx-OPX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5489.8550724637689" y="1642.6339285714284"/>
+            <point key="canvasLocation" x="6355" y="2281"/>
         </scene>
         <!--NewFriendProfile-->
         <scene sceneID="5qo-gm-jqa">
             <objects>
                 <viewController storyboardIdentifier="NewFriendProfile" title="NewFriendProfile" id="awR-wY-lXz" customClass="NewFriendProfileViewController" customModule="FitHealthPlus" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DW8-89-aDx">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nr8-hz-Yyr">
@@ -1920,7 +1920,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DM8-ko-8cg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5459.420289855073" y="1882.3660714285713"/>
+            <point key="canvasLocation" x="7241" y="1801"/>
         </scene>
         <!--Leaderboard-->
         <scene sceneID="rFP-M9-Kzk">
@@ -2082,12 +2082,20 @@
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FitHealth" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hbx-GX-cw9">
                                 <rect key="frame" x="20" y="336" width="374" height="72"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="374" id="8o5-eF-kKa"/>
+                                    <constraint firstAttribute="height" constant="72" id="Ff5-OA-3Tl"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="60"/>
                                 <color key="textColor" systemColor="systemTealColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b9p-KI-dgo">
                                 <rect key="frame" x="20" y="709" width="374" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="374" id="LbL-c0-wVt"/>
+                                    <constraint firstAttribute="height" constant="48" id="yh1-oR-ZJb"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" title="Register"/>
                                 <connections>
@@ -2096,6 +2104,10 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g77-FS-Akc">
                                 <rect key="frame" x="20" y="653" width="374" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="374" id="Ym9-XJ-qjU"/>
+                                    <constraint firstAttribute="height" constant="48" id="lRL-G7-b2B"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" title="Sign In"/>
                                 <connections>

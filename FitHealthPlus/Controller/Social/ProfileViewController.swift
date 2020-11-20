@@ -17,7 +17,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var profileName: UILabel!
     @IBOutlet weak var profileEmail: UILabel!
     
-    var friend : FriendLists?
+    var friend : Friend?
     
     
     
@@ -33,6 +33,7 @@ class ProfileViewController: UIViewController {
                
                let delete = UIAlertAction(title: "Yes", style: .default){(delete) in
                 if let email = self.friend?.email, let name = self.friend?.name{
+                    print("deleted \(email)")
                     FriendNetwork().deleteFriend(Email: email, Name: name)
                 }
                    print("deleted")

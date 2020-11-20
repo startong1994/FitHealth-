@@ -50,11 +50,18 @@ class LoginViewController: UIViewController {
                 }
                 else{
                     //save current user's information to default file and navigate to next page
+                    
                     UsersData().storeCurrentUserData()
-                    FriendNetwork().storeListsToUserDefaults(UsersData().getCurrentUser())
+                    
+                    FriendNetwork().run(after: 1) {
+                        FriendNetwork().storeListsToUserDefaults(UsersData().getCurrentUser())
+                    }
+                    
+                    
                     FriendNetwork().run(after: 1) {
                         self.performSegue(withIdentifier: "signinToMainPage", sender: self)
                     }
+                    
                 }
             }
             
