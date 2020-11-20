@@ -1,15 +1,15 @@
 //
-//  AddRecipeViewController.swift
-//  FitHealth+
+//  EditRecipeViewController.swift
+//  FitHealthPlus
 //
-//  Created by xu daitong on 10/22/20.
+//  Created by Fayliette Lewis on 11/20/20.
 //  Copyright © 2020 xu daitong. All rights reserved.
 //
 
 import UIKit
 import Firebase
 
-class AddRecipeViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate,UIPickerViewDataSource & UIPickerViewDelegate {
+class EditRecipeViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate,UIPickerViewDataSource & UIPickerViewDelegate {
     
     //Database
     let db = Firestore.firestore()
@@ -185,5 +185,6 @@ class AddRecipeViewController: UIViewController, UIImagePickerControllerDelegate
         ])
     }
 }
+
 
 

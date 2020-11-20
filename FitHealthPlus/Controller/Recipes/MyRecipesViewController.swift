@@ -108,7 +108,7 @@ class MyRecipesViewController: UIViewController, UITableViewDelegate, UITableVie
         navigationItem.hidesSearchBarWhenScrolling = true
         let searchBar = UISearchBar(frame: CGRect.init(x: 0, y: 0, width: (UIScreen.main.bounds.width), height: 70))
         searchBar.showsScopeBar = true
-        searchController.searchBar.scopeButtonTitles = ["Name", "Categories"]
+        searchController.searchBar.scopeButtonTitles = ["Name", "Category"]
         searchController.searchBar.delegate = self
         let appearance = UINavigationBarAppearance()
         appearance.backgroundColor = .systemTeal
@@ -152,12 +152,12 @@ class MyRecipesViewController: UIViewController, UITableViewDelegate, UITableVie
         if searching{
             let itemsInCell = searchingItems[indexPath.row]
             recipes.recipeName.text = itemsInCell.name
-            recipes.recipeCategory.text = "Categories: " + String(itemsInCell.category)
+            recipes.recipeCategory.text = "Category: " + String(itemsInCell.category)
             
         }else{
             let itemsInCell = listRecipes[indexPath.row]
             recipes.recipeName.text = itemsInCell.name
-            recipes.recipeCategory.text = "Categories: " + String(itemsInCell.category)
+            recipes.recipeCategory.text = "Category: " + String(itemsInCell.category)
             
         }
         recipes.recipeCellView.layer.cornerRadius = recipes.recipeCellView.frame.height / 2

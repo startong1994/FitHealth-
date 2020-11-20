@@ -150,7 +150,7 @@ extension FitnessViewController: UITableViewDataSource, UITableViewDelegate{
             stepGoal = text
         }
         alert.addTextField { (text) in
-            text.placeholder = "enter the calories borned goal"
+            text.placeholder = "enter the calories burned goal"
             calGoal = text
         }
         
