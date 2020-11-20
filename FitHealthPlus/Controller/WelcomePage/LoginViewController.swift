@@ -54,7 +54,7 @@ class LoginViewController: UIViewController {
                     UsersData().storeCurrentUserData()
                     
                     FriendNetwork().run(after: 1) {
-                        FriendNetwork().storeListsToUserDefaults(UsersData().getCurrentUser())
+                        FriendNetwork().storeListsToUserDefaults()
                     }
                     
                     

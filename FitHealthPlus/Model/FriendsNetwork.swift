@@ -20,12 +20,13 @@ class FriendNetwork {
     let currentUser = UsersData().getCurrentUser()
     
     
-    func storeListsToUserDefaults(_ name: String){
+    func storeListsToUserDefaults(){
     
         //let docRef = self.friendsRef.document(name)
         //docRef.getDocument { (document, error) in
-            
-        friendsRef.document(name).addSnapshotListener{ (document, error) in
+        
+        
+        friendsRef.document(currentUser).getDocument{ (document, error) in
             
             print("data changed")
             if let e = error{
@@ -38,9 +39,11 @@ class FriendNetwork {
                         print("error getting data")
                         return
                     }
-                    
                         self.defaults.set(data[K.FStore.FriendList] as? [String], forKey: K.FStore.FriendList)
-                        self.defaults.set(data[K.FStore.pendingLists] as? [String], forKey: K.FStore.pendingLists)
+                        
+                    
+                    
+                    //self.defaults.set(data[K.FStore.pendingLists] as? [String], forKey: K.FStore.pendingLists)
                         //self.storeFriendList()
 
                 }
@@ -53,7 +56,7 @@ class FriendNetwork {
     
     func storeFriendList(){
         
-        var listArray = defaults.array(forKey: K.FStore.FriendList) as! [String]
+        let listArray = defaults.array(forKey: K.FStore.FriendList) as! [String]
         
         
         

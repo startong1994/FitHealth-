@@ -34,7 +34,6 @@ class SignUpViewContoller: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(true, animated: false)
         UINavigationBar.appearance().backgroundColor = UIColor.systemTeal
-        UsersData().storeCurrentUserData()
     }
     
     
@@ -62,6 +61,11 @@ class SignUpViewContoller: UIViewController {
                             print(e.localizedDescription)
                         }
                         else{
+                            
+                            
+                            UsersData().storeCurrentUserData()
+                            
+                            
                             self.performSegue(withIdentifier: "registerToMain", sender: self)
                         }
                     }

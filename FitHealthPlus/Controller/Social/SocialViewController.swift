@@ -43,7 +43,6 @@ class SocialViewController: UIViewController, UITableViewDelegate, UITableViewDa
         tableView.refreshControl = refresh
         
         
-        
         self.tableView.tableFooterView = UIView()
         navigationItem.title = "Social"
         self.tableView.delegate = self
@@ -56,6 +55,7 @@ class SocialViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let timeout = DispatchTime.now() + .milliseconds(1000)
         DispatchQueue.main.asyncAfter(deadline: timeout) {
             self.refresh.endRefreshing()
+            self.friendList = []
             self.reload()
         }
     }
@@ -69,7 +69,6 @@ class SocialViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         print("table view reload works count number of rows")
-        print(friendList)
         print(friendList.count)
         return friendList.count
         
@@ -89,17 +88,19 @@ class SocialViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         
-        
-        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-        
-        let profileVC = storyBoard.instantiateViewController(withIdentifier: "profile") as! ProfileViewController
-        
-        profileVC.friend = friendList[indexPath.row]
-        print(friendList[indexPath.row])
-        
-        self.navigationController?.pushViewController(profileVC, animated: true)
-        
-        tableView.deselectRow(at: indexPath, animated: true)
+        if indexPath.count > 0{
+            let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+            
+            let profileVC = storyBoard.instantiateViewController(withIdentifier: "profile") as! ProfileViewController
+            
+            profileVC.friend = friendList[indexPath.row]
+            print(friendList[indexPath.row])
+            
+            self.navigationController?.pushViewController(profileVC, animated: true)
+            
+            tableView.deselectRow(at: indexPath, animated: true)
+            
+        }
 
     }
     
@@ -109,7 +110,7 @@ class SocialViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         
         let alert = UIAlertController(title: "Add Friend", message: "", preferredStyle: .alert)
-        let added = UIAlertController(title: "", message: "Request sent!", preferredStyle: .alert)
+        let added = UIAlertController(title: "", message: "Added, Pull to Refresh! :D", preferredStyle: .alert)
         
         var emailAddress = UITextField()
         
@@ -129,10 +130,10 @@ class SocialViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 //add friends
                 
                     FriendNetwork().addFriend(Email: address)
-                    self.reload()
                     
                 
                 added.addAction(ok)
+                    
                 self.present(added, animated: true, completion: nil)
                 }else{
                     let alert = UIAlertController(title: "Error", message: "Please Enter UNCC School Email", preferredStyle: .alert)
@@ -161,7 +162,8 @@ class SocialViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func reload(){
         
-    
+        FriendNetwork().storeListsToUserDefaults()
+        
         let listArray = defaults.array(forKey: K.FStore.FriendList) as! [String]
         
         
@@ -169,8 +171,6 @@ class SocialViewController: UIViewController, UITableViewDelegate, UITableViewDa
         if listArray.isEmpty{
             tableView.reloadData()
             }
-        
-
         
         for emails in listArray {
             
@@ -190,10 +190,7 @@ class SocialViewController: UIViewController, UITableViewDelegate, UITableViewDa
                             print("test3")
                             let list = Friend(name: friendName, email: friendEmail, profileImage: friendImge)
                             self.friendList.append(list)
-                    
-                                
-                            
-                            
+                
                         }
                     DispatchQueue.main.async {
                         self.tableView.reloadData()
