@@ -12,6 +12,7 @@
 		9816343D2540D82D00546A9E /* EditPantryItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9816343C2540D82D00546A9E /* EditPantryItemViewController.swift */; };
 		98530BBF253F9C9800D93F88 /* PantryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98530BBE253F9C9800D93F88 /* PantryListViewController.swift */; };
 		98530BC1253F9F6A00D93F88 /* PantryItemShowDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98530BC0253F9F6A00D93F88 /* PantryItemShowDetailViewController.swift */; };
+		9877101D2572C4F800921AC7 /* RecipeMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9877101C2572C4F800921AC7 /* RecipeMainViewController.swift */; };
 		D2064A5E2562C5DC008BF665 /* FriendsNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2064A5D2562C5DC008BF665 /* FriendsNetwork.swift */; };
 		D21D56EE2565C0240076FD4E /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D21D56ED2565C0240076FD4E /* HealthKit.framework */; };
 		D21D56F02565CE790076FD4E /* ActivityData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21D56EF2565CE790076FD4E /* ActivityData.swift */; };
@@ -66,6 +67,7 @@
 		9816343C2540D82D00546A9E /* EditPantryItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPantryItemViewController.swift; sourceTree = "<group>"; };
 		98530BBE253F9C9800D93F88 /* PantryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PantryListViewController.swift; sourceTree = "<group>"; };
 		98530BC0253F9F6A00D93F88 /* PantryItemShowDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PantryItemShowDetailViewController.swift; sourceTree = "<group>"; };
+		9877101C2572C4F800921AC7 /* RecipeMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeMainViewController.swift; sourceTree = "<group>"; };
 		D2064A5D2562C5DC008BF665 /* FriendsNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsNetwork.swift; sourceTree = "<group>"; };
 		D21D56EC2565C0230076FD4E /* FitHealthPlus.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FitHealthPlus.entitlements; sourceTree = "<group>"; };
 		D21D56ED2565C0240076FD4E /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
@@ -256,6 +258,7 @@
 		D2EA92ED253B41CB00026B0E /* Recipes */ = {
 			isa = PBXGroup;
 			children = (
+				9877101C2572C4F800921AC7 /* RecipeMainViewController.swift */,
 				D2EA92D8253A329500026B0E /* RecipesViewController.swift */,
 				D2D546252542442500EA0C1E /* AddRecipeViewController.swift */,
 				D2D54627254244D800EA0C1E /* MyRecipesViewController.swift */,
@@ -449,6 +452,7 @@
 				D29262DB255E3A330092D0B3 /* UsersData.swift in Sources */,
 				D24D42B02566EE2B0034EE40 /* ActivityNetwork.swift in Sources */,
 				D2DB127A2540DBF7005DFF65 /* FitnessGoalViewController.swift in Sources */,
+				9877101D2572C4F800921AC7 /* RecipeMainViewController.swift in Sources */,
 				D23058A7253CD8680013B64C /* SignUpViewContoller.swift in Sources */,
 				D251DEA5254060AB006E7862 /* PantryItemList.swift in Sources */,
 				D2D54628254244D800EA0C1E /* MyRecipesViewController.swift in Sources */,
