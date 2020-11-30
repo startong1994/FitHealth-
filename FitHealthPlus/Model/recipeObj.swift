@@ -10,6 +10,7 @@ import Foundation
 import Firebase
 
 struct recipeItem {
+    let recipeImg: String?
     let name: String
     let cookTime: String
     let servings: String
@@ -26,8 +27,10 @@ struct recipeItem {
     let cholesterol: Int
     
     
+    
     var recipeDictionary : [String: Any] {
         return [
+            "recipeImg": recipeImg,
             "name": name,
             "cookTime": cookTime,
             "servings": servings,
@@ -48,7 +51,8 @@ struct recipeItem {
 
 extension recipeItem {
     init?(recipeDictionary : [String:Any]){
-       guard let name = recipeDictionary["name"] as? String,
+       guard let recipeImg = recipeDictionary["recipeImg"] as? String,
+             let name = recipeDictionary["name"] as? String,
              let cookTime = recipeDictionary["cookTime"] as? String,
              let servings = recipeDictionary["servings"] as? String,
              let category = recipeDictionary["category"] as? String,
@@ -63,7 +67,9 @@ extension recipeItem {
              let protein = recipeDictionary["protein"] as? Int,
              let cholesterol = recipeDictionary["cholesterol"] as? Int else {return nil}
         
-        self.init(name: name,
+        
+        self.init(recipeImg: recipeImg,
+                  name: name,
                   cookTime: cookTime,
                   servings: servings,
                   category: category,

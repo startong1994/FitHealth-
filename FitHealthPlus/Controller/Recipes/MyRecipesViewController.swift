@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import FirebaseStorage
 
 class MyRecipesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
     
@@ -59,6 +60,7 @@ class MyRecipesViewController: UIViewController, UITableViewDelegate, UITableVie
                 self.listRecipes = []
                 for document in QuerySnapshot!.documents {
                     //let data = document.data()
+                    let recipeImg = document.get("recipeImg") as? String ?? ""
                     let recipeName = document.get("name") as? String ?? "Item"
                     let ckTime = document.get("cookTime") as? String ?? "Item"
                     let servingSize = document.get("servings") as? String ?? "Item"
@@ -74,8 +76,10 @@ class MyRecipesViewController: UIViewController, UITableViewDelegate, UITableVie
                     let itemSodium = document.get("sodium") as? Int ?? 0
                     let itemSugar = document.get("sugar") as? Int ?? 0
                     
+                    
                     let newItem = recipeItem(
-                        name: recipeName,
+                                  recipeImg: recipeImg,
+                                  name: recipeName,
                                   cookTime: ckTime,
                                   servings: servingSize,
                                   category: categoryPicker,
@@ -153,12 +157,39 @@ class MyRecipesViewController: UIViewController, UITableViewDelegate, UITableVie
             let itemsInCell = searchingItems[indexPath.row]
             recipes.recipeName.text = itemsInCell.name
             recipes.recipeCategory.text = "Category: " + String(itemsInCell.category)
+            let recipeImgUrl = URL(string: itemsInCell.recipeImg!)!
+            let task = URLSession.shared.dataTask(with: recipeImgUrl, completionHandler: { data, response, error in
+                if error != nil {
+                    print(error!)
+                    return
+                }
+                DispatchQueue.main.async {
+                    recipes.recipeImage.image = UIImage(data: data!)
+                }
+            })
+            task.resume()
             
         }else{
             let itemsInCell = listRecipes[indexPath.row]
             recipes.recipeName.text = itemsInCell.name
             recipes.recipeCategory.text = "Category: " + String(itemsInCell.category)
             
+           // print(String(itemsInCell.recipeImg!))
+            /*
+            let recipeImgUrl = URL(string: itemsInCell.recipeImg!)!
+            let task = URLSession.shared.dataTask(with: recipeImgUrl, completionHandler: { data, response, error in
+                if error != nil {
+                    print(error!)
+                    return
+                }
+                DispatchQueue.main.async {
+                    print(recipeImgUrl)
+                    recipes.recipeImage.image = UIImage(data: data!)
+                }
+            })
+            task.resume()
+            */
+
         }
         recipes.recipeCellView.layer.cornerRadius = recipes.recipeCellView.frame.height / 2
         return recipes

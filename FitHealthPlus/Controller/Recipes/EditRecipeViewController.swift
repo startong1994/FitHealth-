@@ -14,6 +14,8 @@ class EditRecipeViewController: UIViewController, UIImagePickerControllerDelegat
     //Database
     let db = Firestore.firestore()
     let defaults = UserDefaults.standard
+    private let storageRef = Storage.storage().reference()
+    var imgURL = ""
     
 
     @IBOutlet weak var servingsField: UITextField!
@@ -31,18 +33,34 @@ class EditRecipeViewController: UIViewController, UIImagePickerControllerDelegat
     @IBOutlet weak var sodiumField: UITextField!
     @IBOutlet weak var categoryPicker: UITextField!
     
+    var getName = String()
+    var getServings = String()
+    var getIngredients = String()
+    var getCookTime = String()
+    var getDirections = String()
+    var getCategory = String()
+    var getFat = Int()
+    var getCalPerServ = Int()
+    var getCholesterol = Int()
+    var getCarbs = Int()
+    var getFiber = Int()
+    var getProtein = Int()
+    var getSugar = Int()
+    var getSodium = Int()
+    var getImage = String()
+    
     //cancel adding a new recipe
     @IBAction func cancelButton(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
 
     //saves new recipe to database
-    
+    /*
     @IBAction func addRecipeButton(_ sender: Any) {
         let recipeRef = db.collection("Recipe")
         recipeRef.document("test").setData(["test":"this is a test"])
         dismiss(animated: true, completion: nil)
-    }
+    }*/
     
     @IBAction func saveRecipeButton(_ sender: UIButton) {
         saveRecipeItem()
@@ -76,7 +94,21 @@ class EditRecipeViewController: UIViewController, UIImagePickerControllerDelegat
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
+        servingsField.text = getServings
+        ingredientsField.text = getIngredients
+        cookTimeField.text = getCookTime
+        directionsField.text = getDirections
+        fatsField.text = String(getFat)
+        calPerServField.text = String(getCalPerServ)
+        cholesterolField.text = String(getCholesterol)
+        carbsField.text = String(getCarbs)
+        fiberField.text = String(getFiber)
+        proteinField.text = String(getProtein)
+        sugarsField.text = String(getSugar)
+        nameField.text = getName
+        sodiumField.text = String(getSodium)
+        categoryPicker.text = getCategory
+        
         addImgButton.layer.cornerRadius = 8
         imagePicker.delegate = self
         pickerView.delegate = self
@@ -98,8 +130,28 @@ class EditRecipeViewController: UIViewController, UIImagePickerControllerDelegat
     }
     //uploads image to the page
     public func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        if let image = info[UIImagePickerController.InfoKey.editedImage]as? UIImage {
-                    imageUpload.image = image
+        guard let image = info[UIImagePickerController.InfoKey.editedImage]as? UIImage else {
+            return
+        }
+        guard let imageData = image.pngData() else {
+            return
+        }
+        storageRef.child("images/file.png").putData(imageData, metadata:nil, completion: { _, error in
+            guard error == nil else {
+                print("Failed to upload")
+                return
+            }
+            self.storageRef.child("images/file.png").downloadURL(completion: {url, error in
+                guard let url = url, error == nil else {
+                    return
+                }
+                let urlString = url.absoluteString
+                self.imgURL = urlString
+                self.defaults.set(urlString, forKey: "url")
+            })
+        })
+        if let viewImage = info[UIImagePickerController.InfoKey.editedImage]as? UIImage {
+                    imageUpload.image = viewImage
         }
         dismiss(animated: true, completion: nil)
     }
@@ -116,7 +168,6 @@ class EditRecipeViewController: UIViewController, UIImagePickerControllerDelegat
     
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool{
         if textField == nameField || textField == calPerServField{
-            categoryPicker.keyboardType = .numbersAndPunctuation
             servingsField.keyboardType = .numbersAndPunctuation
             cookTimeField.keyboardType = .numbersAndPunctuation
             ingredientsField.keyboardType = .numbersAndPunctuation
@@ -168,6 +219,7 @@ class EditRecipeViewController: UIViewController, UIImagePickerControllerDelegat
         
         // adds recipe info to the database
         recipeRef.document(recipeName).setData([
+            "recipeImg": imgURL,
             "name": recipeName,
             "category": category,
             "servings": servings,
