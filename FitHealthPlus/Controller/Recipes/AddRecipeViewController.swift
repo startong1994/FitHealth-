@@ -24,7 +24,11 @@ class AddRecipeViewController: UIViewController, UIImagePickerControllerDelegate
     @IBOutlet weak var servingsField: UITextField!
     @IBOutlet weak var categoryPicker: UITextField!
     @IBOutlet weak var ingredientsField: UITextView!
+    @IBOutlet weak var ingredientsViewHeight: NSLayoutConstraint!
     @IBOutlet weak var directionsField: UITextView!
+    @IBOutlet weak var directionsViewHeight: NSLayoutConstraint!
+    
+    
     @IBOutlet weak var calPerServField: UITextField!
     @IBOutlet weak var fatsField: UITextField!
     @IBOutlet weak var sodiumField: UITextField!
@@ -33,8 +37,7 @@ class AddRecipeViewController: UIViewController, UIImagePickerControllerDelegate
     @IBOutlet weak var sugarsField: UITextField!
     @IBOutlet weak var proteinField: UITextField!
     @IBOutlet weak var cholesterolField: UITextField!
-    @IBOutlet weak var ingredientsViewHeight: NSLayoutConstraint!
-    @IBOutlet weak var directionsViewHeight: NSLayoutConstraint!
+
     
     //cancel adding a new recipe
     @IBAction func cancelButton(_ sender: Any) {
@@ -91,6 +94,7 @@ class AddRecipeViewController: UIViewController, UIImagePickerControllerDelegate
         categoryPicker.placeholder = "Select Category"
         ingredientsField.delegate = self
         directionsField.delegate = self
+        
         //formatting text views' border
         ingredientsField.layer.borderWidth = 0.8
         ingredientsField.layer.borderColor = UIColor.systemGray5.cgColor
@@ -147,21 +151,22 @@ class AddRecipeViewController: UIViewController, UIImagePickerControllerDelegate
         view.endEditing(true)
     }
     
+    // To autosize text view to fit content
     func textViewDidChange(_ textView: UITextView) {
+        
         if textView == ingredientsField {
             ingredientsViewHeight.constant = ingredientsField.contentSize.height
         }
-        if textView == directionsField {
-            directionsViewHeight.constant = directionsField.contentSize.height
-        }
+        else if textView == directionsField {
+           directionsViewHeight.constant = directionsField.contentSize.height
+      }
     }
     
-    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool{
-        if textField == nameField || textField == calPerServField{
+
+    private func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool{
+        if textField == servingsField || textField == cookTimeField{
             servingsField.keyboardType = .numbersAndPunctuation
             cookTimeField.keyboardType = .numbersAndPunctuation
-            ingredientsField.keyboardType = .numbersAndPunctuation
-            directionsField.keyboardType = .numbersAndPunctuation
             fatsField.keyboardType = .numbersAndPunctuation
             sodiumField.keyboardType = .numbersAndPunctuation
             carbsField.keyboardType = .numbersAndPunctuation
@@ -177,7 +182,9 @@ class AddRecipeViewController: UIViewController, UIImagePickerControllerDelegate
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == nameField {
-            calPerServField.becomeFirstResponder()
+            servingsField.becomeFirstResponder()
+        }else if textField == servingsField {
+            cookTimeField.becomeFirstResponder()
         }else{
             nameField.becomeFirstResponder()
         }
@@ -198,7 +205,7 @@ class AddRecipeViewController: UIViewController, UIImagePickerControllerDelegate
         let fiber = Int(fiberField.text!)
         let sugar = Int(sugarsField.text!)
         let protein = Int(proteinField.text!)
-        let cholestrol = Int(cholesterolField.text!)
+        let cholesterol = Int(cholesterolField.text!)
         
         //gets user's name for database
         guard let name = defaults.dictionary(forKey: "CurrentUser")!["name"] else{
@@ -223,7 +230,7 @@ class AddRecipeViewController: UIViewController, UIImagePickerControllerDelegate
             "fiber": fiber,
             "sugar": sugar,
             "protein": protein,
-            "cholesterol": cholestrol
+            "cholesterol": cholesterol
         ])
     }
 }
