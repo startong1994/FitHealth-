@@ -35,8 +35,8 @@ class MyRecipesViewController: UIViewController, UITableViewDelegate, UITableVie
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        navigationItem.title = "My Recipes"
-        self.tabBarController?.tabBar.isHidden = true
+       // navigationItem.title = "My Recipes"
+       // self.tabBarController?.tabBar.isHidden = true
         recipeTableView.delegate = self
         recipeTableView.dataSource = self
         setUpSearchBar()
@@ -93,8 +93,8 @@ class MyRecipesViewController: UIViewController, UITableViewDelegate, UITableVie
                                   sugar: itemSugar,
                                   protein:itemProtein,
                                   cholesterol: itemCholesterol
+                        
                     )
-                    
                     self.listRecipes.append(newItem)
                 }
                 DispatchQueue.main.async {
@@ -104,6 +104,36 @@ class MyRecipesViewController: UIViewController, UITableViewDelegate, UITableVie
         }
     }
    
+    // added code by Daitong Xu, deselectRow,
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    // Segue for the edit view controller
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "editRecipeSegue" {
+            let recipes = sender as! UITableViewCell
+            if let indexPath = recipeTableView.indexPath(for: recipes) {
+                let vc = segue.destination as! EditRecipeViewController
+                vc.getName = listRecipes[indexPath.row].name
+                vc.getServings = listRecipes[indexPath.row].servings
+                vc.getCookTime = listRecipes[indexPath.row].cookTime
+                vc.getCategory = listRecipes[indexPath.row].category
+                vc.getIngredients = listRecipes[indexPath.row].ingredients
+                vc.getDirections = listRecipes[indexPath.row].directions
+                vc.getFat = listRecipes[indexPath.row].fat
+                vc.getCalPerServ = listRecipes[indexPath.row].calories
+                vc.getCholesterol = listRecipes[indexPath.row].cholesterol
+                vc.getCarbs = listRecipes[indexPath.row].carb
+                vc.getFiber = listRecipes[indexPath.row].fiber
+                vc.getSugar = listRecipes[indexPath.row].sugar
+                vc.getSodium = listRecipes[indexPath.row].sodium
+                vc.getImage = listRecipes[indexPath.row].recipeImg!
+
+            }
+        }
+    }
     
     // search bar set up function
     func setUpSearchBar() {
@@ -205,10 +235,6 @@ class MyRecipesViewController: UIViewController, UITableViewDelegate, UITableVie
         case 1:
             searching = true
             searchingItems = listRecipes.filter({ $0.category.lowercased().prefix(text.count) == text.lowercased()})
-            recipeTableView.reloadData()
-        case 2:
-            searching = true
-            searchingItems =  listRecipes.filter({ String($0.calories).lowercased().prefix(text.count) == text.lowercased()})
             recipeTableView.reloadData()
         default:
             print("no type")

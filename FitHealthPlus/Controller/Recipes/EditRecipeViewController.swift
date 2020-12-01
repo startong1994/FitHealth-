@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import FirebaseStorage
 
 class EditRecipeViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate,UIPickerViewDataSource & UIPickerViewDelegate {
     
@@ -16,12 +17,15 @@ class EditRecipeViewController: UIViewController, UIImagePickerControllerDelegat
     let defaults = UserDefaults.standard
     private let storageRef = Storage.storage().reference()
     var imgURL = ""
+    var item: recipeItem?
     
 
     @IBOutlet weak var servingsField: UITextField!
-    @IBOutlet weak var ingredientsField: UITextField!
     @IBOutlet weak var cookTimeField: UITextField!
-    @IBOutlet weak var directionsField: UITextField!
+    @IBOutlet weak var ingredientsField: UITextView!
+    @IBOutlet weak var ingredientsViewHeight: NSLayoutConstraint!
+    @IBOutlet weak var directionsField: UITextView!
+    @IBOutlet weak var directionsViewHeight: NSLayoutConstraint!
     @IBOutlet weak var fatsField: UITextField!
     @IBOutlet weak var calPerServField: UITextField!
     @IBOutlet weak var cholesterolField: UITextField!
@@ -35,8 +39,8 @@ class EditRecipeViewController: UIViewController, UIImagePickerControllerDelegat
     
     var getName = String()
     var getServings = String()
-    var getIngredients = String()
     var getCookTime = String()
+    var getIngredients = String()
     var getDirections = String()
     var getCategory = String()
     var getFat = Int()
@@ -53,14 +57,6 @@ class EditRecipeViewController: UIViewController, UIImagePickerControllerDelegat
     @IBAction func cancelButton(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
-
-    //saves new recipe to database
-    /*
-    @IBAction func addRecipeButton(_ sender: Any) {
-        let recipeRef = db.collection("Recipe")
-        recipeRef.document("test").setData(["test":"this is a test"])
-        dismiss(animated: true, completion: nil)
-    }*/
     
     @IBAction func saveRecipeButton(_ sender: UIButton) {
         saveRecipeItem()
@@ -94,9 +90,11 @@ class EditRecipeViewController: UIViewController, UIImagePickerControllerDelegat
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        nameField.text = getName
         servingsField.text = getServings
-        ingredientsField.text = getIngredients
         cookTimeField.text = getCookTime
+        ingredientsField.text = getIngredients
+        categoryPicker.text = getCategory
         directionsField.text = getDirections
         fatsField.text = String(getFat)
         calPerServField.text = String(getCalPerServ)
@@ -105,9 +103,8 @@ class EditRecipeViewController: UIViewController, UIImagePickerControllerDelegat
         fiberField.text = String(getFiber)
         proteinField.text = String(getProtein)
         sugarsField.text = String(getSugar)
-        nameField.text = getName
         sodiumField.text = String(getSodium)
-        categoryPicker.text = getCategory
+        
         
         addImgButton.layer.cornerRadius = 8
         imagePicker.delegate = self
@@ -117,9 +114,13 @@ class EditRecipeViewController: UIViewController, UIImagePickerControllerDelegat
         categoryPicker.textAlignment = .left
         categoryPicker.placeholder = "Select Category"
         
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(AddRecipeViewController.viewTapped(gestureRecognizer:)))
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(EditRecipeViewController.viewTapped(gestureRecognizer:)))
         view.addGestureRecognizer(tapGesture)
 
+    }
+    
+    @objc func viewTapped(gestureRecognizer: UITapGestureRecognizer){
+        view.endEditing(true)
     }
     
     // selects an image from your photo library
@@ -156,22 +157,17 @@ class EditRecipeViewController: UIViewController, UIImagePickerControllerDelegat
         dismiss(animated: true, completion: nil)
     }
     
+    /*
     override func viewWillAppear(_ animated: Bool) {
         self.tabBarController?.tabBar.isHidden = false
-    }
+    }*/
     
-    @objc func viewTapped(gestureRecognizer: UITapGestureRecognizer){
-        view.endEditing(true)
-    }
+
     
-    var item: recipeItem?
-    
-    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool{
-        if textField == nameField || textField == calPerServField{
+    private func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool{
+        if textField == servingsField || textField == cookTimeField{
             servingsField.keyboardType = .numbersAndPunctuation
             cookTimeField.keyboardType = .numbersAndPunctuation
-            ingredientsField.keyboardType = .numbersAndPunctuation
-            directionsField.keyboardType = .numbersAndPunctuation
             fatsField.keyboardType = .numbersAndPunctuation
             sodiumField.keyboardType = .numbersAndPunctuation
             carbsField.keyboardType = .numbersAndPunctuation
@@ -187,7 +183,9 @@ class EditRecipeViewController: UIViewController, UIImagePickerControllerDelegat
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == nameField {
-            calPerServField.becomeFirstResponder()
+            servingsField.becomeFirstResponder()
+        }else if textField == servingsField {
+            cookTimeField.becomeFirstResponder()
         }else{
             nameField.becomeFirstResponder()
         }
@@ -215,10 +213,10 @@ class EditRecipeViewController: UIViewController, UIImagePickerControllerDelegat
             return
         }
         
-        let recipeRef = db.collection("Recipe").document(name as! String).collection("My Recipes")
+        let recipeRef = db.collection("Recipe").document(name as! String).collection("My Recipes").document(recipeName)
         
         // adds recipe info to the database
-        recipeRef.document(recipeName).setData([
+        recipeRef.updateData([
             "recipeImg": imgURL,
             "name": recipeName,
             "category": category,

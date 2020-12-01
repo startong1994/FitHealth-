@@ -27,8 +27,6 @@ class AddRecipeViewController: UIViewController, UIImagePickerControllerDelegate
     @IBOutlet weak var ingredientsViewHeight: NSLayoutConstraint!
     @IBOutlet weak var directionsField: UITextView!
     @IBOutlet weak var directionsViewHeight: NSLayoutConstraint!
-    
-    
     @IBOutlet weak var calPerServField: UITextField!
     @IBOutlet weak var fatsField: UITextField!
     @IBOutlet weak var sodiumField: UITextField!
@@ -37,21 +35,14 @@ class AddRecipeViewController: UIViewController, UIImagePickerControllerDelegate
     @IBOutlet weak var sugarsField: UITextField!
     @IBOutlet weak var proteinField: UITextField!
     @IBOutlet weak var cholesterolField: UITextField!
-
+    @IBOutlet weak var saveButton: UIButton!
+    
     
     //cancel adding a new recipe
     @IBAction func cancelButton(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
 
-    //saves new recipe to database
-    /*
-    @IBAction func addRecipeButton(_ sender: Any) {
-        let recipeRef = db.collection("Recipe")
-        recipeRef.document("test").setData(["test":"this is a test"])
-        //dismiss(animated: true, completion: nil)
-    }*/
-    
     @IBAction func saveRecipeButton(_ sender: UIButton) {
         saveRecipeItem()
     }
@@ -102,6 +93,9 @@ class AddRecipeViewController: UIViewController, UIImagePickerControllerDelegate
         directionsField.layer.borderWidth = 0.8
         directionsField.layer.borderColor = UIColor.systemGray5.cgColor
         directionsField.layer.cornerRadius = 5
+        
+        saveButton.layer.cornerRadius = 8
+        saveButton.layer.backgroundColor = UIColor.systemTeal.cgColor
         
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(AddRecipeViewController.viewTapped(gestureRecognizer:)))
