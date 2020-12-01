@@ -8,49 +8,48 @@
 
 import UIKit
 import Firebase
+import FirebaseStorage
 
-class AddRecipeViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate,UIPickerViewDataSource & UIPickerViewDelegate {
+class AddRecipeViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate,UIPickerViewDataSource, UITextViewDelegate & UIPickerViewDelegate {
     
     //Database
     let db = Firestore.firestore()
     let defaults = UserDefaults.standard
+    private let storageRef = Storage.storage().reference()
+    var imgURL = ""
+    var item: recipeItem?
     
-
-    @IBOutlet weak var servingsField: UITextField!
-    @IBOutlet weak var ingredientsField: UITextField!
+    @IBOutlet weak var nameField: UITextField!
     @IBOutlet weak var cookTimeField: UITextField!
-    @IBOutlet weak var directionsField: UITextField!
-    @IBOutlet weak var fatsField: UITextField!
+    @IBOutlet weak var servingsField: UITextField!
+    @IBOutlet weak var categoryPicker: UITextField!
+    @IBOutlet weak var ingredientsField: UITextView!
+    @IBOutlet weak var ingredientsViewHeight: NSLayoutConstraint!
+    @IBOutlet weak var directionsField: UITextView!
+    @IBOutlet weak var directionsViewHeight: NSLayoutConstraint!
     @IBOutlet weak var calPerServField: UITextField!
-    @IBOutlet weak var cholesterolField: UITextField!
+    @IBOutlet weak var fatsField: UITextField!
+    @IBOutlet weak var sodiumField: UITextField!
     @IBOutlet weak var carbsField: UITextField!
     @IBOutlet weak var fiberField: UITextField!
-    @IBOutlet weak var proteinField: UITextField!
     @IBOutlet weak var sugarsField: UITextField!
-    @IBOutlet weak var nameField: UITextField!
-    @IBOutlet weak var sodiumField: UITextField!
-    @IBOutlet weak var categoryPicker: UITextField!
+    @IBOutlet weak var proteinField: UITextField!
+    @IBOutlet weak var cholesterolField: UITextField!
+    @IBOutlet weak var saveButton: UIButton!
+    
     
     //cancel adding a new recipe
     @IBAction func cancelButton(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
 
-    //saves new recipe to database
-    
-    @IBAction func addRecipeButton(_ sender: Any) {
-        let recipeRef = db.collection("Recipe")
-        recipeRef.document("test").setData(["test":"this is a test"])
-        dismiss(animated: true, completion: nil)
-    }
-    
     @IBAction func saveRecipeButton(_ sender: UIButton) {
         saveRecipeItem()
     }
     
     var pickerView = UIPickerView()
     // used for view picker
-    let categories = ["Poultry", "Beef", "Pork", "Seafood", "Vegetarian"]
+    let categories = ["Poultry", "Beef", "Pork", "Seafood", "Vegetarian","Dessert"]
     //view picker number of columns
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -84,10 +83,24 @@ class AddRecipeViewController: UIViewController, UIImagePickerControllerDelegate
         categoryPicker.inputView = pickerView
         categoryPicker.textAlignment = .left
         categoryPicker.placeholder = "Select Category"
+        ingredientsField.delegate = self
+        directionsField.delegate = self
+        
+        //formatting text views' border
+        ingredientsField.layer.borderWidth = 0.8
+        ingredientsField.layer.borderColor = UIColor.systemGray5.cgColor
+        ingredientsField.layer.cornerRadius = 5
+        directionsField.layer.borderWidth = 0.8
+        directionsField.layer.borderColor = UIColor.systemGray5.cgColor
+        directionsField.layer.cornerRadius = 5
+        
+        saveButton.layer.cornerRadius = 8
+        saveButton.layer.backgroundColor = UIColor.systemTeal.cgColor
+        
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(AddRecipeViewController.viewTapped(gestureRecognizer:)))
         view.addGestureRecognizer(tapGesture)
-
+ 
     }
     
     // selects an image from your photo library
@@ -98,8 +111,28 @@ class AddRecipeViewController: UIViewController, UIImagePickerControllerDelegate
     }
     //uploads image to the page
     public func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        if let image = info[UIImagePickerController.InfoKey.editedImage]as? UIImage {
-                    imageUpload.image = image
+        guard let image = info[UIImagePickerController.InfoKey.editedImage]as? UIImage else {
+            return
+        }
+        guard let imageData = image.pngData() else {
+            return
+        }
+        storageRef.child("images/file.png").putData(imageData, metadata:nil, completion: { _, error in
+            guard error == nil else {
+                print("Failed to upload")
+                return
+            }
+            self.storageRef.child("images/file.png").downloadURL(completion: {url, error in
+                guard let url = url, error == nil else {
+                    return
+                }
+                let urlString = url.absoluteString
+                self.imgURL = urlString
+                self.defaults.set(urlString, forKey: "url")
+            })
+        })
+        if let viewImage = info[UIImagePickerController.InfoKey.editedImage]as? UIImage {
+                    imageUpload.image = viewImage
         }
         dismiss(animated: true, completion: nil)
     }
@@ -112,15 +145,22 @@ class AddRecipeViewController: UIViewController, UIImagePickerControllerDelegate
         view.endEditing(true)
     }
     
-    var item: recipeItem?
+    // To autosize text view to fit content
+    func textViewDidChange(_ textView: UITextView) {
+        
+        if textView == ingredientsField {
+            ingredientsViewHeight.constant = ingredientsField.contentSize.height
+        }
+        else if textView == directionsField {
+           directionsViewHeight.constant = directionsField.contentSize.height
+      }
+    }
     
-    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool{
-        if textField == nameField || textField == calPerServField{
-            categoryPicker.keyboardType = .numbersAndPunctuation
+
+    private func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool{
+        if textField == servingsField || textField == cookTimeField{
             servingsField.keyboardType = .numbersAndPunctuation
             cookTimeField.keyboardType = .numbersAndPunctuation
-            ingredientsField.keyboardType = .numbersAndPunctuation
-            directionsField.keyboardType = .numbersAndPunctuation
             fatsField.keyboardType = .numbersAndPunctuation
             sodiumField.keyboardType = .numbersAndPunctuation
             carbsField.keyboardType = .numbersAndPunctuation
@@ -136,7 +176,9 @@ class AddRecipeViewController: UIViewController, UIImagePickerControllerDelegate
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == nameField {
-            calPerServField.becomeFirstResponder()
+            servingsField.becomeFirstResponder()
+        }else if textField == servingsField {
+            cookTimeField.becomeFirstResponder()
         }else{
             nameField.becomeFirstResponder()
         }
@@ -157,7 +199,7 @@ class AddRecipeViewController: UIViewController, UIImagePickerControllerDelegate
         let fiber = Int(fiberField.text!)
         let sugar = Int(sugarsField.text!)
         let protein = Int(proteinField.text!)
-        let cholestrol = Int(cholesterolField.text!)
+        let cholesterol = Int(cholesterolField.text!)
         
         //gets user's name for database
         guard let name = defaults.dictionary(forKey: "CurrentUser")!["name"] else{
@@ -168,6 +210,7 @@ class AddRecipeViewController: UIViewController, UIImagePickerControllerDelegate
         
         // adds recipe info to the database
         recipeRef.document(recipeName).setData([
+            "recipeImg": imgURL,
             "name": recipeName,
             "category": category,
             "servings": servings,
@@ -181,7 +224,7 @@ class AddRecipeViewController: UIViewController, UIImagePickerControllerDelegate
             "fiber": fiber,
             "sugar": sugar,
             "protein": protein,
-            "cholesterol": cholestrol
+            "cholesterol": cholesterol
         ])
     }
 }

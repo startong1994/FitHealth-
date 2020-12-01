@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import FirebaseStorage
 
 class MyRecipesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
     
@@ -34,8 +35,8 @@ class MyRecipesViewController: UIViewController, UITableViewDelegate, UITableVie
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        navigationItem.title = "My Recipes"
-        self.tabBarController?.tabBar.isHidden = true
+       // navigationItem.title = "My Recipes"
+       // self.tabBarController?.tabBar.isHidden = true
         recipeTableView.delegate = self
         recipeTableView.dataSource = self
         setUpSearchBar()
@@ -59,6 +60,7 @@ class MyRecipesViewController: UIViewController, UITableViewDelegate, UITableVie
                 self.listRecipes = []
                 for document in QuerySnapshot!.documents {
                     //let data = document.data()
+                    let recipeImg = document.get("recipeImg") as? String ?? ""
                     let recipeName = document.get("name") as? String ?? "Item"
                     let ckTime = document.get("cookTime") as? String ?? "Item"
                     let servingSize = document.get("servings") as? String ?? "Item"
@@ -74,8 +76,10 @@ class MyRecipesViewController: UIViewController, UITableViewDelegate, UITableVie
                     let itemSodium = document.get("sodium") as? Int ?? 0
                     let itemSugar = document.get("sugar") as? Int ?? 0
                     
+                    
                     let newItem = recipeItem(
-                        name: recipeName,
+                                  recipeImg: recipeImg,
+                                  name: recipeName,
                                   cookTime: ckTime,
                                   servings: servingSize,
                                   category: categoryPicker,
@@ -89,8 +93,8 @@ class MyRecipesViewController: UIViewController, UITableViewDelegate, UITableVie
                                   sugar: itemSugar,
                                   protein:itemProtein,
                                   cholesterol: itemCholesterol
+                        
                     )
-                    
                     self.listRecipes.append(newItem)
                 }
                 DispatchQueue.main.async {
@@ -100,6 +104,36 @@ class MyRecipesViewController: UIViewController, UITableViewDelegate, UITableVie
         }
     }
    
+    // added code by Daitong Xu, deselectRow,
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    // Segue for the edit view controller
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "editRecipeSegue" {
+            let recipes = sender as! UITableViewCell
+            if let indexPath = recipeTableView.indexPath(for: recipes) {
+                let vc = segue.destination as! EditRecipeViewController
+                vc.getName = listRecipes[indexPath.row].name
+                vc.getServings = listRecipes[indexPath.row].servings
+                vc.getCookTime = listRecipes[indexPath.row].cookTime
+                vc.getCategory = listRecipes[indexPath.row].category
+                vc.getIngredients = listRecipes[indexPath.row].ingredients
+                vc.getDirections = listRecipes[indexPath.row].directions
+                vc.getFat = listRecipes[indexPath.row].fat
+                vc.getCalPerServ = listRecipes[indexPath.row].calories
+                vc.getCholesterol = listRecipes[indexPath.row].cholesterol
+                vc.getCarbs = listRecipes[indexPath.row].carb
+                vc.getFiber = listRecipes[indexPath.row].fiber
+                vc.getSugar = listRecipes[indexPath.row].sugar
+                vc.getSodium = listRecipes[indexPath.row].sodium
+                vc.getImage = listRecipes[indexPath.row].recipeImg!
+
+            }
+        }
+    }
     
     // search bar set up function
     func setUpSearchBar() {
@@ -153,12 +187,39 @@ class MyRecipesViewController: UIViewController, UITableViewDelegate, UITableVie
             let itemsInCell = searchingItems[indexPath.row]
             recipes.recipeName.text = itemsInCell.name
             recipes.recipeCategory.text = "Category: " + String(itemsInCell.category)
+            let recipeImgUrl = URL(string: itemsInCell.recipeImg!)!
+            let task = URLSession.shared.dataTask(with: recipeImgUrl, completionHandler: { data, response, error in
+                if error != nil {
+                    print(error!)
+                    return
+                }
+                DispatchQueue.main.async {
+                    recipes.recipeImage.image = UIImage(data: data!)
+                }
+            })
+            task.resume()
             
         }else{
             let itemsInCell = listRecipes[indexPath.row]
             recipes.recipeName.text = itemsInCell.name
             recipes.recipeCategory.text = "Category: " + String(itemsInCell.category)
             
+           // print(String(itemsInCell.recipeImg!))
+            /*
+            let recipeImgUrl = URL(string: itemsInCell.recipeImg!)!
+            let task = URLSession.shared.dataTask(with: recipeImgUrl, completionHandler: { data, response, error in
+                if error != nil {
+                    print(error!)
+                    return
+                }
+                DispatchQueue.main.async {
+                    print(recipeImgUrl)
+                    recipes.recipeImage.image = UIImage(data: data!)
+                }
+            })
+            task.resume()
+            */
+
         }
         recipes.recipeCellView.layer.cornerRadius = recipes.recipeCellView.frame.height / 2
         return recipes
@@ -174,10 +235,6 @@ class MyRecipesViewController: UIViewController, UITableViewDelegate, UITableVie
         case 1:
             searching = true
             searchingItems = listRecipes.filter({ $0.category.lowercased().prefix(text.count) == text.lowercased()})
-            recipeTableView.reloadData()
-        case 2:
-            searching = true
-            searchingItems =  listRecipes.filter({ String($0.calories).lowercased().prefix(text.count) == text.lowercased()})
             recipeTableView.reloadData()
         default:
             print("no type")
