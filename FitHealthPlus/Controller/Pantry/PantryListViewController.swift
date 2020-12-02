@@ -217,6 +217,30 @@ class PantryListViewController: UIViewController, UITableViewDelegate, UITableVi
             cell.itemCalories.text = "Calories: " + String(itemsInCell.calories)
             cell.itemQuantity.text = "Quantity:" + String(itemsInCell.quantity)
             cell.itemExDate.text = "Expires: " + String(itemsInCell.exDate)
+            
+            //category icons
+            if itemsInCell.category == "Vegetables" {
+                cell.itemImage.image = UIImage(named: "vegetables")!
+            }
+            if itemsInCell.category == "Fruit" {
+                cell.itemImage.image = UIImage(named: "fruits")!
+            }
+            if itemsInCell.category == "Pantry" {
+                cell.itemImage.image = UIImage(named: "pantry")!
+            }
+            if itemsInCell.category == "Frozen" {
+                cell.itemImage.image = UIImage(named: "frozen-yogurt")!
+            }
+            if itemsInCell.category == "Fridge" {
+                cell.itemImage.image = UIImage(named: "fridge")!
+            }
+            if itemsInCell.category == "Dairy" {
+                cell.itemImage.image = UIImage(named: "food")!
+            }
+            if itemsInCell.category == "Meat" {
+                cell.itemImage.image = UIImage(named: "meat")!
+            }
+            
         }else{
             let itemsInCell = myList[indexPath.row]
             cell.itemName.text = itemsInCell.name
@@ -224,7 +248,32 @@ class PantryListViewController: UIViewController, UITableViewDelegate, UITableVi
             cell.itemQuantity.text = "Quantity:" + String(itemsInCell.quantity)
             cell.itemExDate.text = "Expires: " + String(itemsInCell.exDate)
             
+            //category icons
+            if itemsInCell.category == "Vegetables" {
+                cell.itemImage.image = UIImage(named: "vegetables")!
+            }
+            if itemsInCell.category == "Fruit" {
+                cell.itemImage.image = UIImage(named: "fruits")!
+            }
+            if itemsInCell.category == "Pantry" {
+                cell.itemImage.image = UIImage(named: "pantry")!
+            }
+            if itemsInCell.category == "Frozen" {
+                cell.itemImage.image = UIImage(named: "frozen-yogurt")!
+            }
+            if itemsInCell.category == "Fridge" {
+                cell.itemImage.image = UIImage(named: "fridge")!
+            }
+            if itemsInCell.category == "Dairy" {
+                cell.itemImage.image = UIImage(named: "food")!
+            }
+            if itemsInCell.category == "Meat" {
+                cell.itemImage.image = UIImage(named: "meat")!
+            }
+            
         }
+        
+        
         cell.pantryCellView.layer.cornerRadius = cell.pantryCellView.frame.height / 2
         return cell
     }
