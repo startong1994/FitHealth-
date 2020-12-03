@@ -15,6 +15,7 @@ class RecipeMainViewController: UIViewController, UISearchBarDelegate, UICollect
     @IBOutlet weak var myRecipesBtn: UIButton!
     @IBOutlet weak var randomDish1Btn: UIButton!
     @IBOutlet weak var randomDish2Btn: UIButton!
+    @IBOutlet weak var randomDish3Btn: UIButton!
     @IBOutlet weak var mainPageView: UIView!
     @IBOutlet weak var dietCollectionView: UICollectionView!
     @IBOutlet weak var mainCategoryCollectionView: UICollectionView!
@@ -34,8 +35,9 @@ class RecipeMainViewController: UIViewController, UISearchBarDelegate, UICollect
         mainCategoryCollectionView.dataSource = self
         
         myRecipesBtn.layer.cornerRadius = 20
-        randomDish1Btn.layer.cornerRadius = 20
-        randomDish2Btn.layer.cornerRadius = 20
+        randomDish1Btn.layer.cornerRadius = 0.5 * randomDish1Btn.bounds.size.width
+        randomDish2Btn.layer.cornerRadius = 0.5 * randomDish2Btn.bounds.size.width
+        randomDish3Btn.layer.cornerRadius = 0.5 * randomDish3Btn.bounds.size.width
         randomDish1Btn.clipsToBounds = true
         randomDish2Btn.clipsToBounds = true
         mainPageView.setTwoGradient(colorOne: UIColor.systemTeal, colorTwo: UIColor.white)
@@ -54,6 +56,7 @@ class RecipeMainViewController: UIViewController, UISearchBarDelegate, UICollect
         navigationController?.navigationBar.compactAppearance = appearance
         navigationController?.navigationBar.scrollEdgeAppearance = appearance
         searchController.searchBar.searchTextField.backgroundColor = UIColor.white
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -78,7 +81,7 @@ class RecipeMainViewController: UIViewController, UISearchBarDelegate, UICollect
         else{
             let mcell = collectionView.dequeueReusableCell(withReuseIdentifier: "mainCategoryCell", for: indexPath) as! mainCategoryCollectionViewCell
             mcell.mainCategoryLabel.text = mainCategoryName[indexPath.row]
-            mcell.backgroundColor = UIColor.systemBlue
+            //mcell.backgroundColor = UIColor.systemBlue
             mcell.layer.cornerRadius = 20
             return mcell
         }
