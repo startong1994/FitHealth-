@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1E81E0BE2AC7BC7154766562 /* Pods_FitHealthPlus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B2CF4DFDDF55C05D87F9827 /* Pods_FitHealthPlus.framework */; };
+		12E8367D8663FC05C8896F63 /* Pods_FitHealthPlus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6BC0832F650901A61B61C76 /* Pods_FitHealthPlus.framework */; };
 		9816343B2540C53500546A9E /* BarcodeScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9816343A2540C53500546A9E /* BarcodeScannerViewController.swift */; };
 		9816343D2540D82D00546A9E /* EditPantryItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9816343C2540D82D00546A9E /* EditPantryItemViewController.swift */; };
 		98530BBF253F9C9800D93F88 /* PantryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98530BBE253F9C9800D93F88 /* PantryListViewController.swift */; };
@@ -60,9 +60,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3B2CF4DFDDF55C05D87F9827 /* Pods_FitHealthPlus.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FitHealthPlus.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		49B0B59585227D98BF754078 /* Pods-FitHealthPlus.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FitHealthPlus.release.xcconfig"; path = "Target Support Files/Pods-FitHealthPlus/Pods-FitHealthPlus.release.xcconfig"; sourceTree = "<group>"; };
-		5F1951FD1BBD7ED9D923574E /* Pods-FitHealthPlus.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FitHealthPlus.debug.xcconfig"; path = "Target Support Files/Pods-FitHealthPlus/Pods-FitHealthPlus.debug.xcconfig"; sourceTree = "<group>"; };
+		4A4D69B8BDAD71EB8EDBD95E /* Pods-FitHealthPlus.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FitHealthPlus.release.xcconfig"; path = "Target Support Files/Pods-FitHealthPlus/Pods-FitHealthPlus.release.xcconfig"; sourceTree = "<group>"; };
 		9816343A2540C53500546A9E /* BarcodeScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeScannerViewController.swift; sourceTree = "<group>"; };
 		9816343C2540D82D00546A9E /* EditPantryItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPantryItemViewController.swift; sourceTree = "<group>"; };
 		98530BBE253F9C9800D93F88 /* PantryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PantryListViewController.swift; sourceTree = "<group>"; };
@@ -113,6 +111,8 @@
 		D2EA92E2253A329500026B0E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D2EA92E8253A32D800026B0E /* PantryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PantryViewController.swift; sourceTree = "<group>"; };
 		D2EA92EA253A32E900026B0E /* SocialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialViewController.swift; sourceTree = "<group>"; };
+		E6BC0832F650901A61B61C76 /* Pods_FitHealthPlus.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FitHealthPlus.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EA28C4593F5A80E361BC599C /* Pods-FitHealthPlus.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FitHealthPlus.debug.xcconfig"; path = "Target Support Files/Pods-FitHealthPlus/Pods-FitHealthPlus.debug.xcconfig"; sourceTree = "<group>"; };
 		EE4BF1412567D81500012F22 /* recipeObj.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = recipeObj.swift; sourceTree = "<group>"; };
 		EE4C45FF25683E1500793AA0 /* EditRecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditRecipeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -122,8 +122,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1E81E0BE2AC7BC7154766562 /* Pods_FitHealthPlus.framework in Frameworks */,
 				D21D56EE2565C0240076FD4E /* HealthKit.framework in Frameworks */,
+				12E8367D8663FC05C8896F63 /* Pods_FitHealthPlus.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -133,8 +133,8 @@
 		2C876BA4E603B6CDFDD1BC7B /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				5F1951FD1BBD7ED9D923574E /* Pods-FitHealthPlus.debug.xcconfig */,
-				49B0B59585227D98BF754078 /* Pods-FitHealthPlus.release.xcconfig */,
+				EA28C4593F5A80E361BC599C /* Pods-FitHealthPlus.debug.xcconfig */,
+				4A4D69B8BDAD71EB8EDBD95E /* Pods-FitHealthPlus.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -143,7 +143,7 @@
 			isa = PBXGroup;
 			children = (
 				D21D56ED2565C0240076FD4E /* HealthKit.framework */,
-				3B2CF4DFDDF55C05D87F9827 /* Pods_FitHealthPlus.framework */,
+				E6BC0832F650901A61B61C76 /* Pods_FitHealthPlus.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -310,11 +310,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D2EA92E5253A329500026B0E /* Build configuration list for PBXNativeTarget "FitHealthPlus" */;
 			buildPhases = (
-				50C35C0C7FD4B104B6FB4916 /* [CP] Check Pods Manifest.lock */,
+				AF180753267FBCEC8A50E1A2 /* [CP] Check Pods Manifest.lock */,
 				D2EA92CB253A329500026B0E /* Sources */,
 				D2EA92CC253A329500026B0E /* Frameworks */,
 				D2EA92CD253A329500026B0E /* Resources */,
-				6C8508F748B8FB98BB13CFDB /* [CP] Embed Pods Frameworks */,
+				0B88E5DC1E4BF828058F36D6 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -377,7 +377,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		50C35C0C7FD4B104B6FB4916 /* [CP] Check Pods Manifest.lock */ = {
+		0B88E5DC1E4BF828058F36D6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FitHealthPlus/Pods-FitHealthPlus-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FitHealthPlus/Pods-FitHealthPlus-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FitHealthPlus/Pods-FitHealthPlus-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AF180753267FBCEC8A50E1A2 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -397,23 +414,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		6C8508F748B8FB98BB13CFDB /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-FitHealthPlus/Pods-FitHealthPlus-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-FitHealthPlus/Pods-FitHealthPlus-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FitHealthPlus/Pods-FitHealthPlus-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -606,7 +606,7 @@
 		};
 		D2EA92E6253A329500026B0E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5F1951FD1BBD7ED9D923574E /* Pods-FitHealthPlus.debug.xcconfig */;
+			baseConfigurationReference = EA28C4593F5A80E361BC599C /* Pods-FitHealthPlus.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = FitHealthPlus/FitHealthPlus.entitlements;
@@ -626,7 +626,7 @@
 		};
 		D2EA92E7253A329500026B0E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 49B0B59585227D98BF754078 /* Pods-FitHealthPlus.release.xcconfig */;
+			baseConfigurationReference = 4A4D69B8BDAD71EB8EDBD95E /* Pods-FitHealthPlus.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = FitHealthPlus/FitHealthPlus.entitlements;

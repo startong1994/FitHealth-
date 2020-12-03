@@ -14,8 +14,7 @@ class MyRecipesViewController: UIViewController, UITableViewDelegate, UITableVie
     
     
     @IBOutlet weak var recipeTableView: UITableView!
-    
-    
+
     // View for sort feature
     var containerView = UIView()
     
@@ -30,24 +29,22 @@ class MyRecipesViewController: UIViewController, UITableViewDelegate, UITableVie
     var searchingItems = [recipeItem]()
     var searching = false
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
-       // navigationItem.title = "My Recipes"
+        navigationItem.title = "My Recipes"
        // self.tabBarController?.tabBar.isHidden = true
         recipeTableView.delegate = self
         recipeTableView.dataSource = self
         setUpSearchBar()
+        recipeTableView.backgroundColor = UIColor.systemTeal
         
     }
-    
     
     override func viewWillAppear(_ animated: Bool) {
         self.tabBarController?.tabBar.isHidden = false
     
-        //code to get data from local UserDefault data, get name when it is loaded
+        //code to get data from user that's logged in
         guard let username = defaults.dictionary(forKey: "CurrentUser")!["name"]else{
             print("name not found")
             return
@@ -108,6 +105,7 @@ class MyRecipesViewController: UIViewController, UITableViewDelegate, UITableVie
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
         tableView.deselectRow(at: indexPath, animated: true)
+
     }
     
     // Segue for the edit view controller
@@ -135,11 +133,12 @@ class MyRecipesViewController: UIViewController, UITableViewDelegate, UITableVie
         }
     }
     
+    
     // search bar set up function
     func setUpSearchBar() {
         let searchController = UISearchController(searchResultsController: nil)
         navigationItem.searchController = searchController
-        navigationItem.hidesSearchBarWhenScrolling = true
+        navigationItem.hidesSearchBarWhenScrolling = false
         let searchBar = UISearchBar(frame: CGRect.init(x: 0, y: 0, width: (UIScreen.main.bounds.width), height: 70))
         searchBar.showsScopeBar = true
         searchController.searchBar.scopeButtonTitles = ["Name", "Category"]
@@ -180,48 +179,45 @@ class MyRecipesViewController: UIViewController, UITableViewDelegate, UITableVie
         
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 120
+    }
+    
     // add data to table view cells
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let recipes = tableView.dequeueReusableCell(withIdentifier: "recipes", for: indexPath) as! recipeCell
+        recipes.recipeCellView.layer.cornerRadius = 8
         if searching{
             let itemsInCell = searchingItems[indexPath.row]
             recipes.recipeName.text = itemsInCell.name
             recipes.recipeCategory.text = "Category: " + String(itemsInCell.category)
-            let recipeImgUrl = URL(string: itemsInCell.recipeImg!)!
-            let task = URLSession.shared.dataTask(with: recipeImgUrl, completionHandler: { data, response, error in
-                if error != nil {
-                    print(error!)
-                    return
-                }
-                DispatchQueue.main.async {
-                    recipes.recipeImage.image = UIImage(data: data!)
-                }
-            })
-            task.resume()
+            //retrieve image from DB
+            if itemsInCell.recipeImg != nil {
+                recipes.recipeImage.image = UIImage(named: "no-image-icon")
+            }
+            else {
+                let imageUrl = URL(string: itemsInCell.recipeImg!)!
+                let imageData = try! Data(contentsOf: imageUrl)
+                recipes.recipeImage.image = UIImage(data: imageData)
+            }
             
         }else{
             let itemsInCell = listRecipes[indexPath.row]
             recipes.recipeName.text = itemsInCell.name
             recipes.recipeCategory.text = "Category: " + String(itemsInCell.category)
+            //retrieve image from DB
+            if itemsInCell.recipeImg == "" {
+                recipes.recipeImage.image = UIImage(named: "no-image-icon")
+            }
+            else {
+                let imageUrl = URL(string: itemsInCell.recipeImg!)!
+                let imageData = try! Data(contentsOf: imageUrl)
+                recipes.recipeImage.image = UIImage(data: imageData)
+            }
+        
             
-           // print(String(itemsInCell.recipeImg!))
-            /*
-            let recipeImgUrl = URL(string: itemsInCell.recipeImg!)!
-            let task = URLSession.shared.dataTask(with: recipeImgUrl, completionHandler: { data, response, error in
-                if error != nil {
-                    print(error!)
-                    return
-                }
-                DispatchQueue.main.async {
-                    print(recipeImgUrl)
-                    recipes.recipeImage.image = UIImage(data: data!)
-                }
-            })
-            task.resume()
-            */
-
+            
         }
-        recipes.recipeCellView.layer.cornerRadius = recipes.recipeCellView.frame.height / 2
         return recipes
     }
     
@@ -280,6 +276,5 @@ class recipeCell: UITableViewCell{
     @IBOutlet weak var recipeImage: UIImageView!
     @IBOutlet weak var recipeName: UILabel!
     @IBOutlet weak var recipeCategory: UILabel!
-    
     
 }
