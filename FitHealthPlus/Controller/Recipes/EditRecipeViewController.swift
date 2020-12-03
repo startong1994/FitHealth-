@@ -104,7 +104,11 @@ class EditRecipeViewController: UIViewController, UIImagePickerControllerDelegat
         proteinField.text = String(getProtein)
         sugarsField.text = String(getSugar)
         sodiumField.text = String(getSodium)
-        
+        //retrieve image---->
+        let imageUrl = URL(string: String(getImage))!
+        let imageData = try! Data(contentsOf: imageUrl)
+        imageUpload.image = UIImage(data: imageData)
+        //^^^^^done retrieving image
         
         addImgButton.layer.cornerRadius = 8
         imagePicker.delegate = self
@@ -129,40 +133,38 @@ class EditRecipeViewController: UIViewController, UIImagePickerControllerDelegat
         imagePicker.allowsEditing = true
         present(imagePicker, animated: true, completion: nil)
     }
+    
+    
     //uploads image to the page
     public func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        guard let image = info[UIImagePickerController.InfoKey.editedImage]as? UIImage else {
+        guard let image = info[UIImagePickerController.InfoKey.editedImage]as? UIImage
+        else {
             return
         }
-        guard let imageData = image.pngData() else {
+        imageUpload.image = image
+        let imageID = UUID.init().uuidString
+        let storageRef = Storage.storage().reference(withPath: "recipeImages/\(imageID).jpg")
+        guard let imageData = imageUpload.image?.jpegData(compressionQuality: 0.75) else {
             return
         }
-        storageRef.child("images/file.png").putData(imageData, metadata:nil, completion: { _, error in
+        let uploadMetadata = StorageMetadata.init()
+        uploadMetadata.contentType = "image/jpeg"
+        storageRef.putData(imageData, metadata:uploadMetadata, completion: { _, error in
             guard error == nil else {
                 print("Failed to upload")
                 return
             }
-            self.storageRef.child("images/file.png").downloadURL(completion: {url, error in
+            storageRef.downloadURL(completion: {url, error in
                 guard let url = url, error == nil else {
                     return
                 }
-                let urlString = url.absoluteString
-                self.imgURL = urlString
-                self.defaults.set(urlString, forKey: "url")
+                self.imgURL = url.absoluteString
+                print("is it working ", self.imgURL)
+                //self.defaults.set(urlString, forKey: "url")
             })
         })
-        if let viewImage = info[UIImagePickerController.InfoKey.editedImage]as? UIImage {
-                    imageUpload.image = viewImage
-        }
         dismiss(animated: true, completion: nil)
     }
-    
-    /*
-    override func viewWillAppear(_ animated: Bool) {
-        self.tabBarController?.tabBar.isHidden = false
-    }*/
-    
-
     
     private func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool{
         if textField == servingsField || textField == cookTimeField{

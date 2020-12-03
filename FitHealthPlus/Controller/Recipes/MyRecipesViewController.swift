@@ -203,23 +203,13 @@ class MyRecipesViewController: UIViewController, UITableViewDelegate, UITableVie
             let itemsInCell = listRecipes[indexPath.row]
             recipes.recipeName.text = itemsInCell.name
             recipes.recipeCategory.text = "Category: " + String(itemsInCell.category)
+            //retrieve image from DB
+            let imageUrl = URL(string: itemsInCell.recipeImg!)!
+            let imageData = try! Data(contentsOf: imageUrl)
+            recipes.recipeImage.image = UIImage(data: imageData)
+        
             
-           // print(String(itemsInCell.recipeImg!))
-            /*
-            let recipeImgUrl = URL(string: itemsInCell.recipeImg!)!
-            let task = URLSession.shared.dataTask(with: recipeImgUrl, completionHandler: { data, response, error in
-                if error != nil {
-                    print(error!)
-                    return
-                }
-                DispatchQueue.main.async {
-                    print(recipeImgUrl)
-                    recipes.recipeImage.image = UIImage(data: data!)
-                }
-            })
-            task.resume()
-            */
-
+            
         }
         recipes.recipeCellView.layer.cornerRadius = recipes.recipeCellView.frame.height / 2
         return recipes
