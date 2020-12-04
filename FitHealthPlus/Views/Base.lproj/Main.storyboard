@@ -913,6 +913,12 @@
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7DE-Q9-Icz">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                                <color key="backgroundColor" red="0.08235294118" green="0.46308755709999999" blue="0.75958798520000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" systemColor="systemGroupedBackgroundColor"/>
+                                <color key="barTintColor" red="0.08235294118" green="0.46308755709999999" blue="0.75958798520000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <color key="textColor" systemColor="systemGroupedBackgroundColor"/>
+                                </textAttributes>
                                 <items>
                                     <navigationItem title="Add Recipe" id="X9a-gN-zBh">
                                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="htx-6U-dua">
@@ -953,6 +959,7 @@
                                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="L0O-Ji-aDm" userLabel="servingsField">
                                                 <rect key="frame" x="166" y="313.5" width="77" height="34"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" systemColor="systemGray5Color"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                                 <connections>
@@ -987,6 +994,7 @@
                                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5fd-BM-Aty" userLabel="cookTimeField">
                                                 <rect key="frame" x="264" y="313.5" width="97" height="34"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" systemColor="systemGray5Color"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                                 <connections>
@@ -996,6 +1004,7 @@
                                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="W9s-Gd-6ce" userLabel="nameField">
                                                 <rect key="frame" x="8" y="242.5" width="333" height="34"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" systemColor="systemGray5Color"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                                 <connections>
@@ -1010,6 +1019,7 @@
                                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zM3-m1-e0p" userLabel="categoryPicker">
                                                 <rect key="frame" x="8" y="312.5" width="127" height="34"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" systemColor="systemGray5Color"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                                 <connections>
@@ -1061,6 +1071,7 @@
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fXT-dO-lex" userLabel="fatsField">
                                                 <rect key="frame" x="10" y="1009" width="140" height="34"/>
+                                                <color key="backgroundColor" systemColor="systemGray5Color"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                                 <connections>
@@ -1069,6 +1080,7 @@
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cdE-8T-r57" userLabel="calPerServField">
                                                 <rect key="frame" x="10" y="793" width="139" height="34"/>
+                                                <color key="backgroundColor" systemColor="systemGray5Color"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                                 <connections>
@@ -1077,6 +1089,7 @@
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Fq5-m2-Eth" userLabel="cholesterolField">
                                                 <rect key="frame" x="229" y="793" width="140" height="34"/>
+                                                <color key="backgroundColor" systemColor="systemGray5Color"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                                 <connections>
@@ -1085,6 +1098,7 @@
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vqh-zE-1eT" userLabel="carbsField">
                                                 <rect key="frame" x="10" y="865" width="139" height="34"/>
+                                                <color key="backgroundColor" systemColor="systemGray5Color"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                                 <connections>
@@ -1093,6 +1107,7 @@
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xKS-SI-RLa" userLabel="fiberField">
                                                 <rect key="frame" x="229" y="864.5" width="140" height="34"/>
+                                                <color key="backgroundColor" systemColor="systemGray5Color"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                                 <connections>
@@ -1107,6 +1122,7 @@
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ko7-zB-nbh" userLabel="proteinField">
                                                 <rect key="frame" x="10" y="937" width="137" height="34"/>
+                                                <color key="backgroundColor" systemColor="systemGray5Color"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                                 <connections>
@@ -1115,6 +1131,7 @@
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xrm-jx-9Kw" userLabel="sugarsField">
                                                 <rect key="frame" x="229" y="1008.5" width="140" height="34"/>
+                                                <color key="backgroundColor" systemColor="systemGray5Color"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                                 <connections>
@@ -1129,6 +1146,7 @@
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rfh-RP-gvz" userLabel="sodiumField">
                                                 <rect key="frame" x="229" y="936.5" width="140" height="34"/>
+                                                <color key="backgroundColor" systemColor="systemGray5Color"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                                 <connections>
@@ -1147,7 +1165,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Enter Ingredients" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="lKO-Zk-9c4">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="lKO-Zk-9c4">
                                                 <rect key="frame" x="8" y="389" width="398" height="130"/>
                                                 <color key="backgroundColor" systemColor="systemGray5Color"/>
                                                 <constraints>
@@ -1160,7 +1178,7 @@
                                                     <outlet property="delegate" destination="jM6-2T-1jc" id="9Xj-nR-pAU"/>
                                                 </connections>
                                             </textView>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Enter directions" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ZA3-I7-Md2">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ZA3-I7-Md2">
                                                 <rect key="frame" x="8" y="568" width="398" height="130"/>
                                                 <color key="backgroundColor" systemColor="systemGray5Color"/>
                                                 <constraints>
@@ -1175,15 +1193,18 @@
                                             </textView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QOa-hw-IC3">
                                                 <rect key="frame" x="149" y="1077" width="93" height="36"/>
+                                                <color key="backgroundColor" systemColor="systemGrayColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                <state key="normal" title="Save"/>
+                                                <state key="normal" title="Save">
+                                                    <color key="titleColor" systemColor="tertiarySystemBackgroundColor"/>
+                                                </state>
                                                 <connections>
                                                     <action selector="saveRecipeButton:" destination="jM6-2T-1jc" eventType="touchUpInside" id="7Jz-fk-7Wn"/>
                                                     <segue destination="8PC-Nd-9Tq" kind="unwind" unwindAction="unWindToListWithSender:" id="PA4-fO-iXg"/>
                                                 </connections>
                                             </button>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" red="0.08235294118" green="0.46308755709999999" blue="0.75958798520000004" alpha="0.28419306506849318" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstItem="Fq5-m2-Eth" firstAttribute="width" secondItem="YD9-J7-ubz" secondAttribute="width" multiplier="0.338164" id="04m-9d-XRD"/>
                                             <constraint firstItem="yqk-KT-IT3" firstAttribute="leading" secondItem="YD9-J7-ubz" secondAttribute="leading" constant="9" id="0V0-BB-CQV"/>
@@ -1301,7 +1322,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ugW-hx-8Yi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="8PC-Nd-9Tq" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="101" y="1015"/>
+            <point key="canvasLocation" x="39" y="1006"/>
         </scene>
         <!--My Recipes-->
         <scene sceneID="3ef-Xd-Rim">
@@ -1311,73 +1332,85 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8gT-qs-UkB">
-                                <rect key="frame" x="0.0" y="88" width="414" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </searchBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="x0H-Fy-AU7">
-                                <rect key="frame" x="0.0" y="132" width="414" height="681"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="x0H-Fy-AU7">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="sectionIndexBackgroundColor" systemColor="systemTealColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="recipes" rowHeight="136" id="8KD-ub-e6s" customClass="recipeCell" customModule="FitHealthPlus" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="136"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="recipes" rowHeight="150" id="8KD-ub-e6s" customClass="recipeCell" customModule="FitHealthPlus" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="150"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8KD-ub-e6s" id="zs0-VA-vRI">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="136"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="150"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rIC-si-0xb">
-                                                    <rect key="frame" x="169" y="91" width="225" height="39"/>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FNZ-AH-ddz" userLabel="Recipe Cell View1">
+                                                    <rect key="frame" x="5" y="5" width="404" height="140"/>
+                                                    <subviews>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wDF-5j-HJR">
+                                                            <rect key="frame" x="8" y="10" width="120" height="120"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="120" id="8dn-KB-lM7"/>
+                                                                <constraint firstAttribute="width" constant="120" id="HyP-9t-Xsx"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N5X-eg-git">
+                                                            <rect key="frame" x="138" y="35" width="256" height="20.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ywd-QV-Gse">
+                                                            <rect key="frame" x="138" y="70.5" width="256" height="20.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" red="0.082352941176470587" green="0.46308755711333394" blue="0.75958798519552573" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="225" id="wDs-0M-85O"/>
+                                                        <constraint firstItem="wDF-5j-HJR" firstAttribute="leading" secondItem="FNZ-AH-ddz" secondAttribute="leading" constant="8" id="DJa-4b-9pw"/>
+                                                        <constraint firstItem="Ywd-QV-Gse" firstAttribute="top" secondItem="N5X-eg-git" secondAttribute="bottom" constant="15" id="Eyt-P6-CI9"/>
+                                                        <constraint firstItem="wDF-5j-HJR" firstAttribute="centerY" secondItem="FNZ-AH-ddz" secondAttribute="centerY" id="nyi-LS-fYR"/>
+                                                        <constraint firstItem="N5X-eg-git" firstAttribute="leading" secondItem="wDF-5j-HJR" secondAttribute="trailing" constant="10" id="qT7-Tt-VU8"/>
+                                                        <constraint firstItem="Ywd-QV-Gse" firstAttribute="leading" secondItem="wDF-5j-HJR" secondAttribute="trailing" constant="10" id="tjV-xT-8Wd"/>
+                                                        <constraint firstAttribute="trailing" secondItem="N5X-eg-git" secondAttribute="trailing" constant="10" id="v57-qP-OBl"/>
+                                                        <constraint firstAttribute="trailing" secondItem="Ywd-QV-Gse" secondAttribute="trailing" constant="10" id="wyr-tu-ibo"/>
+                                                        <constraint firstItem="N5X-eg-git" firstAttribute="top" secondItem="FNZ-AH-ddz" secondAttribute="top" constant="35" id="xQ5-RB-noR"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6fQ-73-HXp">
-                                                    <rect key="frame" x="20" y="4" width="141" height="128"/>
-                                                </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fu0-VS-X4J">
-                                                    <rect key="frame" x="169" y="53" width="225" height="30"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="30" id="0u5-va-aVF"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                </view>
                                             </subviews>
+                                            <color key="backgroundColor" systemColor="systemTealColor"/>
                                             <constraints>
-                                                <constraint firstItem="fu0-VS-X4J" firstAttribute="leading" secondItem="zs0-VA-vRI" secondAttribute="leading" constant="169" id="1X2-fa-HrU"/>
-                                                <constraint firstItem="rIC-si-0xb" firstAttribute="top" secondItem="fu0-VS-X4J" secondAttribute="bottom" constant="8" symbolic="YES" id="8em-wk-BYB"/>
-                                                <constraint firstItem="fu0-VS-X4J" firstAttribute="centerY" secondItem="zs0-VA-vRI" secondAttribute="centerY" id="8hL-is-xtf"/>
-                                                <constraint firstItem="rIC-si-0xb" firstAttribute="trailing" secondItem="fu0-VS-X4J" secondAttribute="trailing" id="C5m-ni-FDv"/>
-                                                <constraint firstItem="fu0-VS-X4J" firstAttribute="leading" secondItem="6fQ-73-HXp" secondAttribute="trailing" constant="8" id="SA3-nh-NAq"/>
-                                                <constraint firstItem="fu0-VS-X4J" firstAttribute="leading" secondItem="rIC-si-0xb" secondAttribute="leading" id="V9d-FO-hSb"/>
-                                                <constraint firstItem="fu0-VS-X4J" firstAttribute="leading" secondItem="6fQ-73-HXp" secondAttribute="trailing" constant="8" symbolic="YES" id="ZT5-82-gol"/>
-                                                <constraint firstItem="6fQ-73-HXp" firstAttribute="top" secondItem="zs0-VA-vRI" secondAttribute="topMargin" constant="-7" id="az7-P4-2Hk"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="rIC-si-0xb" secondAttribute="bottom" constant="-5" id="biZ-a5-D3f"/>
-                                                <constraint firstItem="fu0-VS-X4J" firstAttribute="centerY" secondItem="6fQ-73-HXp" secondAttribute="centerY" id="pxz-gb-mLn"/>
-                                                <constraint firstItem="6fQ-73-HXp" firstAttribute="leading" secondItem="zs0-VA-vRI" secondAttribute="leadingMargin" id="xCC-7e-VAD"/>
+                                                <constraint firstAttribute="bottom" secondItem="FNZ-AH-ddz" secondAttribute="bottom" constant="5" id="1yz-yp-Obr"/>
+                                                <constraint firstItem="FNZ-AH-ddz" firstAttribute="leading" secondItem="zs0-VA-vRI" secondAttribute="leading" constant="5" id="8mg-zk-1Bv"/>
+                                                <constraint firstItem="FNZ-AH-ddz" firstAttribute="top" secondItem="zs0-VA-vRI" secondAttribute="top" constant="5" id="I8t-Mj-MtV"/>
+                                                <constraint firstAttribute="trailing" secondItem="FNZ-AH-ddz" secondAttribute="trailing" constant="5" id="Poh-Kc-06w"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" systemColor="systemGray3Color"/>
                                         <connections>
-                                            <outlet property="recipeCategory" destination="rIC-si-0xb" id="qPu-4W-nHN"/>
-                                            <outlet property="recipeCellView" destination="zs0-VA-vRI" id="Fit-Ma-Ar5"/>
-                                            <outlet property="recipeImage" destination="6fQ-73-HXp" id="9NG-p9-aJ6"/>
-                                            <outlet property="recipeName" destination="fu0-VS-X4J" id="Nyo-rE-L2A"/>
+                                            <outlet property="recipeCategory" destination="Ywd-QV-Gse" id="9dG-Hf-fqs"/>
+                                            <outlet property="recipeCellView" destination="FNZ-AH-ddz" id="uCv-bN-aO7"/>
+                                            <outlet property="recipeImage" destination="wDF-5j-HJR" id="pZk-Kd-8cx"/>
+                                            <outlet property="recipeName" destination="N5X-eg-git" id="O0E-EN-eCv"/>
                                             <segue destination="4xV-RO-SZy" kind="showDetail" identifier="editRecipeSegue" id="Zbz-qv-G0Q"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="V0u-qv-L8D" id="ink-1M-AyA"/>
+                                    <outlet property="delegate" destination="V0u-qv-L8D" id="G1r-Aq-uRR"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="cgW-cH-v98"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="x0H-Fy-AU7" firstAttribute="centerX" secondItem="2w8-aQ-d6v" secondAttribute="centerX" id="kW2-T5-qUY"/>
+                            <constraint firstItem="x0H-Fy-AU7" firstAttribute="bottom" secondItem="cgW-cH-v98" secondAttribute="bottom" id="q7V-5r-SmX"/>
+                            <constraint firstItem="x0H-Fy-AU7" firstAttribute="top" secondItem="cgW-cH-v98" secondAttribute="top" id="xRe-A1-ABf"/>
+                            <constraint firstItem="x0H-Fy-AU7" firstAttribute="leading" secondItem="cgW-cH-v98" secondAttribute="leading" id="xkt-03-OpQ"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="My Recipes" id="76w-gT-tk6">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="jPq-Y3-lim">
@@ -1392,7 +1425,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Tt-NK-f4b" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1028" y="416"/>
+            <point key="canvasLocation" x="840.57971014492762" y="412.5"/>
         </scene>
         <!--SocialView-->
         <scene sceneID="zMa-wn-eEt">
@@ -2563,6 +2596,11 @@
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1TE-ST-iDh">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                                <color key="tintColor" systemColor="systemGroupedBackgroundColor"/>
+                                <color key="barTintColor" red="0.08235294118" green="0.46308755709999999" blue="0.75958798520000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <color key="textColor" systemColor="systemGroupedBackgroundColor"/>
+                                </textAttributes>
                                 <items>
                                     <navigationItem title="Edit Recipe" id="TId-JJ-09o">
                                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="nWm-nc-WL0">
@@ -2603,6 +2641,7 @@
                                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="x8U-ml-llr" userLabel="servingsField">
                                                 <rect key="frame" x="166" y="313.5" width="77" height="34"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" systemColor="systemGray5Color"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                                 <connections>
@@ -2637,6 +2676,7 @@
                                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ifk-Uf-Liq" userLabel="cookTimeField">
                                                 <rect key="frame" x="264" y="313.5" width="97" height="34"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" systemColor="systemGray5Color"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                                 <connections>
@@ -2646,6 +2686,7 @@
                                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TZ4-hF-N7c" userLabel="nameField">
                                                 <rect key="frame" x="8" y="242.5" width="333" height="34"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" systemColor="systemGray5Color"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                                 <connections>
@@ -2660,6 +2701,7 @@
                                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="W7w-Yc-Mun" userLabel="categoryPicker">
                                                 <rect key="frame" x="8" y="312.5" width="127" height="34"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" systemColor="systemGray5Color"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                                 <connections>
@@ -2711,6 +2753,7 @@
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qfe-Lm-alj" userLabel="fatsField">
                                                 <rect key="frame" x="10" y="1009" width="140" height="34"/>
+                                                <color key="backgroundColor" systemColor="systemGray5Color"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                                 <connections>
@@ -2719,6 +2762,7 @@
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Bia-Jf-16R" userLabel="calPerServField">
                                                 <rect key="frame" x="10" y="793" width="139" height="34"/>
+                                                <color key="backgroundColor" systemColor="systemGray5Color"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                                 <connections>
@@ -2727,6 +2771,7 @@
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wy0-EG-5LR" userLabel="cholesterolField">
                                                 <rect key="frame" x="229" y="793" width="140" height="34"/>
+                                                <color key="backgroundColor" systemColor="systemGray5Color"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                                 <connections>
@@ -2735,6 +2780,7 @@
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fLW-qo-nb8" userLabel="carbsField">
                                                 <rect key="frame" x="10" y="865" width="139" height="34"/>
+                                                <color key="backgroundColor" systemColor="systemGray5Color"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                                 <connections>
@@ -2743,6 +2789,7 @@
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NjY-tk-ssq" userLabel="fiberField">
                                                 <rect key="frame" x="229" y="864.5" width="140" height="34"/>
+                                                <color key="backgroundColor" systemColor="systemGray5Color"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                                 <connections>
@@ -2757,6 +2804,7 @@
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="L92-kF-eTB" userLabel="proteinField">
                                                 <rect key="frame" x="10" y="937" width="137" height="34"/>
+                                                <color key="backgroundColor" systemColor="systemGray5Color"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                                 <connections>
@@ -2765,6 +2813,7 @@
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YDM-lH-D72" userLabel="sugarsField">
                                                 <rect key="frame" x="229" y="1008.5" width="140" height="34"/>
+                                                <color key="backgroundColor" systemColor="systemGray5Color"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                                 <connections>
@@ -2779,6 +2828,7 @@
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bBH-CR-yEV" userLabel="sodiumField">
                                                 <rect key="frame" x="229" y="936.5" width="140" height="34"/>
+                                                <color key="backgroundColor" systemColor="systemGray5Color"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                                 <connections>
@@ -2797,7 +2847,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Enter Ingredients" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="WDo-8n-cDx" userLabel="Ingredients Field">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="WDo-8n-cDx" userLabel="Ingredients Field">
                                                 <rect key="frame" x="8" y="389" width="398" height="130"/>
                                                 <color key="backgroundColor" systemColor="systemGray5Color"/>
                                                 <constraints>
@@ -2810,7 +2860,7 @@
                                                     <outlet property="delegate" destination="4xV-RO-SZy" id="wwk-Us-9Zd"/>
                                                 </connections>
                                             </textView>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Enter directions" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="cCb-cq-NSD">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="cCb-cq-NSD">
                                                 <rect key="frame" x="8" y="568" width="398" height="130"/>
                                                 <color key="backgroundColor" systemColor="systemGray5Color"/>
                                                 <constraints>
@@ -2825,15 +2875,18 @@
                                             </textView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xOi-jd-8kH">
                                                 <rect key="frame" x="149" y="1077" width="93" height="36"/>
+                                                <color key="backgroundColor" systemColor="systemGrayColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                <state key="normal" title="Save"/>
+                                                <state key="normal" title="Save">
+                                                    <color key="titleColor" systemColor="systemGroupedBackgroundColor"/>
+                                                </state>
                                                 <connections>
                                                     <action selector="saveRecipeButton:" destination="4xV-RO-SZy" eventType="touchUpInside" id="zdr-tX-C5l"/>
                                                     <segue destination="62h-FC-aeQ" kind="unwind" unwindAction="unWindToListWithSender:" id="CRC-xH-yAf"/>
                                                 </connections>
                                             </button>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" red="0.08235294118" green="0.46308755709999999" blue="0.75958798520000004" alpha="0.28419306509999998" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstItem="3iv-6O-uaO" firstAttribute="width" secondItem="tui-ng-oDe" secondAttribute="width" multiplier="0.270531" id="0TP-sI-zKD"/>
                                             <constraint firstItem="L92-kF-eTB" firstAttribute="top" secondItem="XNc-eF-Kpa" secondAttribute="bottom" constant="7" id="1Nc-bQ-OmX"/>
@@ -2942,6 +2995,7 @@
                         <outlet property="ingredientsViewHeight" destination="4Gd-RK-ye2" id="YIa-8K-lIB"/>
                         <outlet property="nameField" destination="TZ4-hF-N7c" id="CVK-rr-Ckd"/>
                         <outlet property="proteinField" destination="L92-kF-eTB" id="YSU-o1-qtK"/>
+                        <outlet property="saveButton" destination="xOi-jd-8kH" id="mEU-SK-O3X"/>
                         <outlet property="servingsField" destination="x8U-ml-llr" id="rhJ-Q0-HvT"/>
                         <outlet property="sodiumField" destination="bBH-CR-yEV" id="0zn-dh-CsE"/>
                         <outlet property="sugarsField" destination="YDM-lH-D72" id="tso-32-9Fk"/>
@@ -3003,14 +3057,14 @@
         <systemColor name="systemBlueColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
-        <systemColor name="systemGray3Color">
-            <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
         <systemColor name="systemGray5Color">
             <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGrayColor">
             <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGroupedBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemTealColor">
             <color red="0.35294117647058826" green="0.78431372549019607" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

@@ -95,7 +95,7 @@ class AddRecipeViewController: UIViewController, UIImagePickerControllerDelegate
         directionsField.layer.cornerRadius = 5
         
         saveButton.layer.cornerRadius = 8
-        saveButton.layer.backgroundColor = UIColor.systemTeal.cgColor
+        //saveButton.layer.backgroundColor = UIColor.systemTeal.cgColor
         
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(AddRecipeViewController.viewTapped(gestureRecognizer:)))
@@ -128,15 +128,19 @@ class AddRecipeViewController: UIViewController, UIImagePickerControllerDelegate
                 print("Failed to upload")
                 return
             }
+        
+        
             storageRef.downloadURL(completion: {url, error in
                 guard let url = url, error == nil else {
                     return
                 }
                 self.imgURL = url.absoluteString
                 print("is it working ", self.imgURL)
-                //self.defaults.set(urlString, forKey: "url")
             })
+            
+            
         })
+        
         dismiss(animated: true, completion: nil)
     }
     

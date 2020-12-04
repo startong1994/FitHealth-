@@ -36,6 +36,7 @@ class EditRecipeViewController: UIViewController, UIImagePickerControllerDelegat
     @IBOutlet weak var nameField: UITextField!
     @IBOutlet weak var sodiumField: UITextField!
     @IBOutlet weak var categoryPicker: UITextField!
+    @IBOutlet weak var saveButton: UIButton!
     
     var getName = String()
     var getServings = String()
@@ -105,9 +106,15 @@ class EditRecipeViewController: UIViewController, UIImagePickerControllerDelegat
         sugarsField.text = String(getSugar)
         sodiumField.text = String(getSodium)
         //retrieve image---->
-        let imageUrl = URL(string: String(getImage))!
-        let imageData = try! Data(contentsOf: imageUrl)
-        imageUpload.image = UIImage(data: imageData)
+        let url = String(getImage)
+        if url == "" {
+            imageUpload.image = UIImage(named: "no-image-icon")
+        }
+        else {
+            let imageUrl = URL(string: String(getImage))!
+            let imageData = try! Data(contentsOf: imageUrl)
+            imageUpload.image = UIImage(data: imageData)
+        }
         //^^^^^done retrieving image
         
         addImgButton.layer.cornerRadius = 8
@@ -120,6 +127,8 @@ class EditRecipeViewController: UIViewController, UIImagePickerControllerDelegat
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(EditRecipeViewController.viewTapped(gestureRecognizer:)))
         view.addGestureRecognizer(tapGesture)
+        
+        saveButton.layer.cornerRadius = 8
 
     }
     
@@ -160,7 +169,6 @@ class EditRecipeViewController: UIViewController, UIImagePickerControllerDelegat
                 }
                 self.imgURL = url.absoluteString
                 print("is it working ", self.imgURL)
-                //self.defaults.set(urlString, forKey: "url")
             })
         })
         dismiss(animated: true, completion: nil)
