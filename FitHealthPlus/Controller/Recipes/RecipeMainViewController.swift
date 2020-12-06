@@ -19,6 +19,12 @@ class RecipeMainViewController: UIViewController, UISearchBarDelegate, UICollect
     @IBOutlet weak var mainPageView: UIView!
     @IBOutlet weak var dietCollectionView: UICollectionView!
     @IBOutlet weak var mainCategoryCollectionView: UICollectionView!
+    @IBAction func breakfastBtnPressed(_ sender: UIButton) {
+        recipeAPI.shared.fetchRandomRecipe(completion: { result in
+            print("Button Pressed: ", result)
+            self.performSegue(withIdentifier: "randomMeal", sender: result)
+        })
+    }
     
     //Image Array for the Diet Categories
     var dietRestrictions = [UIImage(named: "no-salt")!, UIImage(named: "cholesterol")!, UIImage(named: "sugar")!, UIImage(named: "low-carb-diet")!, UIImage(named: "lactose-free")!, UIImage(named: "gluten-free")!, UIImage(named: "nut-free")!, UIImage(named: "vegetarian")!]
@@ -26,6 +32,9 @@ class RecipeMainViewController: UIViewController, UISearchBarDelegate, UICollect
     
     //Array for Main Category Collection View
     var mainCategoryName = ["Breakfast", "Lunch", "Dinner", "Desserts", "Poultry", "Beef", "Pork", "Seafood"]
+    
+    //Recipe API
+    var recipesList = [Recipe]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -84,6 +93,35 @@ class RecipeMainViewController: UIViewController, UISearchBarDelegate, UICollect
             //mcell.backgroundColor = UIColor.systemBlue
             mcell.layer.cornerRadius = 20
             return mcell
+        }
+    }
+    
+    // Segue for Breakfast Random Meal
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.destination.isKind(of: ShowRecipeDetailsViewController.self)){
+            let vc = segue.destination as! ShowRecipeDetailsViewController
+            if let recipes = sender as? [Recipe] {
+                let recipe = recipes.first
+                print(recipe)
+                vc.getName = recipe?.title! ?? ""
+                vc.getInstructions = recipe?.instructions! ?? "Instructions not available"
+                vc.getPrepTime = recipe?.readyInMinutes! ?? 0
+                vc.getServingSize = recipe?.servings! ?? 0
+                
+                var ingredientsList = ""
+                for ingredient in recipe?.extendedIngredients ?? []{
+                    ingredientsList += ingredient + "\n"
+                }
+                
+                vc.getIngredients = ingredientsList
+            }
+        }
+    }
+    
+    func handleRecipe(recipes: [Recipe]){
+        DispatchQueue.main.async {
+            self.recipesList = recipes
+            print("In handler: ", self.recipesList)
         }
     }
     
