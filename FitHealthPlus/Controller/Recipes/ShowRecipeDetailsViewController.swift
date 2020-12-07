@@ -37,7 +37,6 @@ class ShowRecipeDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         //Set labels to recipe information
-        //scrollView.contentSize = CGSize(width: self.view.frame.width, height: self.view.frame.height)
         recipeNameLabel.sizeToFit()
         recipeNameLabel.numberOfLines = 0
         print("Name label:", getName)
