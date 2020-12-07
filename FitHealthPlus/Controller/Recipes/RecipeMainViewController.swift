@@ -20,12 +20,24 @@ class RecipeMainViewController: UIViewController, UISearchBarDelegate, UICollect
     @IBOutlet weak var dietCollectionView: UICollectionView!
     @IBOutlet weak var mainCategoryCollectionView: UICollectionView!
     @IBAction func breakfastBtnPressed(_ sender: UIButton) {
-        recipeAPI.shared.fetchRandomRecipe(completion: { result in
+        recipeAPI.shared.fetchRandomRecipe(courseString: "breakfast",completion: { result in
+            print("Button Pressed: ", result)
+            self.performSegue(withIdentifier: "randomMeal", sender: result)
+        })
+    }
+    @IBAction func lunchBtnPressed(_ sender: UIButton) {
+        recipeAPI.shared.fetchRandomRecipe(courseString: "lunch",completion: { result in
             print("Button Pressed: ", result)
             self.performSegue(withIdentifier: "randomMeal", sender: result)
         })
     }
     
+    @IBAction func dinnerBtnPressed(_ sender: UIButton) {
+        recipeAPI.shared.fetchRandomRecipe(courseString: "dessert",completion: { result in
+            print("Button Pressed: ", result)
+            self.performSegue(withIdentifier: "randomMeal", sender: result)
+        })
+    }
     //Image Array for the Diet Categories
     var dietRestrictions = [UIImage(named: "no-salt")!, UIImage(named: "cholesterol")!, UIImage(named: "sugar")!, UIImage(named: "low-carb-diet")!, UIImage(named: "lactose-free")!, UIImage(named: "gluten-free")!, UIImage(named: "nut-free")!, UIImage(named: "vegetarian")!]
     var dietName = ["Low Sodium", "Low Cholesterol", "Low Sugar", "Low Carb", "Lactose Free", "Gluten Free", "Nut Free", "Vegetarian"]
@@ -107,7 +119,8 @@ class RecipeMainViewController: UIViewController, UISearchBarDelegate, UICollect
                 vc.getInstructions = recipe?.instructions! ?? "Instructions not available"
                 vc.getPrepTime = recipe?.readyInMinutes! ?? 0
                 vc.getServingSize = recipe?.servings! ?? 0
-                
+                let imageName = recipe?.image! ?? "chicken parmesan"
+                vc.getImage = UIImage(named: imageName) ?? UIImage(named: "chicken parmesan") as! UIImage
                 var ingredientsList = ""
                 for ingredient in recipe?.extendedIngredients ?? []{
                     ingredientsList += ingredient + "\n"

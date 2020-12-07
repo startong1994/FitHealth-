@@ -10,16 +10,14 @@ import Foundation
 
 class recipeAPI {
     static let shared = recipeAPI()
-    
     //function to get a random recipe
-    func fetchRandomRecipe(completion: @escaping ([Recipe])-> Void) {
+    func fetchRandomRecipe(courseString: String, completion: @escaping ([Recipe])-> Void) {
 
         let headers = [
             "x-rapidapi-key": "d700ed82ccmsh8e1056eb6e8e995p12ca59jsn6591285dfa24",
             "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com"
         ]
-
-        let request = NSMutableURLRequest(url: NSURL(string: "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/random?number=1&tags=vegetarian%2Cdessert")! as URL,
+        let request = NSMutableURLRequest(url: NSURL(string: "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/random?number=1&tags=vegetarian%2C\(courseString)")! as URL,
             cachePolicy: .useProtocolCachePolicy,
             timeoutInterval: 10.0)
         

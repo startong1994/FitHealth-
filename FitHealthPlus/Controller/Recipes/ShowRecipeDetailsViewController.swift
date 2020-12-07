@@ -17,7 +17,7 @@ class ShowRecipeDetailsViewController: UIViewController {
     @IBOutlet weak var recipeNutriLabel: UILabel!
     @IBOutlet weak var recipeIngredLabel: UILabel!
     @IBOutlet weak var recipeInstructLabel: UILabel!
-    @IBOutlet weak var showNutriBtn: UIButton!
+    //@IBOutlet weak var scrollView: UIScrollView!
     
     // variables to get recipe information from the Recipe Main Page
     var getName = String()
@@ -25,6 +25,8 @@ class ShowRecipeDetailsViewController: UIViewController {
     var getServingSize = Int()
     var getIngredients = String()
     var getInstructions = String()
+    var getImage = UIImage()
+    
     
     //done button
     @IBAction func doneBtn(_ sender: Any) {
@@ -35,6 +37,9 @@ class ShowRecipeDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         //Set labels to recipe information
+        //scrollView.contentSize = CGSize(width: self.view.frame.width, height: self.view.frame.height)
+        recipeNameLabel.sizeToFit()
+        recipeNameLabel.numberOfLines = 0
         print("Name label:", getName)
         recipeNameLabel.text = getName
         print(getPrepTime)
@@ -49,6 +54,7 @@ class ShowRecipeDetailsViewController: UIViewController {
         recipeInstructLabel.numberOfLines = 0
         recipeIngredLabel.text = getIngredients
         recipeInstructLabel.text = getInstructions
+        recipeImageView.image = getImage
     }
 
 }
