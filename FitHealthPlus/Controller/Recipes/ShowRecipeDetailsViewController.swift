@@ -1,14 +1,15 @@
 //
 //  ShowRecipeDetailsViewController.swift
-//  
+//  FitHealthPlus
 //
-//  Created by Catherine Cheatle on 12/5/20.
+//  Created by Catherine Cheatle on 12/6/20.
+//  Copyright © 2020 xu daitong. All rights reserved.
 //
 
 import UIKit
 
 class ShowRecipeDetailsViewController: UIViewController {
-    
+
     //Labels
     @IBOutlet weak var recipeImageView: UIImageView!
     @IBOutlet weak var recipeNameLabel: UILabel!
@@ -57,3 +58,5 @@ class ShowRecipeDetailsViewController: UIViewController {
     }
 
 }
+
+
