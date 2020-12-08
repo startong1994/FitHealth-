@@ -16,6 +16,9 @@
 		9877101D2572C4F800921AC7 /* RecipeMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9877101C2572C4F800921AC7 /* RecipeMainViewController.swift */; };
 		987710C62579A50400921AC7 /* recipeAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 987710C52579A50400921AC7 /* recipeAPI.swift */; };
 		D2064A5E2562C5DC008BF665 /* FriendsNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2064A5D2562C5DC008BF665 /* FriendsNetwork.swift */; };
+		D21B5558257FF66500A998AE /* UpdateProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21B5557257FF66500A998AE /* UpdateProfileViewController.swift */; };
+		D21B5560257FFBB000A998AE /* ProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21B555E257FFBB000A998AE /* ProfileCell.swift */; };
+		D21B5561257FFBB000A998AE /* ProfileCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D21B555F257FFBB000A998AE /* ProfileCell.xib */; };
 		D21D56EE2565C0240076FD4E /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D21D56ED2565C0240076FD4E /* HealthKit.framework */; };
 		D21D56F02565CE790076FD4E /* ActivityData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21D56EF2565CE790076FD4E /* ActivityData.swift */; };
 		D228A603254343A800D66ED3 /* RecipeDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D228A601254343A800D66ED3 /* RecipeDetailTableViewCell.swift */; };
@@ -71,6 +74,9 @@
 		9877101C2572C4F800921AC7 /* RecipeMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeMainViewController.swift; sourceTree = "<group>"; };
 		987710C52579A50400921AC7 /* recipeAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = recipeAPI.swift; sourceTree = "<group>"; };
 		D2064A5D2562C5DC008BF665 /* FriendsNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsNetwork.swift; sourceTree = "<group>"; };
+		D21B5557257FF66500A998AE /* UpdateProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateProfileViewController.swift; sourceTree = "<group>"; };
+		D21B555E257FFBB000A998AE /* ProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCell.swift; sourceTree = "<group>"; };
+		D21B555F257FFBB000A998AE /* ProfileCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileCell.xib; sourceTree = "<group>"; };
 		D21D56EC2565C0230076FD4E /* FitHealthPlus.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FitHealthPlus.entitlements; sourceTree = "<group>"; };
 		D21D56ED2565C0240076FD4E /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		D21D56EF2565CE790076FD4E /* ActivityData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityData.swift; sourceTree = "<group>"; };
@@ -182,6 +188,8 @@
 				D2DB127C2540DCB7005DFF65 /* FitnessGoalTableViewCell.xib */,
 				D228A601254343A800D66ED3 /* RecipeDetailTableViewCell.swift */,
 				D228A602254343A800D66ED3 /* RecipeDetailTableViewCell.xib */,
+				D21B555E257FFBB000A998AE /* ProfileCell.swift */,
+				D21B555F257FFBB000A998AE /* ProfileCell.xib */,
 			);
 			path = Designs;
 			sourceTree = "<group>";
@@ -305,6 +313,7 @@
 				D2912C2D253E59AC0061EC01 /* NewFriendProfileViewController.swift */,
 				D26A6008253F7D4A00A21006 /* ProfileViewController.swift */,
 				D2ADC576256484AD009717F9 /* CurrentUserViewController.swift */,
+				D21B5557257FF66500A998AE /* UpdateProfileViewController.swift */,
 			);
 			path = Social;
 			sourceTree = "<group>";
@@ -375,6 +384,7 @@
 				D2DB12742540BE89005DFF65 /* StatsBar.xib in Resources */,
 				D2DB127E2540DCB7005DFF65 /* FitnessGoalTableViewCell.xib in Resources */,
 				D2EA92DE253A329500026B0E /* Assets.xcassets in Resources */,
+				D21B5561257FFBB000A998AE /* ProfileCell.xib in Resources */,
 				D2EA92DC253A329500026B0E /* Main.storyboard in Resources */,
 				D228A604254343A800D66ED3 /* RecipeDetailTableViewCell.xib in Resources */,
 			);
@@ -451,8 +461,10 @@
 				D270A096254321FE00443769 /* WorkoutGuideViewController.swift in Sources */,
 				D2ADC577256484AD009717F9 /* CurrentUserViewController.swift in Sources */,
 				D23058A5253CD8540013B64C /* LoginViewController.swift in Sources */,
+				D21B5558257FF66500A998AE /* UpdateProfileViewController.swift in Sources */,
 				D2D546262542442500EA0C1E /* AddRecipeViewController.swift in Sources */,
 				D2DB12772540C8CE005DFF65 /* workoutCell.swift in Sources */,
+				D21B5560257FFBB000A998AE /* ProfileCell.swift in Sources */,
 				D29262E4256072BB0092D0B3 /* DataModel.xcdatamodeld in Sources */,
 				D2EA92D5253A329500026B0E /* SceneDelegate.swift in Sources */,
 				985B0335257DC74B0095C45D /* ShowRecipeDetailsViewController.swift in Sources */,
