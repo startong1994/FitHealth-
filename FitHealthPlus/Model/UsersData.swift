@@ -22,6 +22,7 @@ struct UsersData {
     
     let defaults = UserDefaults.standard
     let userRef = Firestore.firestore().collection("users")
+    let friendsRef = Firestore.firestore().collection("friendList")
     
     func getCurrentUser() -> String{
         if let name = defaults.dictionary(forKey: "CurrentUser")!["name"]{
@@ -86,6 +87,80 @@ struct UsersData {
         Auth.auth().currentUser?.updatePassword(to: password, completion: nil)
     }
     func deleteAccount(){
+        
+        //delete friends fr
+        friendsRef.document(getCurrentUser()).getDocument { (doc, error) in
+            guard let docRef = doc else{
+                print("error getting data")
+                return
+            }
+            guard let data = docRef.data() else{
+                print("error getting FriendsList")
+                return
+            }
+            print("deleteAccount Function check 1")
+            if let friendList = data[K.FStore.FriendList] as? [String]{
+                for friendEmail in friendList{
+                    userRef.document(friendEmail).getDocument { (doc, error) in
+                        guard let doc = doc else{
+                            print("error getting data")
+                            return
+                        }
+                        guard let data = doc.data() else{
+                            print("error getting user's profile data")
+                            return
+                        }
+                        guard let friendName = data[K.FStore.name] as? String else{
+                            print("error getting user's name")
+                            return
+                        }
+                        FriendNetwork().deleteFriend(friendEmail: friendEmail, friendName: friendName)
+                        print("delete friend name \(friendName)")
+                        print("delete friend email \(friendEmail)")
+                    }
+                }
+            }
+        }
+        
+        //delete user's doc
+        userRef.document(getCurrentEmail()).delete(){ err in
+            if let err = err{
+                print("error removing users data\(err)")
+            }else{
+                print("successfully")
+            }
+        }
+        //delete friend's list doc
+        friendsRef.document(getCurrentUser()).delete(){ err in
+            if let err = err{
+                print("error removing friendsList data \(err)")
+            }else{
+                print("successfully")
+            }
+        }
+        /**
+         codes for other section, to delete users data
+         */
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        //* delete account
         Auth.auth().currentUser?.delete(completion: { (error) in
             if let e = error{
                 print("error delete data \(e)")

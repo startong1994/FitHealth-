@@ -89,7 +89,6 @@ class CurrentUserViewController: UIViewController, UIImagePickerControllerDelega
                 print("erorr")
             }
         }
-        
         alert.addAction(confirm)
         alert.addAction(cancel)
         
@@ -124,7 +123,14 @@ class CurrentUserViewController: UIViewController, UIImagePickerControllerDelega
         }
         present(alert, animated: true, completion: nil)
     }
-    
+    func deleteAccount(){
+        
+        self.user.deleteAccount()
+        
+        FriendNetwork().run(after: 3) {
+            self.logoutButtonPressed()
+        }
+    }
     
     
     
@@ -208,6 +214,8 @@ extension CurrentUserViewController: UITableViewDataSource, UITableViewDelegate{
         }
         else if indexPath.row == 4{
             print("delete account")
+            deleteAccount()
+            
         }
         else if indexPath.row == 5{
             logoutButtonPressed()

@@ -179,7 +179,7 @@ class FriendNetwork {
         friendsRef.document(currentUser).updateData([K.FStore.pendingLists : FieldValue.arrayRemove([email])])
     }
     //delete both side of friendList
-    func deleteFriend(Email email: String, Name name: String){
+    func deleteFriend(friendEmail email: String, friendName name: String){
         friendsRef.document(currentUser).updateData([K.FStore.FriendList : FieldValue.arrayRemove([email])])
         friendsRef.document(name).updateData([K.FStore.FriendList : FieldValue.arrayRemove([currentEmail])])
         
