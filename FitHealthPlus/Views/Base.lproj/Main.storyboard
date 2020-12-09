@@ -2765,11 +2765,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="XWJ-sT-Ck5">
                         <nil key="title"/>
-                        <barButtonItem key="rightBarButtonItem" title="Logout" id="lBe-az-bXd">
-                            <connections>
-                                <action selector="logoutButtonPressed:" destination="heV-rA-0qz" id="Dl3-a4-xqI"/>
-                            </connections>
-                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="9Ed-Z4-IEz" id="tis-Eh-mB0"/>

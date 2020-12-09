@@ -76,8 +76,24 @@ struct UsersData {
                                                     "profileImage": newProfileImage])
     }
     
-    
-    
+    func changeCurrentUserName(_ name: String){
+        self.userRef.document(getCurrentEmail()).updateData(["name" : name])
+    }
+    func changeCurrentUserProfilePic(_ image: String){
+        self.userRef.document(getCurrentEmail()).updateData(["name" : image])
+    }
+    func changeCurrentUserPassword(_ password: String){
+        Auth.auth().currentUser?.updatePassword(to: password, completion: nil)
+    }
+    func deleteAccount(){
+        Auth.auth().currentUser?.delete(completion: { (error) in
+            if let e = error{
+                print("error delete data \(e)")
+            }else{
+                print("successed")
+            }
+        })
+    }
     
     /**
      

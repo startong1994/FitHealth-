@@ -154,8 +154,6 @@ extension FitnessViewController: UITableViewDataSource, UITableViewDelegate{
             calGoal = text
         }
         
-        
-        
         present(alert, animated: true, completion: nil)
         
         
