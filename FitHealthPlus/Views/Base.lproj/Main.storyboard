@@ -1465,18 +1465,25 @@
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="heavy"/>
                                 </state>
                                 <connections>
-                                    <action selector="profileButtonPressed:" destination="aD4-Cn-USr" eventType="touchUpInside" id="bSH-RG-olp"/>
+                                    <action selector="pendingListButtonPressed:" destination="aD4-Cn-USr" eventType="touchUpInside" id="4cU-t8-1yV"/>
                                 </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="CG9-X8-xds"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" title="FitHealth+" id="P8V-fb-2gA"/>
+                    <navigationItem key="navigationItem" title="FitHealth+" id="P8V-fb-2gA">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="gear" catalog="system" style="plain" id="136-QC-83h">
+                            <connections>
+                                <action selector="profileButtonPressed:" destination="aD4-Cn-USr" id="hra-ZA-C8A"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="NIH-oJ-9d6" id="efp-J3-1cl"/>
                         <segue destination="8y7-6R-7Ht" kind="show" identifier="socialToProfile" id="eyC-yb-qRY"/>
                         <segue destination="heV-rA-0qz" kind="show" identifier="socialToCurrentUser" id="B2F-wI-4Cw"/>
+                        <segue destination="jj6-rP-SSs" kind="show" identifier="socialToPendingList" id="Fln-y2-zqS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nnl-4V-tEh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1604,14 +1611,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qgT-jx-OPX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6355" y="2281"/>
+            <point key="canvasLocation" x="7274" y="1817"/>
         </scene>
         <!--NewFriendProfile-->
         <scene sceneID="5qo-gm-jqa">
             <objects>
                 <viewController storyboardIdentifier="NewFriendProfile" title="NewFriendProfile" id="awR-wY-lXz" customClass="NewFriendProfileViewController" customModule="FitHealthPlus" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DW8-89-aDx">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nr8-hz-Yyr">
@@ -1663,7 +1670,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DM8-ko-8cg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7241" y="1801"/>
+            <point key="canvasLocation" x="8333" y="1817"/>
         </scene>
         <!--Leaderboard-->
         <scene sceneID="rFP-M9-Kzk">
@@ -3206,6 +3213,7 @@
         <image name="figure.wave.circle" width="13" height="13"/>
         <image name="flame.fill" catalog="system" width="108" height="128"/>
         <image name="focus" width="150" height="150"/>
+        <image name="gear" catalog="system" width="128" height="119"/>
         <image name="person" catalog="system" width="128" height="117"/>
         <image name="person.badge.plus" catalog="system" width="128" height="124"/>
         <image name="plus" catalog="system" width="128" height="113"/>

@@ -284,11 +284,16 @@ class SocialViewController: UIViewController, UITableViewDelegate, UITableViewDa
 //            }
 //    }
 
-    
-    
-    
-    @IBAction func profileButtonPressed(_ sender: UIButton) {
+
+    @IBAction func profileButtonPressed(_ sender: UIBarButtonItem) {
         performSegue(withIdentifier: "socialToCurrentUser", sender: self)
     }
+    
+    @IBAction func pendingListButtonPressed(_ sender: UIButton) {
+        performSegue(withIdentifier: "socialToPendingList", sender: self)
+    }
+    
+    
+    
+    
 }
-

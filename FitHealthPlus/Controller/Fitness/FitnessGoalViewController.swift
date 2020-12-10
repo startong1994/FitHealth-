@@ -92,7 +92,6 @@ extension FitnessGoalViewController: UITableViewDataSource, UITableViewDelegate{
         // alert user to enter INT
         let alertInt = UIAlertController(title: "", message: "Please enter a number", preferredStyle: .alert)
         
-        
         // confirm button functions
         let confirm = UIAlertAction(title: "Confirm", style: .default){
             (confirm) in
