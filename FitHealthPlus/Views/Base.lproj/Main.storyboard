@@ -1465,20 +1465,14 @@
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="heavy"/>
                                 </state>
                                 <connections>
-                                    <action selector="pendingListButtonPressed:" destination="aD4-Cn-USr" eventType="touchUpInside" id="4cU-t8-1yV"/>
+                                    <action selector="profileButtonPressed:" destination="aD4-Cn-USr" eventType="touchUpInside" id="bAe-qZ-MWL"/>
                                 </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="CG9-X8-xds"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" title="FitHealth+" id="P8V-fb-2gA">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="gear" catalog="system" style="plain" id="136-QC-83h">
-                            <connections>
-                                <action selector="profileButtonPressed:" destination="aD4-Cn-USr" id="hra-ZA-C8A"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="FitHealth+" id="P8V-fb-2gA"/>
                     <connections>
                         <outlet property="tableView" destination="NIH-oJ-9d6" id="efp-J3-1cl"/>
                         <segue destination="8y7-6R-7Ht" kind="show" identifier="socialToProfile" id="eyC-yb-qRY"/>
@@ -3213,7 +3207,6 @@
         <image name="figure.wave.circle" width="13" height="13"/>
         <image name="flame.fill" catalog="system" width="108" height="128"/>
         <image name="focus" width="150" height="150"/>
-        <image name="gear" catalog="system" width="128" height="119"/>
         <image name="person" catalog="system" width="128" height="117"/>
         <image name="person.badge.plus" catalog="system" width="128" height="124"/>
         <image name="plus" catalog="system" width="128" height="113"/>

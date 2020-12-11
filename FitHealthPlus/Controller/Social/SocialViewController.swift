@@ -41,6 +41,7 @@ class SocialViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
         
         tableView.refreshControl = refresh
+        listenToOnlineDatabaseChanges()
         
         
         self.tableView.tableFooterView = UIView()
@@ -63,7 +64,7 @@ class SocialViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     override func viewWillAppear(_ animated: Bool) {
         self.tabBarController?.tabBar.isHidden = false
-        reload()
+        //reload()
     }
 
     
@@ -107,74 +108,103 @@ class SocialViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     @IBAction func addFriendButtonPressed(_ sender: UIButton) {
         
-        
-        
-        let alert = UIAlertController(title: "Add Friend", message: "", preferredStyle: .alert)
-        let added = UIAlertController(title: "", message: "Added, Pull to Refresh! :D", preferredStyle: .alert)
-        
-        var emailAddress = UITextField()
-        
-        
-        //ok botton for conformation alert pop up
-        let ok = UIAlertAction(title: "OK", style: .default, handler: nil)
-        
-        
-        
-        //confirm button function
-        let addFriend = UIAlertAction(title: "Confirm", style: .default) { (addFriend) in
-            if let address = emailAddress.text {
-                if address.hasSuffix("uncc.edu"){
-                print(address + " added")
-                
-                    
-                //add friends
-                
-                    FriendNetwork().addFriend(Email: address)
-                    
-                
-                added.addAction(ok)
-                    
-                self.present(added, animated: true, completion: nil)
-                }else{
-                    let alert = UIAlertController(title: "Error", message: "Please Enter UNCC School Email", preferredStyle: .alert)
-                    
-                    alert.addAction(ok)
-                    self.present(alert, animated: true, completion: nil)
-                }
-            }
-        }
-        alert.addAction(addFriend)
-        //cancel button
-        let cancel = UIAlertAction(title: "Cancel", style: .default, handler: nil)
-        
-        alert.addTextField { (textField) in
-            textField.placeholder = "Enter Email Address"
-            emailAddress = textField
-        }
-        alert.addAction(cancel)
-        
-        alert.preferredAction = addFriend
-        present(alert,animated: true, completion: nil)
-        
-        
+        performSegue(withIdentifier: "socialToPendingList", sender: self)
+        /*
+         codes for add friends.
+         */
+//        let alert = UIAlertController(title: "Add Friend", message: "", preferredStyle: .alert)
+//        let added = UIAlertController(title: "", message: "Added, Pull to Refresh! :D", preferredStyle: .alert)
+//
+//        var emailAddress = UITextField()
+//
+//
+//        //ok botton for conformation alert pop up
+//        let ok = UIAlertAction(title: "OK", style: .default, handler: nil)
+//
+//
+//
+//        //confirm button function
+//        let addFriend = UIAlertAction(title: "Confirm", style: .default) { (addFriend) in
+//            if let address = emailAddress.text {
+//                if address.hasSuffix("uncc.edu"){
+//                print(address + " added")
+//
+//
+//                //add friends
+//
+//                    FriendNetwork().addFriend(Email: address)
+//
+//
+//                added.addAction(ok)
+//
+//                self.present(added, animated: true, completion: nil)
+//                }else{
+//                    let alert = UIAlertController(title: "Error", message: "Please Enter UNCC School Email", preferredStyle: .alert)
+//
+//                    alert.addAction(ok)
+//                    self.present(alert, animated: true, completion: nil)
+//                }
+//            }
+//        }
+//        alert.addAction(addFriend)
+//        //cancel button
+//        let cancel = UIAlertAction(title: "Cancel", style: .default, handler: nil)
+//
+//        alert.addTextField { (textField) in
+//            textField.placeholder = "Enter Email Address"
+//            emailAddress = textField
+//        }
+//        alert.addAction(cancel)
+//
+//        alert.preferredAction = addFriend
+//        present(alert,animated: true, completion: nil)
         
     }
     
+    
+    func listenToOnlineDatabaseChanges(){
+        
+        friendsRef.document(UsersData().getCurrentUser()).addSnapshotListener { (DocumentSnapshot, error) in
+            if let error = error{
+                print("error getting friendList collcection \(error)")
+            }
+            
+            FriendNetwork().storeFriendsListToUserDefaults()
+            
+            FriendNetwork().run(after: 1) {
+                self.reload()
+            }
+    }
+    }
+    
+    
+    
+    
+    
+    
+    @IBAction func profileButtonPressed(_ sender: UIButton) {
+        performSegue(withIdentifier: "socialToCurrentUser", sender: self)
+    }
+
+    
     func reload(){
-        
-        FriendNetwork().storeListsToUserDefaults()
-        
-        let listArray = defaults.array(forKey: K.FStore.FriendList) as! [String]
-        
-        
+
+        FriendNetwork().storeFriendsListToUserDefaults()
+
+        guard let listArray = defaults.array(forKey: K.FStore.FriendList) as? [String] else {
+            print("no friends")
+            return
+        }
+
+
         friendList = []
         if listArray.isEmpty{
             tableView.reloadData()
             }
-        
+
         for emails in listArray {
-            
-            
+
+
             self.usersRef.document(emails).getDocument { (doc, error) in
                 if let e = error {
                     print(e)
@@ -190,20 +220,20 @@ class SocialViewController: UIViewController, UITableViewDelegate, UITableViewDa
                             print("test3")
                             let list = Friend(name: friendName, email: friendEmail, profileImage: friendImge)
                             self.friendList.append(list)
-                
+
                         }
                     DispatchQueue.main.async {
                         self.tableView.reloadData()
                     }
-      
+
                 }
-            
-            
+
+
             }
-        
-            
+
+
         }
-        
+
 
     }
 
@@ -285,14 +315,7 @@ class SocialViewController: UIViewController, UITableViewDelegate, UITableViewDa
 //    }
 
 
-    @IBAction func profileButtonPressed(_ sender: UIBarButtonItem) {
-        performSegue(withIdentifier: "socialToCurrentUser", sender: self)
-    }
-    
-    @IBAction func pendingListButtonPressed(_ sender: UIButton) {
-        performSegue(withIdentifier: "socialToPendingList", sender: self)
-    }
-    
+
     
     
     
