@@ -38,12 +38,13 @@ class RecipeMainViewController: UIViewController, UISearchBarDelegate, UICollect
             self.performSegue(withIdentifier: "randomMeal", sender: result)
         })
     }
-    //Image Array for the Diet Categories
-    var dietRestrictions = [UIImage(named: "no-salt")!, UIImage(named: "cholesterol")!, UIImage(named: "sugar")!, UIImage(named: "low-carb-diet")!, UIImage(named: "lactose-free")!, UIImage(named: "gluten-free")!, UIImage(named: "nut-free")!, UIImage(named: "vegetarian")!]
-    var dietName = ["Low Sodium", "Low Cholesterol", "Low Sugar", "Low Carb", "Lactose Free", "Gluten Free", "Nut Free", "Vegetarian"]
+    //Image and name Arrays for the Diet Categories
+    var dietRestrictions = [UIImage(named: "lactose-free")!, UIImage(named: "gluten-free")!, UIImage(named: "nut-free")!, UIImage(named: "shellfish")!, UIImage(named: "vegetarian")!, UIImage(named: "salad")!, UIImage(named: "fish")!, UIImage(named: "ketogenic-diet")!]
+    var dietName = ["Dairy Free", "Gluten Free", "Peanut Free", "Shellfish Free", "Vegetarian", "Vegan", "Pescetarian", "Ketogenic"]
     
-    //Array for Main Category Collection View
-    var mainCategoryName = ["Breakfast", "Lunch", "Dinner", "Desserts", "Poultry", "Beef", "Pork", "Seafood"]
+    //Image and Name Arrays for Main Category Collection View
+    var mainCategoryRestrictions = [UIImage(named: "breakfast")!, UIImage(named: "appetizer")!, UIImage(named: "lunch-bag")!, UIImage(named: "sweets")!, UIImage(named: "turkey")!, UIImage(named: "meat")!, UIImage(named: "chop")!, UIImage(named: "seafood")!]
+    var mainCategoryName = ["Breakfast", "Appetizers", "Main Course", "Desserts", "Poultry", "Beef", "Pork", "Seafood"]
     
     //Recipe API
     var recipesList = [Recipe]()
@@ -88,6 +89,7 @@ class RecipeMainViewController: UIViewController, UISearchBarDelegate, UICollect
         return mainCategoryName.count
     }
     
+    //Collection views for diet and intolerances
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         if collectionView == self.dietCollectionView {
@@ -102,9 +104,81 @@ class RecipeMainViewController: UIViewController, UISearchBarDelegate, UICollect
         else{
             let mcell = collectionView.dequeueReusableCell(withReuseIdentifier: "mainCategoryCell", for: indexPath) as! mainCategoryCollectionViewCell
             mcell.mainCategoryLabel.text = mainCategoryName[indexPath.row]
+            mcell.mainCategoryImage.contentMode = .scaleAspectFit
+            mcell.mainCategoryImage.clipsToBounds = true
+            mcell.mainCategoryImage.image = mainCategoryRestrictions[indexPath.row]
             //mcell.backgroundColor = UIColor.systemBlue
             mcell.layer.cornerRadius = 20
             return mcell
+        }
+    }
+    
+    // Collection view to see what cell was selected
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if collectionView == self.dietCollectionView {
+            print(dietName[indexPath.row], " has been selected")
+            var diet = dietName[indexPath.row]
+            //"Dairy Free", "Gluten Free", "Peanut Free", "Shellfish Free, "Vegetarian", "Vegan", "Pescetarian", "Ketogenic" needs to be modified for API query
+            if (diet == "Dairy Free"){
+                diet = "intolerances=dairy"
+            }
+            if (diet == "Gluten Free"){
+                diet = "intolerances=gluten"
+            }
+            if (diet == "Peanut Free"){
+                diet = "intolerances=peanut"
+            }
+            if (diet == "Shellfish Free"){
+                diet = "intolerances=shellfish"
+            }
+            if (diet == "Vegetarian"){
+                diet = "diet=vegetarian"
+            }
+            if (diet == "Vegan" ){
+                diet = "diet=vegan"
+            }
+            if (diet == "Pescetarian" ){
+                diet = "diet=pescetarian"
+            }
+            if (diet == "Ketogenic" ){
+                diet = "diet=ketogenic"
+            }
+            print("Query String: ", diet)
+            let vc = storyboard?.instantiateViewController(withIdentifier: "searchResults") as? RecipeSearchViewController
+            vc?.queryString = diet
+            self.navigationController?.pushViewController(vc!, animated: true)
+        } else{
+            print(mainCategoryName[indexPath.row], " has been selected")
+            var category = mainCategoryName[indexPath.row]
+            //"Breakfast", "Appetizers", "Main Course", "Desserts", "Poultry", "Beef", "Pork", "Seafood" needs to be modified for API query
+            if (category == "Breakfast"){
+                category = "type=breakfast"
+            }
+            if (category == "Appetizers"){
+                category = "type=appetizer"
+            }
+            if (category == "Main Course"){
+                category = "type=main%20course"
+            }
+            if (category == "Desserts"){
+                category = "type=dessert"
+            }
+            if (category == "Poultry"){
+                category = "type=poultry"
+            }
+            if (category == "Beef" ){
+                category = "type=beef"
+            }
+            if (category == "Pork" ){
+                category = "type=pork"
+            }
+            if (category == "Seafood" ){
+                category = "type=seafood"
+            }
+            print("Query String:", category)
+            let vc = storyboard?.instantiateViewController(withIdentifier: "searchResults") as? RecipeSearchViewController
+            vc?.queryString = category
+            self.navigationController?.pushViewController(vc!, animated: true)
         }
     }
     
@@ -162,5 +236,6 @@ class dietCategoryCollectionViewCell: UICollectionViewCell{
 
 class mainCategoryCollectionViewCell: UICollectionViewCell{
     
+    @IBOutlet weak var mainCategoryImage: UIImageView!
     @IBOutlet weak var mainCategoryLabel: UILabel!
 }

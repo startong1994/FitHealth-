@@ -9,14 +9,17 @@
 import Foundation
 
 class recipeAPI {
+    //Shared variable for API results
     static let shared = recipeAPI()
+    // Headers for API
+    let headers = [
+        "x-rapidapi-key": "d700ed82ccmsh8e1056eb6e8e995p12ca59jsn6591285dfa24",
+        "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com"
+    ]
+    
     //function to get a random recipe
     func fetchRandomRecipe(courseString: String, completion: @escaping ([Recipe])-> Void) {
 
-        let headers = [
-            "x-rapidapi-key": "d700ed82ccmsh8e1056eb6e8e995p12ca59jsn6591285dfa24",
-            "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com"
-        ]
         let request = NSMutableURLRequest(url: NSURL(string: "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/random?number=1&tags=vegetarian%2C\(courseString)")! as URL,
             cachePolicy: .useProtocolCachePolicy,
             timeoutInterval: 10.0)
@@ -41,6 +44,7 @@ class recipeAPI {
                 
                 do {
                     let responseObject = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any]
+                    print("ResponseObject: ", responseObject)
                     if let recipeArray = responseObject?["recipes"] as? [[String: Any]] {
                         let recipes = self.createRecipes(recipeArray: recipeArray)
                         DispatchQueue.main.async {
@@ -61,6 +65,115 @@ class recipeAPI {
         dataTask.resume()
     }
     
+    // Function to make a API call for a specfic intolerance
+    func getIntoleranceSearchResults(queryString: String, completion: @escaping ([Result])-> Void) {
+        
+        //API request
+        let request = NSMutableURLRequest(url: NSURL(string: "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/searchComplex?limitLicense=true&offset=10&number=100&\(queryString)")! as URL,
+            cachePolicy: .useProtocolCachePolicy,
+            timeoutInterval: 10.0)
+        
+        request.httpMethod = "GET"
+        request.allHTTPHeaderFields = headers
+        
+        // URL session
+        let session = URLSession.shared
+        let dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in
+            if (error != nil) {
+                print(error)
+            } else {
+                let httpResponse = response as? HTTPURLResponse
+                // Print remaining request left in daily quota
+                print(httpResponse)
+                
+                // Get data reponse
+                guard let data = data else {
+                    print("No data available")
+                    completion([])
+                    return
+                }
+                
+                //Parse the JSON API data and return the results
+                do {
+                    let responseObject = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any]
+                    if let resultArray = responseObject?["results"] as? [[String: Any]] {
+                        let results = self.createResults(resultArray: resultArray)
+                        DispatchQueue.main.async {
+                            completion(results)
+                        }
+                        
+                    } else {
+                        completion([])
+                    }
+                } catch{
+                    let error = error
+                    print("Cant decode data")
+                    print(error.localizedDescription)
+                    completion([])
+                }
+            }
+        })
+
+        dataTask.resume()
+    }
+    
+    // Function to get a recipe's data via ID
+    func getRecipeInformation(id: String, completion: @escaping ([Recipe])-> Void) {
+        
+        //API request
+        let request = NSMutableURLRequest(url: NSURL(string: "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/\(id)/information?includeNutrition=false")! as URL,
+            cachePolicy: .useProtocolCachePolicy,
+            timeoutInterval: 10.0)
+        
+        request.httpMethod = "GET"
+        request.allHTTPHeaderFields = headers
+        
+        // URL session
+        let session = URLSession.shared
+        let dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in
+            if (error != nil) {
+                print(error)
+            } else {
+                let httpResponse = response as? HTTPURLResponse
+                // Print remaining request left in daily quota
+                print(httpResponse)
+                
+                // Get data reponse
+                guard let data = data else {
+                    print("No data available")
+                    completion([])
+                    return
+                }
+                
+                //Parse the JSON API data and return the results
+                do {
+                    let responseObject = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any]
+                    print("Response Object: ", responseObject)
+                    var recipes = [Recipe]()
+                    if let recipeInfo = responseObject as? [String: Any] {
+                        let recipe = self.configureRecipe(recipeInfo: recipeInfo)
+                        recipes.append(recipe)
+                        DispatchQueue.main.async {
+                            print("Recipe from ID: ", recipe)
+                            completion(recipes)
+                        }
+                        
+                    } else {
+                        completion([])
+                    }
+                } catch{
+                    let error = error
+                    print("Cant decode data")
+                    print(error.localizedDescription)
+                    completion([])
+                }
+            }
+        })
+
+        dataTask.resume()
+    }
+    
+    // Function to create recipe array
     func createRecipes(recipeArray: [[String: Any]]) -> [Recipe] {
         var recipes = [Recipe]()
         for recipeInfo in recipeArray {
@@ -70,6 +183,7 @@ class recipeAPI {
         return recipes
     }
     
+    // Function to create a recipe from API query
     func configureRecipe(recipeInfo: [String: Any]) -> Recipe {
         var recipe = Recipe()
         
@@ -112,6 +226,31 @@ class recipeAPI {
         return recipe
     }
     
+    // Function to create result array from API query
+    func createResults(resultArray: [[String: Any]]) -> [Result] {
+        var results = [Result]()
+        for resultInfo in resultArray {
+            let result = configureResult(resultInfo: resultInfo)
+            results.append(result)
+        }
+        return results
+    }
+    
+    // Function to create a result from API query
+    func configureResult(resultInfo: [String: Any]) -> Result {
+        var result = Result()
+        
+        if let id = resultInfo["id"] as? Int {
+            result.id = id
+        }
+        
+        if let title = resultInfo["title"] as? String {
+            result.title = title
+        }
+        
+        return result
+    }
+    
 }
 
 struct Recipes {
@@ -125,6 +264,15 @@ struct Recipe {
     var readyInMinutes: Int?
     var extendedIngredients: [String]?
     var instructions: String?
+}
+
+struct Results{
+    var Results: [Result]
+}
+
+struct Result {
+    var id: Int?
+    var title: String?
 }
 
 
