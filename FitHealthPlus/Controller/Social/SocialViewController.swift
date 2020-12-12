@@ -64,7 +64,7 @@ class SocialViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     override func viewWillAppear(_ animated: Bool) {
         self.tabBarController?.tabBar.isHidden = false
-        //reload()
+        reload()
     }
 
     

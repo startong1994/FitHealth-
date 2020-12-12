@@ -35,7 +35,7 @@ class AddFriendController: UIViewController, UITableViewDataSource, UITableViewD
     
     
     override func viewDidAppear(_ animated: Bool) {
-        //reload()
+        reload()
     }
     
     @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
