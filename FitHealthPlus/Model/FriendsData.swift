@@ -24,6 +24,7 @@ class FriendsData {
             print("error saving context \(error)")
         }
     }
+    
     func loadFriendList() -> [FriendLists]{
         pendingListArray = []
         let request : NSFetchRequest<FriendLists> = FriendLists.fetchRequest()

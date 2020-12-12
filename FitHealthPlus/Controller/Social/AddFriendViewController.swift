@@ -15,6 +15,8 @@ class AddFriendController: UIViewController, UITableViewDataSource, UITableViewD
     let db = Firestore.firestore()
     var pendingFriendList = [Friend]()
     var usersRef = Firestore.firestore().collection("users")
+    var friendsRef = Firestore.firestore().collection("friendList")
+    let defaults = UserDefaults.standard
     
     
     @IBOutlet weak var tableView: UITableView!
@@ -22,7 +24,7 @@ class AddFriendController: UIViewController, UITableViewDataSource, UITableViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
+        listenToOnlineDatabaseChanges()
         self.tabBarController?.tabBar.isHidden = true
         navigationItem.title = "Add Friends"
         self.tableView.dataSource = self
@@ -121,7 +123,67 @@ class AddFriendController: UIViewController, UITableViewDataSource, UITableViewD
         
     }
     
+    func listenToOnlineDatabaseChanges(){
+        
+        friendsRef.document(UsersData().getCurrentUser()).addSnapshotListener { (DocumentSnapshot, error) in
+            if let error = error{
+                print("error getting friendList collcection \(error)")
+            }
+            
+            FriendNetwork().storePendingListToUserDefaults()
+            
+            FriendNetwork().run(after: 1) {
+                self.reload()
+            }
+    }
+    }
+    
+    
+    
     func reload(){
+            print("point 1")
+            guard let listArray = self.defaults.array(forKey: K.FStore.pendingLists) as? [String] else {
+            print("no friends")
+            return
+        }
+
+
+        self.pendingFriendList = []
+        if listArray.isEmpty{
+            self.tableView.reloadData()
+            }
+        print("point 2")
+        for emails in listArray {
+            self.usersRef.document(emails).getDocument { (doc, error) in
+                if let e = error {
+                    print(e)
+                }else{
+                    guard let document = doc else {
+                        return
+                    }
+                    guard let data = document.data() else{
+                        print("test")
+                        return
+                    }
+                        if let friendName = data["name"] as? String, let friendEmail = data["email"] as? String, let friendImge = data["profileImage"] as? String{
+                            print("test3")
+                            let list = Friend(name: friendName, email: friendEmail, profileImage: friendImge)
+                            self.pendingFriendList.append(list)
+
+                        }
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
+                    }
+
+                }
+
+
+            }
+
+
+        }
+    
+    func reload1(){
         if let friendsEmail = UserDefaults.standard.array(forKey: K.FStore.pendingLists) as? [String]{
             
  //           self.friendsRef.document(currentUser).addSnapshotListener { (doc, error) in
@@ -171,7 +233,7 @@ class AddFriendController: UIViewController, UITableViewDataSource, UITableViewD
     
     
     
-    
+    }
     
     
     
@@ -206,5 +268,4 @@ class AddFriendController: UIViewController, UITableViewDataSource, UITableViewD
 //    }
 //}
     
-    
-}
+    }

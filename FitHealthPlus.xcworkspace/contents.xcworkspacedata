@@ -2,9 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:/Users/ccheatle/Documents/FitHealthPlus/FitHealthPlus/Controller/Recipes/ShowRecipeDetailsViewController.swift">
-   </FileRef>
-   <FileRef
       location = "group:FitHealthPlus.xcodeproj">
    </FileRef>
    <FileRef

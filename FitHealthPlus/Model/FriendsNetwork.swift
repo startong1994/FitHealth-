@@ -21,6 +21,11 @@ class FriendNetwork {
     
     
     func storeListsToUserDefaults(){
+        storeFriendsListToUserDefaults()
+        storePendingListToUserDefaults()
+    }
+    
+    func storeFriendsListToUserDefaults(){
     
         //let docRef = self.friendsRef.document(name)
         //docRef.getDocument { (document, error) in
@@ -28,7 +33,7 @@ class FriendNetwork {
         
         friendsRef.document(currentUser).getDocument{ (document, error) in
             
-            print("data changed")
+            print("get friendsLists")
             if let e = error{
                 print("error \(e)")
             }
@@ -40,17 +45,36 @@ class FriendNetwork {
                         return
                     }
                         self.defaults.set(data[K.FStore.FriendList] as? [String], forKey: K.FStore.FriendList)
-                        
-                    
-                    
                     //self.defaults.set(data[K.FStore.pendingLists] as? [String], forKey: K.FStore.pendingLists)
                         //self.storeFriendList()
 
                 }
             }
         }
-        
     }
+    func storePendingListToUserDefaults(){
+        friendsRef.document(currentUser).getDocument{ (document, error) in
+            
+            print("get pendingLists")
+            if let e = error{
+                print("error \(e)")
+            }
+            else{
+                if let document = document{
+                    
+                    guard let data = document.data() else {
+                        print("error getting data")
+                        return
+                    }
+                    self.defaults.set(data[K.FStore.pendingLists] as? [String], forKey: K.FStore.pendingLists)
+                        //self.storeFriendList()
+
+                }
+            }
+        }
+    }
+    
+    
     
     
     
@@ -179,7 +203,7 @@ class FriendNetwork {
         friendsRef.document(currentUser).updateData([K.FStore.pendingLists : FieldValue.arrayRemove([email])])
     }
     //delete both side of friendList
-    func deleteFriend(Email email: String, Name name: String){
+    func deleteFriend(friendEmail email: String, friendName name: String){
         friendsRef.document(currentUser).updateData([K.FStore.FriendList : FieldValue.arrayRemove([email])])
         friendsRef.document(name).updateData([K.FStore.FriendList : FieldValue.arrayRemove([currentEmail])])
         

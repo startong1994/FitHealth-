@@ -1465,7 +1465,7 @@
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="heavy"/>
                                 </state>
                                 <connections>
-                                    <action selector="profileButtonPressed:" destination="aD4-Cn-USr" eventType="touchUpInside" id="bSH-RG-olp"/>
+                                    <action selector="profileButtonPressed:" destination="aD4-Cn-USr" eventType="touchUpInside" id="bAe-qZ-MWL"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1477,6 +1477,7 @@
                         <outlet property="tableView" destination="NIH-oJ-9d6" id="efp-J3-1cl"/>
                         <segue destination="8y7-6R-7Ht" kind="show" identifier="socialToProfile" id="eyC-yb-qRY"/>
                         <segue destination="heV-rA-0qz" kind="show" identifier="socialToCurrentUser" id="B2F-wI-4Cw"/>
+                        <segue destination="jj6-rP-SSs" kind="show" identifier="socialToPendingList" id="Fln-y2-zqS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nnl-4V-tEh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1604,14 +1605,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qgT-jx-OPX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6355" y="2281"/>
+            <point key="canvasLocation" x="7274" y="1817"/>
         </scene>
         <!--NewFriendProfile-->
         <scene sceneID="5qo-gm-jqa">
             <objects>
                 <viewController storyboardIdentifier="NewFriendProfile" title="NewFriendProfile" id="awR-wY-lXz" customClass="NewFriendProfileViewController" customModule="FitHealthPlus" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DW8-89-aDx">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nr8-hz-Yyr">
@@ -1663,7 +1664,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DM8-ko-8cg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7241" y="1801"/>
+            <point key="canvasLocation" x="8333" y="1817"/>
         </scene>
         <!--Leaderboard-->
         <scene sceneID="rFP-M9-Kzk">
@@ -1787,7 +1788,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NI7-Qk-bTS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="8671.0144927536239" y="950.89285714285711"/>
+            <point key="canvasLocation" x="9913" y="445"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -2832,39 +2833,30 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qHG-N5-h8z">
-                                <rect key="frame" x="87" y="321" width="240" height="128"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="9Ed-Z4-IEz">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OME-DQ-CaC">
-                                <rect key="frame" x="20" y="510" width="374" height="52"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="43"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Email" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iM0-s5-NCA">
-                                <rect key="frame" x="20" y="614" width="374" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="selections" id="36D-LH-4gr">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="36D-LH-4gr" id="lIT-JI-0Y4">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="5nq-VA-kPL"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="XWJ-sT-Ck5">
-                        <barButtonItem key="rightBarButtonItem" title="Logout" id="lBe-az-bXd">
-                            <connections>
-                                <action selector="logoutButtonPressed:" destination="heV-rA-0qz" id="Dl3-a4-xqI"/>
-                            </connections>
-                        </barButtonItem>
+                        <nil key="title"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="email" destination="iM0-s5-NCA" id="JDa-KQ-yqv"/>
-                        <outlet property="name" destination="OME-DQ-CaC" id="krv-9M-vAe"/>
-                        <outlet property="profileImage" destination="qHG-N5-h8z" id="kv2-r6-Zy1"/>
+                        <outlet property="tableView" destination="9Ed-Z4-IEz" id="tis-Eh-mB0"/>
                         <segue destination="AEV-Ke-Q4y" kind="show" identifier="logout" id="NJ5-Ei-KH0"/>
                     </connections>
                 </viewController>
