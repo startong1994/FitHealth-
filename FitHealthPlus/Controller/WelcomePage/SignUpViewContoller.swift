@@ -15,7 +15,7 @@ class SignUpViewContoller: UIViewController {
     
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
-    @IBOutlet weak var profileImage: UIImageView!
+    //@IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var UserName: UITextField!
     
     let db = Firestore.firestore()
@@ -27,7 +27,7 @@ class SignUpViewContoller: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         self.navigationController?.setNavigationBarHidden(false, animated: false)
-        profileImage.image = UIImage(named: "person")
+        //profileImage.image = UIImage(named: "person")
     }
     
     
@@ -89,6 +89,9 @@ class SignUpViewContoller: UIViewController {
         
         
         
+    }
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
     
 }

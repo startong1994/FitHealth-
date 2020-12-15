@@ -25,7 +25,7 @@ struct UsersData {
     let friendsRef = Firestore.firestore().collection("friendList")
     
     func getCurrentUser() -> String{
-        if let name = defaults.dictionary(forKey: "CurrentUser")!["name"]{
+        if let name = defaults.dictionary(forKey: "CurrentUser")?["name"]{
             return name as! String
         }
         else{
@@ -33,7 +33,7 @@ struct UsersData {
         }
     }
     func getCurrentProfileImage() -> String{
-        if let profileImage = defaults.dictionary(forKey: "CurrentUser")!["profileImage"]{
+        if let profileImage = defaults.dictionary(forKey: "CurrentUser")?["profileImage"]{
             return profileImage as! String
         }
         else{
@@ -42,7 +42,7 @@ struct UsersData {
     }
     
     func getCurrentEmail() -> String {
-        if let email = defaults.dictionary(forKey: "CurrentUser")!["email"]{
+        if let email = defaults.dictionary(forKey: "CurrentUser")?["email"]{
             return email as! String
         }
         else{
