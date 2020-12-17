@@ -15,7 +15,6 @@ class AddRecipeViewController: UIViewController, UIImagePickerControllerDelegate
     //Database
     let db = Firestore.firestore()
     let defaults = UserDefaults.standard
-    //private let storageRef = Storage.storage().reference()
     var imgURL = ""
     var item: recipeItem?
     
@@ -49,7 +48,7 @@ class AddRecipeViewController: UIViewController, UIImagePickerControllerDelegate
     
     var pickerView = UIPickerView()
     // used for view picker
-    let categories = ["Poultry", "Beef", "Pork", "Seafood", "Vegetarian","Dessert"]
+    let categories = ["Poultry", "Beef", "Pork", "Seafood", "Other"]
     //view picker number of columns
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1

@@ -193,8 +193,7 @@ class RecipeMainViewController: UIViewController, UISearchBarDelegate, UICollect
                 vc.getInstructions = recipe?.instructions! ?? "Instructions not available"
                 vc.getPrepTime = recipe?.readyInMinutes! ?? 0
                 vc.getServingSize = recipe?.servings! ?? 0
-                let imageName = recipe?.image! ?? "chicken parmesan"
-                vc.getImage = UIImage(named: imageName) ?? UIImage(named: "chicken parmesan") as! UIImage
+                vc.getImage = recipe?.image! ?? ""
                 var ingredientsList = ""
                 for ingredient in recipe?.extendedIngredients ?? []{
                     ingredientsList += ingredient + "\n"
@@ -212,6 +211,20 @@ class RecipeMainViewController: UIViewController, UISearchBarDelegate, UICollect
         }
     }
     
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        
+        guard let searchBarText = searchBar.text else {return}
+        if searchBarText != "" || searchBarText != nil {
+            let recipeString = searchBarText.replacingOccurrences(of: " ", with: "%20")
+            let resultsTableView = storyboard?.instantiateViewController(withIdentifier: "searchBarResults") as? RecipeSearchBarViewController
+            resultsTableView?.recipeString = recipeString
+            self.navigationController?.pushViewController(resultsTableView!, animated: true)
+            
+        }
+       
+        
+        
+    }
 
 }
 

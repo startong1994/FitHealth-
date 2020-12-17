@@ -11,6 +11,7 @@ import UIKit
 class RecipeSearchViewController: UIViewController,UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var resultTableView: UITableView!
+   
     var results = [Result]()
     var queryString = String()
     var recipe = Recipe()
@@ -19,6 +20,7 @@ class RecipeSearchViewController: UIViewController,UITableViewDelegate, UITableV
         resultTableView.delegate = self
         resultTableView.dataSource = self
         print("Table View API Query: ", queryString)
+    
         
         let recipeResultsFunc = { (getIntoleranceSearchResults: [Result]) in
             self.results = getIntoleranceSearchResults
@@ -60,8 +62,7 @@ class RecipeSearchViewController: UIViewController,UITableViewDelegate, UITableV
                 vc.getInstructions = newInstructions
                 vc.getPrepTime = recipe?.readyInMinutes! ?? 0
                 vc.getServingSize = recipe?.servings! ?? 0
-                let imageName = recipe?.image! ?? "chicken parmesan"
-                vc.getImage = UIImage(named: imageName) ?? UIImage(named: "chicken parmesan") as! UIImage
+                vc.getImage = recipe?.image! ?? ""
                 var ingredientsList = ""
                 for ingredient in recipe?.extendedIngredients ?? []{
                     ingredientsList += ingredient + "\n"

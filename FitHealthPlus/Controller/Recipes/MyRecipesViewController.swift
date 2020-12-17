@@ -13,6 +13,7 @@ import FirebaseStorage
 class MyRecipesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
     
     
+    @IBOutlet weak var tableViewContainerUIView: UIView!
     @IBOutlet weak var recipeTableView: UITableView!
 
     // View for sort feature
@@ -24,8 +25,6 @@ class MyRecipesViewController: UIViewController, UITableViewDelegate, UITableVie
     
     // Variables
     var listRecipes = [recipeItem]()
-    var myIndex = 0
-    var choice = 0
     var searchingItems = [recipeItem]()
     var searching = false
     
@@ -33,11 +32,11 @@ class MyRecipesViewController: UIViewController, UITableViewDelegate, UITableVie
         super.viewDidLoad()
         
         navigationItem.title = "My Recipes"
-       // self.tabBarController?.tabBar.isHidden = true
         recipeTableView.delegate = self
         recipeTableView.dataSource = self
         setUpSearchBar()
-        recipeTableView.backgroundColor = UIColor.systemTeal
+        recipeTableView.backgroundColor = UIColor.clear
+        tableViewContainerUIView.setTwoGradient(colorOne: UIColor.systemTeal, colorTwo: UIColor.white)
         
     }
     
@@ -253,6 +252,7 @@ class MyRecipesViewController: UIViewController, UITableViewDelegate, UITableVie
                 }
                 
             }
+            print("index path number: ", indexPath.row)
             listRecipes.remove(at: indexPath.row)
             recipeTableView.reloadData()
         }
@@ -278,3 +278,4 @@ class recipeCell: UITableViewCell{
     @IBOutlet weak var recipeCategory: UILabel!
     
 }
+
