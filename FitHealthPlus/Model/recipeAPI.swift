@@ -298,6 +298,9 @@ class recipeAPI {
         if let title = resultInfo["title"] as? String {
             result.title = title
         }
+        if let image = resultInfo["image"] as? String {
+            result.image = image
+        }
         
         return result
     }
@@ -337,6 +340,7 @@ struct Results{
 struct Result {
     var id: Int?
     var title: String?
+    var image: String?
 }
 
 

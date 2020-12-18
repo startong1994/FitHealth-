@@ -144,7 +144,7 @@ class MyRecipesViewController: UIViewController, UITableViewDelegate, UITableVie
         searchController.searchBar.delegate = self
         let appearance = UINavigationBarAppearance()
         appearance.backgroundColor = .systemTeal
-        appearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]
+        appearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.black]
         navigationItem.standardAppearance = appearance
         navigationItem.scrollEdgeAppearance = appearance
         searchController.searchBar.searchTextField.backgroundColor = UIColor.white

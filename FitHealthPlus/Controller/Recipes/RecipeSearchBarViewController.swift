@@ -14,13 +14,9 @@ class RecipeSearchBarViewController: UIViewController,UITableViewDelegate, UITab
     @IBOutlet weak var searchBarResultsUIView: UIView!
     @IBOutlet weak var searchBarTableView: UITableView!
     
-    var results = [RecipeResults]()
+    var results = [Result]()
     var recipeDetails = Recipe()
     var recipeString = String()
-    let imageBaseURL = "https://spoonacular.com/recipeImages/"
-    let category = GetCategory()
-    var count = 1
- 
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +26,7 @@ class RecipeSearchBarViewController: UIViewController,UITableViewDelegate, UITab
         searchBarTableView.backgroundColor = UIColor.clear
         searchBarResultsUIView.setTwoGradient(colorOne: UIColor.systemTeal, colorTwo: UIColor.white)
         
-        let resultsFunc = {( getTheResults: [RecipeResults]) in
+        let resultsFunc = {( getTheResults: [Result]) in
             self.results = getTheResults
             self.searchBarTableView.reloadData()
         }
@@ -55,13 +51,10 @@ class RecipeSearchBarViewController: UIViewController,UITableViewDelegate, UITab
             cell.recipeImage.image = UIImage(named: "no-image-icon")
         }
         else {
-            let imageUrl = URL(string: imageBaseURL+result.image!)!
+            let imageUrl = URL(string: result.image!)!
             let imageData = try! Data(contentsOf: imageUrl)
             cell.recipeImage.image = UIImage(data: imageData)
         }
-        //to get recipe category
-        let title = result.title
-        cell.recipeCategory.text = category.getRecipeCategory (recipeName: title)
 
         return cell
     }
@@ -104,55 +97,10 @@ class RecipeSearchBarViewController: UIViewController,UITableViewDelegate, UITab
     
 }
 
-class GetCategory {
-
-    func getRecipeCategory (recipeName: String?) -> String {
-        
-        let poultry = ["chicken", "turkey", "duck", "fowl", "hen", "poultry"]
-        let seafood = ["seafood","fish", "shrimp", "scallop", "mussel", "clam", "oyster", "lobster", "crab", "salmon", "tuna", "tilapia",
-                      "catfish", "cod", "mahi-mahi", "mahi mahi", "trout", "flounder", "snapper", "sardine", "herring", "grouper",
-                      "mackerel", "pollock", "sea bass", "sword fish", "halibut", "pike", "monkfish"]
-        let beef = ["steak", "veal", "oxtail","beef"]
-        let pork = ["pork", "ham", "prosciutto"]
-        
-        let lowercasedTitle = recipeName?.lowercased() ?? ""
-        var check = ""
-  
-        for category1 in poultry {
-            if lowercasedTitle.contains(category1) {
-                check = "Poultry"
-            }
-            print(check)
-        }
-        for category2 in seafood {
-            if lowercasedTitle.contains(category2) {
-                check = "Seafood"
-            }
-        }
-        for category3 in beef {
-            if lowercasedTitle.contains(category3) {
-                check = "Beef"
-            }
-        }
-        for category4 in pork {
-            if lowercasedTitle.contains(category4) {
-                check = "Pork"
-            }
-        }
-        
-        if check == "" {
-            check = "Other"
-        }
-        
-        return check
-    }
-    
-}
 
 class SearchBarResultsCell: UITableViewCell{
     
     @IBOutlet weak var recipeCellView: UIView!
-    @IBOutlet weak var recipeCategory: UILabel!
     @IBOutlet weak var recipeName: UILabel!
     @IBOutlet weak var recipeImage: UIImageView!
 }
