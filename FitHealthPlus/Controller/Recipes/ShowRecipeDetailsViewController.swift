@@ -109,4 +109,47 @@ class ShowRecipeDetailsViewController: UIViewController {
 
 }
 
+class GetCategory {
 
+    func getRecipeCategory (recipeName: String?) -> String {
+        
+        let poultry = ["chicken", "turkey", "duck", "fowl", "hen", "poultry"]
+        let seafood = ["seafood","fish", "shrimp", "scallop", "mussel", "clam", "oyster", "lobster", "crab", "salmon", "tuna", "tilapia",
+                      "catfish", "cod", "mahi-mahi", "mahi mahi", "trout", "flounder", "snapper", "sardine", "herring", "grouper",
+                      "mackerel", "pollock", "sea bass", "sword fish", "halibut", "pike", "monkfish"]
+        let beef = ["steak", "veal", "oxtail","beef"]
+        let pork = ["pork", "ham", "prosciutto"]
+        
+        let lowercasedTitle = recipeName?.lowercased() ?? ""
+        var check = ""
+  
+        for category1 in poultry {
+            if lowercasedTitle.contains(category1) {
+                check = "Poultry"
+            }
+            print(check)
+        }
+        for category2 in seafood {
+            if lowercasedTitle.contains(category2) {
+                check = "Seafood"
+            }
+        }
+        for category3 in beef {
+            if lowercasedTitle.contains(category3) {
+                check = "Beef"
+            }
+        }
+        for category4 in pork {
+            if lowercasedTitle.contains(category4) {
+                check = "Pork"
+            }
+        }
+        
+        if check == "" {
+            check = "Other"
+        }
+        
+        return check
+    }
+    
+}
