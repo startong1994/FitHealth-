@@ -42,14 +42,14 @@ class LeaderboardViewController: UIViewController {
         navigationItem.title = "Detail"
         
         //self.tableView.dataSource = self
-    
+        challengePressView.transform = challengePressView.transform.scaledBy(x: 1, y: 3)
         name.text = challengeName
         tableView.dataSource = self
         tableView.delegate = self
     
         reloadData()
         
-        FriendNetwork().run(after: 3) {
+        FriendNetwork().run(after: 1) {
             self.reloadLeaderBoard()
         }
     }
@@ -107,6 +107,7 @@ class LeaderboardViewController: UIViewController {
                                     if UsersData().getCurrentUser() == friend{
                                         self.progressL.text = String("Current: \(temp)")
                                         self.currentProgress = temp
+                                        self.challengePressView.progress = (Float(temp)/Float(self.challengeGoal))
                                     }
                                 }else{
                                     self.challengeFriends[friend] = 0
