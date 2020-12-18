@@ -86,10 +86,9 @@ class ChallengeAdderViewController: UIViewController {
                     
                 }
             }
-            
         }
         
-        
+        self.navigationController?.popViewController(animated: true)
         
         
         
