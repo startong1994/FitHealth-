@@ -19,6 +19,9 @@ struct K {
         static let challengeName = "challengeName"
         static let challengeFriends = "challengeFriends"
         static let challengeProgress = "challengeProgress"
+        static let challengeExpireTime = "expireTime"
+        static let challengeGoal = "challengeGoal"
+        static let challengeCreater = "creater"
     }
     struct healthKit {
         static let dSteps = "Daily Steps"

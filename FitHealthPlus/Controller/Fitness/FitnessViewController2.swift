@@ -173,12 +173,22 @@ extension FitnessViewController2: UITableViewDataSource, UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        
+        if indexPath.count > 0 {
+            let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+            
+            
+            
+            let profileVC = storyBoard.instantiateViewController(withIdentifier: "leaderBoard") as! LeaderboardViewController
+            
+            profileVC.challengeName = challengeList[indexPath.row]
+            print(challengeList[indexPath.row])
+            
+            self.navigationController?.pushViewController(profileVC, animated: true)
         
         
         tableView.deselectRow(at: indexPath, animated: true)
     }
-    
+    }
     
     
     func reload(){
@@ -205,29 +215,7 @@ extension FitnessViewController2: UITableViewDataSource, UITableViewDelegate{
                 }
             }
         }
-        
-        
-        
-        
-        
-        
-        
-        
-        
-
-        
-        
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
 }
 

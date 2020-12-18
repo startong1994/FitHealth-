@@ -299,6 +299,7 @@
 		D2EA92EE253B41D900026B0E /* Fitness */ = {
 			isa = PBXGroup;
 			children = (
+				D230589F253CCEB30013B64C /* LeaderboardViewController.swift */,
 				D2EA92D6253A329500026B0E /* FitnessViewController.swift */,
 				D2DB12792540DBF7005DFF65 /* FitnessGoalViewController.swift */,
 				D270A095254321FE00443769 /* WorkoutGuideViewController.swift */,
@@ -326,7 +327,6 @@
 			isa = PBXGroup;
 			children = (
 				D2EA92EA253A32E900026B0E /* SocialViewController.swift */,
-				D230589F253CCEB30013B64C /* LeaderboardViewController.swift */,
 				D23058AE253CE1060013B64C /* AddFriendViewController.swift */,
 				D2912C2D253E59AC0061EC01 /* NewFriendProfileViewController.swift */,
 				D26A6008253F7D4A00A21006 /* ProfileViewController.swift */,

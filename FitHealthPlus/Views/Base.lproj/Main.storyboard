@@ -3743,6 +3743,7 @@
                         <outlet property="stepsProgress" destination="mZJ-up-QnG" id="rei-e0-fa4"/>
                         <outlet property="tableView" destination="sdb-HV-GpD" id="qvD-GC-DZ4"/>
                         <outlet property="workoutTimeProgress" destination="jhv-bJ-B2t" id="uMg-s6-OHa"/>
+                        <segue destination="Ap2-2C-1I6" kind="show" id="HEz-gE-qXy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uvT-pk-5Dg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -3884,7 +3885,7 @@
         <!--Leaderboard-->
         <scene sceneID="GzH-Vq-Gmj">
             <objects>
-                <viewController title="Leaderboard" id="Ap2-2C-1I6" customClass="LeaderboardViewController" customModule="FitHealthPlus" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="leaderBoard" title="Leaderboard" id="Ap2-2C-1I6" customClass="LeaderboardViewController" customModule="FitHealthPlus" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Zi3-os-93z">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -3992,8 +3993,31 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="LeaderBoard" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f66-pc-mFH">
+                                <rect key="frame" x="65" y="408" width="285" height="28"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemTealColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ChallengeName" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yqb-ZW-DSb">
+                                <rect key="frame" x="65" y="142" width="285" height="28"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemTealColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bWX-0W-CrW">
+                                <rect key="frame" x="186" y="290" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ChallengeName" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YKN-IP-xqt">
-                                <rect key="frame" x="20" y="123" width="374" height="42"/>
+                                <rect key="frame" x="20" y="240" width="374" height="42"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -4005,12 +4029,13 @@
                     </view>
                     <navigationItem key="navigationItem" id="EfQ-gT-b2Y"/>
                     <connections>
+                        <outlet property="name" destination="Yqb-ZW-DSb" id="qEU-RT-a0h"/>
                         <outlet property="tableView" destination="FF4-ET-cHU" id="9R4-uP-i1T"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ubc-uu-WwT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="532" y="-1723"/>
+            <point key="canvasLocation" x="531.8840579710145" y="-1723.6607142857142"/>
         </scene>
         <!--Challenge Detail View Controller-->
         <scene sceneID="bwg-Zo-Kft">
