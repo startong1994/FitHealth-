@@ -20,6 +20,7 @@ class LeaderboardViewController: UIViewController {
     var challengeCreater: String = ""
     var challengeGoal: Int = 0
     var challengeExpireTime: String = ""
+    var currentProgress = 0
     
     @IBOutlet weak var progressL: UILabel!
     @IBOutlet weak var creater: UILabel!
@@ -49,11 +50,15 @@ class LeaderboardViewController: UIViewController {
         //self.tableView.dataSource = self
     
         name.text = challengeName
+    
+        reloadData()
         
-        reload()
+        FriendNetwork().run(after: 3) {
+            self.reloadLeaderBoard()
+        }
     }
     
-    func reload() {
+    func reloadData() {
         
         db.collection("challenge").document(challengeName).getDocument { (doc, error) in
             if let error = error{
@@ -83,6 +88,7 @@ class LeaderboardViewController: UIViewController {
                 }
                 
                 if let friends = data[K.FStore.challengeFriends] as? [String]{
+                    self.challengeFriends = [:]
                     for friend in friends{
                         self.db.collection("challengeProgress").document(friend).getDocument { (doc, error) in
                             if let error = error{
@@ -96,10 +102,15 @@ class LeaderboardViewController: UIViewController {
                                     print("error getting data")
                                     return
                                 }
-                                if let progress = data[K.FStore.challengeProgress] as? Int{
-                                    self.challengeFriends[friend] = progress
+                                if let progress = data[self.challengeName] as? [Int]{
+                                    var temp = 0
+                                    for i in progress{
+                                        temp += i
+                                    }
+                                    self.challengeFriends[friend] = temp
                                     if UsersData().getCurrentUser() == friend{
-                                        self.progressL.text = String(progress)
+                                        self.progressL.text = String("Current: \(temp)")
+                                        self.currentProgress = temp
                                     }
                                 }else{
                                     self.challengeFriends[friend] = 0
@@ -109,21 +120,41 @@ class LeaderboardViewController: UIViewController {
                                 }
                             }
                         }
-                        
-                        
                     }
                 }
                 
 //                DispatchQueue.main.async {
 //                    self.tableView.reloadData()
 //                }
-                    
                 }
             }
         }
     
+    func reloadLeaderBoard() {
+        }
     
-    
+    @IBAction func addProgressButtonPressed(_ sender: UIBarButtonItem) {
+        var progress = UITextField()
+        let alert = UIAlertController(title: "", message: "Enter Progress", preferredStyle: .alert)
+        let add = UIAlertAction(title: "Add", style: .default) { (add) in
+            if let temp = Int(progress.text!){
+                ChallengeNetwork().updatingProgress(NewProgress: temp, ChallengeName: self.challengeName)
+                self.reloadData()
+            }
+        }
+        let cancel = UIAlertAction(title: "Cancel", style: .default, handler: nil)
+        
+        
+        alert.addTextField { (text) in
+            progress = text
+        }
+        
+        alert.addAction(add)
+        alert.addAction(cancel)
+        present(alert, animated: true, completion: nil)
+        
+        
+    }
     
     
 }

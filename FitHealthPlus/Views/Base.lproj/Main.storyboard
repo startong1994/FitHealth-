@@ -4008,7 +4008,13 @@
                         <viewLayoutGuide key="safeArea" id="dZC-7E-43m"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="EfQ-gT-b2Y"/>
+                    <navigationItem key="navigationItem" id="EfQ-gT-b2Y">
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="kZB-S4-HEU">
+                            <connections>
+                                <action selector="addProgressButtonPressed:" destination="Ap2-2C-1I6" id="6qb-Iv-OPc"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="challengePressView" destination="l7t-Zj-NW6" id="YS4-MC-jOA"/>
                         <outlet property="creater" destination="YKN-IP-xqt" id="4Oo-dJ-4C8"/>

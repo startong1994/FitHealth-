@@ -78,6 +78,10 @@ class ChallengeNetwork{
         
     }
     
+    func updatingProgress(NewProgress newProgress: Int,ChallengeName  challengeName: String){
+        challengeProgressRef.document(UsersData().getCurrentUser()).updateData([challengeName : FieldValue.arrayUnion([newProgress])])
+    }
+    
     
     
 }
