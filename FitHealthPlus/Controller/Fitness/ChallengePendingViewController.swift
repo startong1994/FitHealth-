@@ -79,10 +79,17 @@ extension ChallengePendingViewController: UITableViewDelegate, UITableViewDataSo
             
             ChallengeNetwork().addChallenge(self.challengePending[indexPath.row])
             
+            FriendNetwork().run(after: 1) {
+                self.reload()
+            }
+            
         }
         
         let decline = UIAlertAction(title: "decline", style: .default) { (decline) in
             self.challengePendingRef.document(UsersData().getCurrentUser()).updateData(["pending" : FieldValue.arrayRemove([self.challengePending[indexPath.row]])])
+            FriendNetwork().run(after: 1) {
+                self.reload()
+            }
             
         }
         alert.addAction(accpet)
