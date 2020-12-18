@@ -173,6 +173,57 @@ class recipeAPI {
         dataTask.resume()
     }
     
+    // Function to get nutritional Information by ID
+    /*func fetchNutritionByID(id: String, completion: @escaping ([Recipe])-> Void){
+        let request = NSMutableURLRequest(url: NSURL(string: "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/1003464/nutritionWidget.json")! as URL,
+                                                cachePolicy: .useProtocolCachePolicy,
+                                            timeoutInterval: 10.0)
+        request.httpMethod = "GET"
+        request.allHTTPHeaderFields = headers
+
+        let session = URLSession.shared
+        let dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in
+            if (error != nil) {
+                print(error)
+            } else {
+                let httpResponse = response as? HTTPURLResponse
+                print(httpResponse)
+                
+                // Get data reponse
+                guard let data = data else {
+                    print("No data available")
+                    completion([])
+                    return
+                }
+                
+                //Parse the JSON API data and return the results
+                do {
+                    let responseObject = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any]
+                    print("Response Object: ", responseObject)
+                    var nutrition = [Nutrition]()
+                    if let nutritionInfo = responseObject as? [String: Any] {
+                        let recipe = self.configureRecipe(recipeInfo: recipeInfo)
+                        recipes.append(recipe)
+                        DispatchQueue.main.async {
+                            print("Recipe from ID: ", recipe)
+                            completion(recipes)
+                        }
+                        
+                    } else {
+                        completion([])
+                    }
+                } catch{
+                    let error = error
+                    print("Cant decode data")
+                    print(error.localizedDescription)
+                    completion([])
+                }
+            }
+        })
+
+        dataTask.resume()
+    }*/
+    
     // Function to create recipe array
     func createRecipes(recipeArray: [[String: Any]]) -> [Recipe] {
         var recipes = [Recipe]()
@@ -250,6 +301,19 @@ class recipeAPI {
         
         return result
     }
+    
+    /*//Function to create recipe nutritional info
+    func configureNutrition(nutritionInfo: [String: Any]) -> Nutrition {
+        var nutrition = Nutrition()
+        
+        if let goodArray = nutritionInfo["good"] as? [[String: Any]] {
+            if goodArray.count == 0 {
+                nutrition.good = []
+            } else {
+                print("Good: " , goodArray)
+            }
+        }
+    }*/
     
 }
 

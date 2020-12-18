@@ -43,7 +43,7 @@ class PantryListViewController: UIViewController, UITableViewDelegate, UITableVi
         self.tabBarController?.tabBar.isHidden = false
         
         //code to get data from local UserDefault data, get name when it is loaded
-        guard let username = defaults.dictionary(forKey: "CurrentUser")!["name"]else{
+        guard let username = defaults.dictionary(forKey: "CurrentUser")!["email"]else{
             print("name not found")
             return
         }
@@ -302,7 +302,7 @@ class PantryListViewController: UIViewController, UITableViewDelegate, UITableVi
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete{
             let docName = myList[indexPath.row].name
-            guard let username = defaults.dictionary(forKey: "CurrentUser")!["name"]else{
+            guard let username = defaults.dictionary(forKey: "CurrentUser")!["email"]else{
                 print("name not found")
                 return
             }

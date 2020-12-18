@@ -200,7 +200,7 @@ class EditPantryItemViewController: UIViewController, UIPickerViewDelegate, UIPi
         let proteinText = Int(proteinTextField.text!)
         let cholestrolText = Int(cholesterolTextField.text!)
         
-        guard let name = defaults.dictionary(forKey: "CurrentUser")!["name"] else{
+        guard let name = defaults.dictionary(forKey: "CurrentUser")!["email"] else{
             return
         }
         
