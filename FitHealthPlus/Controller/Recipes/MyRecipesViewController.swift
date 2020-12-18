@@ -44,7 +44,7 @@ class MyRecipesViewController: UIViewController, UITableViewDelegate, UITableVie
         self.tabBarController?.tabBar.isHidden = false
     
         //code to get data from user that's logged in
-        guard let username = defaults.dictionary(forKey: "CurrentUser")!["name"]else{
+        guard let username = defaults.dictionary(forKey: "CurrentUser")!["email"]else{
             print("name not found")
             return
         }
@@ -240,7 +240,7 @@ class MyRecipesViewController: UIViewController, UITableViewDelegate, UITableVie
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete{
             let docName = listRecipes[indexPath.row].name
-            guard let username = defaults.dictionary(forKey: "CurrentUser")!["name"]else{
+            guard let username = defaults.dictionary(forKey: "CurrentUser")!["email"]else{
                 print("name not found")
                 return
             }

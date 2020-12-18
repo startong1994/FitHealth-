@@ -208,7 +208,7 @@ class AddRecipeViewController: UIViewController, UIImagePickerControllerDelegate
         let cholesterol = Int(cholesterolField.text!)
         
         //gets user's name for database
-        guard let name = defaults.dictionary(forKey: "CurrentUser")!["name"] else{
+        guard let name = defaults.dictionary(forKey: "CurrentUser")!["email"] else{
             return
         }
         

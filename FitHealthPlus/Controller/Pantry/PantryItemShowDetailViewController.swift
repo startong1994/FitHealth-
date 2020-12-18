@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class PantryItemShowDetailViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource{
+class PantryItemShowDetailViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UISearchBarDelegate{
     
     //Textbox fields
     @IBOutlet weak var nameTextField: UITextField!
@@ -73,6 +73,21 @@ class PantryItemShowDetailViewController: UIViewController, UIPickerViewDelegate
         
         addBtn.backgroundColor = UIColor.systemTeal
         addBtn.layer.cornerRadius = addBtn.frame.height/2
+        
+        //Searchbar
+        let searchController = UISearchController(searchResultsController: nil)
+        navigationItem.searchController = searchController
+        navigationItem.hidesSearchBarWhenScrolling = true
+        //searchController.navigationItem.hidesSearchBarWhenScrolling = true
+        let searchBar = UISearchBar(frame: CGRect.init(x: 0, y: 0, width: (UIScreen.main.bounds.width), height: 70))
+        searchController.searchBar.delegate = self
+        let appearance = UINavigationBarAppearance()
+        appearance.backgroundColor = .systemTeal
+        navigationController?.navigationBar.tintColor = .white
+        navigationController?.navigationBar.standardAppearance = appearance
+        navigationController?.navigationBar.compactAppearance = appearance
+        navigationController?.navigationBar.scrollEdgeAppearance = appearance
+        searchController.searchBar.searchTextField.backgroundColor = UIColor.white
         
         
     }
@@ -143,6 +158,39 @@ class PantryItemShowDetailViewController: UIViewController, UIPickerViewDelegate
         return true
     }
     
+    //Search Bar API
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard let searchBarText = searchBar.text else {return}
+        if searchBarText != "" || searchBarText != nil {
+            let userQuery = searchBarText.replacingOccurrences(of: " ", with: "%20")
+            ingredientAPI.sharedIngredientResult.fetchIngredients(queryString: userQuery, completion: { result in
+                let name = result.first?.name!
+                let calories = String(result.first?.calories! ?? 0)
+                print("Calories" , calories)
+                let fat = String(result.first?.fat_total_g! ?? 0)
+                let cholestrol = String(result.first?.cholesterol_mg! ?? 0)
+                let sodium = String(result.first?.sodium_mg! ?? 0)
+                let carbs = String(result.first?.carbohydrates_total_g! ?? 0)
+                let fiber = String(result.first?.fiber_g! ?? 0)
+                let sugar = String(result.first?.sugar_g! ?? 0)
+                let protein = String(result.first?.protein_g! ?? 0)
+                let servingSize = String(result.first?.serving_size_g! ?? 0)
+                
+                self.nameTextField.text = name
+                self.caloriesTextField.text = calories
+                self.fatTextField.text = fat
+                self.cholesterolTextField.text = cholestrol
+                self.sodiumTextField.text = sodium
+                self.carbTextField.text = carbs
+                self.fiberTextField.text = fiber
+                self.sugarTextField.text = sugar
+                self.proteinTextField.text = protein
+                self.servingSizeTextField.text = servingSize
+                self.viewDidLoad()
+                })
+        }
+    }
+    
     // MARK: - Navigation
    /* override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
@@ -175,7 +223,7 @@ class PantryItemShowDetailViewController: UIViewController, UIPickerViewDelegate
         let proteinText = Int(proteinTextField.text!)
         let cholestrolText = Int(cholesterolTextField.text!)
         
-        guard let name = defaults.dictionary(forKey: "CurrentUser")!["name"] else{
+        guard let name = defaults.dictionary(forKey: "CurrentUser")!["email"] else{
             return
         }
         
