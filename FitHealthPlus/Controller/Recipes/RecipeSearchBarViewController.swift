@@ -17,8 +17,6 @@ class RecipeSearchBarViewController: UIViewController,UITableViewDelegate, UITab
     var results = [Result]()
     var recipeDetails = Recipe()
     var recipeString = String()
-    //let imageBaseURL = "https://spoonacular.com/recipeImages/"
- 
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,7 +55,7 @@ class RecipeSearchBarViewController: UIViewController,UITableViewDelegate, UITab
             let imageData = try! Data(contentsOf: imageUrl)
             cell.recipeImage.image = UIImage(data: imageData)
         }
-        
+
         return cell
     }
     
@@ -98,6 +96,7 @@ class RecipeSearchBarViewController: UIViewController,UITableViewDelegate, UITab
     }
     
 }
+
 
 class SearchBarResultsCell: UITableViewCell{
     

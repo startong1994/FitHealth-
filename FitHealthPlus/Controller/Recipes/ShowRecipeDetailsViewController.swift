@@ -88,7 +88,7 @@ class ShowRecipeDetailsViewController: UIViewController {
 
         
         //gets user's name for database
-        guard let name = defaults.dictionary(forKey: "CurrentUser")!["name"] else{
+        guard let name = defaults.dictionary(forKey: "CurrentUser")!["email"] else{
             return
         }
         
