@@ -41,6 +41,8 @@ class LeaderboardViewController: UIViewController {
         self.tabBarController?.tabBar.isHidden = true
         navigationItem.title = "Detail"
         
+        self.tableView.tableFooterView = UIView()
+        
         //self.tableView.dataSource = self
         challengePressView.transform = challengePressView.transform.scaledBy(x: 1, y: 3)
         name.text = challengeName
