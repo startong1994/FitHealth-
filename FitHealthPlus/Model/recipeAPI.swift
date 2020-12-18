@@ -69,7 +69,7 @@ class recipeAPI {
     func getIntoleranceSearchResults(queryString: String, completion: @escaping ([Result])-> Void) {
         
         //API request
-        let request = NSMutableURLRequest(url: NSURL(string: "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/searchComplex?limitLicense=true&offset=10&number=100&\(queryString)")! as URL,
+        let request = NSMutableURLRequest(url: NSURL(string: "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/searchComplex?limitLicense=true&offset=0&number=4&\(queryString)")! as URL,
             cachePolicy: .useProtocolCachePolicy,
             timeoutInterval: 10.0)
         
