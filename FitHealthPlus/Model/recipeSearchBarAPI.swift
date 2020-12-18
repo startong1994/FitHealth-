@@ -19,9 +19,9 @@ class recipeSearchBarAPI {
         "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com"
     ]
     
-    func getRecipeSearchResults (recipeString: String, completion: @escaping ([RecipeResults]) -> Void) {
+    func getRecipeSearchResults (recipeString: String, completion: @escaping ([Result]) -> Void) {
         
-        let request = NSMutableURLRequest(url: NSURL(string: "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/search?query=\(recipeString)&number=5&offset=0")! as URL,
+        let request = NSMutableURLRequest(url: NSURL(string: "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/searchComplex?limitLicense=false&offset=0&number=10&query=\(recipeString)")! as URL,
             cachePolicy: .useProtocolCachePolicy,
             timeoutInterval: 10.0)
         
@@ -74,8 +74,8 @@ class recipeSearchBarAPI {
     }
     
     // Function to create result array from API query
-    func createResults(resultArray: [[String: Any]]) -> [RecipeResults] {
-        var results = [RecipeResults]()
+    func createResults(resultArray: [[String: Any]]) -> [Result] {
+        var results = [Result]()
         for resultInfo in resultArray {
             let result = configureResult(resultInfo: resultInfo)
             results.append(result)
@@ -84,8 +84,8 @@ class recipeSearchBarAPI {
     }
     
     // Function to create a result from API query
-    func configureResult(resultInfo: [String: Any]) -> RecipeResults {
-        var result = RecipeResults()
+    func configureResult(resultInfo: [String: Any]) -> Result {
+        var result = Result()
         
         if let id = resultInfo["id"] as? Int {
             result.id = id
@@ -215,18 +215,18 @@ class recipeSearchBarAPI {
     
     
 }
-        
+/*
 struct searchResults {
-    var results: [RecipeResults]
+    var results: [RecipeResult]
     var baseUri: String?
 }
 
-struct RecipeResults {
+struct RecipeResult {
     var id: Int?
     var title: String?
     var image: String?
     
-}
+}*/
 
 
 
