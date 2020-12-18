@@ -25,6 +25,7 @@ class LoginViewController: UIViewController {
         print(ActivityData().getDailySteps())
         print(ActivityData().getDailyExercise())
         print(ActivityData().getDailyEnergyBurned())
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
         
         
         
@@ -63,5 +64,9 @@ class LoginViewController: UIViewController {
             }
             
         }
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
 }
