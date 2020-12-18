@@ -17,6 +17,11 @@
 		9877101D2572C4F800921AC7 /* RecipeMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9877101C2572C4F800921AC7 /* RecipeMainViewController.swift */; };
 		987710C62579A50400921AC7 /* recipeAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 987710C52579A50400921AC7 /* recipeAPI.swift */; };
 		D2064A5E2562C5DC008BF665 /* FriendsNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2064A5D2562C5DC008BF665 /* FriendsNetwork.swift */; };
+		D213BF62258D00570028D332 /* FitnessViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = D213BF61258D00570028D332 /* FitnessViewController2.swift */; };
+		D213BF65258D008B0028D332 /* ChallengeAdderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D213BF64258D008B0028D332 /* ChallengeAdderViewController.swift */; };
+		D213BF68258D00B50028D332 /* ChallengeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D213BF67258D00B50028D332 /* ChallengeDetailViewController.swift */; };
+		D213BF6B258D00E00028D332 /* ChallengePendingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D213BF6A258D00E00028D332 /* ChallengePendingViewController.swift */; };
+		D213BF6E258D01170028D332 /* ChallengeNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = D213BF6D258D01170028D332 /* ChallengeNetwork.swift */; };
 		D21B5558257FF66500A998AE /* UpdateProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21B5557257FF66500A998AE /* UpdateProfileViewController.swift */; };
 		D21B5560257FFBB000A998AE /* ProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21B555E257FFBB000A998AE /* ProfileCell.swift */; };
 		D21B5561257FFBB000A998AE /* ProfileCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D21B555F257FFBB000A998AE /* ProfileCell.xib */; };
@@ -76,6 +81,11 @@
 		9877101C2572C4F800921AC7 /* RecipeMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeMainViewController.swift; sourceTree = "<group>"; };
 		987710C52579A50400921AC7 /* recipeAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = recipeAPI.swift; sourceTree = "<group>"; };
 		D2064A5D2562C5DC008BF665 /* FriendsNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsNetwork.swift; sourceTree = "<group>"; };
+		D213BF61258D00570028D332 /* FitnessViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitnessViewController2.swift; sourceTree = "<group>"; };
+		D213BF64258D008B0028D332 /* ChallengeAdderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeAdderViewController.swift; sourceTree = "<group>"; };
+		D213BF67258D00B50028D332 /* ChallengeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeDetailViewController.swift; sourceTree = "<group>"; };
+		D213BF6A258D00E00028D332 /* ChallengePendingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengePendingViewController.swift; sourceTree = "<group>"; };
+		D213BF6D258D01170028D332 /* ChallengeNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeNetwork.swift; sourceTree = "<group>"; };
 		D21B5557257FF66500A998AE /* UpdateProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateProfileViewController.swift; sourceTree = "<group>"; };
 		D21B555E257FFBB000A998AE /* ProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCell.swift; sourceTree = "<group>"; };
 		D21B555F257FFBB000A998AE /* ProfileCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileCell.xib; sourceTree = "<group>"; };
@@ -211,6 +221,7 @@
 				D24D42B22567059D0034EE40 /* FitGoal.swift */,
 				EE4BF1412567D81500012F22 /* recipeObj.swift */,
 				EE3123FF258596F600C628BF /* recipeSearchBarAPI.swift */,
+				D213BF6D258D01170028D332 /* ChallengeNetwork.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -291,6 +302,10 @@
 				D2EA92D6253A329500026B0E /* FitnessViewController.swift */,
 				D2DB12792540DBF7005DFF65 /* FitnessGoalViewController.swift */,
 				D270A095254321FE00443769 /* WorkoutGuideViewController.swift */,
+				D213BF61258D00570028D332 /* FitnessViewController2.swift */,
+				D213BF64258D008B0028D332 /* ChallengeAdderViewController.swift */,
+				D213BF67258D00B50028D332 /* ChallengeDetailViewController.swift */,
+				D213BF6A258D00E00028D332 /* ChallengePendingViewController.swift */,
 			);
 			path = Fitness;
 			sourceTree = "<group>";
@@ -464,10 +479,13 @@
 				D270A096254321FE00443769 /* WorkoutGuideViewController.swift in Sources */,
 				D2ADC577256484AD009717F9 /* CurrentUserViewController.swift in Sources */,
 				D23058A5253CD8540013B64C /* LoginViewController.swift in Sources */,
+				D213BF65258D008B0028D332 /* ChallengeAdderViewController.swift in Sources */,
 				D21B5558257FF66500A998AE /* UpdateProfileViewController.swift in Sources */,
+				D213BF6B258D00E00028D332 /* ChallengePendingViewController.swift in Sources */,
 				D2D546262542442500EA0C1E /* AddRecipeViewController.swift in Sources */,
 				D2DB12772540C8CE005DFF65 /* workoutCell.swift in Sources */,
 				D21B5560257FFBB000A998AE /* ProfileCell.swift in Sources */,
+				D213BF68258D00B50028D332 /* ChallengeDetailViewController.swift in Sources */,
 				D29262E4256072BB0092D0B3 /* DataModel.xcdatamodeld in Sources */,
 				D2EA92D5253A329500026B0E /* SceneDelegate.swift in Sources */,
 				985B0335257DC74B0095C45D /* ShowRecipeDetailsViewController.swift in Sources */,
@@ -477,11 +495,13 @@
 				9877101D2572C4F800921AC7 /* RecipeMainViewController.swift in Sources */,
 				D23058A7253CD8680013B64C /* SignUpViewContoller.swift in Sources */,
 				D251DEA5254060AB006E7862 /* PantryItemList.swift in Sources */,
+				D213BF6E258D01170028D332 /* ChallengeNetwork.swift in Sources */,
 				D2D54628254244D800EA0C1E /* MyRecipesViewController.swift in Sources */,
 				D21D56F02565CE790076FD4E /* ActivityData.swift in Sources */,
 				D2DB12732540BE89005DFF65 /* StatsBar.swift in Sources */,
 				98530BC1253F9F6A00D93F88 /* PantryItemShowDetailViewController.swift in Sources */,
 				D228A603254343A800D66ED3 /* RecipeDetailTableViewCell.swift in Sources */,
+				D213BF62258D00570028D332 /* FitnessViewController2.swift in Sources */,
 				EE4C460025683E1500793AA0 /* EditRecipeViewController.swift in Sources */,
 				985B033925805C910095C45D /* RecipeSearchViewController.swift in Sources */,
 				987710C62579A50400921AC7 /* recipeAPI.swift in Sources */,
