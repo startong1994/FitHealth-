@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		12E8367D8663FC05C8896F63 /* Pods_FitHealthPlus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6BC0832F650901A61B61C76 /* Pods_FitHealthPlus.framework */; };
+		6776713444FB62D14F6C9643 /* Pods_FitHealthPlus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13CA1D7019665C229C14C24F /* Pods_FitHealthPlus.framework */; };
 		9816343B2540C53500546A9E /* BarcodeScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9816343A2540C53500546A9E /* BarcodeScannerViewController.swift */; };
 		9816343D2540D82D00546A9E /* EditPantryItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9816343C2540D82D00546A9E /* EditPantryItemViewController.swift */; };
 		98530BBF253F9C9800D93F88 /* PantryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98530BBE253F9C9800D93F88 /* PantryListViewController.swift */; };
@@ -32,18 +32,26 @@
 		D24D42B02566EE2B0034EE40 /* ActivityNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24D42AF2566EE2B0034EE40 /* ActivityNetwork.swift */; };
 		D24D42B32567059D0034EE40 /* FitGoal.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24D42B22567059D0034EE40 /* FitGoal.swift */; };
 		D251DEA5254060AB006E7862 /* PantryItemList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D251DEA4254060AB006E7862 /* PantryItemList.swift */; };
+		D2549889258AB4BD0019E3C0 /* FitnessViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2549888258AB4BD0019E3C0 /* FitnessViewController2.swift */; };
 		D268DD032550C669000A320D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D268DD022550C669000A320D /* GoogleService-Info.plist */; };
 		D26A6009253F7D4A00A21006 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26A6008253F7D4A00A21006 /* ProfileViewController.swift */; };
 		D270A096254321FE00443769 /* WorkoutGuideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D270A095254321FE00443769 /* WorkoutGuideViewController.swift */; };
+		D270A09C254339C900443769 /* RecipeDetailVeiwController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D270A09B254339C900443769 /* RecipeDetailVeiwController.swift */; };
+		D282BABA2589C44C003B7399 /* ChallengeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D282BAB82589C44C003B7399 /* ChallengeCell.swift */; };
+		D282BABB2589C44C003B7399 /* ChallengeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D282BAB92589C44C003B7399 /* ChallengeCell.xib */; };
 		D2912C2E253E59AC0061EC01 /* NewFriendProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2912C2D253E59AC0061EC01 /* NewFriendProfileViewController.swift */; };
 		D29262DB255E3A330092D0B3 /* UsersData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29262DA255E3A330092D0B3 /* UsersData.swift */; };
 		D29262DE255E47730092D0B3 /* FriendsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29262DD255E47730092D0B3 /* FriendsData.swift */; };
 		D29262E4256072BB0092D0B3 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D29262E2256072BB0092D0B3 /* DataModel.xcdatamodeld */; };
 		D29919302560A6480000DB04 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D299192F2560A6480000DB04 /* Constants.swift */; };
+		D2ACFC11258AE5AB003C6FA7 /* ChallengeAdderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2ACFC10258AE5AB003C6FA7 /* ChallengeAdderViewController.swift */; };
 		D2ADC577256484AD009717F9 /* CurrentUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2ADC576256484AD009717F9 /* CurrentUserViewController.swift */; };
 		D2AE1CC32567702F004A6D0A /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AE1CC22567702F004A6D0A /* Friend.swift */; };
 		D2D546262542442500EA0C1E /* AddRecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D546252542442500EA0C1E /* AddRecipeViewController.swift */; };
 		D2D54628254244D800EA0C1E /* MyRecipesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D54627254244D800EA0C1E /* MyRecipesViewController.swift */; };
+		D2D993E5258B0B37004EBE80 /* ChallengeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D993E4258B0B37004EBE80 /* ChallengeDetailViewController.swift */; };
+		D2D993E8258B18D2004EBE80 /* ChallengePendingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D993E7258B18D2004EBE80 /* ChallengePendingViewController.swift */; };
+		D2D993EC258BBC02004EBE80 /* ChallengeNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D993EB258BBC02004EBE80 /* ChallengeNetwork.swift */; };
 		D2DB12732540BE89005DFF65 /* StatsBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DB12712540BE89005DFF65 /* StatsBar.swift */; };
 		D2DB12742540BE89005DFF65 /* StatsBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2DB12722540BE89005DFF65 /* StatsBar.xib */; };
 		D2DB12772540C8CE005DFF65 /* workoutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DB12752540C8CE005DFF65 /* workoutCell.swift */; };
@@ -54,19 +62,20 @@
 		D2EA92D3253A329500026B0E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EA92D2253A329500026B0E /* AppDelegate.swift */; };
 		D2EA92D5253A329500026B0E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EA92D4253A329500026B0E /* SceneDelegate.swift */; };
 		D2EA92D7253A329500026B0E /* FitnessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EA92D6253A329500026B0E /* FitnessViewController.swift */; };
+		D2EA92D9253A329500026B0E /* RecipesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EA92D8253A329500026B0E /* RecipesViewController.swift */; };
 		D2EA92DC253A329500026B0E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2EA92DA253A329500026B0E /* Main.storyboard */; };
 		D2EA92DE253A329500026B0E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2EA92DD253A329500026B0E /* Assets.xcassets */; };
 		D2EA92E1253A329500026B0E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2EA92DF253A329500026B0E /* LaunchScreen.storyboard */; };
 		D2EA92E9253A32D800026B0E /* PantryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EA92E8253A32D800026B0E /* PantryViewController.swift */; };
 		D2EA92EB253A32E900026B0E /* SocialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EA92EA253A32E900026B0E /* SocialViewController.swift */; };
-		EE312400258596F600C628BF /* recipeSearchBarAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3123FF258596F600C628BF /* recipeSearchBarAPI.swift */; };
-		EE312403258686BB00C628BF /* RecipeSearchBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE312402258686BB00C628BF /* RecipeSearchBarViewController.swift */; };
 		EE4BF1422567D81500012F22 /* recipeObj.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4BF1412567D81500012F22 /* recipeObj.swift */; };
 		EE4C460025683E1500793AA0 /* EditRecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4C45FF25683E1500793AA0 /* EditRecipeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		4A4D69B8BDAD71EB8EDBD95E /* Pods-FitHealthPlus.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FitHealthPlus.release.xcconfig"; path = "Target Support Files/Pods-FitHealthPlus/Pods-FitHealthPlus.release.xcconfig"; sourceTree = "<group>"; };
+		13CA1D7019665C229C14C24F /* Pods_FitHealthPlus.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FitHealthPlus.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		376DECEAC2B025EE51E67E3D /* Pods-FitHealthPlus.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FitHealthPlus.debug.xcconfig"; path = "Target Support Files/Pods-FitHealthPlus/Pods-FitHealthPlus.debug.xcconfig"; sourceTree = "<group>"; };
+		4E1694FC4379AC8B46A8C469 /* Pods-FitHealthPlus.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FitHealthPlus.release.xcconfig"; path = "Target Support Files/Pods-FitHealthPlus/Pods-FitHealthPlus.release.xcconfig"; sourceTree = "<group>"; };
 		9816343A2540C53500546A9E /* BarcodeScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeScannerViewController.swift; sourceTree = "<group>"; };
 		9816343C2540D82D00546A9E /* EditPantryItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPantryItemViewController.swift; sourceTree = "<group>"; };
 		98530BBE253F9C9800D93F88 /* PantryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PantryListViewController.swift; sourceTree = "<group>"; };
@@ -92,18 +101,26 @@
 		D24D42AF2566EE2B0034EE40 /* ActivityNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityNetwork.swift; sourceTree = "<group>"; };
 		D24D42B22567059D0034EE40 /* FitGoal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitGoal.swift; sourceTree = "<group>"; };
 		D251DEA4254060AB006E7862 /* PantryItemList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PantryItemList.swift; sourceTree = "<group>"; };
+		D2549888258AB4BD0019E3C0 /* FitnessViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitnessViewController2.swift; sourceTree = "<group>"; };
 		D268DD022550C669000A320D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D26A6008253F7D4A00A21006 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		D270A095254321FE00443769 /* WorkoutGuideViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutGuideViewController.swift; sourceTree = "<group>"; };
+		D270A09B254339C900443769 /* RecipeDetailVeiwController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailVeiwController.swift; sourceTree = "<group>"; };
+		D282BAB82589C44C003B7399 /* ChallengeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeCell.swift; sourceTree = "<group>"; };
+		D282BAB92589C44C003B7399 /* ChallengeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChallengeCell.xib; sourceTree = "<group>"; };
 		D2912C2D253E59AC0061EC01 /* NewFriendProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewFriendProfileViewController.swift; sourceTree = "<group>"; };
 		D29262DA255E3A330092D0B3 /* UsersData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersData.swift; sourceTree = "<group>"; };
 		D29262DD255E47730092D0B3 /* FriendsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsData.swift; sourceTree = "<group>"; };
 		D29262E3256072BB0092D0B3 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		D299192F2560A6480000DB04 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		D2ACFC10258AE5AB003C6FA7 /* ChallengeAdderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeAdderViewController.swift; sourceTree = "<group>"; };
 		D2ADC576256484AD009717F9 /* CurrentUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUserViewController.swift; sourceTree = "<group>"; };
 		D2AE1CC22567702F004A6D0A /* Friend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
 		D2D546252542442500EA0C1E /* AddRecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecipeViewController.swift; sourceTree = "<group>"; };
 		D2D54627254244D800EA0C1E /* MyRecipesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRecipesViewController.swift; sourceTree = "<group>"; };
+		D2D993E4258B0B37004EBE80 /* ChallengeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeDetailViewController.swift; sourceTree = "<group>"; };
+		D2D993E7258B18D2004EBE80 /* ChallengePendingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengePendingViewController.swift; sourceTree = "<group>"; };
+		D2D993EB258BBC02004EBE80 /* ChallengeNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeNetwork.swift; sourceTree = "<group>"; };
 		D2DB12712540BE89005DFF65 /* StatsBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsBar.swift; sourceTree = "<group>"; };
 		D2DB12722540BE89005DFF65 /* StatsBar.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StatsBar.xib; sourceTree = "<group>"; };
 		D2DB12752540C8CE005DFF65 /* workoutCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = workoutCell.swift; sourceTree = "<group>"; };
@@ -115,16 +132,13 @@
 		D2EA92D2253A329500026B0E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D2EA92D4253A329500026B0E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		D2EA92D6253A329500026B0E /* FitnessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitnessViewController.swift; sourceTree = "<group>"; };
+		D2EA92D8253A329500026B0E /* RecipesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesViewController.swift; sourceTree = "<group>"; };
 		D2EA92DB253A329500026B0E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D2EA92DD253A329500026B0E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D2EA92E0253A329500026B0E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D2EA92E2253A329500026B0E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D2EA92E8253A32D800026B0E /* PantryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PantryViewController.swift; sourceTree = "<group>"; };
 		D2EA92EA253A32E900026B0E /* SocialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialViewController.swift; sourceTree = "<group>"; };
-		E6BC0832F650901A61B61C76 /* Pods_FitHealthPlus.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FitHealthPlus.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		EA28C4593F5A80E361BC599C /* Pods-FitHealthPlus.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FitHealthPlus.debug.xcconfig"; path = "Target Support Files/Pods-FitHealthPlus/Pods-FitHealthPlus.debug.xcconfig"; sourceTree = "<group>"; };
-		EE3123FF258596F600C628BF /* recipeSearchBarAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = recipeSearchBarAPI.swift; sourceTree = "<group>"; };
-		EE312402258686BB00C628BF /* RecipeSearchBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeSearchBarViewController.swift; sourceTree = "<group>"; };
 		EE4BF1412567D81500012F22 /* recipeObj.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = recipeObj.swift; sourceTree = "<group>"; };
 		EE4C45FF25683E1500793AA0 /* EditRecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditRecipeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -135,7 +149,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D21D56EE2565C0240076FD4E /* HealthKit.framework in Frameworks */,
-				12E8367D8663FC05C8896F63 /* Pods_FitHealthPlus.framework in Frameworks */,
+				6776713444FB62D14F6C9643 /* Pods_FitHealthPlus.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -145,8 +159,8 @@
 		2C876BA4E603B6CDFDD1BC7B /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				EA28C4593F5A80E361BC599C /* Pods-FitHealthPlus.debug.xcconfig */,
-				4A4D69B8BDAD71EB8EDBD95E /* Pods-FitHealthPlus.release.xcconfig */,
+				376DECEAC2B025EE51E67E3D /* Pods-FitHealthPlus.debug.xcconfig */,
+				4E1694FC4379AC8B46A8C469 /* Pods-FitHealthPlus.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -155,7 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				D21D56ED2565C0240076FD4E /* HealthKit.framework */,
-				E6BC0832F650901A61B61C76 /* Pods_FitHealthPlus.framework */,
+				13CA1D7019665C229C14C24F /* Pods_FitHealthPlus.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -192,6 +206,8 @@
 				D228A602254343A800D66ED3 /* RecipeDetailTableViewCell.xib */,
 				D21B555E257FFBB000A998AE /* ProfileCell.swift */,
 				D21B555F257FFBB000A998AE /* ProfileCell.xib */,
+				D282BAB82589C44C003B7399 /* ChallengeCell.swift */,
+				D282BAB92589C44C003B7399 /* ChallengeCell.xib */,
 			);
 			path = Designs;
 			sourceTree = "<group>";
@@ -210,7 +226,7 @@
 				D24D42AF2566EE2B0034EE40 /* ActivityNetwork.swift */,
 				D24D42B22567059D0034EE40 /* FitGoal.swift */,
 				EE4BF1412567D81500012F22 /* recipeObj.swift */,
-				EE3123FF258596F600C628BF /* recipeSearchBarAPI.swift */,
+				D2D993EB258BBC02004EBE80 /* ChallengeNetwork.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -275,12 +291,13 @@
 			isa = PBXGroup;
 			children = (
 				9877101C2572C4F800921AC7 /* RecipeMainViewController.swift */,
+				D2EA92D8253A329500026B0E /* RecipesViewController.swift */,
 				D2D546252542442500EA0C1E /* AddRecipeViewController.swift */,
 				D2D54627254244D800EA0C1E /* MyRecipesViewController.swift */,
+				D270A09B254339C900443769 /* RecipeDetailVeiwController.swift */,
 				EE4C45FF25683E1500793AA0 /* EditRecipeViewController.swift */,
 				985B0334257DC74B0095C45D /* ShowRecipeDetailsViewController.swift */,
 				985B033825805C910095C45D /* RecipeSearchViewController.swift */,
-				EE312402258686BB00C628BF /* RecipeSearchBarViewController.swift */,
 			);
 			path = Recipes;
 			sourceTree = "<group>";
@@ -291,6 +308,10 @@
 				D2EA92D6253A329500026B0E /* FitnessViewController.swift */,
 				D2DB12792540DBF7005DFF65 /* FitnessGoalViewController.swift */,
 				D270A095254321FE00443769 /* WorkoutGuideViewController.swift */,
+				D2549888258AB4BD0019E3C0 /* FitnessViewController2.swift */,
+				D2ACFC10258AE5AB003C6FA7 /* ChallengeAdderViewController.swift */,
+				D2D993E4258B0B37004EBE80 /* ChallengeDetailViewController.swift */,
+				D2D993E7258B18D2004EBE80 /* ChallengePendingViewController.swift */,
 			);
 			path = Fitness;
 			sourceTree = "<group>";
@@ -328,11 +349,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D2EA92E5253A329500026B0E /* Build configuration list for PBXNativeTarget "FitHealthPlus" */;
 			buildPhases = (
-				AF180753267FBCEC8A50E1A2 /* [CP] Check Pods Manifest.lock */,
+				9A694600590AF3AAEE2BCDD8 /* [CP] Check Pods Manifest.lock */,
 				D2EA92CB253A329500026B0E /* Sources */,
 				D2EA92CC253A329500026B0E /* Frameworks */,
 				D2EA92CD253A329500026B0E /* Resources */,
-				0B88E5DC1E4BF828058F36D6 /* [CP] Embed Pods Frameworks */,
+				E10E1CF4D505E117713D49C7 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -386,6 +407,7 @@
 				D2DB12782540C8CE005DFF65 /* workoutCell.xib in Resources */,
 				D2DB12742540BE89005DFF65 /* StatsBar.xib in Resources */,
 				D2DB127E2540DCB7005DFF65 /* FitnessGoalTableViewCell.xib in Resources */,
+				D282BABB2589C44C003B7399 /* ChallengeCell.xib in Resources */,
 				D2EA92DE253A329500026B0E /* Assets.xcassets in Resources */,
 				D21B5561257FFBB000A998AE /* ProfileCell.xib in Resources */,
 				D2EA92DC253A329500026B0E /* Main.storyboard in Resources */,
@@ -396,24 +418,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0B88E5DC1E4BF828058F36D6 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-FitHealthPlus/Pods-FitHealthPlus-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-FitHealthPlus/Pods-FitHealthPlus-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FitHealthPlus/Pods-FitHealthPlus-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		AF180753267FBCEC8A50E1A2 /* [CP] Check Pods Manifest.lock */ = {
+		9A694600590AF3AAEE2BCDD8 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -435,6 +440,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		E10E1CF4D505E117713D49C7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FitHealthPlus/Pods-FitHealthPlus-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FitHealthPlus/Pods-FitHealthPlus-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FitHealthPlus/Pods-FitHealthPlus-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -447,19 +469,22 @@
 				D2912C2E253E59AC0061EC01 /* NewFriendProfileViewController.swift in Sources */,
 				D2DB127D2540DCB7005DFF65 /* FitnessGoalTableViewCell.swift in Sources */,
 				D2064A5E2562C5DC008BF665 /* FriendsNetwork.swift in Sources */,
+				D2EA92D9253A329500026B0E /* RecipesViewController.swift in Sources */,
 				D2EA92D7253A329500026B0E /* FitnessViewController.swift in Sources */,
+				D270A09C254339C900443769 /* RecipeDetailVeiwController.swift in Sources */,
+				D2D993E5258B0B37004EBE80 /* ChallengeDetailViewController.swift in Sources */,
+				D2D993EC258BBC02004EBE80 /* ChallengeNetwork.swift in Sources */,
 				D23058A3253CD6780013B64C /* WelcomePageViewController.swift in Sources */,
 				EE4BF1422567D81500012F22 /* recipeObj.swift in Sources */,
 				D26A6009253F7D4A00A21006 /* ProfileViewController.swift in Sources */,
+				D2ACFC11258AE5AB003C6FA7 /* ChallengeAdderViewController.swift in Sources */,
 				98530BBF253F9C9800D93F88 /* PantryListViewController.swift in Sources */,
 				D24D42B32567059D0034EE40 /* FitGoal.swift in Sources */,
 				9816343D2540D82D00546A9E /* EditPantryItemViewController.swift in Sources */,
 				9816343B2540C53500546A9E /* BarcodeScannerViewController.swift in Sources */,
 				D2EA92E9253A32D800026B0E /* PantryViewController.swift in Sources */,
-				EE312403258686BB00C628BF /* RecipeSearchBarViewController.swift in Sources */,
 				D2EA92D3253A329500026B0E /* AppDelegate.swift in Sources */,
 				D2AE1CC32567702F004A6D0A /* Friend.swift in Sources */,
-				EE312400258596F600C628BF /* recipeSearchBarAPI.swift in Sources */,
 				D23058A0253CCEB30013B64C /* LeaderboardViewController.swift in Sources */,
 				D270A096254321FE00443769 /* WorkoutGuideViewController.swift in Sources */,
 				D2ADC577256484AD009717F9 /* CurrentUserViewController.swift in Sources */,
@@ -468,11 +493,14 @@
 				D2D546262542442500EA0C1E /* AddRecipeViewController.swift in Sources */,
 				D2DB12772540C8CE005DFF65 /* workoutCell.swift in Sources */,
 				D21B5560257FFBB000A998AE /* ProfileCell.swift in Sources */,
+				D2D993E8258B18D2004EBE80 /* ChallengePendingViewController.swift in Sources */,
+				D2549889258AB4BD0019E3C0 /* FitnessViewController2.swift in Sources */,
 				D29262E4256072BB0092D0B3 /* DataModel.xcdatamodeld in Sources */,
 				D2EA92D5253A329500026B0E /* SceneDelegate.swift in Sources */,
 				985B0335257DC74B0095C45D /* ShowRecipeDetailsViewController.swift in Sources */,
 				D29262DB255E3A330092D0B3 /* UsersData.swift in Sources */,
 				D24D42B02566EE2B0034EE40 /* ActivityNetwork.swift in Sources */,
+				D282BABA2589C44C003B7399 /* ChallengeCell.swift in Sources */,
 				D2DB127A2540DBF7005DFF65 /* FitnessGoalViewController.swift in Sources */,
 				9877101D2572C4F800921AC7 /* RecipeMainViewController.swift in Sources */,
 				D23058A7253CD8680013B64C /* SignUpViewContoller.swift in Sources */,
@@ -630,7 +658,7 @@
 		};
 		D2EA92E6253A329500026B0E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EA28C4593F5A80E361BC599C /* Pods-FitHealthPlus.debug.xcconfig */;
+			baseConfigurationReference = 376DECEAC2B025EE51E67E3D /* Pods-FitHealthPlus.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = FitHealthPlus/FitHealthPlus.entitlements;
@@ -650,7 +678,7 @@
 		};
 		D2EA92E7253A329500026B0E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4A4D69B8BDAD71EB8EDBD95E /* Pods-FitHealthPlus.release.xcconfig */;
+			baseConfigurationReference = 4E1694FC4379AC8B46A8C469 /* Pods-FitHealthPlus.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = FitHealthPlus/FitHealthPlus.entitlements;

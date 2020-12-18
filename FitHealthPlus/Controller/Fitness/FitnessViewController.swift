@@ -201,12 +201,6 @@ extension FitnessViewController: UITableViewDataSource, UITableViewDelegate{
                 
             }
 
-        
-        
-    
-    
-    
-    
     
 }
 

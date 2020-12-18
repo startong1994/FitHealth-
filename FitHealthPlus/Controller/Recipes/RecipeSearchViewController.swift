@@ -11,8 +11,6 @@ import UIKit
 class RecipeSearchViewController: UIViewController,UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var resultTableView: UITableView!
-    @IBOutlet weak var searchResultsUIView: UIView!
-    
     var results = [Result]()
     var queryString = String()
     var recipe = Recipe()
@@ -20,10 +18,7 @@ class RecipeSearchViewController: UIViewController,UITableViewDelegate, UITableV
         super.viewDidLoad()
         resultTableView.delegate = self
         resultTableView.dataSource = self
-        resultTableView.backgroundColor = UIColor.clear
-        searchResultsUIView.setTwoGradient(colorOne: UIColor.systemTeal, colorTwo: UIColor.white)
         print("Table View API Query: ", queryString)
-    
         
         let recipeResultsFunc = { (getIntoleranceSearchResults: [Result]) in
             self.results = getIntoleranceSearchResults
@@ -37,10 +32,6 @@ class RecipeSearchViewController: UIViewController,UITableViewDelegate, UITableV
         results.count
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 140
-    }
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "resultCell", for: indexPath) as! resultCell
         let result = results[indexPath.row]
@@ -48,21 +39,10 @@ class RecipeSearchViewController: UIViewController,UITableViewDelegate, UITableV
         cell.resultNameLabel.sizeToFit()
         cell.resultNameLabel.numberOfLines=0
         cell.resultNameLabel.textColor = UIColor.white
-        //retrieve image from recipe results
-        if result.image == "" || result.image == nil {
-            cell.recipeImage.image = UIImage(named: "no-image-icon")
-        }
-        else {
-            let imageUrl = URL(string: result.image!)!
-            let imageData = try! Data(contentsOf: imageUrl)
-            cell.recipeImage.image = UIImage(data: imageData)
-        }
         print("Name: ", result.title, " ID: ", result.id)
-        cell.resultCellView.layer.cornerRadius = 8
-        /*
         cell.resultCellView.layer.cornerRadius = cell.resultCellView.layer.frame.height / 2
         cell.resultCellView.backgroundColor = UIColor.systemTeal
-        */
+        
         return cell
     }
     
@@ -80,7 +60,8 @@ class RecipeSearchViewController: UIViewController,UITableViewDelegate, UITableV
                 vc.getInstructions = newInstructions
                 vc.getPrepTime = recipe?.readyInMinutes! ?? 0
                 vc.getServingSize = recipe?.servings! ?? 0
-                vc.getImage = recipe?.image! ?? ""
+                let imageName = recipe?.image! ?? "chicken parmesan"
+                vc.getImage = UIImage(named: imageName) ?? UIImage(named: "chicken parmesan") as! UIImage
                 var ingredientsList = ""
                 for ingredient in recipe?.extendedIngredients ?? []{
                     ingredientsList += ingredient + "\n"
@@ -110,7 +91,7 @@ class RecipeSearchViewController: UIViewController,UITableViewDelegate, UITableV
 // Class of Results Cells
 class resultCell: UITableViewCell{
     @IBOutlet weak var resultCellView: UIView!
-    @IBOutlet weak var recipeImage: UIImageView!
+    
     @IBOutlet weak var resultNameLabel: UILabel!
     
 }

@@ -95,10 +95,8 @@ class EditRecipeViewController: UIViewController, UIImagePickerControllerDelegat
         servingsField.text = getServings
         cookTimeField.text = getCookTime
         ingredientsField.text = getIngredients
-        ingredientsViewHeight.constant = ingredientsField.contentSize.height
         categoryPicker.text = getCategory
         directionsField.text = getDirections
-        directionsViewHeight.constant = directionsField.contentSize.height
         fatsField.text = String(getFat)
         calPerServField.text = String(getCalPerServ)
         cholesterolField.text = String(getCholesterol)
@@ -109,7 +107,7 @@ class EditRecipeViewController: UIViewController, UIImagePickerControllerDelegat
         sodiumField.text = String(getSodium)
         //retrieve image---->
         let url = String(getImage)
-        if url == "" || url == nil {
+        if url == "" {
             imageUpload.image = UIImage(named: "no-image-icon")
         }
         else {

@@ -225,16 +225,9 @@ class SocialViewController: UIViewController, UITableViewDelegate, UITableViewDa
                     DispatchQueue.main.async {
                         self.tableView.reloadData()
                     }
-
                 }
-
-
             }
-
-
         }
-
-
     }
 
 
