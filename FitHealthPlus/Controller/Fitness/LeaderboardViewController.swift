@@ -30,12 +30,6 @@ class LeaderboardViewController: UIViewController {
     
     
     
-    
-    
-    
-    
-    
-    
     var challengeName : String = ""
     
     @IBOutlet weak var name: UILabel!
@@ -134,8 +128,15 @@ class LeaderboardViewController: UIViewController {
     
     func reloadLeaderBoard() {
         
-        challengeFriendsName = Array(challengeFriends.keys)
-        challengeProgress = Array(challengeFriends.values)
+        
+        let sorted = challengeFriends.sorted { (first, second) -> Bool in
+            return first.value > second.value
+        }
+        
+        for i in sorted{
+            challengeFriendsName.append(i.key)
+            challengeProgress.append(i.value)
+        }
         tableView.reloadData()
         
         }
