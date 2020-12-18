@@ -15,7 +15,6 @@ class SignUpViewContoller: UIViewController {
     
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
-    //@IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var UserName: UITextField!
     
     let db = Firestore.firestore()
