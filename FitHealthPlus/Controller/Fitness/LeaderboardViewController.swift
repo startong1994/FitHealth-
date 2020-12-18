@@ -50,6 +50,8 @@ class LeaderboardViewController: UIViewController {
         //self.tableView.dataSource = self
     
         name.text = challengeName
+        tableView.dataSource = self
+        tableView.delegate = self
     
         reloadData()
         
@@ -131,6 +133,11 @@ class LeaderboardViewController: UIViewController {
         }
     
     func reloadLeaderBoard() {
+        
+        challengeFriendsName = Array(challengeFriends.keys)
+        challengeProgress = Array(challengeFriends.values)
+        tableView.reloadData()
+        
         }
     
     @IBAction func addProgressButtonPressed(_ sender: UIBarButtonItem) {
