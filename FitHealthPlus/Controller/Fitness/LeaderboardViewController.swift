@@ -20,6 +20,21 @@ class LeaderboardViewController: UIViewController {
     var challengeCreater: String = ""
     var challengeGoal: Int = 0
     var challengeExpireTime: String = ""
+    var currentProgress = 0
+    
+    @IBOutlet weak var progressL: UILabel!
+    @IBOutlet weak var creater: UILabel!
+    @IBOutlet weak var expires: UILabel!
+    @IBOutlet weak var goals: UILabel!
+    @IBOutlet weak var challengePressView: UIProgressView!
+    
+    
+    
+    
+    
+    
+    
+    
     
     var challengeName : String = ""
     
@@ -35,11 +50,17 @@ class LeaderboardViewController: UIViewController {
         //self.tableView.dataSource = self
     
         name.text = challengeName
+        tableView.dataSource = self
+        tableView.delegate = self
+    
+        reloadData()
         
-        reload()
+        FriendNetwork().run(after: 3) {
+            self.reloadLeaderBoard()
+        }
     }
     
-    func reload() {
+    func reloadData() {
         
         db.collection("challenge").document(challengeName).getDocument { (doc, error) in
             if let error = error{
@@ -51,26 +72,96 @@ class LeaderboardViewController: UIViewController {
                 }
                 if let goal = data[K.FStore.challengeGoal] as? Int{
                     self.challengeGoal = goal
+                    self.goals.text = "Goal: \(goal)"
                 }
                 if let expireTime = data[K.FStore.challengeExpireTime] as? String{
                     self.challengeExpireTime = expireTime
+                    self.expires.text = "End By : \(expireTime)"
                 }
                 if let creater = data[K.FStore.challengeCreater] as? String{
                     self.challengeCreater = creater
+                    self.creater.text = "Created By \(creater)"
+                    
+                    let i = self.challengeName.count - (creater.count + 4)
+                    let tempName = self.challengeName.prefix(i)
+                    
+                    self.name.text = String(tempName)
+                    
                 }
+                
                 if let friends = data[K.FStore.challengeFriends] as? [String]{
+                    self.challengeFriends = [:]
                     for friend in friends{
-                        print(friend)
+                        self.db.collection("challengeProgress").document(friend).getDocument { (doc, error) in
+                            if let error = error{
+                                print("error getting collection \(error)")
+                            }else{
+                                guard let doc = doc else {
+                                    print("error getting friend's progress")
+                                    return
+                                }
+                                guard let data = doc.data() else{
+                                    print("error getting data")
+                                    return
+                                }
+                                if let progress = data[self.challengeName] as? [Int]{
+                                    var temp = 0
+                                    for i in progress{
+                                        temp += i
+                                    }
+                                    self.challengeFriends[friend] = temp
+                                    if UsersData().getCurrentUser() == friend{
+                                        self.progressL.text = String("Current: \(temp)")
+                                        self.currentProgress = temp
+                                    }
+                                }else{
+                                    self.challengeFriends[friend] = 0
+                                    if UsersData().getCurrentUser() == friend{
+                                        self.progressL.text = ("Current: 0")
+                                    }
+                                }
+                            }
+                        }
                     }
-                    
                 }
-                    
+                
+//                DispatchQueue.main.async {
+//                    self.tableView.reloadData()
+//                }
                 }
             }
         }
     
+    func reloadLeaderBoard() {
+        
+        challengeFriendsName = Array(challengeFriends.keys)
+        challengeProgress = Array(challengeFriends.values)
+        tableView.reloadData()
+        
+        }
     
-    
+    @IBAction func addProgressButtonPressed(_ sender: UIBarButtonItem) {
+        var progress = UITextField()
+        let alert = UIAlertController(title: "", message: "Enter Progress", preferredStyle: .alert)
+        let add = UIAlertAction(title: "Add", style: .default) { (add) in
+            if let temp = Int(progress.text!){
+                ChallengeNetwork().updatingProgress(NewProgress: temp, ChallengeName: self.challengeName)
+                self.reloadData()
+            }
+        }
+        let cancel = UIAlertAction(title: "Cancel", style: .default, handler: nil)
+        
+        
+        alert.addTextField { (text) in
+            progress = text
+        }
+        
+        alert.addAction(add)
+        alert.addAction(cancel)
+        present(alert, animated: true, completion: nil)
+        
+        
+    }
     
     
 }
