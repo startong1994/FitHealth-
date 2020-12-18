@@ -38,7 +38,7 @@ class FitnessViewController2: UIViewController {
         navigationItem.title = "Fitness"
         tableView.tableFooterView = UIView()
         getGoals()
-        reload()
+        checkForUpdates()
         tableView.delegate = self
         tableView.dataSource = self
         
@@ -47,6 +47,8 @@ class FitnessViewController2: UIViewController {
     }
     override func viewDidAppear(_ animated: Bool) {
         self.tabBarController?.tabBar.isHidden = false
+    }
+    override func viewWillAppear(_ animated: Bool) {
     }
     
     func getGoals(){
@@ -188,6 +190,16 @@ extension FitnessViewController2: UITableViewDataSource, UITableViewDelegate{
         
         tableView.deselectRow(at: indexPath, animated: true)
     }
+    }
+    
+    func checkForUpdates(){
+        db.collection("challengeList").document(UsersData().getCurrentUser()).addSnapshotListener { (doc, error) in
+            if let error = error{
+                print("\(error)")
+            }else{
+                self.reload()
+            }
+        }
     }
     
     

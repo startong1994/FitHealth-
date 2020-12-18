@@ -30,12 +30,6 @@ class LeaderboardViewController: UIViewController {
     
     
     
-    
-    
-    
-    
-    
-    
     var challengeName : String = ""
     
     @IBOutlet weak var name: UILabel!
@@ -47,15 +41,17 @@ class LeaderboardViewController: UIViewController {
         self.tabBarController?.tabBar.isHidden = true
         navigationItem.title = "Detail"
         
+        self.tableView.tableFooterView = UIView()
+        
         //self.tableView.dataSource = self
-    
+        challengePressView.transform = challengePressView.transform.scaledBy(x: 1, y: 3)
         name.text = challengeName
         tableView.dataSource = self
         tableView.delegate = self
     
         reloadData()
         
-        FriendNetwork().run(after: 3) {
+        FriendNetwork().run(after: 1) {
             self.reloadLeaderBoard()
         }
     }
@@ -113,6 +109,7 @@ class LeaderboardViewController: UIViewController {
                                     if UsersData().getCurrentUser() == friend{
                                         self.progressL.text = String("Current: \(temp)")
                                         self.currentProgress = temp
+                                        self.challengePressView.progress = (Float(temp)/Float(self.challengeGoal))
                                     }
                                 }else{
                                     self.challengeFriends[friend] = 0
@@ -134,8 +131,15 @@ class LeaderboardViewController: UIViewController {
     
     func reloadLeaderBoard() {
         
-        challengeFriendsName = Array(challengeFriends.keys)
-        challengeProgress = Array(challengeFriends.values)
+        
+        let sorted = challengeFriends.sorted { (first, second) -> Bool in
+            return first.value > second.value
+        }
+        
+        for i in sorted{
+            challengeFriendsName.append(i.key)
+            challengeProgress.append(i.value)
+        }
         tableView.reloadData()
         
         }
