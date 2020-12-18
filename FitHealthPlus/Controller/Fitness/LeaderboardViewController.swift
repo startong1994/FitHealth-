@@ -21,6 +21,20 @@ class LeaderboardViewController: UIViewController {
     var challengeGoal: Int = 0
     var challengeExpireTime: String = ""
     
+    @IBOutlet weak var progressL: UILabel!
+    @IBOutlet weak var creater: UILabel!
+    @IBOutlet weak var expires: UILabel!
+    @IBOutlet weak var goals: UILabel!
+    @IBOutlet weak var challengePressView: UIProgressView!
+    
+    
+    
+    
+    
+    
+    
+    
+    
     var challengeName : String = ""
     
     @IBOutlet weak var name: UILabel!
@@ -51,19 +65,58 @@ class LeaderboardViewController: UIViewController {
                 }
                 if let goal = data[K.FStore.challengeGoal] as? Int{
                     self.challengeGoal = goal
+                    self.goals.text = "Goal: \(goal)"
                 }
                 if let expireTime = data[K.FStore.challengeExpireTime] as? String{
                     self.challengeExpireTime = expireTime
+                    self.expires.text = "End By : \(expireTime)"
                 }
                 if let creater = data[K.FStore.challengeCreater] as? String{
                     self.challengeCreater = creater
-                }
-                if let friends = data[K.FStore.challengeFriends] as? [String]{
-                    for friend in friends{
-                        print(friend)
-                    }
+                    self.creater.text = "Created By \(creater)"
+                    
+                    let i = self.challengeName.count - (creater.count + 4)
+                    let tempName = self.challengeName.prefix(i)
+                    
+                    self.name.text = String(tempName)
                     
                 }
+                
+                if let friends = data[K.FStore.challengeFriends] as? [String]{
+                    for friend in friends{
+                        self.db.collection("challengeProgress").document(friend).getDocument { (doc, error) in
+                            if let error = error{
+                                print("error getting collection \(error)")
+                            }else{
+                                guard let doc = doc else {
+                                    print("error getting friend's progress")
+                                    return
+                                }
+                                guard let data = doc.data() else{
+                                    print("error getting data")
+                                    return
+                                }
+                                if let progress = data[K.FStore.challengeProgress] as? Int{
+                                    self.challengeFriends[friend] = progress
+                                    if UsersData().getCurrentUser() == friend{
+                                        self.progressL.text = String(progress)
+                                    }
+                                }else{
+                                    self.challengeFriends[friend] = 0
+                                    if UsersData().getCurrentUser() == friend{
+                                        self.progressL.text = ("Current: 0")
+                                    }
+                                }
+                            }
+                        }
+                        
+                        
+                    }
+                }
+                
+//                DispatchQueue.main.async {
+//                    self.tableView.reloadData()
+//                }
                     
                 }
             }

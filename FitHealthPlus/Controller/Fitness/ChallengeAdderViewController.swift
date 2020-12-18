@@ -79,7 +79,7 @@ class ChallengeAdderViewController: UIViewController {
                         self.db.collection("challenge").document(docName).setData(["challengeName" : challengeName,
                                                                                                     "expireTime": expireTime,
                                                                                                     "creater": UsersData().getCurrentUser(),
-                                                                                                    "challengeGoal": chanllengeGoal, K.FStore.challengeFriends:[ UsersData().getCurrentUser()]])
+                                                                                                    "challengeGoal": Int(chanllengeGoal)!, K.FStore.challengeFriends:[ UsersData().getCurrentUser()]])
                         ChallengeNetwork().addChallenge(docName)
                         ChallengeNetwork().challengeRequestSent(self.challengeFriendList, docName)
                     }
