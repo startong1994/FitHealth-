@@ -219,7 +219,14 @@ class EditRecipeViewController: UIViewController, UIImagePickerControllerDelegat
         let sugar = Int(sugarsField.text!)
         let protein = Int(proteinField.text!)
         let cholestrol = Int(cholesterolField.text!)
-        
+        let tempImgURL = String(getImage)
+        var imageURL = ""
+        if imgURL != "" {
+            imageURL = imgURL
+        }
+        else if tempImgURL.contains("spoonacular") {
+            imageURL = tempImgURL
+        }
         //gets user's name for database
         guard let name = defaults.dictionary(forKey: "CurrentUser")!["email"] else{
             return
@@ -229,7 +236,8 @@ class EditRecipeViewController: UIViewController, UIImagePickerControllerDelegat
         
         // adds recipe info to the database
         recipeRef.updateData([
-            "recipeImg": imgURL,
+           
+            "recipeImg": imageURL,
             "name": recipeName,
             "category": category,
             "servings": servings,
@@ -249,4 +257,3 @@ class EditRecipeViewController: UIViewController, UIImagePickerControllerDelegat
 }
 
 
-// Searched recipe image uload to storage
