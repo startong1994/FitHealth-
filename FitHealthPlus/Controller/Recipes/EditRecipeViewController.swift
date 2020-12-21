@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 import FirebaseStorage
 
-class EditRecipeViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate,UIPickerViewDataSource & UIPickerViewDelegate {
+class EditRecipeViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate,UIPickerViewDataSource, UITextViewDelegate, UIPickerViewDelegate {
     
     //Database
     let db = Firestore.firestore()
@@ -123,14 +123,23 @@ class EditRecipeViewController: UIViewController, UIImagePickerControllerDelegat
         imagePicker.delegate = self
         pickerView.delegate = self
         pickerView.dataSource = self
+        ingredientsField.delegate = self
+        directionsField.delegate = self
         categoryPicker.inputView = pickerView
         categoryPicker.textAlignment = .left
         categoryPicker.placeholder = "Select Category"
         
+        saveButton.layer.cornerRadius = 8
+        //formatting text views' border
+        ingredientsField.layer.borderWidth = 0.8
+        ingredientsField.layer.borderColor = UIColor.systemGray5.cgColor
+        ingredientsField.layer.cornerRadius = 5
+        directionsField.layer.borderWidth = 0.8
+        directionsField.layer.borderColor = UIColor.systemGray5.cgColor
+        directionsField.layer.cornerRadius = 5
+        
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(EditRecipeViewController.viewTapped(gestureRecognizer:)))
         view.addGestureRecognizer(tapGesture)
-        
-        saveButton.layer.cornerRadius = 8
 
     }
     
@@ -204,6 +213,17 @@ class EditRecipeViewController: UIViewController, UIImagePickerControllerDelegat
         return true
     }
     
+    // To autosize text view to fit content
+    func textViewDidChange(_ textView: UITextView) {
+        
+        if textView == ingredientsField {
+            ingredientsViewHeight.constant = ingredientsField.contentSize.height
+        }
+        else if textView == directionsField {
+           directionsViewHeight.constant = directionsField.contentSize.height
+      }
+    }
+    
     func saveRecipeItem(){
         let recipeName = nameField.text!
         let category = categoryPicker.text!
@@ -224,7 +244,7 @@ class EditRecipeViewController: UIViewController, UIImagePickerControllerDelegat
         if imgURL != "" {
             imageURL = imgURL
         }
-        else if tempImgURL.contains("spoonacular") {
+        else if tempImgURL.contains("https") {
             imageURL = tempImgURL
         }
         //gets user's name for database

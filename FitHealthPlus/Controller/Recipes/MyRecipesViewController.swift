@@ -113,21 +113,40 @@ class MyRecipesViewController: UIViewController, UITableViewDelegate, UITableVie
             let recipes = sender as! UITableViewCell
             if let indexPath = recipeTableView.indexPath(for: recipes) {
                 let vc = segue.destination as! EditRecipeViewController
-                vc.getName = listRecipes[indexPath.row].name
-                vc.getServings = listRecipes[indexPath.row].servings
-                vc.getCookTime = listRecipes[indexPath.row].cookTime
-                vc.getCategory = listRecipes[indexPath.row].category
-                vc.getIngredients = listRecipes[indexPath.row].ingredients
-                vc.getDirections = listRecipes[indexPath.row].directions
-                vc.getFat = listRecipes[indexPath.row].fat
-                vc.getCalPerServ = listRecipes[indexPath.row].calories
-                vc.getCholesterol = listRecipes[indexPath.row].cholesterol
-                vc.getCarbs = listRecipes[indexPath.row].carb
-                vc.getFiber = listRecipes[indexPath.row].fiber
-                vc.getSugar = listRecipes[indexPath.row].sugar
-                vc.getSodium = listRecipes[indexPath.row].sodium
-                vc.getImage = listRecipes[indexPath.row].recipeImg!
-
+                if searching {
+                    vc.getName = searchingItems[indexPath.row].name
+                    vc.getServings = searchingItems[indexPath.row].servings
+                    vc.getCookTime = searchingItems[indexPath.row].cookTime
+                    vc.getCategory = searchingItems[indexPath.row].category
+                    vc.getIngredients = searchingItems[indexPath.row].ingredients
+                    vc.getDirections = searchingItems[indexPath.row].directions
+                    vc.getFat = searchingItems[indexPath.row].fat
+                    vc.getCalPerServ = searchingItems[indexPath.row].calories
+                    vc.getCholesterol = searchingItems[indexPath.row].cholesterol
+                    vc.getCarbs = searchingItems[indexPath.row].carb
+                    vc.getFiber = searchingItems[indexPath.row].fiber
+                    vc.getSugar = searchingItems[indexPath.row].sugar
+                    vc.getSodium = searchingItems[indexPath.row].sodium
+                    vc.getImage = searchingItems[indexPath.row].recipeImg!
+                }
+                else {
+                    
+                    vc.getName = listRecipes[indexPath.row].name
+                    vc.getServings = listRecipes[indexPath.row].servings
+                    vc.getCookTime = listRecipes[indexPath.row].cookTime
+                    vc.getCategory = listRecipes[indexPath.row].category
+                    vc.getIngredients = listRecipes[indexPath.row].ingredients
+                    vc.getDirections = listRecipes[indexPath.row].directions
+                    vc.getFat = listRecipes[indexPath.row].fat
+                    vc.getCalPerServ = listRecipes[indexPath.row].calories
+                    vc.getCholesterol = listRecipes[indexPath.row].cholesterol
+                    vc.getCarbs = listRecipes[indexPath.row].carb
+                    vc.getFiber = listRecipes[indexPath.row].fiber
+                    vc.getSugar = listRecipes[indexPath.row].sugar
+                    vc.getSodium = listRecipes[indexPath.row].sodium
+                    vc.getImage = listRecipes[indexPath.row].recipeImg!
+                    
+                }
             }
         }
     }
@@ -179,7 +198,7 @@ class MyRecipesViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 120
+        return 140
     }
     
     // add data to table view cells
@@ -191,7 +210,7 @@ class MyRecipesViewController: UIViewController, UITableViewDelegate, UITableVie
             recipes.recipeName.text = itemsInCell.name
             recipes.recipeCategory.text = "Category: " + String(itemsInCell.category)
             //retrieve image from DB
-            if itemsInCell.recipeImg != nil {
+            if itemsInCell.recipeImg == "" {
                 recipes.recipeImage.image = UIImage(named: "no-image-icon")
             }
             else {
